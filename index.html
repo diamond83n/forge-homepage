@@ -220,7 +220,6 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
 
 @media(max-width:900px){
   .hi{grid-template-columns:1fr;gap:30px}
-  .hv{order:-1}
 }
 @media(max-width:768px){
   .sec-hd{max-width:100%}
@@ -231,14 +230,15 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   .hs{font-size:.92rem;line-height:1.7}
   .ha{margin-top:20px}
   .btn{padding:12px 24px;font-size:.85rem}
-  .hvc{min-height:auto !important}
+  .hv{order:1}
+  .hvc{min-height:auto !important;height:auto !important}
   .hvm{grid-template-columns:1fr 1fr 1fr;gap:8px}
   .hm{padding:12px 6px}
   .hmv{font-size:1.3rem}
   .hbl{font-size:.7rem;width:70px}
   .hbt{height:8px}
   .hbv{font-size:.68rem;width:32px}
-  .prompt-bar{margin:0 16px 12px;padding:10px 14px;height:40px}
+  .prompt-bar{margin:0;padding:10px 14px;height:40px}
   .prompt-text{font-size:.78rem}
   .vtab{padding:6px 12px;font-size:.72rem}
   .fc{display:none}
@@ -260,11 +260,14 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   .stats-row{grid-template-columns:1fr 1fr;gap:12px;padding:24px 0;margin:20px 0}
   .stat-v{font-size:2rem}
   .stat-l{font-size:.7rem}
+  .g4{grid-template-columns:1fr !important}
+  .db-metrics{grid-template-columns:1fr 1fr !important;gap:8px !important;padding:14px 16px !important}
+  .db-bars div[style*="grid-template-columns:100px"]{grid-template-columns:70px 1fr 36px !important;gap:8px !important}
   .ti{padding:24px 20px}
   .tp{font-size:1.8rem}
   .tc{padding:10px 22px;font-size:.8rem}
-  .ct{font-size:.78rem}
-  .ct th,.ct td{padding:10px 8px}
+  .ct{font-size:.72rem;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .ct th,.ct td{padding:8px 6px;font-size:.72rem;white-space:nowrap}
   .hci{padding:14px 16px}
   .hci h4{font-size:.88rem}
   .hci p{font-size:.78rem}
@@ -279,6 +282,8 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   footer{padding:36px 18px}
   footer>div>div:first-child{text-align:center}
   footer>div>div:first-child>div:first-child{font-size:1.1rem}
+  /* Fix simulator brief position on mobile */
+  .hvr{position:relative !important}
 }
 </style>
 </head>
@@ -298,7 +303,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
     <div class="ha"><button class="btn bp" data-cta>Get your free analysis →</button></div>
   </div>
   <div class="hv">
-    <div class="hvc" style="padding:0;height:520px;overflow:hidden">
+    <div class="hvc" style="padding:0;overflow:hidden">
       <!-- TOP BAR -->
       <div style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between">
         <div class="hvl" style="margin:0">Forge experiment simulator</div>
@@ -335,12 +340,12 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
         </div>
       </div>
 
-      <!-- BRIEF (fixed position at bottom of card) -->
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 24px">
-        <div class="hvr" style="position:relative;min-height:56px">
+      <!-- BRIEF -->
+      <div style="padding:16px 24px">
+        <div class="hvr" style="min-height:56px">
           <div style="font-family:var(--mn);font-size:.55rem;color:var(--gn);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Next brief</div>
           <div style="font-size:.82rem;color:var(--ink2);transition:opacity .3s" id="demo-brief-text">Keep Result-first. Try Expertise-led creator. +15–25%.</div>
-          <div id="demo-typing" style="position:absolute;top:50%;left:16px;transform:translateY(-50%);display:flex;gap:4px;align-items:center;opacity:0;transition:opacity .2s">
+          <div id="demo-typing" style="display:flex;gap:4px;align-items:center;opacity:0;transition:opacity .2s">
             <div style="font-size:.72rem;color:var(--ac)">Forge analyzing</div>
             <div class="typing-dots"><span></span><span></span><span></span></div>
           </div>
@@ -423,6 +428,114 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   <div class="bd rv">
     <div class="bc" style="border-left:2px solid var(--gn)"><div class="bt" style="color:var(--gn)">✓ Forge does</div><div class="bi">Experiment design + variable isolation</div><div class="bi">Creator shooting brief</div><div class="bi">Data collection + AI analysis</div><div class="bi">ROAS report + next campaign brief</div></div>
     <div class="bc" style="border-left:2px solid var(--cr)"><div class="bt" style="color:var(--cr)">✕ Never does</div><div class="bi">Creator sourcing or matching</div><div class="bi">Video production or editing</div><div class="bi">Ad execution or management</div><div class="bi">Landing page changes or CRO</div></div>
+  </div>
+</div></div>
+
+<!-- DASHBOARD MOCKUP -->
+<div class="sa"><div class="sec rv" style="text-align:center">
+  <div class="sec-hd cen">
+    <div class="sn2">What you get</div>
+    <h2>This is what a Forge report <em>looks like.</em></h2>
+  </div>
+  <div style="max-width:780px;margin:0 auto;background:#1e2334;border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <!-- TOP BAR -->
+    <div style="padding:12px 20px;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:.85rem;font-weight:800;color:#f59e0b">forge<span style="color:#ef4444">.</span></div>
+        <div style="display:flex;gap:4px"><div style="padding:5px 12px;border-radius:6px;font-size:.65rem;color:rgba(255,255,255,.4)">Overview</div><div style="padding:5px 12px;border-radius:6px;font-size:.65rem;background:rgba(99,102,241,.12);color:#a5b4fc">Experiment #3</div><div style="padding:5px 12px;border-radius:6px;font-size:.65rem;color:rgba(255,255,255,.4)">Benchmarks</div></div>
+      </div>
+      <div style="display:flex;gap:5px"><div style="width:8px;height:8px;border-radius:50%;background:#ef4444;opacity:.5"></div><div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;opacity:.5"></div><div style="width:8px;height:8px;border-radius:50%;background:#22c55e;opacity:.5"></div></div>
+    </div>
+    <!-- BRAND HEADER -->
+    <div style="padding:18px 24px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#818cf8,#6366f1);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff">GL</div>
+        <div><div style="font-size:.95rem;font-weight:700;color:#f0f0f5">GlowLab Skincare</div><div style="font-size:.65rem;color:rgba(255,255,255,.45)">Hook Structure Test · 14 days</div></div>
+      </div>
+      <div style="padding:4px 12px;border-radius:16px;font-size:.6rem;font-weight:600;background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.2)">● Completed</div>
+    </div>
+    <!-- 4 METRICS -->
+    <div class="db-metrics" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:20px 24px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.55rem;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-bottom:6px">BEST ROAS</div>
+        <div style="font-size:1.7rem;font-weight:800;color:#4ade80">3.8x</div>
+        <div style="font-size:.6rem;color:#4ade80;margin-top:3px">↑ +81% vs control</div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.55rem;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-bottom:6px">CTR</div>
+        <div style="font-size:1.7rem;font-weight:800;color:#a5b4fc">4.2%</div>
+        <div style="font-size:.6rem;color:#a5b4fc;margin-top:3px">↑ +34% vs avg</div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.55rem;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-bottom:6px">CPA</div>
+        <div style="font-size:1.7rem;font-weight:800;color:#f0f0f5">$11.20</div>
+        <div style="font-size:.6rem;color:#4ade80;margin-top:3px">↓ -28% vs control</div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.55rem;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-bottom:6px">CONFIDENCE</div>
+        <div style="font-size:1.7rem;font-weight:800;color:#fbbf24">94%</div>
+        <div style="font-size:.6rem;color:rgba(255,255,255,.4);margin-top:3px">Statistically significant</div>
+      </div>
+    </div>
+    <!-- BAR CHART -->
+    <div style="padding:0 24px 20px">
+      <div style="font-size:.8rem;font-weight:600;color:#f0f0f5;margin-bottom:12px">Hook Structure — ROAS Comparison</div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px">
+        <div class="db-bars" style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:grid;grid-template-columns:100px 1fr 44px;align-items:center;gap:12px">
+            <div style="font-size:.75rem;color:rgba(255,255,255,.65);text-align:right;font-weight:500">Result-first</div>
+            <div style="height:24px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden"><div class="db-fill" data-w="92%" style="height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,#6366f1,#a5b4fc);transition:width 1.5s cubic-bezier(.22,1,.36,1)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;color:#a5b4fc;text-align:right">3.8x</div>
+          </div>
+          <div style="display:grid;grid-template-columns:100px 1fr 44px;align-items:center;gap:12px">
+            <div style="font-size:.75rem;color:rgba(255,255,255,.4);text-align:right">Question</div>
+            <div style="height:24px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden"><div class="db-fill" data-w="63%" style="height:100%;width:0;border-radius:6px;background:rgba(255,255,255,.15);transition:width 1.5s cubic-bezier(.22,1,.36,1)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:rgba(255,255,255,.45);text-align:right">2.6x</div>
+          </div>
+          <div style="display:grid;grid-template-columns:100px 1fr 44px;align-items:center;gap:12px">
+            <div style="font-size:.75rem;color:rgba(255,255,255,.4);text-align:right">Problem-first</div>
+            <div style="height:24px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden"><div class="db-fill" data-w="54%" style="height:100%;width:0;border-radius:6px;background:rgba(255,255,255,.15);transition:width 1.5s cubic-bezier(.22,1,.36,1)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:rgba(255,255,255,.45);text-align:right">2.2x</div>
+          </div>
+          <div style="display:grid;grid-template-columns:100px 1fr 44px;align-items:center;gap:12px">
+            <div style="font-size:.75rem;color:rgba(255,255,255,.3);text-align:right">Control avg</div>
+            <div style="height:24px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden"><div class="db-fill" data-w="51%" style="height:100%;width:0;border-radius:6px;background:rgba(245,158,11,.35);transition:width 1.5s cubic-bezier(.22,1,.36,1)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#fbbf24;text-align:right">2.1x</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- BLURRED BOTTOM -->
+    <div style="position:relative">
+      <div style="filter:blur(6px);pointer-events:none">
+        <div style="margin:0 24px 12px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.1);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:14px">
+          <div style="font-size:1rem">💡</div>
+          <div style="flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.5rem;color:#f59e0b;letter-spacing:.06em;margin-bottom:2px">NEXT EXPERIMENT BRIEF</div>
+            <div style="font-size:.78rem;color:#e8e8f0;font-weight:500">Keep Result-first hook. Next: test Creator Type. Expected lift: +15–25%.</div>
+          </div>
+        </div>
+        <div style="margin:0 24px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 14px">
+            <div style="font-size:.65rem;font-weight:600;color:rgba(255,255,255,.45);margin-bottom:4px">Winning Combination</div>
+            <div style="font-size:.72rem;font-weight:600;color:#e8e8f0">Result-first + Everyday + Instant Glow</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 14px">
+            <div style="font-size:.65rem;font-weight:600;color:rgba(255,255,255,.45);margin-bottom:4px">Isolated Variable</div>
+            <div style="font-size:.72rem;font-weight:600;color:#e8e8f0">Result-first outperforms all others</div>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(26,31,53,0) 0%,rgba(26,31,53,.92) 40%)">
+        <div style="text-align:center">
+          <div style="font-size:.95rem;font-weight:600;color:#e8e8f0;margin-bottom:8px">Want to see your full report?</div>
+          <button class="btn bp" style="padding:12px 32px;font-size:.88rem" data-cta>Get your free analysis →</button>
+        </div>
+      </div>
+    </div>
+    <div style="padding:8px 24px 14px;text-align:center">
+      <div style="font-size:.6rem;color:rgba(255,255,255,.2)">Sample report · Actual data will vary by brand and category</div>
+    </div>
   </div>
 </div></div>
 
@@ -630,6 +743,10 @@ function switchVar(i){
 
 let autoIdx=0;
 setInterval(()=>{autoIdx=(autoIdx+1)%experiments.length;switchVar(autoIdx)},4000);
+
+const dbOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.db-fill').forEach(b=>{b.style.width=b.dataset.w});dbOb.unobserve(x.target)}})},{threshold:.2});
+const dbBars=document.querySelector('.db-bars');
+if(dbBars)dbOb.observe(dbBars);
 </script>
 </body>
 </html>
