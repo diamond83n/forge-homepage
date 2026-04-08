@@ -15,17 +15,17 @@ body{background:var(--bg);color:var(--ink);font-family:var(--bd);-webkit-font-sm
 /* COVER */
 .cover{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
 .cover::after{content:'';position:absolute;top:-30%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(245,158,11,.04),transparent 60%);pointer-events:none}
-.cv-badge{font-family:var(--mn);font-size:.85rem;color:var(--am);letter-spacing:.25em;text-transform:uppercase;margin-bottom:20px;opacity:.8}
-.cover h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em}
-.cover h1 em{color:var(--am);font-style:normal}
+.cv-badge{font-family:var(--mn);font-size:.85rem;color:rgba(255,255,255,.45);letter-spacing:.25em;text-transform:uppercase;margin-bottom:20px}
+.cover h1{font-size:clamp(2.2rem,5vw,3.2rem);font-weight:800;line-height:1.08;letter-spacing:-.03em}
+.cover h1 em{background:linear-gradient(135deg,#fde68a,#f59e0b,#dc7e0a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:normal;filter:drop-shadow(0 0 12px rgba(245,158,11,.3)) drop-shadow(0 0 24px rgba(220,38,38,.1))}
 .cv-line{width:240px;height:2px;margin:36px auto 0;position:relative;overflow:hidden;background:rgba(245,158,11,.06);border-radius:1px}
 .cv-line::after{content:'';position:absolute;top:0;left:-30%;width:30%;height:100%;background:linear-gradient(90deg,transparent,#f59e0b 40%,#fbbf24 70%,transparent);animation:comet 2.5s cubic-bezier(.4,0,.2,1) infinite;box-shadow:0 0 10px rgba(245,158,11,.5)}
 .cv-line::before{content:'';position:absolute;top:-2px;left:-30%;width:5px;height:5px;background:#fbbf24;border-radius:50%;animation:cometH 2.5s cubic-bezier(.4,0,.2,1) infinite;box-shadow:0 0 6px rgba(251,191,36,.7)}
 @keyframes comet{0%{left:-30%;opacity:0}10%{opacity:1}80%{opacity:1}100%{left:110%;opacity:0}}
 @keyframes cometH{0%{left:-5%;opacity:0}10%{opacity:1}80%{opacity:1}100%{left:105%;opacity:0}}
 .cv-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px}
-.cv-scroll-a{width:16px;height:16px;border-right:2px solid var(--am);border-bottom:2px solid var(--am);transform:rotate(45deg);animation:sb 2s ease-in-out infinite;opacity:.5}
-.cv-scroll-t{font-family:var(--mn);font-size:.7rem;color:var(--am);letter-spacing:.15em;text-transform:uppercase;opacity:.5;animation:sp 2s ease-in-out infinite}
+.cv-scroll-a{width:16px;height:16px;border-right:2px solid rgba(255,255,255,.3);border-bottom:2px solid rgba(255,255,255,.3);transform:rotate(45deg);animation:sb 2s ease-in-out infinite;opacity:.5}
+.cv-scroll-t{font-family:var(--mn);font-size:.7rem;color:rgba(255,255,255,.3);letter-spacing:.15em;text-transform:uppercase;opacity:.5;animation:sp 2s ease-in-out infinite}
 @keyframes sb{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
 @keyframes sp{0%,100%{opacity:.3}50%{opacity:.7}}
 
@@ -33,68 +33,69 @@ body{background:var(--bg);color:var(--ink);font-family:var(--bd);-webkit-font-sm
 .sec{padding:64px 0;border-bottom:1px solid var(--gb)}
 .sec:last-child{border-bottom:none}
 .sec:nth-child(even){background:rgba(255,255,255,.015);margin:0 -28px;padding:64px 28px;border-radius:0}
-.sn{font-family:var(--mn);font-size:.8rem;color:var(--ac);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px}
-h2{font-size:clamp(1.25rem,2.2vw,1.65rem);font-weight:700;line-height:1.3;margin-bottom:24px}
-h2 em{color:var(--am);font-style:normal}
+.sn{font-family:var(--mn);font-size:.8rem;color:var(--ac);letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px;opacity:.7}
+h2{font-size:clamp(1.35rem,2.5vw,1.8rem);font-weight:800;line-height:1.15;margin-bottom:20px;letter-spacing:-.01em}
+h2 em{background:linear-gradient(135deg,#fde68a,#f59e0b,#dc7e0a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:normal;filter:drop-shadow(0 0 10px rgba(245,158,11,.25)) drop-shadow(0 0 20px rgba(220,38,38,.08))}
 
 /* ANALOGY — auto-cycling single card */
 .ana-wrap{margin:20px 0}
 .ana-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
-.ana-tab{padding:8px 16px;border-radius:20px;font-size:.82rem;font-weight:500;border:1px solid var(--gb);background:transparent;color:var(--ink3);cursor:pointer;transition:all .3s;white-space:nowrap}
-.ana-tab.on{background:rgba(129,140,248,.12);border-color:rgba(129,140,248,.3);color:var(--ac)}
-.ana-card{background:var(--s1);border:1px solid var(--gb);border-radius:14px;padding:24px 28px;transition:all .4s;min-height:160px}
-.ana-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.ana-emoji{font-size:1.4rem}
-.ana-field{font-size:.95rem;font-weight:700}
-.ana-year{font-family:var(--mn);font-size:.7rem;color:var(--ink4);margin-left:auto}
-.ana-body{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-.ana-col{padding:12px 16px;border-radius:10px}
-.ana-col.wrong{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.12)}
-.ana-col.right{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.12)}
-.ana-col-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.ana-tab{padding:8px 16px;border-radius:20px;font-size:.9rem;font-weight:500;border:1px solid var(--gb);background:transparent;color:var(--ink3);cursor:pointer;transition:all .3s;white-space:nowrap}
+.ana-tab.on{background:rgba(129,140,248,.12);border-color:rgba(129,140,248,.3);color:var(--ac);transform:scale(1.04)}
+.ana-card{background:var(--s1);border:1px solid var(--gb);border-radius:14px;padding:28px;transition:all .5s;min-height:200px;position:relative;overflow:hidden}
+.ana-card::before{content:'';position:absolute;top:0;right:0;width:100px;height:100px;background:radial-gradient(circle,rgba(129,140,248,.03),transparent 70%);pointer-events:none}
+.ana-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.ana-emoji{font-size:1.8rem}
+.ana-field{font-size:1.1rem;font-weight:700}
+.ana-year{font-family:var(--mn);font-size:.8rem;color:var(--ink4);margin-left:auto;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--gb)}
+.ana-body{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.ana-col{padding:14px 18px;border-radius:10px;transition:all .4s cubic-bezier(.22,1,.36,1)}
+.ana-col.wrong{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.12)}
+.ana-col.right{background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.15)}
+.ana-col-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
 .ana-col.wrong .ana-col-label{color:var(--cr)}
 .ana-col.right .ana-col-label{color:var(--gn)}
-.ana-col-val{font-size:.92rem;font-weight:600;color:var(--ink)}
-.ana-insight{font-family:var(--mn);font-size:1rem;font-weight:600;color:var(--gn);margin-bottom:4px}
-.ana-lesson{font-size:.88rem;color:var(--ink2);line-height:1.5}
+.ana-col-val{font-size:.95rem;font-weight:600;color:var(--ink);line-height:1.3}
+.ana-insight{font-family:var(--mn);font-size:1.5rem;font-weight:800;color:var(--gn);letter-spacing:-.02em;margin-top:4px;transition:all .5s cubic-bezier(.22,1,.36,1)}
+.ana-lesson{font-size:.92rem;color:var(--ink2);line-height:1.5;margin-top:4px;transition:opacity .4s}
 
-.ana-prog{width:100%;height:3px;background:var(--s2);border-radius:2px;margin-top:12px;overflow:hidden}
+.ana-prog{width:100%;height:3px;background:var(--s2);border-radius:2px;margin-top:14px;overflow:hidden}
 .ana-prog-fill{height:100%;width:0;background:var(--ac);border-radius:2px;transition:width .3s linear}
-.ana-prog-fill.running{transition:width 4s linear;width:100%}
+.ana-prog-fill.running{transition:width 6s linear;width:100%}
 
 /* LOOP */
 .loop-row{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin:20px 0}
-.lp{padding:10px 18px;border-radius:28px;font-size:.88rem;font-weight:600;border:1px solid var(--gb);background:var(--s1);transition:all .4s;white-space:nowrap;cursor:pointer}
+.lp{padding:10px 18px;border-radius:28px;font-size:.92rem;font-weight:600;border:1px solid var(--gb);background:var(--s1);transition:all .4s;white-space:nowrap;cursor:pointer}
 .lp.on{background:rgba(129,140,248,.12);border-color:rgba(129,140,248,.35);color:var(--ac);box-shadow:0 0 16px rgba(129,140,248,.1);transform:scale(1.05)}
 .lp-a{color:var(--ink4);font-size:.75rem}
-.lp-out{margin-top:16px;padding:16px 24px;background:var(--s1);border:1px solid var(--gb);border-radius:12px;font-size:.95rem;color:var(--ink);min-height:48px;transition:all .3s;line-height:1.6;text-align:center}
+.lp-out{margin-top:16px;padding:16px 24px;background:var(--s1);border:1px solid var(--gb);border-radius:12px;font-size:1rem;color:var(--ink);min-height:48px;transition:all .3s;line-height:1.6;text-align:center}
 
 /* VARIABLES */
 .var-wrap{position:relative;width:300px;height:300px;margin:24px auto 0}
 .var-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;background:rgba(245,158,11,.1);border:2px solid rgba(245,158,11,.25);display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;color:var(--am)}
-.vo{position:absolute;width:56px;height:56px;border-radius:50%;background:var(--s2);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:600;color:var(--ink3);cursor:pointer;transition:all .4s;text-align:center;line-height:1.15}
+.vo{position:absolute;width:56px;height:56px;border-radius:50%;background:var(--s2);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:600;color:var(--ink3);cursor:pointer;transition:all .4s;text-align:center;line-height:1.15}
 .vo.on{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.35);color:var(--am);transform:scale(1.15);box-shadow:0 0 16px rgba(245,158,11,.1)}
-.vtip{text-align:center;font-size:.95rem;color:var(--ink);margin-top:16px;min-height:24px;font-weight:500;transition:all .3s}
+.vtip{text-align:center;font-size:1rem;color:var(--ink);margin-top:16px;min-height:24px;font-weight:500;transition:all .3s}
 
 /* MOAT */
 .moat-row{display:flex;justify-content:center;gap:40px;margin:24px 0;flex-wrap:wrap}
 .moat-n{text-align:center}
-.moat-n .num{font-family:var(--mn);font-size:2.8rem;font-weight:700;color:var(--ac)}
-.moat-n .lab{font-size:.85rem;color:var(--ink2);margin-top:4px}
+.moat-n .num{font-family:var(--mn);font-size:3rem;font-weight:800;color:var(--ac);text-shadow:0 0 20px rgba(129,140,248,.15)}
+.moat-n .lab{font-size:.9rem;color:var(--ink2);margin-top:4px}
 .moat-bar{width:100%;max-width:480px;height:5px;background:var(--s2);border-radius:3px;margin:20px auto 0;overflow:hidden}
 .moat-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--ac),var(--am),var(--cr));transition:width 2s cubic-bezier(.22,1,.36,1)}
 
 /* QUOTE */
-.qt{text-align:center;padding:48px 0}
-.qt p{font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:700;font-style:italic;line-height:1.45;max-width:500px;margin:0 auto}
-.qt span{color:var(--am)}
+.qt{text-align:center;padding:48px 0;position:relative}
+.qt p{font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:800;font-style:italic;line-height:1.35;max-width:500px;margin:0 auto}
+.qt span{background:linear-gradient(135deg,#fde68a,#f59e0b,#dc7e0a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 10px rgba(245,158,11,.25))}
 
 
 
 /* CTA */
 .cta-s{text-align:center;padding:64px 28px 40px}
 .cta-s h2{font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:800;margin-bottom:10px}
-.cta-s h2 strong{color:var(--am)}
+.cta-s h2 strong{background:linear-gradient(135deg,#fde68a,#f59e0b,#dc7e0a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 10px rgba(245,158,11,.25))}
 .cta-s p{font-size:1rem;color:var(--ink2);margin-bottom:24px}
 .cta-s a{display:inline-block;padding:14px 36px;border-radius:12px;background:var(--ac);color:#fff;text-decoration:none;font-size:.95rem;font-weight:600;transition:all .3s}
 .cta-s a:hover{box-shadow:0 0 24px rgba(129,140,248,.25);transform:translateY(-2px)}
@@ -120,7 +121,7 @@ h2 em{color:var(--am);font-style:normal}
   <div>
     <div class="cv-badge rv">forge · our thesis</div>
     <h1 class="rv" style="transition-delay:.1s">Every satisfying answer starts<br>with the <em>right variable.</em></h1>
-    <p class="rv" style="transition-delay:.18s;font-size:1rem;color:var(--ink3);margin-top:16px">We find what no one else measures.</p>
+    <p class="rv" style="transition-delay:.18s;font-size:1.05rem;color:var(--ink2);margin-top:16px;letter-spacing:.01em">We find what no one else measures.</p>
     <div class="cv-line rv" style="transition-delay:.25s"></div>
   </div>
   <div class="cv-scroll"><div class="cv-scroll-a"></div><div class="cv-scroll-t">scroll to explore</div></div>
@@ -156,6 +157,9 @@ h2 em{color:var(--am);font-style:normal}
     </div>
     <div class="ana-prog"><div class="ana-prog-fill" id="ana-prog"></div></div>
   </div>
+
+  <p class="rv" style="text-align:center;font-size:1.05rem;color:var(--ink);margin-top:28px;font-weight:600;line-height:1.5">The pattern is always the same:<br><span style="background:linear-gradient(135deg,#fde68a,#f59e0b,#dc7e0a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 10px rgba(245,158,11,.2))">find the variable → isolate it → measure what changes.</span></p>
+  <p class="rv" style="text-align:center;font-size:.95rem;color:var(--ink2);margin-top:8px">Every industry that did this got faster, cheaper, and smarter. Ad creative is next.</p>
 </div>
 
 <!-- S2: THE LOOP -->
@@ -176,7 +180,8 @@ h2 em{color:var(--am);font-style:normal}
 <!-- S3: VARIABLES -->
 <div class="sec">
   <div class="sn rv">03 · The variables</div>
-  <h2 class="rv">Six variables decide your ROAS. <em>We isolate which one.</em></h2>
+  <h2 class="rv">We started with six. <em>The list will grow.</em></h2>
+  <p class="rv" style="font-size:.95rem;color:var(--ink2);margin-bottom:24px">These are the variables we've identified so far. As data compounds, new ones emerge. A starting framework — not the final answer.</p>
 
   <div class="var-wrap rv" style="transition-delay:.08s">
     <div class="var-center">ROAS</div>
@@ -201,7 +206,7 @@ h2 em{color:var(--am);font-style:normal}
     <div class="moat-n"><div class="num" id="m3">0</div><div class="lab">campaigns<br>= moat</div></div>
   </div>
   <div class="moat-bar rv" style="transition-delay:.15s"><div class="moat-fill" id="mf"></div></div>
-  <p class="rv" style="text-align:center;color:var(--ink2);font-size:.92rem;margin-top:16px;transition-delay:.2s">A competitor can copy the method. <strong style="color:var(--ink)">They can't copy the data.</strong></p>
+  <p class="rv" style="text-align:center;color:var(--ink2);font-size:.95rem;margin-top:16px;transition-delay:.2s">A competitor can copy the method. <strong style="color:var(--ink)">They can't copy the data.</strong></p>
 </div>
 
 <!-- QUOTE -->
@@ -216,23 +221,23 @@ h2 em{color:var(--am);font-style:normal}
   <div style="display:flex;flex-direction:column;gap:12px">
     <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.05s">
       <div style="font-size:.95rem;font-weight:600;margin-bottom:8px;color:var(--ink)">"We already have analytics"</div>
-      <div style="font-size:.9rem;color:var(--ink2);line-height:1.7">Your dashboard shows campaign ROAS — that's batting average. Forge shows which variable inside the campaign drove that ROAS. That's OBP.</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">Your dashboard shows campaign ROAS — that's batting average. Forge shows which variable inside the campaign drove that ROAS. That's OBP.</div>
     </div>
     <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.1s">
       <div style="font-size:.95rem;font-weight:600;margin-bottom:8px;color:var(--ink)">"AI can generate our ads"</div>
-      <div style="font-size:.9rem;color:var(--ink2);line-height:1.7">AI creates more ads faster. Without knowing which variables convert, you're scaling noise. Forge tells AI what to make.</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">AI creates more ads faster. Without knowing which variables convert, you're scaling noise. Forge tells AI what to make.</div>
     </div>
     <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.15s">
       <div style="font-size:.95rem;font-weight:600;margin-bottom:8px;color:var(--ink)">"Our agency handles creative"</div>
-      <div style="font-size:.9rem;color:var(--ink2);line-height:1.7">Agencies optimize campaigns. Forge isolates variables. Different layers. Forge makes the agency more effective.</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">Agencies optimize campaigns. Forge isolates variables. Different layers. Forge makes the agency more effective.</div>
     </div>
     <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.2s">
       <div style="font-size:.95rem;font-weight:600;margin-bottom:8px;color:var(--ink)">"Sample size too small?"</div>
-      <div style="font-size:.9rem;color:var(--ink2);line-height:1.7">Every campaign adds data. By 30, you have benchmarks. Architecture matters more than starting volume.</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">Every campaign adds data. By 30, you have benchmarks. Architecture matters more than starting volume.</div>
     </div>
     <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.25s">
       <div style="font-size:.95rem;font-weight:600;margin-bottom:8px;color:var(--ink)">"Can't we just A/B test?"</div>
-      <div style="font-size:.9rem;color:var(--ink2);line-height:1.7">A/B tests compare two ads. Forge isolates which variable won — and applies it to every future ad.</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">A/B tests compare two ads. Forge isolates which variable won — and applies it to every future ad.</div>
     </div>
   </div>
 </div>
@@ -264,10 +269,18 @@ const ad=[
 let ai=0,at;
 function resetProg(){const p=document.getElementById('ana-prog');p.classList.remove('running');p.style.width='0';void p.offsetWidth;p.classList.add('running')}
 function setA(i){
-  ai=i;
-  document.querySelectorAll('.ana-tab').forEach((t,x)=>t.classList.toggle('on',x===i));
-  const c=document.getElementById('ana-card');c.style.opacity='.2';
+  ai=i;document.querySelectorAll('.ana-tab').forEach((t,x)=>t.classList.toggle('on',x===i));
+  const c=document.getElementById('ana-card');
+  const cols=c.querySelectorAll('.ana-col');
+  const ins=document.getElementById('ana-n');
+  const les=document.getElementById('ana-l');
+  // hide everything
+  c.style.opacity='0';c.style.transform='translateY(8px)';
+  cols.forEach(col=>{col.style.opacity='0';col.style.transform='translateY(12px)'});
+  ins.style.opacity='0';ins.style.transform='translateY(8px) scale(.95)';
+  les.style.opacity='0';
   resetProg();
+  // step 1: show card frame
   setTimeout(()=>{
     const d=ad[i];
     document.getElementById('ana-e').textContent=d.e;
@@ -275,15 +288,23 @@ function setA(i){
     document.getElementById('ana-y').textContent=d.y;
     document.getElementById('ana-w').textContent=d.w;
     document.getElementById('ana-r').textContent=d.r;
-    document.getElementById('ana-n').textContent=d.n;
-    document.getElementById('ana-n').style.color=i===4?'var(--am)':'var(--gn)';
-    document.getElementById('ana-l').textContent=d.l;
+    ins.textContent=d.n;
+    ins.style.color=i===4?'var(--am)':'var(--gn)';
+    les.textContent=d.l;
     c.style.borderColor=i===4?'rgba(245,158,11,.2)':'var(--gb)';
-    c.style.opacity='1';
-  },200);
-  clearInterval(at);at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},4000);
+    c.style.opacity='1';c.style.transform='translateY(0)';
+  },250);
+  // step 2: measured col slides in
+  setTimeout(()=>{cols[0].style.opacity='1';cols[0].style.transform='translateY(0)'},500);
+  // step 3: should've col slides in
+  setTimeout(()=>{cols[1].style.opacity='1';cols[1].style.transform='translateY(0)'},750);
+  // step 4: insight number pops
+  setTimeout(()=>{ins.style.opacity='1';ins.style.transform='translateY(0) scale(1)'},1000);
+  // step 5: lesson fades in
+  setTimeout(()=>{les.style.opacity='1'},1200);
+  clearInterval(at);at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},6000);
 }
-const aob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!at){resetProg();at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},4000)}else if(!x.isIntersecting&&at){clearInterval(at);at=null}})},{threshold:.3});
+const aob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!at){resetProg();at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},6000)}else if(!x.isIntersecting&&at){clearInterval(at);at=null}})},{threshold:.3});
 const atabs=document.getElementById('ana-tabs');if(atabs)aob.observe(atabs);
 
 const ld=['Ingest performance data. Structure against 6 creative variables.','One variable changes. Everything else stays constant.','Link result to the variable. "Result-first hook = 3.8x ROAS."','Generate the next brief. "Change this. Here\'s why."','Every cycle updates the benchmark. The system gets smarter.'];
