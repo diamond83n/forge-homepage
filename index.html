@@ -331,6 +331,11 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   footer>div>div:first-child>div:first-child{font-size:1.1rem}
   /* Fix simulator brief position on mobile */
   .hvr{position:relative !important}
+  /* 100 section mobile */
+  #hundred-sec{padding:60px 18px !important}
+  #hundred-sec #count100{font-size:3.5rem !important}
+  #hundred-sec h2{font-size:1.3rem !important}
+  #hundred-sec p{font-size:.92rem !important}
 }
 </style>
 </head>
@@ -345,8 +350,8 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
     <div class="hero-logo">forge<span>.</span></div>
     <div class="hero-tagline">Experiment infrastructure for ad creative</div>
     <div class="hb" data-cta-badge>3 pilot spots open</div>
-    <h1>There's one variable<br>in your ads that's deciding <em>everything.</em></h1>
-    <p class="hs">Your ROAS isn't random. It's driven by a specific combination of creative variables — hook, creator, message, angle. Forge finds the one that matters most and tells you exactly what to adjust next. Currently focused on TikTok. One experiment. One clear answer.</p>
+    <h1>AI makes 100 ads in 4 minutes.<br><em>Which variable made the winner win?</em></h1>
+    <p class="hs">Your ROAS isn't random. It's driven by a specific combination of creative variables — hook, creator, message, angle. Forge isolates the one that matters and tells you exactly what to change next. Currently focused on TikTok. One experiment. One clear answer.</p>
     <div class="ha"><button class="btn bp" data-cta>Get your free analysis →</button></div>
   </div>
   <div class="hv">
@@ -410,7 +415,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
 
 <!-- PROBLEM -->
 <div class="sec rv">
-  <div class="sec-hd">
+  <div class="sec-hd cen">
     <div class="sn2">The hidden pattern</div>
     <h2>Every ad has a structure.<br>Most brands can't <em>read it yet.</em></h2>
     <p class="sl">A 30-second ad contains at least six measurable variables. No existing tool breaks them down.</p>
@@ -437,6 +442,17 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
 
 </div>
 
+<!-- THE REAL QUESTION -->
+<div class="sa"><div class="sec rv" id="hundred-sec" style="text-align:center;padding:100px 40px">
+  <div style="font-family:var(--mn);font-size:.7rem;color:var(--am);letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;opacity:.7">The real question</div>
+  <div style="display:flex;align-items:baseline;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:20px">
+    <span id="count100" style="font-size:clamp(3.5rem,9vw,6rem);font-weight:800;background:linear-gradient(180deg,#fafafa,rgba(255,255,255,.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;filter:drop-shadow(0 0 20px rgba(255,255,255,.15))">0</span>
+    <span style="font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:600;color:var(--ink2)">ads generated.</span>
+  </div>
+  <h2 style="font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:16px;line-height:1.3">Which variable made the winner win?<br><span style="background:linear-gradient(135deg,#fde68a,#f59e0b,#d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 16px rgba(245,158,11,.4))">That's not a production problem.</span></h2>
+  <p style="font-size:1.05rem;color:var(--ink3);max-width:520px;margin:0 auto;line-height:1.7">AI makes more ads faster.<br>Forge tells you which ones to make — and why.</p>
+</div></div>
+
 <!-- HEALTH CHECK — moved up: first conversion point -->
 <div class="sa"><div class="sec rv" id="health" style="text-align:center">
   <div style="display:inline-flex;padding:5px 14px;border-radius:24px;background:var(--gnl);color:var(--gn);font-family:var(--mn);font-size:.62rem;letter-spacing:.1em;font-weight:500;margin-bottom:16px;border:1px solid rgba(52,211,153,.12)">Free — takes 2 minutes</div>
@@ -460,7 +476,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
 
 <!-- HOW IT WORKS -->
 <div class="sa"><div class="sec rv" id="how">
-  <div class="sec-hd">
+  <div class="sec-hd cen">
     <div class="sn2">How it works</div>
     <h2>Controlled experiments.<br><em>One variable at a time.</em></h2>
     <p class="sl">Isolate one variable. Measure what moved ROAS. Deliver the next brief.</p>
@@ -621,7 +637,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
 
 <!-- PRICING -->
 <div class="sa"><div class="sec rv" id="pricing">
-  <div class="sec-hd">
+  <div class="sec-hd cen">
     <div class="sn2">Pricing</div>
     <h2>Start free. Pay when it <em>works.</em></h2>
     <p class="sl">First experiment on us. Full cycle, full report, no strings.</p>
@@ -800,6 +816,10 @@ setInterval(()=>{autoIdx=(autoIdx+1)%experiments.length;switchVar(autoIdx)},4000
 
 const dbOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.db-fill').forEach(el=>{setTimeout(()=>{el.style.width=el.dataset.w},300)});dbOb.unobserve(x.target)}})},{threshold:.3});
 document.querySelectorAll('.db-bars').forEach(el=>dbOb.observe(el.closest('.sec')||el));
+
+/* 100 count-up */
+const hOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const el=document.getElementById('count100');let n=0;const end=100,dur=1800,step=end/(dur/16);(function tick(){n+=step;if(n>=end){el.textContent=end;return}el.textContent=Math.round(n);requestAnimationFrame(tick)})();hOb.unobserve(x.target)}})},{threshold:.3});
+const hSec=document.getElementById('hundred-sec');if(hSec)hOb.observe(hSec);
 </script>
 </body>
 </html>
