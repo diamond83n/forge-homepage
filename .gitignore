@@ -1,0 +1,54 @@
+# Environment & Secrets
+.env
+.env.local
+.env.production
+.env.*.local
+
+# API Keys & Credentials
+*.pem
+*.key
+service-account*.json
+credentials*.json
+
+# Forge Sensitive Data
+/data/brand-csv/
+/data/tiktok-exports/
+/data/client-reports/
+*.csv
+!templates/*.csv
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+.vercel
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+logs/
+*.log
+
+# Airtable / Tally local cache
+.airtable-cache/
+.tally-cache/
+
+# Stripe
+stripe-cli/

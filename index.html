@@ -3,7 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Forge — The Experiment Layer for Ad Creative</title>
+<title>Forge — Find the Variable That's Deciding Your Ad ROAS</title>
+<meta name="description" content="Forge isolates which creative variable drives your TikTok ad ROAS. One controlled experiment. One clear answer. Free analysis for your first brand.">
+<meta name="keywords" content="TikTok ad optimization, creative testing, ROAS optimization, ad creative experiment, variable isolation, DTC beauty ads">
+<link rel="canonical" href="https://forgexlab.co/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://forgexlab.co/">
+<meta property="og:title" content="Forge — The Experiment Layer for Ad Creative">
+<meta property="og:description" content="Your ROAS isn't random. Forge finds which creative variable drives it and tells you exactly what to change next.">
+<meta property="og:site_name" content="Forge">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Forge — Find the Variable That's Deciding Your Ad ROAS">
+<meta name="twitter:description" content="One controlled experiment. One variable. One clear answer. Free analysis for DTC beauty brands.">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Forge",
+  "url": "https://forgexlab.co",
+  "description": "Experiment infrastructure that isolates which creative variable drives TikTok ad ROAS through controlled testing.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free pilot for first 3 brands"
+  }
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -83,7 +118,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hvc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.3),rgba(52,211,153,.2),transparent)}
 .hvl{font-family:var(--mn);font-size:.62rem;color:var(--ink3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
 .hvm{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px}
-.hm{text-align:center;padding:16px 8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:var(--rl);transition:all .3s}
+.hm{text-align:center;padding:16px 8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:var(--rl);transition:all .3s;min-height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .hm:hover{background:rgba(129,140,248,.05);border-color:rgba(129,140,248,.1)}
 .hmv{font-size:1.7rem;font-weight:700}
 .hml{font-size:.68rem;color:var(--ink3);margin-top:2px}
@@ -213,10 +248,11 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
 .prompt-text{font-size:.85rem;color:var(--ink2);font-family:var(--sn);white-space:nowrap}
 .prompt-cursor{width:2px;height:16px;background:var(--ac);animation:blink 1s step-end infinite;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.brief-cur{display:inline-block;width:2px;height:13px;background:#c4b5fd;margin-left:2px;animation:blink 1s step-end infinite;vertical-align:text-bottom;box-shadow:0 0 8px rgba(165,180,252,.5)}
 .hvc.flash{animation:cardFlash .6s ease}
 @keyframes cardFlash{0%{box-shadow:0 24px 80px rgba(0,0,0,.3)}30%{box-shadow:0 24px 80px rgba(0,0,0,.3),0 0 40px rgba(129,140,248,.15),inset 0 0 30px rgba(129,140,248,.03)}100%{box-shadow:0 24px 80px rgba(0,0,0,.3)}}
 .metric-pop{animation:metricPop .4s cubic-bezier(.22,1,.36,1)}
-@keyframes metricPop{0%{transform:scale(.85);opacity:.5}100%{transform:scale(1);opacity:1}}
+@keyframes metricPop{0%{opacity:.3}50%{opacity:.8}100%{opacity:1}}
 
 @media(max-width:900px){
   .hi{grid-template-columns:1fr;gap:30px}
@@ -305,7 +341,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
     <div class="ha"><button class="btn bp" data-cta>Get your free analysis →</button></div>
   </div>
   <div class="hv">
-    <div class="hvc" style="padding:0;overflow:hidden">
+    <div class="hvc" style="padding:0;overflow:hidden;min-height:520px">
       <!-- TOP BAR -->
       <div style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between">
         <div class="hvl" style="margin:0">Forge experiment simulator</div>
@@ -335,7 +371,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
           <div class="hm"><div class="hmv" id="demo-ctr" style="color:var(--gn);transition:all .5s">4.2%</div><div class="hml">CTR</div></div>
           <div class="hm"><div class="hmv" id="demo-lift" style="transition:all .5s">+81%</div><div class="hml">vs control</div></div>
         </div>
-        <div class="hvb" style="margin-bottom:16px">
+        <div class="hvb" style="margin-bottom:16px;min-height:90px">
           <div class="hb2"><div class="hbl" id="demo-label" style="transition:all .3s">Result-first</div><div class="hbt"><div class="hbf" id="demo-bar" style="width:92%;background:linear-gradient(90deg,var(--ac2),var(--ac));transition:all .8s cubic-bezier(.22,1,.36,1)"></div></div><div class="hbv" id="demo-barv" style="color:var(--ac);transition:all .5s">3.8x</div></div>
           <div class="hb2"><div class="hbl">Control</div><div class="hbt"><div class="hbf" style="width:51%;background:var(--ink4)"></div></div><div class="hbv">2.1x</div></div>
           <div class="hb2"><div class="hbl">Category avg</div><div class="hbt"><div class="hbf" style="width:58%;background:linear-gradient(90deg,var(--am),#f59e0b)"></div></div><div class="hbv" style="color:var(--am)">2.4x</div></div>
@@ -344,9 +380,9 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
 
       <!-- BRIEF -->
       <div style="padding:16px 24px">
-        <div class="hvr" style="min-height:56px">
+        <div class="hvr" style="min-height:64px;height:64px">
           <div style="font-family:var(--mn);font-size:.55rem;color:var(--gn);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Next brief</div>
-          <div style="font-size:.82rem;color:var(--ink2);transition:opacity .3s" id="demo-brief-text">Keep Result-first. Try Expertise-led creator. +15–25%.</div>
+          <div style="font-family:var(--mn);font-size:.82rem;color:#c4b5fd;text-shadow:0 0 10px rgba(165,180,252,.35);transition:opacity .3s" id="demo-brief-text">Keep Result-first. Try Expertise-led creator. +15–25%.</div>
           <div id="demo-typing" style="display:flex;gap:4px;align-items:center;opacity:0;transition:opacity .2s">
             <div style="font-size:.72rem;color:var(--ac)">Forge analyzing</div>
             <div class="typing-dots"><span></span><span></span><span></span></div>
@@ -369,13 +405,13 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
     <p class="sl">A 30-second ad contains at least six measurable variables. No existing tool breaks them down.</p>
   </div>
   <div class="g3">
-    <div class="cd rv"><div class="ci">📊</div><h3>The number without the reason</h3><p>ROAS 2.4x — but which variable produced it?</p></div>
-    <div class="cd rv" style="transition-delay:.1s"><div class="ci" style="background:var(--gnl);border-color:rgba(52,211,153,.1)">🎯</div><h3>A layer that doesn't exist yet</h3><p>"Result-first hook + Expert creator = 3.8x ROAS." No tool gives you this.</p></div>
-    <div class="cd rv" style="transition-delay:.2s"><div class="ci" style="background:var(--aml);border-color:rgba(251,191,36,.1)">🔄</div><h3>Spend without accumulation</h3><p>$50K/year in ad spend. Zero compounding knowledge.</p></div>
+    <div class="cd rv"><div class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div><h3>The number without the reason</h3><p>ROAS 2.4x — but which variable produced it?</p></div>
+    <div class="cd rv" style="transition-delay:.1s"><div class="ci" style="background:var(--gnl);border-color:rgba(52,211,153,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gn)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3>A layer that doesn't exist yet</h3><p>"Result-first hook + Expert creator = 3.8x ROAS." No tool gives you this.</p></div>
+    <div class="cd rv" style="transition-delay:.2s"><div class="ci" style="background:var(--aml);border-color:rgba(251,191,36,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--am)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><h3>Spend without accumulation</h3><p>$50K/year in ad spend. Zero compounding knowledge.</p></div>
   </div>
 
   <!-- THESIS LINK -->
-  <div class="thesis-card" onclick="window.open('Forge-Doc20-StrategicAnalogies-v2.html','_blank')">
+  <div class="thesis-card" onclick="window.open('Forge-Doc20-StrategicAnalogies-v3.html','_blank')">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:24px">
       <div>
         <div style="font-family:var(--mn);font-size:.6rem;color:#f59e0b;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px">Our thesis</div>
@@ -736,9 +772,10 @@ function switchVar(i){
       document.getElementById('demo-lift').style.opacity='1';
     },400);
     setTimeout(()=>{
-      document.getElementById('demo-typing').style.opacity='0';document.getElementById('demo-brief-text').style.opacity='1';
-      document.getElementById('demo-brief-text').textContent=d.brief;
-      document.getElementById('demo-brief-text').style.opacity='1';
+      document.getElementById('demo-typing').style.opacity='0';
+      var b=document.getElementById('demo-brief-text'),t=d.brief,c=0;
+      b.textContent='';b.style.opacity='1';
+      (function k(){if(c<=t.length){b.innerHTML=t.substring(0,c)+'<span class="brief-cur"></span>';c++;setTimeout(k,25)}else{b.textContent=t}})();
     },1200);
   });
 }
@@ -746,9 +783,8 @@ function switchVar(i){
 let autoIdx=0;
 setInterval(()=>{autoIdx=(autoIdx+1)%experiments.length;switchVar(autoIdx)},4000);
 
-const dbOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.db-fill').forEach(b=>{b.style.width=b.dataset.w});dbOb.unobserve(x.target)}})},{threshold:.2});
-const dbBars=document.querySelector('.db-bars');
-if(dbBars)dbOb.observe(dbBars);
+const dbOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.db-fill').forEach(el=>{setTimeout(()=>{el.style.width=el.dataset.w},300)});dbOb.unobserve(x.target)}})},{threshold:.3});
+document.querySelectorAll('.db-bars').forEach(el=>dbOb.observe(el.closest('.sec')||el));
 </script>
 </body>
 </html>

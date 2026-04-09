@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forge Thesis — Every Industry That Learned Faster Found the Right Variable</title>
+<meta name="description" content="Baseball found OBP. Football found xG. Medicine found RCTs. Ad creative hasn't found its variable yet. That's why Forge exists.">
+<link rel="canonical" href="https://forgexlab.co/thesis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Forge — Our Thesis">
+<meta property="og:description" content="Every industry that learned faster found the variable everyone else ignored. Ad creative is next.">
+<meta property="og:url" content="https://forgexlab.co/thesis">
+<meta property="og:site_name" content="Forge">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f1e;--s1:rgba(255,255,255,.03);--s2:rgba(255,255,255,.06);--ink:#fafafa;--ink2:#c4c4cc;--ink3:#9494a0;--ink4:#5a5a66;--ac:#818cf8;--am:#f59e0b;--gn:#34d399;--cr:#ef4444;--bd:'Inter',sans-serif;--mn:'JetBrains Mono',monospace;--gb:rgba(255,255,255,.06)}
+body{background:var(--bg);color:var(--ink);font-family:var(--bd);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.rv{opacity:0;transform:translateY(24px);transition:all .7s cubic-bezier(.22,1,.36,1)}.rv.v{opacity:1;transform:translateY(0)}
+.page{max-width:760px;margin:0 auto;padding:0 28px}
+
+/* COVER */
+.cover{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.cover::after{content:'';position:absolute;top:-30%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(245,158,11,.04),transparent 60%);pointer-events:none}
+.cv-badge{font-family:var(--mn);font-size:.85rem;color:var(--am);letter-spacing:.25em;text-transform:uppercase;margin-bottom:20px;opacity:.8}
+.cover h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.cover h1 em{color:var(--am);font-style:normal}
+.cv-line{width:240px;height:2px;margin:36px auto 0;position:relative;overflow:hidden;background:rgba(245,158,11,.06);border-radius:1px}
+.cv-line::after{content:'';position:absolute;top:0;left:-30%;width:30%;height:100%;background:linear-gradient(90deg,transparent,#f59e0b 40%,#fbbf24 70%,transparent);animation:comet 2.5s cubic-bezier(.4,0,.2,1) infinite}
+.cv-line::before{content:'';position:absolute;top:-2px;left:-30%;width:5px;height:5px;background:#fbbf24;border-radius:50%;animation:cometH 2.5s cubic-bezier(.4,0,.2,1) infinite;box-shadow:0 0 6px rgba(251,191,36,.7)}
+@keyframes comet{0%{left:-30%;opacity:0}10%{opacity:1}80%{opacity:1}100%{left:110%;opacity:0}}
+@keyframes cometH{0%{left:-5%;opacity:0}10%{opacity:1}80%{opacity:1}100%{left:105%;opacity:0}}
+.cv-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px}
+.cv-scroll-a{width:16px;height:16px;border-right:2px solid var(--am);border-bottom:2px solid var(--am);transform:rotate(45deg);animation:sb 2s ease-in-out infinite;opacity:.5}
+.cv-scroll-t{font-family:var(--mn);font-size:.7rem;color:var(--am);letter-spacing:.15em;text-transform:uppercase;opacity:.5;animation:sp 2s ease-in-out infinite}
+@keyframes sb{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+@keyframes sp{0%,100%{opacity:.3}50%{opacity:.7}}
+
+/* SECTIONS */
+.sec{padding:64px 0;border-bottom:1px solid var(--gb)}
+.sec:last-child{border-bottom:none}
+.sec:nth-child(even){background:rgba(255,255,255,.015);margin:0 -28px;padding:64px 28px;border-radius:0}
+.sn{font-family:var(--mn);font-size:.85rem;color:var(--ac);letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+h2{font-size:clamp(1.4rem,2.8vw,1.85rem);font-weight:700;line-height:1.35;margin-bottom:28px}
+h2 em{color:var(--am);font-style:normal}
+
+/* ===== CANVAS PATTERN ===== */
+.canvas-wrap{margin:24px 0}
+.ana-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.ana-tab{padding:9px 18px;border-radius:20px;font-size:.9rem;font-weight:500;border:1px solid var(--gb);background:transparent;color:var(--ink3);cursor:pointer;transition:all .3s;white-space:nowrap}
+.ana-tab.on{background:rgba(129,140,248,.12);border-color:rgba(129,140,248,.3);color:var(--ac)}
+.ana-tab.ft{border-color:rgba(245,158,11,.2);color:var(--am)}
+.ana-tab.ft.on{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.4);color:var(--am)}
+
+.cc{background:rgba(255,255,255,.02);border:1px solid var(--gb);border-radius:16px;overflow:hidden;min-height:260px;transition:border-color .4s}
+.cc.fa{border-color:rgba(245,158,11,.2)}
+.cc-h{display:flex;align-items:center;gap:12px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015)}
+.cc-dots{display:flex;gap:5px}
+.cc-dots span{width:8px;height:8px;border-radius:50%}
+.cc-dots span:nth-child(1){background:rgba(239,68,68,.4)}
+.cc-dots span:nth-child(2){background:rgba(245,158,11,.4)}
+.cc-dots span:nth-child(3){background:rgba(52,211,153,.4)}
+.cc-t{font-family:var(--mn);font-size:.8rem;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;flex:1}
+.cc-y{font-family:var(--mn);font-size:.78rem;color:var(--ink3);padding:4px 12px;border-radius:10px;background:rgba(255,255,255,.05)}
+
+.cc-b{padding:32px 24px}
+.pipe{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:28px}
+.pn{display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;transform:scale(.8);transition:all .5s cubic-bezier(.22,1,.36,1)}
+.pn.s{opacity:1;transform:scale(1)}
+.pb{width:140px;padding:18px 10px;border-radius:14px;text-align:center;border:1px solid}
+.pb.wrong{background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.15)}
+.pb.right{background:rgba(52,211,153,.06);border-color:rgba(52,211,153,.15)}
+.pb.input{background:rgba(129,140,248,.06);border-color:rgba(129,140,248,.15)}
+.pb.output{background:rgba(245,158,11,.06);border-color:rgba(245,158,11,.15)}
+.pb-l{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.pb.wrong .pb-l{color:var(--cr)}.pb.right .pb-l{color:var(--gn)}.pb.input .pb-l{color:var(--ac)}.pb.output .pb-l{color:var(--am)}
+.pb-v{font-size:1.02rem;font-weight:700;color:var(--ink);line-height:1.3}
+.pa{width:36px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .4s .2s}
+.pa.s{opacity:1}
+
+.cr{padding:0 24px 24px;opacity:0;transform:translateY(10px);transition:all .5s .6s}
+.cr.s{opacity:1;transform:translateY(0)}
+.cr-n{font-family:var(--mn);font-size:1.35rem;font-weight:700;margin-bottom:6px}
+.cr-n.g{color:var(--gn)}.cr-n.a{color:var(--am)}
+.cr-t{font-size:1rem;color:var(--ink2);line-height:1.6;margin-bottom:10px}
+.cr-tag{display:inline-block;font-family:var(--mn);font-size:.72rem;padding:4px 12px;border-radius:8px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.15);color:var(--gn)}
+.cr-tag.at{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.15);color:var(--am)}
+
+.ana-prog{width:100%;height:3px;background:var(--s2);border-radius:2px;margin-top:12px;overflow:hidden}
+.ana-prog-fill{height:100%;width:0;background:var(--ac);border-radius:2px;transition:width .3s linear}
+.ana-prog-fill.running{transition:width 6s linear;width:100%}
+
+/* ===== DATA PROCESS CANVAS ===== */
+.dpc{margin:24px 0;background:rgba(255,255,255,.02);border:1px solid var(--gb);border-radius:16px;overflow:hidden;position:relative}
+.dpc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.3),rgba(245,158,11,.2),transparent)}
+.dpc-h{display:flex;align-items:center;gap:12px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015)}
+.dpc-st{font-family:var(--mn);font-size:.75rem;color:var(--gn);display:flex;align-items:center;gap:6px;margin-left:auto}
+.dpc-st::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gn);animation:pls 2s infinite}
+@keyframes pls{0%,100%{opacity:1;box-shadow:0 0 6px var(--gn)}50%{opacity:.3}}
+
+.dpc-b{padding:32px 24px;display:flex;flex-direction:column;gap:20px}
+.dpc-row{display:flex;align-items:center;gap:0}
+.dpc-s{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;transform:translateX(-20px);transition:all .6s cubic-bezier(.22,1,.36,1)}
+.dpc-s.s{opacity:1;transform:translateX(0)}
+.dpc-i{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;border:1px solid;transition:all .4s}
+.dpc-i svg{width:28px;height:28px}
+.dpc-i.s1{background:rgba(129,140,248,.08);border-color:rgba(129,140,248,.2)}
+.dpc-i.s2{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.2)}
+.dpc-i.s3{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.2)}
+.dpc-i.s4{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.2)}
+.dpc-i.act{box-shadow:0 0 20px rgba(129,140,248,.2);transform:scale(1.08)}
+.dpc-n{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.dpc-d{font-size:.78rem;color:var(--ink3);max-width:120px;line-height:1.4}
+.dpc-c{width:40px;display:flex;align-items:center;justify-content:center}
+.dpc-l{width:100%;height:2px;background:rgba(255,255,255,.06);overflow:hidden}
+.dpc-lf{height:100%;width:0;background:linear-gradient(90deg,var(--ac),var(--am));border-radius:1px;transition:width .8s cubic-bezier(.22,1,.36,1)}
+.dpc-lf.act{width:100%}
+
+.dpc-out{margin-top:8px;padding:20px 24px;background:rgba(129,140,248,.04);border:1px solid rgba(129,140,248,.1);border-radius:12px;font-family:var(--mn);font-size:.9rem;color:var(--ac);opacity:0;transform:translateY(10px);transition:all .5s;line-height:1.7;position:relative;overflow:hidden}
+.dpc-out.s{opacity:1;transform:translateY(0)}
+.dpc-out::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.3),transparent)}
+.cur{display:inline-block;width:2px;height:15px;background:var(--ac);margin-left:2px;animation:bl 1s step-end infinite;vertical-align:text-bottom}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
+
+/* TERMINAL OUTPUT STYLE */
+.term{font-family:var(--mn);background:rgba(129,140,248,.04);border:1px solid rgba(129,140,248,.1);border-radius:12px;color:var(--ac);position:relative;overflow:hidden}
+.term::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.25),transparent)}
+.term-pre{opacity:.5;margin-right:6px}
+
+/* LOOP */
+.loop-row{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin:20px 0}
+.lp{padding:11px 20px;border-radius:28px;font-size:.95rem;font-weight:600;border:1px solid var(--gb);background:var(--s1);transition:all .4s;white-space:nowrap;cursor:pointer}
+.lp.on{background:rgba(129,140,248,.12);border-color:rgba(129,140,248,.35);color:var(--ac);box-shadow:0 0 16px rgba(129,140,248,.1);transform:scale(1.05)}
+.lp-a{color:var(--ink4);font-size:.75rem}
+.lp-out{margin-top:16px;padding:18px 24px;font-family:var(--mn);font-size:.92rem;color:var(--ac);min-height:48px;transition:all .3s;line-height:1.7;text-align:center;background:rgba(129,140,248,.04);border:1px solid rgba(129,140,248,.1);border-radius:12px;position:relative;overflow:hidden}
+.lp-out::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.25),transparent)}
+
+/* VARIABLES */
+.var-wrap{position:relative;width:320px;height:320px;margin:28px auto 0}
+.var-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:86px;height:86px;border-radius:50%;background:rgba(245,158,11,.1);border:2px solid rgba(245,158,11,.25);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:var(--am)}
+.vo{position:absolute;width:60px;height:60px;border-radius:50%;background:var(--s2);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:600;color:var(--ink3);cursor:pointer;transition:all .4s;text-align:center;line-height:1.15}
+.vo.on{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.35);color:var(--am);transform:scale(1.15);box-shadow:0 0 16px rgba(245,158,11,.1)}
+.vtip{text-align:center;font-family:var(--mn);font-size:.92rem;color:var(--ac);margin-top:20px;padding:14px 20px;min-height:24px;font-weight:400;transition:all .3s;background:rgba(129,140,248,.04);border:1px solid rgba(129,140,248,.1);border-radius:12px;position:relative;overflow:hidden}
+.vtip::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.25),transparent)}
+
+/* MOAT */
+.moat-row{display:flex;justify-content:center;gap:40px;margin:24px 0;flex-wrap:wrap}
+.moat-n{text-align:center}
+.moat-n .num{font-family:var(--mn);font-size:2.8rem;font-weight:700;color:var(--ac)}
+.moat-n .lab{font-size:.9rem;color:var(--ink2);margin-top:4px}
+.moat-bar{width:100%;max-width:480px;height:5px;background:var(--s2);border-radius:3px;margin:20px auto 0;overflow:hidden}
+.moat-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--ac),var(--am),var(--cr));transition:width 2s cubic-bezier(.22,1,.36,1)}
+
+/* QUOTE */
+.qt{text-align:center;padding:48px 0}
+.qt p{font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:700;font-style:italic;line-height:1.45;max-width:500px;margin:0 auto}
+.qt span{color:var(--am)}
+
+/* CTA */
+.cta-s{text-align:center;padding:64px 28px 40px}
+.cta-s h2{font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:800;margin-bottom:10px}
+.cta-s h2 strong{color:var(--am)}
+.cta-s p{font-size:1rem;color:var(--ink2);margin-bottom:24px}
+.cta-s a{display:inline-block;padding:14px 36px;border-radius:12px;background:var(--ac);color:#fff;text-decoration:none;font-size:.95rem;font-weight:600;transition:all .3s}
+.cta-s a:hover{box-shadow:0 0 24px rgba(129,140,248,.25);transform:translateY(-2px)}
+.footer{text-align:center;padding:24px;font-family:var(--mn);font-size:.6rem;color:var(--ink4);letter-spacing:.12em}
+
+@media(max-width:700px){
+  .page{padding:0 18px}
+  .pipe{flex-wrap:wrap;gap:8px;justify-content:center}
+  .pa{width:24px}
+  .pb{width:100px;padding:12px 6px}
+  .pb-v{font-size:.82rem}
+  .pb-l{font-size:.62rem}
+  .var-wrap{width:280px;height:280px}
+  .vo{width:52px;height:52px;font-size:.62rem}
+  .var-center{width:72px;height:72px;font-size:.88rem}
+  .moat-row{gap:24px}
+  .moat-n .num{font-size:2.2rem}
+  .loop-row{gap:4px}
+  .lp{padding:9px 14px;font-size:.82rem}
+  .dpc-row{flex-wrap:wrap;justify-content:center;gap:8px}
+  .dpc-c{width:28px}
+  .dpc-i{width:52px;height:52px}
+  .dpc-i svg{width:24px;height:24px}
+  .dpc-n{font-size:.82rem}
+  .dpc-out{font-size:.78rem}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div>
+    <div class="cv-badge rv">forge · our thesis</div>
+    <h1 class="rv" style="transition-delay:.1s">Every satisfying answer starts<br>with the <em>right variable.</em></h1>
+    <p class="rv" style="transition-delay:.18s;font-size:1rem;color:var(--ink3);margin-top:16px">We find what no one else measures.</p>
+    <div class="cv-line rv" style="transition-delay:.25s"></div>
+  </div>
+  <div class="cv-scroll"><div class="cv-scroll-a"></div><div class="cv-scroll-t">scroll to explore</div></div>
+</div>
+
+<div class="page">
+
+<!-- S1: THE PATTERN -->
+<div class="sec">
+  <div class="sn rv">01 · The pattern</div>
+  <h2 class="rv">Every industry that learned faster<br>found the <em>variable everyone else ignored.</em></h2>
+
+  <div class="canvas-wrap rv" style="transition-delay:.1s">
+    <div class="ana-tabs" id="ana-tabs">
+      <div class="ana-tab on" onclick="setA(0)">⚾ Baseball</div>
+      <div class="ana-tab" onclick="setA(1)">⚽ Football</div>
+      <div class="ana-tab" onclick="setA(2)">🔬 Medicine</div>
+      <div class="ana-tab" onclick="setA(3)">🛰️ Palantir</div>
+      <div class="ana-tab ft" onclick="setA(4)">📊 Ad Creative</div>
+    </div>
+
+    <div class="cc" id="cc">
+      <div class="cc-h">
+        <div class="cc-dots"><span></span><span></span><span></span></div>
+        <div class="cc-t" id="ct">experiment_log</div>
+        <div class="cc-y" id="cy">2002</div>
+      </div>
+      <div class="cc-b">
+        <div class="pipe" id="pipe"></div>
+      </div>
+      <div class="cr" id="cr">
+        <div class="cr-n g" id="rn">$41M beat $125M</div>
+        <div class="cr-t" id="rt">The A's won 103 games. Same players, different variable, different outcome.</div>
+        <div class="cr-tag" id="rtag">variable > budget</div>
+      </div>
+    </div>
+    <div class="ana-prog"><div class="ana-prog-fill" id="ana-prog"></div></div>
+  </div>
+</div>
+
+<!-- S1.5: DATA PROCESS CANVAS -->
+<div class="sec">
+  <div class="sn rv">01.5 · The engine</div>
+  <h2 class="rv">This is how Forge <em>actually works.</em></h2>
+  <p class="rv" style="color:var(--ink2);font-size:1.02rem;margin-bottom:4px;transition-delay:.05s">Not a dashboard. A live experiment canvas.</p>
+
+  <div class="dpc rv" style="transition-delay:.1s" id="dpc">
+    <div class="dpc-h">
+      <div class="cc-dots"><span></span><span></span><span></span></div>
+      <div class="cc-t" style="flex:1">forge_pipeline.live</div>
+      <div class="dpc-st">running</div>
+    </div>
+    <div class="dpc-b">
+      <div class="dpc-row" id="dpc-row">
+        <div class="dpc-s" id="ds0">
+          <div class="dpc-i s1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ac)"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          <div class="dpc-n">Ingest</div>
+          <div class="dpc-d">Raw ad data in</div>
+        </div>
+        <div class="dpc-c"><div class="dpc-l"><div class="dpc-lf" id="dl0"></div></div></div>
+        <div class="dpc-s" id="ds1">
+          <div class="dpc-i s2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--am)"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+          <div class="dpc-n">Isolate</div>
+          <div class="dpc-d">Split 6 variables</div>
+        </div>
+        <div class="dpc-c"><div class="dpc-l"><div class="dpc-lf" id="dl1"></div></div></div>
+        <div class="dpc-s" id="ds2">
+          <div class="dpc-i s3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gn)"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div>
+          <div class="dpc-n">Attribute</div>
+          <div class="dpc-d">Variable → ROAS</div>
+        </div>
+        <div class="dpc-c"><div class="dpc-l"><div class="dpc-lf" id="dl2"></div></div></div>
+        <div class="dpc-s" id="ds3">
+          <div class="dpc-i s4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--cr)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+          <div class="dpc-n">Brief</div>
+          <div class="dpc-d">Next action</div>
+        </div>
+      </div>
+      <div class="dpc-out" id="dpc-out"></div>
+    </div>
+  </div>
+</div>
+
+<!-- S2: THE LOOP -->
+<div class="sec">
+  <div class="sn rv">02 · The architecture</div>
+  <h2 class="rv">One loop. <em>Over and over.</em></h2>
+  <div class="loop-row rv" id="loop-row" style="transition-delay:.08s">
+    <div class="lp on" data-i="0">Observe</div><div class="lp-a">→</div>
+    <div class="lp" data-i="1">Isolate</div><div class="lp-a">→</div>
+    <div class="lp" data-i="2">Attribute</div><div class="lp-a">→</div>
+    <div class="lp" data-i="3">Decide</div><div class="lp-a">→</div>
+    <div class="lp" data-i="4">Compound</div><div class="lp-a" style="opacity:.3">↩</div>
+  </div>
+  <div class="lp-out rv" id="lp-out" style="transition-delay:.15s">> ingest performance data — structure against 6 creative variables</div>
+</div>
+
+<!-- S3: VARIABLES -->
+<div class="sec">
+  <div class="sn rv">03 · The variables</div>
+  <h2 class="rv">Six variables decide your ROAS.<br><em>We isolate which one.</em></h2>
+  <div class="var-wrap rv" style="transition-delay:.08s">
+    <div class="var-center">ROAS</div>
+    <div class="vo" style="top:2%;left:50%;margin-left:-30px" data-t="> first 3 seconds determine everything — stay or scroll">Hook</div>
+    <div class="vo" style="top:19%;right:3%" data-t="> same script + different creator = different ROAS">Creator</div>
+    <div class="vo" style="bottom:19%;right:3%" data-t="> the message that converts interest into purchase">Selling Pt</div>
+    <div class="vo" style="bottom:2%;left:50%;margin-left:-30px" data-t="> what turns 'maybe' into 'buy now'">Emotion</div>
+    <div class="vo" style="bottom:19%;left:3%" data-t="> how attention becomes a click">CTA</div>
+    <div class="vo" style="top:19%;left:3%" data-t="> 15s vs 30s — AI vs human — same variable, different result">Format</div>
+  </div>
+  <div class="vtip rv" id="vtip" style="transition-delay:.15s">> tap any variable</div>
+</div>
+
+<!-- S4: MOAT -->
+<div class="sec">
+  <div class="sn rv">04 · The moat</div>
+  <h2 class="rv">Data compounds. <em>Time is the moat.</em></h2>
+  <div class="moat-row rv" id="moat-row" style="transition-delay:.08s">
+    <div class="moat-n"><div class="num" id="m1">0</div><div class="lab">campaigns<br>= signal</div></div>
+    <div class="moat-n"><div class="num" id="m2">0</div><div class="lab">campaigns<br>= benchmark</div></div>
+    <div class="moat-n"><div class="num" id="m3">0</div><div class="lab">campaigns<br>= moat</div></div>
+  </div>
+  <div class="moat-bar rv" style="transition-delay:.15s"><div class="moat-fill" id="mf"></div></div>
+  <p class="rv" style="text-align:center;color:var(--ink2);font-size:1rem;margin-top:20px;transition-delay:.2s;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">A competitor can copy the method.<br><strong style="color:var(--ink)">They can't copy the data.</strong></p>
+</div>
+
+<!-- QUOTE -->
+<div class="qt">
+  <p class="rv">"You don't need a bigger budget.<br>You need a <span>better variable.</span>"</p>
+</div>
+
+<!-- OBJECTIONS -->
+<div class="sec" style="border-bottom:none">
+  <div class="sn rv">05 · Objections</div>
+  <h2 class="rv">Every objection has been <em>answered before.</em></h2>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.05s">
+      <div style="font-size:1.02rem;font-weight:600;margin-bottom:8px">"We already have analytics"</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">Your dashboard shows campaign ROAS — that's batting average. Forge shows which variable inside the campaign drove that ROAS. That's OBP.</div>
+    </div>
+    <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.1s">
+      <div style="font-size:1.02rem;font-weight:600;margin-bottom:8px">"AI can generate our ads"</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">AI creates more ads faster. Without knowing which variables convert, you're scaling noise. Forge tells AI what to make.</div>
+    </div>
+    <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.15s">
+      <div style="font-size:1.02rem;font-weight:600;margin-bottom:8px">"Our agency handles creative"</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">Agencies optimize campaigns. Forge isolates variables. Different layers. Forge makes the agency more effective.</div>
+    </div>
+    <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.2s">
+      <div style="font-size:1.02rem;font-weight:600;margin-bottom:8px">"Sample size too small?"</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">Every campaign adds data. By 30, you have benchmarks. Architecture matters more than starting volume.</div>
+    </div>
+    <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.25s">
+      <div style="font-size:1.02rem;font-weight:600;margin-bottom:8px">"Can't we just A/B test?"</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">A/B tests compare two ads. Forge isolates which variable won — and applies it to every future ad.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta-s">
+  <h2 class="rv">We find what no one else <strong>measures.</strong></h2>
+  <p class="rv">One experiment. One variable. One clear answer.</p>
+  <div class="rv" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;transition-delay:.08s">
+    <a href="https://tally.so/r/zxrx51" style="background:var(--ac)">Get your free analysis →</a>
+    <a href="https://forgexlab.co" style="background:transparent;border:1px solid var(--gb);color:var(--ink2)">← Back to forgexlab.co</a>
+  </div>
+</div>
+<div class="footer">forge · forgexlab.co · 2026</div>
+
+<script>
+/* Scroll reveal */
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.1,rootMargin:'30px'});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+
+/* ===== PATTERN CANVAS ===== */
+const ad=[
+  {t:'moneyball_analysis',y:'2002',nodes:[
+    {c:'input',l:'Input',v:'Player Stats'},{c:'wrong',l:'Measured',v:'Batting Avg (.310)'},
+    {c:'right',l:'Should\'ve',v:'OBP (.391)'},{c:'output',l:'Result',v:'103 Wins'}
+  ],n:'$41M beat $125M',nc:'g',tx:'The A\'s won 103 games. Same players, different variable, different outcome.',tg:'variable > budget',tc:''},
+  {t:'xg_model',y:'2012',nodes:[
+    {c:'input',l:'Input',v:'Match Data'},{c:'wrong',l:'Measured',v:'Goals Scored'},
+    {c:'right',l:'Should\'ve',v:'Expected Goals (xG)'},{c:'output',l:'Result',v:'74% Accuracy'}
+  ],n:'74% prediction accuracy',nc:'g',tx:'The scoreboard lied. Shot quality predicted the future.',tg:'quality > quantity',tc:''},
+  {t:'rct_framework',y:'1948',nodes:[
+    {c:'input',l:'Input',v:'Patient Data'},{c:'wrong',l:'Measured',v:'Doctor\'s Intuition'},
+    {c:'right',l:'Should\'ve',v:'Controlled Trials'},{c:'output',l:'Result',v:'Evidence-Based'}
+  ],n:'One variable at a time',nc:'g',tx:'Medicine went from guessing to knowing. The method was isolation.',tg:'rigor > intuition',tc:''},
+  {t:'palantir_fusion',y:'2003',nodes:[
+    {c:'input',l:'Input',v:'Raw Signals'},{c:'wrong',l:'Measured',v:'Individual Data'},
+    {c:'right',l:'Should\'ve',v:'Fused Patterns'},{c:'output',l:'Result',v:'"What to do next"'}
+  ],n:'"What to do next"',nc:'g',tx:'Palantir built the integration layer. The loop tightened every cycle.',tg:'integration > isolation',tc:''},
+  {t:'forge_experiment',y:'Now',nodes:[
+    {c:'input',l:'Input',v:'TikTok CSV'},{c:'wrong',l:'Measured',v:'Campaign ROAS'},
+    {c:'right',l:'Should\'ve',v:'Variable ROAS'},{c:'output',l:'Result',v:'Next Brief'}
+  ],n:'This hasn\'t happened yet.',nc:'a',tx:'That\'s why Forge exists.',tg:'we\'re building this',tc:'at'}
+];
+
+let ai=0,at;
+const arrowColors={wrong:'rgba(239,68,68,.3)',right:'rgba(52,211,153,.5)',output:'rgba(245,158,11,.5)',input:'rgba(129,140,248,.3)'};
+
+function buildPipe(d){
+  const p=document.getElementById('pipe');p.innerHTML='';
+  d.nodes.forEach((nd,i)=>{
+    if(i>0){
+      const a=document.createElement('div');a.className='pa';
+      const col=arrowColors[nd.c]||'rgba(255,255,255,.15)';
+      a.innerHTML='<svg viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M5 12h14m-4-4 4 4-4 4" stroke="'+col+'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      p.appendChild(a);
+    }
+    const n=document.createElement('div');n.className='pn';
+    n.innerHTML='<div class="pb '+nd.c+'"><div class="pb-l">'+nd.l+'</div><div class="pb-v">'+nd.v+'</div></div>';
+    p.appendChild(n);
+  });
+}
+
+function animPipe(){
+  const ns=document.querySelectorAll('.pn'),as=document.querySelectorAll('.pa');
+  ns.forEach((n,i)=>setTimeout(()=>n.classList.add('s'),i*180));
+  as.forEach((a,i)=>setTimeout(()=>a.classList.add('s'),(i+1)*180+80));
+  setTimeout(()=>document.getElementById('cr').classList.add('s'),ns.length*180+200);
+}
+
+function resetProg(){const p=document.getElementById('ana-prog');p.classList.remove('running');p.style.width='0';void p.offsetWidth;p.classList.add('running')}
+
+function setA(i){
+  ai=i;
+  document.querySelectorAll('.ana-tab').forEach((t,x)=>t.classList.toggle('on',x===i));
+  const card=document.getElementById('cc');
+  card.style.opacity='.3';card.classList.toggle('fa',i===4);
+  document.getElementById('cr').classList.remove('s');
+  resetProg();
+  setTimeout(()=>{
+    const d=ad[i];
+    document.getElementById('ct').textContent=d.t;
+    document.getElementById('cy').textContent=d.y;
+    document.getElementById('rn').textContent=d.n;
+    document.getElementById('rn').className='cr-n '+d.nc;
+    document.getElementById('rt').textContent=d.tx;
+    document.getElementById('rtag').textContent=d.tg;
+    document.getElementById('rtag').className='cr-tag '+d.tc;
+    buildPipe(d);card.style.opacity='1';
+    setTimeout(animPipe,100);
+  },250);
+  clearInterval(at);at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},6500);
+}
+
+buildPipe(ad[0]);setTimeout(()=>{animPipe()},400);
+setTimeout(()=>document.getElementById('cr').classList.add('s'),1000);
+
+const aob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!at){resetProg();at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},6500)}else if(!x.isIntersecting&&at){clearInterval(at);at=null}})},{threshold:.3});
+const atab=document.getElementById('ana-tabs');if(atab)aob.observe(atab);
+
+/* ===== DATA PROCESS CANVAS ===== */
+const ptx=[
+  '> ad data from last 30 days — loaded and structured',
+  '> tagging 6 variables: hook, creator, selling point, emotion, CTA, format',
+  '> hook isolated — everything else held constant across 12 creatives',
+  '> result-first hook → 3.8x ROAS  /  question hook → 1.2x',
+  '> next brief: keep result-first hook. test urgency vs curiosity.',
+  '> benchmark saved — every future campaign starts smarter'
+];
+let pi=0,pci=0;
+
+function typeProc(){
+  const out=document.getElementById('dpc-out');
+  if(!out.classList.contains('s'))out.classList.add('s');
+  const line=ptx[pi];pci=0;
+  const si=Math.min(pi,3);
+  document.querySelectorAll('.dpc-i').forEach((ic,i)=>ic.classList.toggle('act',i===si));
+  for(let i=0;i<=Math.min(pi,2);i++){const l=document.getElementById('dl'+i);if(l)l.classList.add('act')}
+  function tc(){
+    if(pci<=line.length){out.innerHTML=line.substring(0,pci)+'<span class="cur"></span>';pci++;setTimeout(tc,28+Math.random()*18)}
+    else setTimeout(()=>{pi=(pi+1)%ptx.length;if(pi===0)document.querySelectorAll('.dpc-lf').forEach(l=>l.classList.remove('act'));typeProc()},3000);
+  }
+  tc();
+}
+
+function showPS(){
+  document.querySelectorAll('.dpc-s').forEach((s,i)=>setTimeout(()=>s.classList.add('s'),i*250));
+  setTimeout(typeProc,1200);
+}
+
+const pcOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){showPS();pcOb.unobserve(x.target)}})},{threshold:.3});
+const pcE=document.getElementById('dpc');if(pcE)pcOb.observe(pcE);
+
+/* ===== SHARED TYPING FUNCTION ===== */
+function typeInto(el,text,speed,cb){
+  let idx=0;
+  el.innerHTML='';
+  function tick(){
+    if(idx<=text.length){
+      el.innerHTML=text.substring(0,idx)+'<span class="cur"></span>';
+      idx++;
+      setTimeout(tick,speed+Math.random()*15);
+    }else{
+      el.innerHTML=text;
+      if(cb)cb();
+    }
+  }
+  tick();
+}
+
+/* ===== LOOP ===== */
+const ld=['> ingest performance data — structure against 6 creative variables','> one variable changes — everything else stays constant','> link result to the variable — "result-first hook = 3.8x ROAS"','> generate the next brief — "change this. here\'s why."','> every cycle updates the benchmark — the system gets smarter'];
+let li=0,lt,lTyping=false;
+function sL(i){
+  if(lTyping)return;
+  li=i;lTyping=true;
+  document.querySelectorAll('.lp').forEach((n,x)=>n.classList.toggle('on',x===i));
+  const o=document.getElementById('lp-out');
+  o.style.opacity='.4';
+  setTimeout(()=>{
+    o.style.opacity='1';
+    typeInto(o,ld[i],22,()=>{lTyping=false});
+  },150);
+}
+const lob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!lt)lt=setInterval(()=>{li=(li+1)%5;sL(li)},4000);else if(!x.isIntersecting&&lt){clearInterval(lt);lt=null}})},{threshold:.3});
+const lr=document.getElementById('loop-row');if(lr)lob.observe(lr);
+document.querySelectorAll('.lp').forEach(n=>{n.onclick=()=>{clearInterval(lt);sL(+n.dataset.i);lt=setInterval(()=>{li=(li+1)%5;sL(li)},4000)}});
+
+/* ===== VARIABLES ===== */
+const orbs=document.querySelectorAll('.vo');let vi=0,vt,vTyping=false;
+function sT(el,fromAuto){
+  if(vTyping)return;
+  vTyping=true;
+  orbs.forEach(o=>o.classList.remove('on'));el.classList.add('on');
+  const tip=document.getElementById('vtip');
+  typeInto(tip,el.dataset.t,20,()=>{vTyping=false});
+  if(!fromAuto){clearInterval(vt);vt=setInterval(autoV,3500);}
+}
+function autoV(){vi=(vi+1)%orbs.length;sT(orbs[vi],true)}
+orbs.forEach(o=>{o.onclick=()=>{vi=[...orbs].indexOf(o);sT(o,false)}});
+if(orbs.length>0){orbs[0].classList.add('on');document.getElementById('vtip').textContent=orbs[0].dataset.t}
+const vob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!vt)vt=setInterval(autoV,3500);else if(!x.isIntersecting&&vt){clearInterval(vt);vt=null}})},{threshold:.3});
+document.querySelectorAll('.var-wrap').forEach(el=>vob.observe(el));
+
+/* ===== MOAT ===== */
+function cU(el,t,d){let s=0;const st=t/d*16;const fn=()=>{s+=st;if(s>=t){el.textContent=t;return}el.textContent=Math.round(s);requestAnimationFrame(fn)};fn()}
+const mob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){cU(document.getElementById('m1'),10,500);cU(document.getElementById('m2'),30,800);cU(document.getElementById('m3'),100,1100);document.getElementById('mf').style.width='100%';
+mob.unobserve(x.target)}})},{threshold:.3});
+const mr=document.getElementById('moat-row');if(mr)mob.observe(mr);
+</script>
+</body>
+</html>
