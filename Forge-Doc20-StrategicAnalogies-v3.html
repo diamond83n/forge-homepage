@@ -167,11 +167,24 @@ h2 em{color:var(--am);font-style:normal}
 
 @media(max-width:700px){
   .page{padding:0 18px}
-  .pipe{flex-wrap:wrap;gap:8px;justify-content:center}
-  .pa{width:24px}
-  .pb{width:100px;padding:12px 6px}
-  .pb-v{font-size:.82rem}
-  .pb-l{font-size:.62rem}
+  
+  /* Pipeline: vertical stack on mobile */
+  .pipe{flex-direction:column;gap:0;align-items:stretch}
+  .pa{width:auto;height:24px;transform:rotate(90deg)}
+  .pb{width:100%;padding:14px 12px}
+  .pb-v{font-size:.9rem}
+  .pb-l{font-size:.65rem}
+  .pn{flex-direction:row;gap:12px}
+  .pb{text-align:left;display:flex;align-items:center;gap:10px}
+  
+  /* Process canvas: 2x2 grid */
+  .dpc-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .dpc-c{display:none}
+  .dpc-i{width:52px;height:52px}
+  .dpc-i svg{width:24px;height:24px}
+  .dpc-n{font-size:.82rem}
+  .dpc-out{font-size:.78rem}
+  
   .var-wrap{width:280px;height:280px}
   .vo{width:52px;height:52px;font-size:.62rem}
   .var-center{width:72px;height:72px;font-size:.88rem}
@@ -179,12 +192,6 @@ h2 em{color:var(--am);font-style:normal}
   .moat-n .num{font-size:2.2rem}
   .loop-row{gap:4px}
   .lp{padding:9px 14px;font-size:.82rem}
-  .dpc-row{flex-wrap:wrap;justify-content:center;gap:8px}
-  .dpc-c{width:28px}
-  .dpc-i{width:52px;height:52px}
-  .dpc-i svg{width:24px;height:24px}
-  .dpc-n{font-size:.82rem}
-  .dpc-out{font-size:.78rem}
 }
 </style>
 </head>
@@ -296,7 +303,7 @@ h2 em{color:var(--am);font-style:normal}
 <!-- S3: VARIABLES -->
 <div class="sec">
   <div class="sn rv">03 · The variables</div>
-  <h2 class="rv">Six variables decide your ROAS.<br><em>We isolate which one.</em></h2>
+  <h2 class="rv">Your ROAS hides behind variables.<br><em>We start with six. We don't stop there.</em></h2>
   <div class="var-wrap rv" style="transition-delay:.08s">
     <div class="var-center">ROAS</div>
     <div class="vo" style="top:2%;left:50%;margin-left:-30px" data-t="> first 3 seconds determine everything — stay or scroll">Hook</div>
