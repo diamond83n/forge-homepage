@@ -1249,7 +1249,7 @@ function smoothNav(url){
   const fade=document.getElementById('page-fade');
   fade.style.pointerEvents='all';
   fade.style.opacity='1';
-  setTimeout(()=>{window.open(url,'_blank');fade.style.opacity='0';setTimeout(()=>{fade.style.pointerEvents='none'},600)},500);
+  setTimeout(()=>{window.location.href=url},600);
 }
 
 /* ═══ FORGE ANVIL SPARK — CLICK EFFECT ═══ */
