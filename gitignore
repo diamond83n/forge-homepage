@@ -1,54 +1,46 @@
-# Environment & Secrets
+# Environment variables
 .env
 .env.local
 .env.production
-.env.*.local
+.env.staging
 
-# API Keys & Credentials
-*.pem
+# API keys and secrets
 *.key
-service-account*.json
-credentials*.json
-
-# Forge Sensitive Data
-/data/brand-csv/
-/data/tiktok-exports/
-/data/client-reports/
-*.csv
-!templates/*.csv
+*.pem
+*.cert
+secrets/
 
 # Node
 node_modules/
 npm-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # Build outputs
 dist/
 build/
 .next/
-out/
+
+# Vercel
 .vercel
 
-# OS
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-*~
-
-# IDE
-.vscode/
-.idea/
-*.sublime-*
-
 # Logs
-logs/
 *.log
 
-# Airtable / Tally local cache
-.airtable-cache/
-.tally-cache/
+# Stripe / Payment secrets
+stripe-keys.json
 
-# Stripe
-stripe-cli/
+# Airtable tokens
+airtable-config.json
+
+# Google credentials
+google-credentials.json
+ga-credentials.json
