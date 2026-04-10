@@ -3,40 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VHYE1LFVY6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-VHYE1LFVY6');
-</script>
-
 <title>Forge Thesis — Every Industry That Learned Faster Found the Right Variable</title>
 <meta name="description" content="Baseball found OBP. Football found xG. Medicine found RCTs. Ad creative hasn't found its variable yet. That's why Forge exists.">
 <link rel="canonical" href="https://forgexlab.co/thesis">
-
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
 <meta property="og:type" content="article">
 <meta property="og:title" content="Forge — Our Thesis">
 <meta property="og:description" content="Every industry that learned faster found the variable everyone else ignored. Ad creative is next.">
 <meta property="og:url" content="https://forgexlab.co/thesis">
 <meta property="og:site_name" content="Forge">
-<meta property="og:image" content="https://forgexlab.co/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Forge Thesis — Every Industry That Learned Faster Found the Right Variable">
-<meta name="twitter:description" content="Baseball found OBP. Football found xG. Medicine found RCTs. Ad creative hasn't found its variable yet.">
-<meta name="twitter:image" content="https://forgexlab.co/og-image.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -78,8 +52,9 @@ h2 em{color:var(--am);font-style:normal}
 .ana-tab.ft{border-color:rgba(245,158,11,.2);color:var(--am)}
 .ana-tab.ft.on{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.4);color:var(--am)}
 
-.cc{background:rgba(255,255,255,.02);border:1px solid var(--gb);border-radius:16px;overflow:hidden;min-height:260px;transition:border-color .4s}
+.cc{background:rgba(255,255,255,.02);border:1px solid var(--gb);border-radius:16px;overflow:hidden;min-height:260px;transition:opacity .25s ease,border-color .4s}
 .cc.fa{border-color:rgba(245,158,11,.2)}
+.cc.swapping{opacity:0;pointer-events:none}
 .cc-h{display:flex;align-items:center;gap:12px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015)}
 .cc-dots{display:flex;gap:5px}
 .cc-dots span{width:8px;height:8px;border-radius:50%}
@@ -91,7 +66,7 @@ h2 em{color:var(--am);font-style:normal}
 
 .cc-b{padding:32px 24px}
 .pipe{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:28px}
-.pn{display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;transform:scale(.8);transition:all .5s cubic-bezier(.22,1,.36,1)}
+.pn{display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;transform:scale(.9);transition:all .3s cubic-bezier(.22,1,.36,1)}
 .pn.s{opacity:1;transform:scale(1)}
 .pb{width:140px;padding:18px 10px;border-radius:14px;text-align:center;border:1px solid}
 .pb.wrong{background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.15)}
@@ -101,10 +76,10 @@ h2 em{color:var(--am);font-style:normal}
 .pb-l{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 .pb.wrong .pb-l{color:var(--cr)}.pb.right .pb-l{color:var(--gn)}.pb.input .pb-l{color:var(--ac)}.pb.output .pb-l{color:var(--am)}
 .pb-v{font-size:1.02rem;font-weight:700;color:var(--ink);line-height:1.3}
-.pa{width:36px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .4s .2s}
+.pa{width:36px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s .1s}
 .pa.s{opacity:1}
 
-.cr{padding:0 24px 24px;opacity:0;transform:translateY(10px);transition:all .5s .6s}
+.cr{padding:0 24px 24px;opacity:0;transform:translateY(6px);transition:all .3s .25s}
 .cr.s{opacity:1;transform:translateY(0)}
 .cr-n{font-family:var(--mn);font-size:1.35rem;font-weight:700;margin-bottom:6px}
 .cr-n.g{color:var(--gn)}.cr-n.a{color:var(--am)}
@@ -114,10 +89,10 @@ h2 em{color:var(--am);font-style:normal}
 
 .ana-prog{width:100%;height:3px;background:var(--s2);border-radius:2px;margin-top:12px;overflow:hidden}
 .ana-prog-fill{height:100%;width:0;background:var(--ac);border-radius:2px;transition:width .3s linear}
-.ana-prog-fill.running{transition:width 6s linear;width:100%}
+.ana-prog-fill.running{transition:width 6.5s linear;width:100%}
 
 /* ===== DATA PROCESS CANVAS ===== */
-.dpc{margin:24px 0;background:rgba(255,255,255,.02);border:1px solid var(--gb);border-radius:16px;overflow:hidden;position:relative;min-height:380px}
+.dpc{margin:24px 0;background:rgba(255,255,255,.02);border:1px solid var(--gb);border-radius:16px;overflow:hidden;position:relative}
 .dpc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.3),rgba(245,158,11,.2),transparent)}
 .dpc-h{display:flex;align-items:center;gap:12px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015)}
 .dpc-st{font-family:var(--mn);font-size:.75rem;color:var(--gn);display:flex;align-items:center;gap:6px;margin-left:auto}
@@ -134,7 +109,7 @@ h2 em{color:var(--am);font-style:normal}
 .dpc-i.s2{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.2)}
 .dpc-i.s3{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.2)}
 .dpc-i.s4{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.2)}
-.dpc-i.act{box-shadow:0 0 20px rgba(129,140,248,.2)}
+.dpc-i.act{box-shadow:0 0 20px rgba(129,140,248,.2);transform:scale(1.08)}
 .dpc-n{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:3px}
 .dpc-d{font-size:.78rem;color:var(--ink3);max-width:120px;line-height:1.4}
 .dpc-c{width:40px;display:flex;align-items:center;justify-content:center}
@@ -142,7 +117,7 @@ h2 em{color:var(--am);font-style:normal}
 .dpc-lf{height:100%;width:0;background:linear-gradient(90deg,var(--ac),var(--am));border-radius:1px;transition:width .8s cubic-bezier(.22,1,.36,1)}
 .dpc-lf.act{width:100%}
 
-.dpc-out{margin-top:8px;padding:20px 24px;background:rgba(129,140,248,.04);border:1px solid rgba(129,140,248,.1);border-radius:12px;font-family:var(--mn);font-size:.9rem;color:var(--ac);opacity:0;transform:translateY(10px);transition:all .5s;line-height:1.7;position:relative;overflow:hidden;height:80px}
+.dpc-out{margin-top:8px;padding:20px 24px;background:rgba(129,140,248,.04);border:1px solid rgba(129,140,248,.1);border-radius:12px;font-family:var(--mn);font-size:.9rem;color:var(--ac);opacity:0;transform:translateY(10px);transition:all .5s;line-height:1.7;position:relative;overflow:hidden}
 .dpc-out.s{opacity:1;transform:translateY(0)}
 .dpc-out::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.3),transparent)}
 .cur{display:inline-block;width:2px;height:15px;background:var(--ac);margin-left:2px;animation:bl 1s step-end infinite;vertical-align:text-bottom}
@@ -193,24 +168,11 @@ h2 em{color:var(--am);font-style:normal}
 
 @media(max-width:700px){
   .page{padding:0 18px}
-  
-  /* Pipeline: vertical stack on mobile */
-  .pipe{flex-direction:column;gap:0;align-items:stretch}
-  .pa{width:auto;height:24px;transform:rotate(90deg)}
-  .pb{width:100%;padding:14px 12px}
-  .pb-v{font-size:.9rem}
-  .pb-l{font-size:.65rem}
-  .pn{flex-direction:row;gap:12px}
-  .pb{text-align:left;display:flex;align-items:center;gap:10px}
-  
-  /* Process canvas: 2x2 grid */
-  .dpc-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .dpc-c{display:none}
-  .dpc-i{width:52px;height:52px}
-  .dpc-i svg{width:24px;height:24px}
-  .dpc-n{font-size:.82rem}
-  .dpc-out{font-size:.78rem}
-  
+  .pipe{flex-wrap:wrap;gap:8px;justify-content:center}
+  .pa{width:24px}
+  .pb{width:100px;padding:12px 6px}
+  .pb-v{font-size:.82rem}
+  .pb-l{font-size:.62rem}
   .var-wrap{width:280px;height:280px}
   .vo{width:52px;height:52px;font-size:.62rem}
   .var-center{width:72px;height:72px;font-size:.88rem}
@@ -218,6 +180,12 @@ h2 em{color:var(--am);font-style:normal}
   .moat-n .num{font-size:2.2rem}
   .loop-row{gap:4px}
   .lp{padding:9px 14px;font-size:.82rem}
+  .dpc-row{flex-wrap:wrap;justify-content:center;gap:8px}
+  .dpc-c{width:28px}
+  .dpc-i{width:52px;height:52px}
+  .dpc-i svg{width:24px;height:24px}
+  .dpc-n{font-size:.82rem}
+  .dpc-out{font-size:.78rem}
 }
 </style>
 </head>
@@ -256,8 +224,9 @@ h2 em{color:var(--am);font-style:normal}
         <div class="cc-t" id="ct">experiment_log</div>
         <div class="cc-y" id="cy">2002</div>
       </div>
-      <div class="cc-b">
-        <div class="pipe" id="pipe"></div>
+      <div class="cc-b" style="position:relative">
+        <canvas id="ind-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:.55"></canvas>
+        <div class="pipe" id="pipe" style="position:relative;z-index:1"></div>
       </div>
       <div class="cr" id="cr">
         <div class="cr-n g" id="rn">$41M beat $125M</div>
@@ -329,7 +298,7 @@ h2 em{color:var(--am);font-style:normal}
 <!-- S3: VARIABLES -->
 <div class="sec">
   <div class="sn rv">03 · The variables</div>
-  <h2 class="rv">Your ROAS hides behind variables.<br><em>We start with six. We don't stop there.</em></h2>
+  <h2 class="rv">Six variables decide your ROAS.<br><em>We isolate which one.</em></h2>
   <div class="var-wrap rv" style="transition-delay:.08s">
     <div class="var-center">ROAS</div>
     <div class="vo" style="top:2%;left:50%;margin-left:-30px" data-t="> first 3 seconds determine everything — stay or scroll">Hook</div>
@@ -345,7 +314,7 @@ h2 em{color:var(--am);font-style:normal}
 <!-- S4: MOAT -->
 <div class="sec">
   <div class="sn rv">04 · The moat</div>
-  <h2 class="rv">Data compounds.<br><em>Time is the moat.</em></h2>
+  <h2 class="rv">Data compounds. <em>Time is the moat.</em></h2>
   <div class="moat-row rv" id="moat-row" style="transition-delay:.08s">
     <div class="moat-n"><div class="num" id="m1">0</div><div class="lab">campaigns<br>= signal</div></div>
     <div class="moat-n"><div class="num" id="m2">0</div><div class="lab">campaigns<br>= benchmark</div></div>
@@ -370,8 +339,8 @@ h2 em{color:var(--am);font-style:normal}
       <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">Your dashboard shows campaign ROAS — that's batting average. Forge shows which variable inside the campaign drove that ROAS. That's OBP.</div>
     </div>
     <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.1s">
-      <div style="font-size:1.02rem;font-weight:600;margin-bottom:8px">"AI can generate 100 ads in 4 minutes"</div>
-      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">Great. Now you have 100 ads and no idea which variable made the winner win. Next month you generate 100 more — still guessing. Forge tells AI what to make next.</div>
+      <div style="font-size:1.02rem;font-weight:600;margin-bottom:8px">"AI can generate our ads"</div>
+      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">AI creates more ads faster. Without knowing which variables convert, you're scaling noise. Forge tells AI what to make.</div>
     </div>
     <div class="rv" style="background:var(--s1);border:1px solid var(--gb);border-radius:12px;padding:20px 24px;transition-delay:.15s">
       <div style="font-size:1.02rem;font-weight:600;margin-bottom:8px">"Our agency handles creative"</div>
@@ -406,27 +375,583 @@ h2 em{color:var(--am);font-style:normal}
 const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.1,rootMargin:'30px'});
 document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
 
+/* ===== INDUSTRY CANVAS ANIMATIONS ===== */
+const iCvs=document.getElementById('ind-canvas');
+const iCtx=iCvs.getContext('2d');
+let iAnim=null,curInd=0;
+
+function resizeIC(){
+  const r=iCvs.parentElement.getBoundingClientRect();
+  iCvs.width=r.width*2;iCvs.height=r.height*2;
+  iCtx.scale(2,2);
+}
+resizeIC();window.addEventListener('resize',resizeIC);
+
+/* helper: radial glow */
+function glow(x,y,r,color,alpha){
+  const g=iCtx.createRadialGradient(x,y,0,x,y,r);
+  g.addColorStop(0,color.replace('A)',alpha+')'));
+  g.addColorStop(1,color.replace('A)',0+')'));
+  iCtx.fillStyle=g;iCtx.fillRect(x-r,y-r,r*2,r*2);
+}
+
+/* 0: BASEBALL — sabermetrics scatter plot with OBP highlight arc */
+function drawBaseball(t){
+  const w=iCvs.width/2,h=iCvs.height/2;
+  iCtx.clearRect(0,0,w,h);
+
+  /* axis grid — faint */
+  iCtx.strokeStyle='rgba(255,255,255,.03)';iCtx.lineWidth=.5;
+  for(let i=1;i<6;i++){iCtx.beginPath();iCtx.moveTo(w*.08,h*i/6);iCtx.lineTo(w*.92,h*i/6);iCtx.stroke()}
+  for(let i=1;i<8;i++){iCtx.beginPath();iCtx.moveTo(w*i/8,h*.08);iCtx.lineTo(w*i/8,h*.92);iCtx.stroke()}
+
+  /* scatter dots — "wrong" metric (batting avg) fading out, "right" metric (OBP) glowing in */
+  const seeds=[[.15,.7],[.22,.55],[.3,.62],[.38,.48],[.42,.72],[.5,.4],[.55,.58],[.6,.35],[.68,.52],[.72,.28],[.78,.45],[.82,.22],[.88,.38],[.25,.78],[.35,.35],[.48,.6],[.58,.25],[.65,.68],[.75,.55],[.85,.3]];
+  const phase=(t%4000)/4000;
+  const fadeWrong=Math.max(0,1-phase*3);
+  const fadeRight=Math.max(0,Math.min(1,(phase-0.2)*2.5));
+
+  seeds.forEach((s,i)=>{
+    /* old metric — red, fading */
+    if(fadeWrong>0){
+      const a=fadeWrong*(.15+Math.sin(i)*0.08);
+      iCtx.beginPath();iCtx.arc(w*s[0],h*s[1],4,0,Math.PI*2);
+      iCtx.fillStyle=`rgba(239,68,68,${a})`;iCtx.fill();
+    }
+    /* new metric — green, emerging with glow */
+    if(fadeRight>0){
+      const nx=w*s[0]+Math.sin(i*2.5)*w*0.04;
+      const ny=h*(0.85-s[0]*0.7)+Math.cos(i*1.7)*h*0.05;
+      const a=fadeRight*(.3+Math.sin(t/400+i)*0.15);
+      glow(nx,ny,16,'rgba(52,211,153,A)',a*0.3);
+      iCtx.beginPath();iCtx.arc(nx,ny,3.5,0,Math.PI*2);
+      iCtx.fillStyle=`rgba(52,211,153,${a})`;iCtx.fill();
+    }
+  });
+
+  /* trend line sweeping across */
+  if(fadeRight>0){
+    iCtx.beginPath();
+    const lineProgress=Math.min(1,fadeRight*1.5);
+    for(let x=0;x<w*lineProgress;x+=2){
+      const y=h*0.82-x/w*h*0.65+Math.sin(x*0.04)*3;
+      x===0?iCtx.moveTo(w*0.08+x,y):iCtx.lineTo(w*0.08+x,y);
+    }
+    iCtx.strokeStyle=`rgba(52,211,153,${fadeRight*0.5})`;iCtx.lineWidth=2;
+    iCtx.shadowColor='rgba(52,211,153,0.6)';iCtx.shadowBlur=12;iCtx.stroke();iCtx.shadowBlur=0;
+  }
+
+  /* ball trajectory at top — continuous arc with motion blur */
+  const ballT=(t%3500)/3500;
+  const ballX=w*0.1+ballT*w*0.8;
+  const ballY=h*0.18-Math.sin(ballT*Math.PI)*h*0.14;
+  for(let tr=8;tr>=0;tr--){
+    const trT=Math.max(0,ballT-tr*0.015);
+    const trX=w*0.1+trT*w*0.8;
+    const trY=h*0.18-Math.sin(trT*Math.PI)*h*0.14;
+    const a=(1-tr/8)*0.4;
+    iCtx.beginPath();iCtx.arc(trX,trY,3.5-tr*0.3,0,Math.PI*2);
+    iCtx.fillStyle=`rgba(255,255,255,${a})`;iCtx.fill();
+  }
+  glow(ballX,ballY,20,'rgba(255,255,255,A)',0.15);
+}
+
+/* 1: FOOTBALL — tactical heatmap with xG probability zones */
+function drawFootball(t){
+  const w=iCvs.width/2,h=iCvs.height/2;
+  iCtx.clearRect(0,0,w,h);
+
+  /* pitch outline */
+  iCtx.strokeStyle='rgba(52,211,153,0.15)';iCtx.lineWidth=1.5;
+  const px=w*0.05,py=h*0.1,pw=w*0.9,ph=h*0.8;
+  iCtx.strokeRect(px,py,pw,ph);
+  iCtx.beginPath();iCtx.moveTo(px+pw/2,py);iCtx.lineTo(px+pw/2,py+ph);iCtx.stroke();
+  iCtx.beginPath();iCtx.arc(px+pw/2,py+ph/2,ph*0.12,0,Math.PI*2);iCtx.stroke();
+  /* penalty boxes */
+  iCtx.strokeRect(px,py+ph*0.25,pw*0.15,ph*0.5);
+  iCtx.strokeRect(px+pw-pw*0.15,py+ph*0.25,pw*0.15,ph*0.5);
+  /* goal lines */
+  iCtx.strokeStyle='rgba(52,211,153,0.1)';iCtx.lineWidth=1;
+  iCtx.strokeRect(px,py+ph*0.35,pw*0.06,ph*0.3);
+  iCtx.strokeRect(px+pw-pw*0.06,py+ph*0.35,pw*0.06,ph*0.3);
+
+  /* xG shots spread across both halves */
+  const shots=[
+    {x:.22,y:.42,xg:.25,d:0},{x:.35,y:.62,xg:.35,d:.6},
+    {x:.42,y:.35,xg:.42,d:1.2},{x:.28,y:.55,xg:.18,d:1.8},
+    {x:.55,y:.48,xg:.55,d:2.4},{x:.62,y:.32,xg:.65,d:3},
+    {x:.48,y:.7,xg:.48,d:3.6},{x:.72,y:.42,xg:.78,d:4.2},
+    {x:.78,y:.58,xg:.85,d:4.8},{x:.85,y:.48,xg:.92,d:5.4},
+    {x:.38,y:.45,xg:.3,d:2},{x:.58,y:.6,xg:.52,d:3.3}
+  ];
+
+  const cycle=(t%5000)/5000;
+  shots.forEach((s,i)=>{
+    const appear=Math.max(0,Math.min(1,(cycle*7-s.d+1)));
+    if(appear<=0)return;
+    const sx=px+pw*s.x, sy=py+ph*s.y;
+    const radius=s.xg*30+10;
+    const pulse=Math.sin(t/900+i*2)*0.12+0.88;
+
+    /* outer glow zone */
+    glow(sx,sy,radius*pulse*appear,'rgba(52,211,153,A)',s.xg*0.18*appear);
+
+    /* mid ring */
+    iCtx.beginPath();iCtx.arc(sx,sy,radius*0.45*pulse*appear,0,Math.PI*2);
+    iCtx.fillStyle=`rgba(52,211,153,${s.xg*0.12*appear})`;iCtx.fill();
+
+    /* core dot */
+    iCtx.beginPath();iCtx.arc(sx,sy,3*appear,0,Math.PI*2);
+    iCtx.fillStyle=`rgba(255,255,255,${(0.3+s.xg*0.4)*appear})`;iCtx.fill();
+
+    /* xG label for high-value shots */
+    if(appear>0.8&&s.xg>0.5){
+      iCtx.font='500 8px Inter,sans-serif';
+      iCtx.fillStyle=`rgba(52,211,153,${appear*0.5})`;
+      iCtx.fillText(s.xg.toFixed(2),sx+8,sy-8);
+    }
+  });
+
+  /* scanning line — slow */
+  const scanX=px+(cycle*pw*1.2)-pw*0.1;
+  const g=iCtx.createLinearGradient(scanX-25,0,scanX+25,0);
+  g.addColorStop(0,'rgba(52,211,153,0)');g.addColorStop(0.5,'rgba(52,211,153,0.06)');g.addColorStop(1,'rgba(52,211,153,0)');
+  iCtx.fillStyle=g;iCtx.fillRect(scanX-25,py,50,ph);
+}
+
+/* 2: MEDICINE — multi-lead ECG with realistic waveform + vital signs */
+function drawMedicine(t){
+  const w=iCvs.width/2,h=iCvs.height/2;
+  iCtx.clearRect(0,0,w,h);
+
+  /* grid — hospital monitor style */
+  iCtx.strokeStyle='rgba(52,211,153,0.025)';iCtx.lineWidth=.5;
+  for(let y=0;y<h;y+=12){iCtx.beginPath();iCtx.moveTo(0,y);iCtx.lineTo(w,y);iCtx.stroke()}
+  for(let x=0;x<w;x+=12){iCtx.beginPath();iCtx.moveTo(x,0);iCtx.lineTo(x,h);iCtx.stroke()}
+
+  /* ECG waveform function */
+  function ecgWave(phase){
+    const p=((phase%1)+1)%1;
+    if(p<0.08)return Math.sin(p/0.08*Math.PI)*0.05;
+    if(p<0.38)return 0;
+    if(p<0.40)return -0.08;
+    if(p<0.42)return 0.06;
+    if(p<0.44)return -0.15;
+    if(p<0.46)return 1.0;
+    if(p<0.48)return -0.35;
+    if(p<0.52)return 0.08;
+    if(p<0.56)return 0;
+    if(p<0.64)return Math.sin((p-0.56)/0.08*Math.PI)*0.18;
+    return 0;
+  }
+
+  /* lead 1 — main ECG — SLOW sweep */
+  const speed=t*0.0001;
+  const sweep=speed%1;
+  const cy1=h*0.32;
+  iCtx.beginPath();
+  for(let x=0;x<w;x++){
+    const px=x/w;
+    const age=(sweep-px+1)%1;
+    if(age>0.95)continue;
+    const val=ecgWave(px*1.8+speed*1.8);
+    const y=cy1-val*h*0.2;
+    if(x===0||age<0.01)iCtx.moveTo(x,y);else iCtx.lineTo(x,y);
+  }
+  iCtx.strokeStyle='rgba(52,211,153,0.7)';iCtx.lineWidth=2;
+  iCtx.shadowColor='rgba(52,211,153,0.5)';iCtx.shadowBlur=8;iCtx.stroke();iCtx.shadowBlur=0;
+
+  /* lead 2 — SpO2 pulse wave — slow */
+  const cy2=h*0.6;
+  iCtx.beginPath();
+  for(let x=0;x<w;x++){
+    const px=x/w;
+    const age=(sweep-px+1)%1;
+    if(age>0.95)continue;
+    const sharp=Math.pow(Math.sin(((px*2+speed*2)%1)*Math.PI),0.4);
+    const y=cy2-sharp*h*0.08;
+    if(x===0||age<0.01)iCtx.moveTo(x,y);else iCtx.lineTo(x,y);
+  }
+  iCtx.strokeStyle='rgba(129,140,248,0.5)';iCtx.lineWidth=1.5;
+  iCtx.shadowColor='rgba(129,140,248,0.4)';iCtx.shadowBlur=6;iCtx.stroke();iCtx.shadowBlur=0;
+
+  /* lead 3 — respiration — very slow */
+  const cy3=h*0.82;
+  iCtx.beginPath();
+  for(let x=0;x<w;x++){
+    const px=x/w;
+    const age=(sweep-px+1)%1;
+    if(age>0.95)continue;
+    const y=cy3-Math.sin((px*1+speed*1)*Math.PI*2)*h*0.04;
+    if(x===0||age<0.01)iCtx.moveTo(x,y);else iCtx.lineTo(x,y);
+  }
+  iCtx.strokeStyle='rgba(251,191,36,0.35)';iCtx.lineWidth=1;iCtx.stroke();
+
+  /* sweep cursor glow */
+  const cursorX=sweep*w;
+  glow(cursorX,cy1,18,'rgba(52,211,153,A)',0.4);
+  iCtx.beginPath();iCtx.arc(cursorX,cy1,3,0,Math.PI*2);
+  iCtx.fillStyle='rgba(52,211,153,0.9)';iCtx.fill();
+
+  /* vital text */
+  iCtx.font='600 11px "JetBrains Mono",monospace';
+  const bpm=72+Math.floor(Math.sin(t/8000)*2);
+  iCtx.fillStyle=`rgba(52,211,153,${0.45+Math.sin(t/2500)*0.06})`;
+  iCtx.fillText(bpm+' BPM',w*0.82,h*0.2);
+  iCtx.fillStyle='rgba(129,140,248,0.4)';iCtx.fillText('98%',w*0.82,h*0.52);
+  iCtx.fillStyle='rgba(251,191,36,0.3)';iCtx.fillText('16/min',w*0.82,h*0.78);
+}
+
+/* 3: PALANTIR — data fusion: scattered fragments merging into unified pattern */
+function drawPalantir(t){
+  const w=iCvs.width/2,h=iCvs.height/2;
+  iCtx.clearRect(0,0,w,h);
+
+  /* cycle: scatter → drift inward → fuse → pulse outward → scatter */
+  const cycle=(t%10000)/10000;
+
+  /* 16 data fragments — each represents a disparate data source */
+  const frags=[
+    {ox:.08,oy:.15,fx:.42,fy:.42,s:1.1,col:'129,140,248'},
+    {ox:.92,oy:.12,fx:.58,fy:.40,s:1.0,col:'129,140,248'},
+    {ox:.05,oy:.85,fx:.40,fy:.58,s:.9,col:'167,180,255'},
+    {ox:.88,oy:.82,fx:.60,fy:.58,s:.8,col:'167,180,255'},
+    {ox:.15,oy:.5,fx:.43,fy:.48,s:.7,col:'129,140,248'},
+    {ox:.85,oy:.45,fx:.57,fy:.48,s:.9,col:'129,140,248'},
+    {ox:.5,oy:.05,fx:.50,fy:.40,s:1.0,col:'167,180,255'},
+    {ox:.5,oy:.92,fx:.50,fy:.60,s:.8,col:'167,180,255'},
+    {ox:.25,oy:.25,fx:.45,fy:.44,s:.6,col:'129,140,248'},
+    {ox:.75,oy:.25,fx:.55,fy:.44,s:.7,col:'129,140,248'},
+    {ox:.25,oy:.75,fx:.45,fy:.56,s:.6,col:'167,180,255'},
+    {ox:.75,oy:.72,fx:.56,fy:.55,s:.7,col:'167,180,255'},
+    {ox:.12,oy:.35,fx:.42,fy:.46,s:.5,col:'129,140,248'},
+    {ox:.88,oy:.65,fx:.58,fy:.54,s:.5,col:'129,140,248'},
+    {ox:.35,oy:.08,fx:.47,fy:.41,s:.6,col:'167,180,255'},
+    {ox:.65,oy:.9,fx:.53,fy:.59,s:.6,col:'167,180,255'}
+  ];
+
+  /* convergence easing: 0=scattered, 1=fused */
+  let converge;
+  if(cycle<0.35) converge=cycle/0.35;           /* drift in */
+  else if(cycle<0.65) converge=1;                /* hold fused */
+  else if(cycle<0.85) converge=1-(cycle-0.65)/0.2; /* drift out */
+  else converge=0;                                /* scattered */
+  const ease=converge<1?converge*converge*(3-2*converge):1; /* smoothstep */
+
+  /* center fusion point glow — intensifies as fragments converge */
+  const cx=w*0.5,cy=h*0.5;
+  if(ease>0.3){
+    const fuseA=(ease-0.3)/0.7;
+    glow(cx,cy,60*fuseA,'rgba(129,140,248,A)',0.12*fuseA);
+    glow(cx,cy,30*fuseA,'rgba(167,180,255,A)',0.08*fuseA);
+
+    /* fused hexagon — appears when converged */
+    if(ease>0.8){
+      const hexA=(ease-0.8)/0.2;
+      iCtx.save();iCtx.translate(cx,cy);
+      iCtx.rotate(t/8000);
+      iCtx.beginPath();
+      for(let i=0;i<6;i++){
+        const a=i/6*Math.PI*2;
+        const r=22+Math.sin(t/2000)*3;
+        i===0?iCtx.moveTo(Math.cos(a)*r,Math.sin(a)*r):iCtx.lineTo(Math.cos(a)*r,Math.sin(a)*r);
+      }
+      iCtx.closePath();
+      iCtx.strokeStyle=`rgba(129,140,248,${0.25*hexA})`;iCtx.lineWidth=1.5;iCtx.stroke();
+      iCtx.fillStyle=`rgba(129,140,248,${0.03*hexA})`;iCtx.fill();
+      iCtx.restore();
+
+      /* "FUSED" label */
+      iCtx.font='600 7px "JetBrains Mono",monospace';
+      iCtx.fillStyle=`rgba(167,180,255,${0.4*hexA})`;
+      iCtx.textAlign='center';
+      iCtx.fillText('INTEGRATED',cx,cy+38);
+      iCtx.textAlign='left';
+    }
+  }
+
+  /* draw fragments — position interpolates between outer and fused */
+  frags.forEach((f,i)=>{
+    const drift=Math.sin(t/3000+i*1.7)*0.012;
+    const x=w*(f.ox+(f.fx-f.ox)*ease+drift);
+    const y=h*(f.oy+(f.fy-f.oy)*ease+Math.cos(t/3500+i*2.1)*0.012);
+    const breath=Math.sin(t/2000+i*0.9)*0.15+0.85;
+
+    /* trail line from origin to current — shows where data came from */
+    if(ease>0.05&&ease<0.95){
+      const trailA=Math.min(ease,1-ease)*0.08;
+      iCtx.beginPath();
+      iCtx.moveTo(w*f.ox,h*f.oy);
+      iCtx.lineTo(x,y);
+      iCtx.strokeStyle=`rgba(${f.col},${trailA})`;
+      iCtx.lineWidth=0.5;iCtx.stroke();
+    }
+
+    /* connections between nearby fragments — form as they get close */
+    frags.forEach((f2,j)=>{
+      if(j<=i)return;
+      const x2=w*(f2.ox+(f2.fx-f2.ox)*ease);
+      const y2=h*(f2.oy+(f2.fy-f2.oy)*ease);
+      const dx=(x-x2)/w,dy=(y-y2)/h;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<0.18){
+        const connA=(0.18-dist)/0.18*ease*0.12;
+        iCtx.beginPath();iCtx.moveTo(x,y);iCtx.lineTo(x2,y2);
+        iCtx.strokeStyle=`rgba(${f.col},${connA})`;iCtx.lineWidth=0.5;iCtx.stroke();
+      }
+    });
+
+    /* fragment node */
+    glow(x,y,14*f.s*breath,`rgba(${f.col},A)`,0.06*(0.5+ease*0.5));
+    iCtx.beginPath();iCtx.arc(x,y,3.5*f.s*breath,0,Math.PI*2);
+    iCtx.fillStyle=`rgba(${f.col},${(0.3+ease*0.35)*breath})`;iCtx.fill();
+  });
+
+  /* outer ring — scope of data being pulled in */
+  if(ease<0.5){
+    const ringA=(0.5-ease)/0.5*0.06;
+    iCtx.beginPath();iCtx.arc(cx,cy,Math.min(w,h)*0.44,0,Math.PI*2);
+    iCtx.strokeStyle=`rgba(129,140,248,${ringA})`;iCtx.lineWidth=0.5;
+    iCtx.setLineDash([2,6]);iCtx.stroke();iCtx.setLineDash([]);
+  }
+}
+
+
+/* 4: AD CREATIVE / FORGE — A/B test matrix with variable isolation */
+function drawForge(t){
+  const w=iCvs.width/2,h=iCvs.height/2;
+  iCtx.clearRect(0,0,w,h);
+
+  const vars=[
+    {l:'Hook',col:'129,140,248',win:.85},
+    {l:'Creator',col:'52,211,153',win:.65},
+    {l:'Selling Pt',col:'251,191,36',win:.72},
+    {l:'Emotion',col:'239,68,68',win:.45},
+    {l:'CTA',col:'167,139,250',win:.58},
+    {l:'Format',col:'94,234,212',win:.52}
+  ];
+
+  const barX=w*0.04;
+  const barW=w*0.40;
+  const barH=14;
+  const startY=h*0.1;
+  const gap=(h*0.8)/(vars.length);
+  const cycle=(t%6000)/6000;
+  const fillPhase=Math.min(1,cycle*2);
+  const winPhase=Math.max(0,Math.min(1,(cycle-0.4)*2.5));
+
+  /* subtle background grid */
+  iCtx.strokeStyle='rgba(255,255,255,0.015)';iCtx.lineWidth=0.5;
+  for(let y=0;y<h;y+=20){iCtx.beginPath();iCtx.moveTo(0,y);iCtx.lineTo(w,y);iCtx.stroke()}
+  for(let x=0;x<w;x+=20){iCtx.beginPath();iCtx.moveTo(x,0);iCtx.lineTo(x,h);iCtx.stroke()}
+
+  /* --- Left: variable bars --- */
+  vars.forEach((v,i)=>{
+    const y=startY+i*gap;
+    const isWinner=i===0;
+    const barDelay=Math.max(0,Math.min(1,(fillPhase*1.5-i*0.12)));
+
+    iCtx.font='500 8px "JetBrains Mono",monospace';
+    iCtx.fillStyle=`rgba(${v.col},${isWinner&&winPhase>0.5?0.8:0.3})`;
+    iCtx.textAlign='left';
+    iCtx.fillText(v.l,barX,y-5);
+
+    iCtx.fillStyle='rgba(255,255,255,0.025)';
+    iCtx.beginPath();iCtx.roundRect(barX,y,barW,barH,4);iCtx.fill();
+
+    const fillW=barW*v.win*barDelay;
+    if(fillW>1){
+      const barGrad=iCtx.createLinearGradient(barX,0,barX+fillW,0);
+      const alpha=isWinner&&winPhase>0.3?0.55:0.18;
+      barGrad.addColorStop(0,`rgba(${v.col},${alpha*0.2})`);
+      barGrad.addColorStop(1,`rgba(${v.col},${alpha})`);
+      iCtx.fillStyle=barGrad;
+      iCtx.beginPath();iCtx.roundRect(barX,y,fillW,barH,4);iCtx.fill();
+
+      if(isWinner&&winPhase>0.3){
+        const glowAlpha=0.3+Math.sin(t/800)*0.1;
+        iCtx.shadowColor=`rgba(${v.col},${glowAlpha})`;iCtx.shadowBlur=14;
+        iCtx.beginPath();iCtx.roundRect(barX,y,fillW,barH,4);iCtx.fill();
+        iCtx.shadowBlur=0;
+
+        for(let s=0;s<3;s++){
+          const sparkT=(t/400+s*1.3)%1;
+          const sx=barX+fillW+sparkT*12;
+          const sy=y+barH/2+(Math.sin(t/200+s*2)-0.5)*10;
+          const sa=(1-sparkT)*0.6;
+          iCtx.beginPath();iCtx.arc(sx,sy,1.5*(1-sparkT),0,Math.PI*2);
+          iCtx.fillStyle=`rgba(${v.col},${sa})`;iCtx.fill();
+        }
+      }
+
+      if(barDelay>0.6){
+        const pctA=Math.min(1,(barDelay-0.6)*4)*(isWinner&&winPhase>0.5?0.7:0.25);
+        iCtx.font='600 8px "JetBrains Mono",monospace';
+        iCtx.fillStyle=`rgba(${v.col},${pctA})`;
+        iCtx.fillText(Math.round(v.win*100)+'%',barX+fillW+8,y+11);
+      }
+    }
+  });
+
+  /* --- Connection line: bar winner to card --- */
+  const cardX=w*0.54;
+  const cardY=h*0.06;
+  const cardW=w*0.43;
+  const cardH=h*0.88;
+  const cardAlpha=Math.max(0,Math.min(1,(cycle-0.4)*3));
+
+  if(cardAlpha>0.1){
+    const lineFromX=barX+barW*0.85+20;
+    const lineFromY=startY+barH/2;
+    const lineToX=cardX;
+    const lineToY=cardY+30;
+    const lineA=Math.min(cardAlpha,0.15);
+    iCtx.beginPath();
+    iCtx.moveTo(lineFromX,lineFromY);
+    iCtx.bezierCurveTo(lineFromX+30,lineFromY,lineToX-30,lineToY,lineToX,lineToY);
+    iCtx.strokeStyle=`rgba(129,140,248,${lineA})`;iCtx.lineWidth=1;
+    iCtx.setLineDash([4,4]);iCtx.stroke();iCtx.setLineDash([]);
+
+    const connT=((t/2000)%1);
+    const ct2=connT,ct1=1-connT;
+    const dotX=ct1*ct1*ct1*lineFromX+3*ct1*ct1*ct2*(lineFromX+30)+3*ct1*ct2*ct2*(lineToX-30)+ct2*ct2*ct2*lineToX;
+    const dotY=ct1*ct1*ct1*lineFromY+3*ct1*ct1*ct2*lineFromY+3*ct1*ct2*ct2*lineToY+ct2*ct2*ct2*lineToY;
+    iCtx.beginPath();iCtx.arc(dotX,dotY,2,0,Math.PI*2);
+    iCtx.fillStyle=`rgba(129,140,248,${lineA*4})`;iCtx.fill();
+  }
+
+  /* --- Right: winner card --- */
+  if(cardAlpha>0){
+    const cardBg=iCtx.createLinearGradient(cardX,cardY,cardX,cardY+cardH);
+    cardBg.addColorStop(0,`rgba(129,140,248,${0.03*cardAlpha})`);
+    cardBg.addColorStop(1,`rgba(245,158,11,${0.02*cardAlpha})`);
+    iCtx.fillStyle=cardBg;
+    iCtx.strokeStyle=`rgba(129,140,248,${0.1*cardAlpha})`;
+    iCtx.lineWidth=1;
+    iCtx.beginPath();iCtx.roundRect(cardX,cardY,cardW,cardH,12);iCtx.fill();iCtx.stroke();
+
+    const acGrad=iCtx.createLinearGradient(cardX,0,cardX+cardW,0);
+    acGrad.addColorStop(0,'rgba(129,140,248,0)');
+    acGrad.addColorStop(0.3,`rgba(129,140,248,${0.35*cardAlpha})`);
+    acGrad.addColorStop(0.7,`rgba(245,158,11,${0.25*cardAlpha})`);
+    acGrad.addColorStop(1,'rgba(245,158,11,0)');
+    iCtx.fillStyle=acGrad;
+    iCtx.fillRect(cardX,cardY,cardW,2);
+
+    const dotPulse=Math.sin(t/600)*0.3+0.7;
+    iCtx.beginPath();iCtx.arc(cardX+16,cardY+20,3,0,Math.PI*2);
+    iCtx.fillStyle=`rgba(52,211,153,${0.7*cardAlpha*dotPulse})`;iCtx.fill();
+    iCtx.shadowColor=`rgba(52,211,153,${0.4*cardAlpha})`;iCtx.shadowBlur=6;iCtx.fill();iCtx.shadowBlur=0;
+    iCtx.font='600 7px "JetBrains Mono",monospace';
+    iCtx.fillStyle=`rgba(52,211,153,${0.6*cardAlpha})`;
+    iCtx.textAlign='left';
+    iCtx.fillText('WINNER IDENTIFIED',cardX+24,cardY+23);
+
+    iCtx.fillStyle=`rgba(255,255,255,${0.04*cardAlpha})`;
+    iCtx.fillRect(cardX+12,cardY+34,cardW-24,1);
+
+    const comboY=cardY+48;
+    const combos=[
+      {l:'Hook',v:'Result-first',col:'129,140,248'},
+      {l:'Creator',v:'Expert-led',col:'52,211,153'},
+      {l:'Selling',v:'Premium Ingredient',col:'251,191,36'}
+    ];
+    combos.forEach((c,i)=>{
+      const cy2=comboY+i*30;
+      const rowA=Math.max(0,Math.min(1,(cardAlpha-i*0.12)*3));
+      iCtx.beginPath();iCtx.arc(cardX+16,cy2+5,2,0,Math.PI*2);
+      iCtx.fillStyle=`rgba(${c.col},${0.5*rowA})`;iCtx.fill();
+      iCtx.font='500 6.5px "JetBrains Mono",monospace';
+      iCtx.fillStyle=`rgba(255,255,255,${0.25*rowA})`;
+      iCtx.fillText(c.l.toUpperCase(),cardX+24,cy2+2);
+      iCtx.font='600 9.5px Inter,sans-serif';
+      iCtx.fillStyle=`rgba(${c.col},${0.6*rowA})`;
+      iCtx.fillText(c.v,cardX+24,cy2+14);
+    });
+
+    const roasA=Math.max(0,Math.min(1,(cardAlpha-0.4)*3));
+    if(roasA>0){
+      const roasY=comboY+102;
+      const roasBg=iCtx.createLinearGradient(cardX+10,roasY,cardX+cardW-10,roasY);
+      roasBg.addColorStop(0,`rgba(245,158,11,${0.06*roasA})`);
+      roasBg.addColorStop(1,`rgba(245,158,11,${0.02*roasA})`);
+      iCtx.fillStyle=roasBg;
+      iCtx.beginPath();iCtx.roundRect(cardX+10,roasY,cardW-20,50,8);iCtx.fill();
+      iCtx.strokeStyle=`rgba(245,158,11,${0.08*roasA})`;iCtx.lineWidth=0.5;
+      iCtx.beginPath();iCtx.roundRect(cardX+10,roasY,cardW-20,50,8);iCtx.stroke();
+      iCtx.font='500 6.5px "JetBrains Mono",monospace';
+      iCtx.fillStyle=`rgba(245,158,11,${0.5*roasA})`;
+      iCtx.fillText('PREDICTED ROAS',cardX+20,roasY+16);
+      iCtx.font='800 22px Inter,sans-serif';
+      const roasGlow=Math.sin(t/1200)*0.08+0.92;
+      iCtx.fillStyle=`rgba(245,158,11,${0.75*roasA*roasGlow})`;
+      iCtx.shadowColor=`rgba(245,158,11,${0.35*roasA})`;iCtx.shadowBlur=16;
+      iCtx.fillText('3.8x',cardX+20,roasY+42);
+      iCtx.shadowBlur=0;
+      iCtx.font='700 10px Inter,sans-serif';
+      iCtx.fillStyle=`rgba(52,211,153,${0.6*roasA})`;
+      iCtx.fillText('+81%',cardX+78,roasY+42);
+      iCtx.font='400 8px Inter,sans-serif';
+      iCtx.fillStyle=`rgba(255,255,255,${0.2*roasA})`;
+      iCtx.fillText('vs control',cardX+110,roasY+42);
+    }
+
+    const briefA=Math.max(0,Math.min(1,(cardAlpha-0.6)*3));
+    if(briefA>0){
+      const briefY=comboY+163;
+      iCtx.fillStyle=`rgba(52,211,153,${0.04*briefA})`;
+      iCtx.beginPath();iCtx.roundRect(cardX+10,briefY,cardW-20,36,8);iCtx.fill();
+      const accentGrad=iCtx.createLinearGradient(cardX+10,briefY,cardX+10,briefY+36);
+      accentGrad.addColorStop(0,`rgba(52,211,153,${0.3*briefA})`);
+      accentGrad.addColorStop(1,`rgba(52,211,153,${0.05*briefA})`);
+      iCtx.fillStyle=accentGrad;
+      iCtx.fillRect(cardX+10,briefY,2.5,36);
+      iCtx.font='600 6.5px "JetBrains Mono",monospace';
+      iCtx.fillStyle=`rgba(52,211,153,${0.5*briefA})`;
+      iCtx.fillText('NEXT EXPERIMENT \u2192',cardX+20,briefY+14);
+      iCtx.font='500 8.5px Inter,sans-serif';
+      iCtx.fillStyle=`rgba(255,255,255,${0.4*briefA})`;
+      iCtx.fillText('Test Urgency vs Curiosity CTA',cardX+20,briefY+28);
+    }
+  }
+
+  iCtx.textAlign='start';
+}
+
+
+const indDrawers=[drawBaseball,drawFootball,drawMedicine,drawPalantir,drawForge];
+function indLoop(t){
+  indDrawers[curInd](t);
+  iAnim=requestAnimationFrame(indLoop);
+}
+function startInd(i){
+  curInd=i;
+  if(!iAnim)iAnim=requestAnimationFrame(indLoop);
+}
+function stopInd(){if(iAnim){cancelAnimationFrame(iAnim);iAnim=null}}
+startInd(0);
+
 /* ===== PATTERN CANVAS ===== */
 const ad=[
   {t:'moneyball_analysis',y:'2002',nodes:[
-    {c:'input',l:'Input',v:'Player Stats'},{c:'wrong',l:'Measured',v:'Batting Avg (.310)'},
-    {c:'right',l:'Should\'ve',v:'OBP (.391)'},{c:'output',l:'Result',v:'103 Wins'}
+    {c:'input',l:'Input',v:'Player Stats'},{c:'wrong',l:'What they saw',v:'Batting Avg (.310)'},
+    {c:'right',l:'What won',v:'OBP (.391)'},{c:'output',l:'Result',v:'103 Wins'}
   ],n:'$41M beat $125M',nc:'g',tx:'The A\'s won 103 games. Same players, different variable, different outcome.',tg:'variable > budget',tc:''},
   {t:'xg_model',y:'2012',nodes:[
-    {c:'input',l:'Input',v:'Match Data'},{c:'wrong',l:'Measured',v:'Goals Scored'},
-    {c:'right',l:'Should\'ve',v:'Expected Goals (xG)'},{c:'output',l:'Result',v:'74% Accuracy'}
+    {c:'input',l:'Input',v:'Match Data'},{c:'wrong',l:'What they saw',v:'Goals Scored'},
+    {c:'right',l:'What won',v:'Expected Goals (xG)'},{c:'output',l:'Result',v:'74% Accuracy'}
   ],n:'74% prediction accuracy',nc:'g',tx:'The scoreboard lied. Shot quality predicted the future.',tg:'quality > quantity',tc:''},
   {t:'rct_framework',y:'1948',nodes:[
-    {c:'input',l:'Input',v:'Patient Data'},{c:'wrong',l:'Measured',v:'Doctor\'s Intuition'},
-    {c:'right',l:'Should\'ve',v:'Controlled Trials'},{c:'output',l:'Result',v:'Evidence-Based'}
+    {c:'input',l:'Input',v:'Patient Data'},{c:'wrong',l:'What they trusted',v:'Doctor\'s Intuition'},
+    {c:'right',l:'What worked',v:'Controlled Trials'},{c:'output',l:'Result',v:'Evidence-Based'}
   ],n:'One variable at a time',nc:'g',tx:'Medicine went from guessing to knowing. The method was isolation.',tg:'rigor > intuition',tc:''},
   {t:'palantir_fusion',y:'2003',nodes:[
-    {c:'input',l:'Input',v:'Raw Signals'},{c:'wrong',l:'Measured',v:'Individual Data'},
-    {c:'right',l:'Should\'ve',v:'Fused Patterns'},{c:'output',l:'Result',v:'"What to do next"'}
+    {c:'input',l:'Input',v:'Raw Signals'},{c:'wrong',l:'What they had',v:'Siloed Data'},
+    {c:'right',l:'What changed it',v:'Fused Patterns'},{c:'output',l:'Result',v:'"What to do next"'}
   ],n:'"What to do next"',nc:'g',tx:'Palantir built the integration layer. The loop tightened every cycle.',tg:'integration > isolation',tc:''},
   {t:'forge_experiment',y:'Now',nodes:[
-    {c:'input',l:'Input',v:'TikTok CSV'},{c:'wrong',l:'Measured',v:'Campaign ROAS'},
-    {c:'right',l:'Should\'ve',v:'Variable ROAS'},{c:'output',l:'Result',v:'Next Brief'}
+    {c:'input',l:'Input',v:'TikTok CSV'},{c:'wrong',l:'What you see',v:'Campaign ROAS'},
+    {c:'right',l:'What decides it',v:'Variable ROAS'},{c:'output',l:'Result',v:'Next Brief'}
   ],n:'This hasn\'t happened yet.',nc:'a',tx:'That\'s why Forge exists.',tg:'we\'re building this',tc:'at'}
 ];
 
@@ -450,9 +975,9 @@ function buildPipe(d){
 
 function animPipe(){
   const ns=document.querySelectorAll('.pn'),as=document.querySelectorAll('.pa');
-  ns.forEach((n,i)=>setTimeout(()=>n.classList.add('s'),i*180));
-  as.forEach((a,i)=>setTimeout(()=>a.classList.add('s'),(i+1)*180+80));
-  setTimeout(()=>document.getElementById('cr').classList.add('s'),ns.length*180+200);
+  ns.forEach((n,i)=>setTimeout(()=>n.classList.add('s'),i*100));
+  as.forEach((a,i)=>setTimeout(()=>a.classList.add('s'),(i+1)*100+50));
+  setTimeout(()=>document.getElementById('cr').classList.add('s'),ns.length*100+120);
 }
 
 function resetProg(){const p=document.getElementById('ana-prog');p.classList.remove('running');p.style.width='0';void p.offsetWidth;p.classList.add('running')}
@@ -461,9 +986,9 @@ function setA(i){
   ai=i;
   document.querySelectorAll('.ana-tab').forEach((t,x)=>t.classList.toggle('on',x===i));
   const card=document.getElementById('cc');
-  card.style.opacity='.3';card.classList.toggle('fa',i===4);
+  card.classList.add('swapping');
+  card.classList.toggle('fa',i===4);
   document.getElementById('cr').classList.remove('s');
-  resetProg();
   setTimeout(()=>{
     const d=ad[i];
     document.getElementById('ct').textContent=d.t;
@@ -473,16 +998,27 @@ function setA(i){
     document.getElementById('rt').textContent=d.tx;
     document.getElementById('rtag').textContent=d.tg;
     document.getElementById('rtag').className='cr-tag '+d.tc;
-    buildPipe(d);card.style.opacity='1';
-    setTimeout(animPipe,100);
-  },250);
-  clearInterval(at);at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},6500);
+    buildPipe(d);
+    startInd(i);
+    card.classList.remove('swapping');
+    setTimeout(animPipe,60);
+  },280);
+  /* per-tab display duration: palantir waits for full fusion, ad creative gets more time */
+  const durations=[7000,7000,7000,11000,10000];
+  const dur=durations[i]||7000;
+  clearInterval(at);
+  /* sync progress bar to this tab's duration */
+  const progEl=document.getElementById('ana-prog');
+  progEl.classList.remove('running');progEl.style.transition='none';progEl.style.width='0';
+  void progEl.offsetWidth;
+  progEl.style.transition='width '+((dur-500)/1000)+'s linear';progEl.style.width='100%';
+  at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},dur);
 }
 
 buildPipe(ad[0]);setTimeout(()=>{animPipe()},400);
 setTimeout(()=>document.getElementById('cr').classList.add('s'),1000);
 
-const aob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!at){resetProg();at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},6500)}else if(!x.isIntersecting&&at){clearInterval(at);at=null}})},{threshold:.3});
+const aob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!at){resetProg();startInd(ai);const durations=[7000,7000,7000,11000,10000];at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},durations[ai]||7000)}else if(!x.isIntersecting&&at){clearInterval(at);at=null;stopInd()}})},{threshold:.3});
 const atab=document.getElementById('ana-tabs');if(atab)aob.observe(atab);
 
 /* ===== DATA PROCESS CANVAS ===== */
