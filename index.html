@@ -293,6 +293,10 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
 .metric-pop{animation:metricPop .4s cubic-bezier(.22,1,.36,1)}
 @keyframes metricPop{0%{opacity:.3}50%{opacity:.8}100%{opacity:1}}
 
+/* PREDICTIVE CANVAS */
+.pred-wrap{margin:0 auto 40px;border-radius:16px;background:var(--s1);border:1px solid rgba(255,255,255,.06);overflow:hidden;position:relative;height:340px}
+.pred-wrap canvas{width:100%;height:100%;display:block}
+
 @media(max-width:900px){
   .hi{grid-template-columns:1fr;gap:30px}
 }
@@ -396,6 +400,8 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   .hc-n.settle{transform:scale(1.2) !important}
   /* Forge spark canvas mobile */
   #forge-spark-cvs{width:240px !important;height:240px !important}
+  /* Predictive canvas mobile */
+  .pred-wrap{height:240px !important}
   /* Thesis card text mobile */
   .thesis-card div[style*="font-size:1.4rem"]{font-size:1.1rem !important}
   /* 100 section AI text mobile */
@@ -571,6 +577,12 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
     <div class="fa2" id="fa2">→</div>
     <div class="fn rv" style="transition-delay:.3s" id="fn3"><div style="font-family:var(--mn);font-size:.68rem;color:var(--ac)">04</div><div style="font-size:1rem;font-weight:600;margin:8px 0 4px">Next brief</div><div style="font-size:.88rem;color:var(--ink2)">"Change this.<br>Here's why."</div></div>
   </div>
+  
+  <!-- PREDICTIVE OUTPUT CANVAS -->
+  <div class="pred-wrap rv">
+    <canvas id="pred-canvas"></canvas>
+  </div>
+
   <div class="bd rv" id="forge-scope">
     <div class="bc" id="forge-does" style="border-left:2px solid var(--gn)"><div class="bt" style="color:var(--gn)">✓ Forge does</div><div class="bi fd-item" style="opacity:.3;transition:all .4s">Experiment design + variable isolation</div><div class="bi fd-item" style="opacity:.3;transition:all .4s">Creator shooting brief</div><div class="bi fd-item" style="opacity:.3;transition:all .4s">Data collection + AI analysis</div><div class="bi fd-item" style="opacity:.3;transition:all .4s">ROAS report + next campaign brief</div></div>
     <div class="bc" style="border-left:2px solid var(--cr)"><div class="bt" style="color:var(--cr)">✕ Never does</div><div class="bi">Creator sourcing or matching</div><div class="bi">Video production or editing</div><div class="bi">Ad execution or management</div><div class="bi">Landing page changes or CRO</div></div>
@@ -793,7 +805,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   <div style="max-width:800px;margin:0 auto;text-align:center">
     <a href="#" style="text-decoration:none"><div style="font-size:1.3rem;font-weight:800;color:#f59e0b;text-shadow:0 0 12px rgba(249,115,22,.3);margin-bottom:6px">forge<span style="color:#ef4444">.</span></div></a>
     <div style="font-size:.88rem;color:var(--ink3);margin-bottom:6px">Experiment infrastructure for ad creative</div>
-    <div style="font-size:.88rem;margin-bottom:20px"><a href="mailto:hello@forgexlab.co" style="color:var(--ac);text-decoration:none">hello@forgexlab.co</a></div>
+    <div style="font-size:.88rem;margin-bottom:20px"><a href="/cdn-cgi/l/email-protection#aac2cfc6c6c5eaccc5d8cdcfd2c6cbc884c9c5" style="color:var(--ac);text-decoration:none"><span class="__cf_email__" data-cfemail="7b131e1717143b1d14091c1e03171a19551814">[email&#160;protected]</span></a></div>
     <div style="display:flex;justify-content:center;gap:24px;margin-bottom:28px;flex-wrap:wrap">
       <a href="#health" style="font-size:.82rem;color:var(--ink3);text-decoration:none;transition:.2s">Free Analysis</a>
       <a href="#how" style="font-size:.82rem;color:var(--ink3);text-decoration:none;transition:.2s">How it works</a>
@@ -815,7 +827,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══ CTA CONFIG ═══════════════════════════════════════
    url + badge: shared across all CTAs
    Button text: set per location via data-cta="label"
@@ -1321,7 +1333,7 @@ function forgeStrike(e,el){
   }
   
   let frame=0;
-  function draw(){
+  function drawSpark(){
     ctx.clearRect(0,0,800,800);
     
     /* IMPACT FLASH — massive radial burst */
@@ -1401,18 +1413,116 @@ function forgeStrike(e,el){
     });
     
     frame++;
-    if(alive>0&&frame<130){
-      requestAnimationFrame(draw);
-    }else{
-      ctx.clearRect(0,0,800,800);
-    }
+    if(alive>0)requestAnimationFrame(drawSpark);
   }
-  draw();
-  
-  setTimeout(()=>{
-    window.open('Forge-Doc20-StrategicAnalogies-v3.html','_blank');
-  },600);
+  drawSpark();
 }
+</script>
+
+<!-- PREDICTIVE CANVAS SCRIPT -->
+<script>
+(function(){
+  const c=document.getElementById('pred-canvas');
+  if(!c)return;
+  const ctx=c.getContext('2d');
+  let started=false,startT=0;
+  function rsz(){
+    const r=c.parentElement.getBoundingClientRect();
+    c.width=r.width*2;c.height=r.height*2;
+    ctx.scale(2,2);
+  }
+  rsz();
+  window.addEventListener('resize',rsz);
+  const W=()=>c.width/2,H=()=>c.height/2;
+  function rgba(hex,a){return 'rgba('+parseInt(hex.slice(1,3),16)+','+parseInt(hex.slice(3,5),16)+','+parseInt(hex.slice(5,7),16)+','+a+')';}
+  const C={am:'#f59e0b',ind:'#818cf8',gn:'#34d399',cr:'#ef4444',tx:'#fafafa',dm:'#c4c4cc'};
+  const steps=[
+    {t:0,   tp:'in',  lb:'NEW BRAND',     v1:'Skincare · $15K/mo', v2:'3 creators',          cl:C.am},
+    {t:1.2, tp:'pr',  lb:'FORGE.PREDICT',  v1:'beauty × mid-price', v2:'312 experiments',     cl:C.ind},
+    {t:3.0, tp:'out', lb:'RECOMMEND',       v1:'Curiosity hook',     v2:'+18% QoQ emerging',   cl:C.gn},
+    {t:4.2, tp:'out', lb:'AVOID',           v1:'Result-first hook',  v2:'-12% QoQ decaying',   cl:C.cr},
+    {t:5.4, tp:'res', lb:'PREDICTED ROAS',  v1:'3.2x – 3.8x',       v2:'84% confidence',      cl:C.gn},
+  ];
+  const pts=[];for(let i=0;i<18;i++)pts.push({a:Math.random()*Math.PI*2,d:10+Math.random()*25,s:0.4+Math.random(),sz:1+Math.random()});
+  function draw(){
+    const w=W(),h=H();ctx.clearRect(0,0,w,h);
+    const now=performance.now()*0.001;
+    if(!started){startT=now;started=true}
+    const cycle=(now-startT)%13,t=Math.min(cycle,8);
+    const sm=v=>v*v*(3-2*v);
+    const mob=w<450;
+    /* 4 columns — proportional spacing, no clipping */
+    const pad=mob?20:40;
+    const usable=w-pad*2;
+    const c1=pad+usable*0.10,c2=pad+usable*0.35,c3=pad+usable*0.60,c4=pad+usable*0.87;
+    const my=h*0.5,ly=my;
+    /* Backbone line (desktop) */
+    if(!mob){
+      const fp=sm(Math.min(1,t/3));
+      if(fp>0){
+        const le=c1+(c4+30-c1)*fp;
+        ctx.setLineDash([3,5]);ctx.beginPath();ctx.moveTo(c1,ly);ctx.lineTo(le,ly);
+        ctx.strokeStyle='rgba(129,140,248,.18)';ctx.lineWidth=1;ctx.stroke();ctx.setLineDash([]);
+        const dx=c1+(le-c1)*((now*0.3)%1);
+        ctx.beginPath();ctx.arc(dx,ly,2.5,0,Math.PI*2);ctx.fillStyle='rgba(129,140,248,.4)';ctx.fill();
+      }
+      /* Arrows */
+      function arr(x1,x2,a){ctx.strokeStyle=rgba(C.tx,0.2*a);ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x1,ly);ctx.lineTo(x2,ly);ctx.stroke();ctx.beginPath();ctx.moveTo(x2-4,ly-3);ctx.lineTo(x2,ly);ctx.lineTo(x2-4,ly+3);ctx.stroke();}
+      const aa=sm(Math.min(1,t/1.5));
+      if(aa>0)arr(c1+60,c2-55,aa);
+      if(t>1.5)arr(c2+60,c3-55,sm(Math.min(1,(t-1.5)/1)));
+      if(t>4.5)arr(c3+55,c4-72,sm(Math.min(1,(t-4.5)/1)));
+    }
+    /* Zone labels */
+    ctx.font='600 '+(mob?8:9)+'px "JetBrains Mono"';ctx.textAlign='center';ctx.fillStyle=rgba(C.tx,0.25);
+    ctx.fillText('INPUT',c1,mob?16:24);ctx.fillText('PROCESS',c2,mob?16:24);
+    ctx.fillText('SIGNALS',c3,mob?16:24);ctx.fillText('PREDICTION',c4,mob?16:24);
+    /* Cards */
+    steps.forEach(function(s,si){
+      var st=t-s.t;if(st<0)return;
+      var rv=sm(Math.min(1,st/0.7));
+      var sx,sy,cw,ch;
+      /* Sizing — scaled to usable width */
+      var bw=usable*0.22;/* base card width */
+      if(mob)bw=usable*0.26;
+      if(s.tp==='in')       {sx=c1;sy=my-30;cw=bw;ch=60;}
+      else if(s.tp==='pr')  {sx=c2;sy=my-30;cw=bw;ch=60;}
+      else if(si===2)       {sx=c3;sy=my-70;cw=bw;ch=54;}
+      else if(si===3)       {sx=c3;sy=my+18;cw=bw;ch=54;}
+      else                  {sx=c4;sy=my-38;cw=bw*1.15;ch=74;}
+      ctx.globalAlpha=rv;
+      /* RESULT card */
+      if(s.tp==='res'){
+        var gl=ctx.createRadialGradient(sx,sy+ch/2,0,sx,sy+ch/2,cw*0.7);
+        gl.addColorStop(0,rgba(C.gn,0.1));gl.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.fillStyle=gl;ctx.fillRect(sx-cw,sy-12,cw*2,ch+24);
+        ctx.fillStyle=rgba(C.gn,0.06);ctx.beginPath();ctx.roundRect(sx-cw/2,sy,cw,ch,10);ctx.fill();
+        ctx.strokeStyle=rgba(C.gn,0.4);ctx.lineWidth=1.5;ctx.beginPath();ctx.roundRect(sx-cw/2,sy,cw,ch,10);ctx.stroke();
+        var f1=mob?9:11,f2=mob?20:26,f3=mob?9:11;
+        ctx.font='700 '+f1+'px "JetBrains Mono"';ctx.fillStyle=rgba(C.gn,0.9);ctx.textAlign='center';ctx.fillText(s.lb,sx,sy-10);
+        ctx.font='800 '+f2+'px "JetBrains Mono"';ctx.fillStyle=C.gn;ctx.textBaseline='middle';ctx.fillText(s.v1,sx,sy+ch*0.4);
+        ctx.font='600 '+f3+'px "JetBrains Mono"';ctx.fillStyle=rgba(C.tx,0.55);ctx.fillText(s.v2,sx,sy+ch*0.73);
+        ctx.globalAlpha=1;return;
+      }
+      /* Standard cards */
+      ctx.fillStyle=rgba(s.cl,s.tp==='pr'?0.07:0.05);ctx.beginPath();ctx.roundRect(sx-cw/2,sy,cw,ch,8);ctx.fill();
+      ctx.strokeStyle=rgba(s.cl,0.35);ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(sx-cw/2,sy,cw,ch,8);ctx.stroke();
+      var lf=mob?8:10,vf=mob?11:14,sf=mob?9:11;
+      ctx.font='700 '+lf+'px "JetBrains Mono"';ctx.fillStyle=rgba(s.cl,0.9);ctx.textAlign='center';ctx.fillText(s.lb,sx,sy-7);
+      ctx.font='700 '+vf+'px "JetBrains Mono"';ctx.fillStyle=C.tx;ctx.textBaseline='middle';ctx.fillText(s.v1,sx,sy+ch*0.35);
+      if(s.v2){ctx.font='600 '+sf+'px "JetBrains Mono"';ctx.fillStyle=s.tp==='out'?rgba(s.cl,0.85):rgba(C.dm,0.65);ctx.fillText(s.v2,sx,sy+ch*0.65);}
+      ctx.globalAlpha=1;
+      /* Proc particles */
+      if(s.tp==='pr'&&st<2.2){
+        var sp=Math.min(1,st/0.4)*Math.max(0,1-(st-1.5)/0.7);
+        pts.forEach(function(p){var pa=p.a+now*p.s;var px=sx+Math.cos(pa)*p.d*(0.3+sp*0.7);var py=sy+ch/2+Math.sin(pa)*p.d*0.5;ctx.beginPath();ctx.arc(px,py,p.sz,0,Math.PI*2);ctx.fillStyle=rgba(C.ind,sp*0.4);ctx.fill();});
+      }
+    });
+    requestAnimationFrame(draw);
+  }
+  var pOb=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){draw();pOb.unobserve(x.target)}})},{threshold:0.15});
+  pOb.observe(c.parentElement);
+})();
 </script>
 </body>
 </html>
