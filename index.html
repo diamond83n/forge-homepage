@@ -297,6 +297,9 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
 .pred-wrap{margin:0 auto 40px;border-radius:16px;background:var(--s1);border:1px solid rgba(255,255,255,.06);overflow:hidden;position:relative;height:340px}
 .pred-wrap canvas{width:100%;height:100%;display:block}
 
+/* PAGE TRANSITION OVERLAY */
+.page-fade{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:9999;opacity:0;pointer-events:none;transition:opacity .6s ease}
+
 @media(max-width:900px){
   .hi{grid-template-columns:1fr;gap:30px}
 }
@@ -401,7 +404,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   /* Forge spark canvas mobile */
   #forge-spark-cvs{width:240px !important;height:240px !important}
   /* Predictive canvas mobile */
-  .pred-wrap{height:240px !important}
+  .pred-wrap{display:none !important}
   /* Thesis card text mobile */
   .thesis-card div[style*="font-size:1.4rem"]{font-size:1.1rem !important}
   /* 100 section AI text mobile */
@@ -410,6 +413,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
 </style>
 </head>
 <body>
+<div class="page-fade" id="page-fade"></div>
 
 <nav>
   <a href="#" class="logo" style="text-decoration:none">forge<span>.</span></a>
@@ -512,7 +516,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   <!-- THESIS LINK -->
   <div class="thesis-card" id="thesis-card">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:24px">
-      <div onclick="window.open('Forge-Doc20-StrategicAnalogies-v3.html','_blank')" style="cursor:pointer;flex:1">
+      <div onclick="smoothNav('Forge-Doc20-StrategicAnalogies-v3.html')" style="cursor:pointer;flex:1">
         <div style="font-family:var(--mn);font-size:.72rem;color:#f59e0b;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px">Our thesis</div>
         <div style="font-size:1.4rem;font-weight:800;line-height:1.45;color:#fafafa;letter-spacing:-.02em">Every industry that learned to measure<br>the right variable <span style="background:linear-gradient(135deg,#fde68a,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 12px rgba(245,158,11,.4))">rewrote its playbook.</span></div>
       </div>
@@ -1240,6 +1244,14 @@ const ctOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
 }})},{threshold:.2});
 const ctEl=document.getElementById('comp-table');if(ctEl)ctOb.observe(ctEl);
 
+/* ═══ SMOOTH PAGE TRANSITION ═══ */
+function smoothNav(url){
+  const fade=document.getElementById('page-fade');
+  fade.style.pointerEvents='all';
+  fade.style.opacity='1';
+  setTimeout(()=>{window.open(url,'_blank');fade.style.opacity='0';setTimeout(()=>{fade.style.pointerEvents='none'},600)},500);
+}
+
 /* ═══ FORGE ANVIL SPARK — CLICK EFFECT ═══ */
 function forgeStrike(e,el){
   e.stopPropagation();
@@ -1247,6 +1259,9 @@ function forgeStrike(e,el){
   cvs.width=800;cvs.height=800;
   const ctx=cvs.getContext('2d');
   const cx=400,cy=400;
+  
+  /* Navigate to thesis after spark settles */
+  setTimeout(()=>{smoothNav('Forge-Doc20-StrategicAnalogies-v3.html')},800);
   
   /* logo flash — white-hot explosion */
   const logo=document.getElementById('forge-logo-text');
