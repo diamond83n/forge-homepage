@@ -11,6 +11,10 @@
 <meta property="og:description" content="Every industry that learned faster found the variable everyone else ignored. Ad creative is next.">
 <meta property="og:url" content="https://forgexlab.co/thesis">
 <meta property="og:site_name" content="Forge">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -192,7 +196,7 @@ h2 em{color:var(--am);font-style:normal}
 <body>
 
 <!-- COVER -->
-<div class="cover">
+<div class="cover" id="cover-main">
   <div>
     <div class="cv-badge rv">forge · our thesis</div>
     <h1 class="rv" style="transition-delay:.1s">Every satisfying answer starts<br>with the <em>right variable.</em></h1>
@@ -218,17 +222,17 @@ h2 em{color:var(--am);font-style:normal}
       <div class="ana-tab ft" onclick="setA(4)">📊 Ad Creative</div>
     </div>
 
-    <div class="cc" id="cc">
-      <div class="cc-h">
+    <div class="cc" id="cc" style="position:relative">
+      <canvas id="ind-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:.55;z-index:0"></canvas>
+      <div class="cc-h" style="position:relative;z-index:1">
         <div class="cc-dots"><span></span><span></span><span></span></div>
         <div class="cc-t" id="ct">experiment_log</div>
         <div class="cc-y" id="cy">2002</div>
       </div>
-      <div class="cc-b" style="position:relative">
-        <canvas id="ind-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:.55"></canvas>
-        <div class="pipe" id="pipe" style="position:relative;z-index:1"></div>
+      <div class="cc-b" style="position:relative;z-index:1">
+        <div class="pipe" id="pipe"></div>
       </div>
-      <div class="cr" id="cr">
+      <div class="cr" id="cr" style="position:relative;z-index:1">
         <div class="cr-n g" id="rn">$41M beat $125M</div>
         <div class="cr-t" id="rt">The A's won 103 games. Same players, different variable, different outcome.</div>
         <div class="cr-tag" id="rtag">variable > budget</div>
@@ -381,7 +385,7 @@ const iCtx=iCvs.getContext('2d');
 let iAnim=null,curInd=0;
 
 function resizeIC(){
-  const r=iCvs.parentElement.getBoundingClientRect();
+  const r=document.getElementById('cc').getBoundingClientRect();
   iCvs.width=r.width*2;iCvs.height=r.height*2;
   iCtx.scale(2,2);
 }
