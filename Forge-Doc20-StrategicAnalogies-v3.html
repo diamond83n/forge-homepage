@@ -146,7 +146,7 @@ h2 em{color:var(--am);font-style:normal}
 .var-wrap{position:relative;width:100%;max-width:560px;aspect-ratio:1;margin:32px auto 0}
 .var-center,.vo,.var-canvas{display:none}
 .vo.on{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.35);color:var(--am);transform:scale(1.15);box-shadow:0 0 16px rgba(245,158,11,.1)}
-.vtip{text-align:left;font-family:var(--mn);font-size:.92rem;color:#4ade80;margin-top:20px;padding:14px 20px;height:90px;line-height:1.7;font-weight:400;background:rgba(0,20,10,.4);border:1px solid rgba(52,211,153,.15);border-radius:12px;position:relative;text-shadow:0 0 6px rgba(74,222,128,.2);overflow:hidden}
+.vtip{text-align:left;font-family:var(--mn);font-size:.92rem;color:#4ade80;margin-top:20px;padding:14px 20px;min-height:24px;line-height:1.7;font-weight:400;background:rgba(0,20,10,.4);border:1px solid rgba(52,211,153,.15);border-radius:12px;position:relative;text-shadow:0 0 6px rgba(74,222,128,.2)}
 .vtip::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,.3),transparent)}
 
 /* MOAT */
@@ -181,6 +181,7 @@ h2 em{color:var(--am);font-style:normal}
   .pb-l{font-size:.6rem}
   .var-wrap{max-width:320px}
   .sec div[style*="grid-template-columns:1fr 1fr"][style*="gap:40px"]{grid-template-columns:1fr !important;gap:20px !important}
+  .sec div[style*="grid-template-columns:1fr 1.2fr"]{grid-template-columns:1fr !important;gap:20px !important}
   .moat-row{gap:24px}
   .moat-n .num{font-size:2.2rem}
   .loop-row{gap:4px;flex-wrap:wrap;justify-content:center}
@@ -327,7 +328,7 @@ h2 em{color:var(--am);font-style:normal}
     <div>
       <div class="sn rv">03 · The variables</div>
       <h2 class="rv">Six variables decide your ROAS.<br><em>We isolate which one.</em></h2>
-      <div class="vtip rv" id="vtip" style="transition-delay:.15s;margin-top:16px">> each variable orbits ROAS — tap to isolate</div>
+      <div class="vtip rv" id="vtip" style="transition-delay:.15s;margin-top:16px">> each variable orbits ROAS — tap any to isolate its effect</div>
     </div>
     <div class="var-wrap rv" style="transition-delay:.08s;margin:0;max-width:100%;min-height:400px">
       <canvas id="var-canvas" style="width:100%;height:100%;display:block"></canvas>
@@ -1028,7 +1029,7 @@ function setA(i){
     setTimeout(animPipe,60);
   },280);
   /* per-tab display duration: palantir waits for full fusion, ad creative gets more time */
-  const durations=[7000,7000,7000,11000,10000];
+  const durations=[5000,5000,5000,7000,7000];
   const dur=durations[i]||7000;
   clearInterval(at);
   /* sync progress bar to this tab's duration */
@@ -1081,10 +1082,10 @@ const pcE=document.getElementById('dpc');if(pcE)pcOb.observe(pcE);
 /* ===== SHARED TYPING FUNCTION ===== */
 function typeInto(el,text,speed,cb){
   let idx=0;
-  el.innerHTML='';
+  el.innerHTML='<span style="visibility:hidden">'+text+'</span>';
   function tick(){
     if(idx<=text.length){
-      el.innerHTML=text.substring(0,idx)+'<span class="cur"></span>';
+      el.innerHTML=text.substring(0,idx)+'<span class="cur"></span>'+'<span style="visibility:hidden">'+text.substring(idx)+'</span>';
       idx++;
       setTimeout(tick,speed+Math.random()*15);
     }else{
@@ -1123,12 +1124,12 @@ document.querySelectorAll('.lp').forEach(n=>{n.onclick=()=>{clearInterval(lt);sL
   rsz();window.addEventListener('resize',rsz);
   const W=()=>vc.width/2,H=()=>vc.height/2;
   const vars=[
-    {name:'Hook',color:'rgba(129,140,248,',tip:'> first 3 seconds determine everything'},
-    {name:'Creator',color:'rgba(52,211,153,',tip:'> same script + different creator = different ROAS'},
-    {name:'Selling Pt',color:'rgba(245,158,11,',tip:'> the message that converts interest into purchase'},
-    {name:'Emotion',color:'rgba(248,113,113,',tip:'> what turns maybe into buy now'},
-    {name:'CTA',color:'rgba(167,139,250,',tip:'> how attention becomes a click'},
-    {name:'Format',color:'rgba(34,211,238,',tip:'> 15s vs 30s — same variable, different result'}
+    {name:'Hook',color:'rgba(129,140,248,',tip:'> the first 3 seconds determine everything — stay or scroll'},
+    {name:'Creator',color:'rgba(52,211,153,',tip:'> same script + different creator type = completely different ROAS'},
+    {name:'Selling Pt',color:'rgba(245,158,11,',tip:'> the core message that converts viewer interest into purchase'},
+    {name:'Emotion',color:'rgba(248,113,113,',tip:'> the emotional trigger that turns a maybe into a buy now'},
+    {name:'CTA',color:'rgba(167,139,250,',tip:'> the mechanism that converts passive attention into a click'},
+    {name:'Format',color:'rgba(34,211,238,',tip:'> 15s vs 30s, AI vs human — same variable, different outcome'}
   ];
   const orbits=[
     {rx:2.6,ry:1.1,rot:0.2,speed:0.5},
@@ -1150,7 +1151,7 @@ document.querySelectorAll('.lp').forEach(n=>{n.onclick=()=>{clearInterval(lt);sL
     const tip=document.getElementById('vtip');
     if(tip){
       if(activeVar>=0)typeInto(tip,vars[activeVar].tip,18);
-      else typeInto(tip,'> each variable orbits ROAS — tap to isolate',18);
+      else typeInto(tip,'> each variable orbits ROAS — tap any to isolate its effect',18);
     }
     if(activeVar>=0){for(let j=0;j<8;j++){const a=Math.random()*Math.PI*2;flowPts.push({x:vars[activeVar].lx,y:vars[activeVar].ly,tx:cx,ty:cy,t:0,sp:.01+Math.random()*.01,sz:2+Math.random()*2,c:vars[activeVar].color,a:.8})}}
   });
