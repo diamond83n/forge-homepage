@@ -49,14 +49,14 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;line-height:1.2;margin-b
 h2 em{color:var(--am);font-style:normal}
 
 /* ===== CANVAS PATTERN ===== */
-.canvas-wrap{margin:32px 0;height:560px;overflow:hidden}
+.canvas-wrap{margin:32px 0;min-height:520px}
 .ana-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
 .ana-tab{padding:9px 18px;border-radius:20px;font-size:.9rem;font-weight:500;border:1px solid var(--gb);background:transparent;color:var(--ink3);cursor:pointer;transition:all .3s;white-space:nowrap}
 .ana-tab.on{background:rgba(129,140,248,.12);border-color:rgba(129,140,248,.3);color:var(--ac)}
 .ana-tab.ft{border-color:rgba(245,158,11,.2);color:var(--am)}
 .ana-tab.ft.on{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.4);color:var(--am)}
 
-.cc{background:rgba(255,255,255,.02);border:1px solid var(--gb);border-radius:20px;overflow:hidden;height:460px;transition:border-color .4s,opacity .25s}
+.cc{background:rgba(255,255,255,.02);border:1px solid var(--gb);border-radius:20px;overflow:hidden;min-height:460px;transition:border-color .4s,opacity .25s}
 .cc.fa{border-color:rgba(245,158,11,.2)}
 .cc.swapping{opacity:0;pointer-events:none}
 .cc-h{display:flex;align-items:center;gap:12px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015)}
@@ -69,7 +69,7 @@ h2 em{color:var(--am);font-style:normal}
 .cc-y{font-family:var(--mn);font-size:.78rem;color:var(--ink3);padding:4px 12px;border-radius:10px;background:rgba(255,255,255,.05)}
 
 .cc-b{padding:32px 24px}
-.pipe{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:28px;height:80px;overflow:hidden}
+.pipe{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:28px}
 .pn{display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;transform:scale(.9);transition:all .3s cubic-bezier(.22,1,.36,1)}
 .pn.s{opacity:1;transform:scale(1)}
 .pb{width:140px;padding:18px 10px;border-radius:14px;text-align:center;border:1px solid}
@@ -83,7 +83,7 @@ h2 em{color:var(--am);font-style:normal}
 .pa{width:36px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s .1s}
 .pa.s{opacity:1}
 
-.cr{padding:0 24px 24px;opacity:1;height:120px;overflow:hidden}
+.cr{padding:0 24px 24px;opacity:1}
 .cr.s{}
 .cr-n{font-family:var(--mn);font-size:1.35rem;font-weight:700;margin-bottom:6px}
 .cr-n.g{color:var(--gn)}.cr-n.a{color:var(--am)}
@@ -179,6 +179,8 @@ h2 em{color:var(--am);font-style:normal}
   .pb{width:100px;padding:12px 6px}
   .pb-v{font-size:.8rem}
   .pb-l{font-size:.6rem}
+  .pb-v{font-size:.8rem}
+  .pb-l{font-size:.6rem}
   .var-wrap{max-width:320px}
   .sec div[style*="grid-template-columns:1fr 1fr"][style*="gap:40px"]{grid-template-columns:1fr !important;gap:20px !important}
   .sec div[style*="grid-template-columns:1fr 1.2fr"]{grid-template-columns:1fr !important;gap:20px !important}
@@ -196,9 +198,9 @@ h2 em{color:var(--am);font-style:normal}
   .dpc-n{font-size:.8rem}
   .dpc-out{font-size:.75rem}
   .cc-b{padding:20px 16px !important}
-  .cc{height:540px !important}
-  .canvas-wrap{height:620px !important}
-  .cr{padding:0 16px 16px !important;height:130px !important}
+  .cc{min-height:400px !important}
+  .canvas-wrap{min-height:480px !important}
+  .cr{padding:0 16px 16px !important}
   .cr-n{font-size:1.1rem !important}
   .cr-t{font-size:.88rem !important}
   .ana-tabs{justify-content:center}
@@ -1041,7 +1043,7 @@ function setA(i){
 buildPipe(ad[0]);setTimeout(()=>{animPipe()},400);
 setTimeout(()=>document.getElementById('cr').classList.add('s'),1000);
 
-const aob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!at){resetProg();startInd(ai);const durations=[5000,5000,5000,7000,7000];at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},durations[ai]||5000)}else if(!x.isIntersecting&&at){clearInterval(at);at=null;stopInd()}})},{threshold:.3});
+const aob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!at){resetProg();startInd(ai);const durations=[5000,5000,5000,7000,7000];at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},durations[ai]||5000)}else if(!x.isIntersecting&&at){clearInterval(at);at=null;stopInd()}})},{threshold:.05});
 const atab=document.getElementById('ana-tabs');if(atab)aob.observe(atab);
 
 /* ===== DATA PROCESS CANVAS ===== */
@@ -1108,7 +1110,7 @@ function sL(i){
     typeInto(o,ld[i],18,()=>{lTyping=false});
   },150);
 }
-const lob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!lt)lt=setInterval(()=>{li=(li+1)%5;sL(li)},4000);else if(!x.isIntersecting&&lt){clearInterval(lt);lt=null}})},{threshold:.3});
+const lob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!lt)lt=setInterval(()=>{li=(li+1)%5;sL(li)},4000);else if(!x.isIntersecting&&lt){clearInterval(lt);lt=null}})},{threshold:.05});
 const lr=document.getElementById('loop-row');if(lr)lob.observe(lr);
 document.querySelectorAll('.lp').forEach(n=>{n.onclick=()=>{clearInterval(lt);sL(+n.dataset.i);lt=setInterval(()=>{li=(li+1)%5;sL(li)},4000)}});
 
