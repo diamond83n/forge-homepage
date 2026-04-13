@@ -49,14 +49,14 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;line-height:1.2;margin-b
 h2 em{color:var(--am);font-style:normal}
 
 /* ===== CANVAS PATTERN ===== */
-.canvas-wrap{margin:32px 0}
+.canvas-wrap{margin:32px 0;height:560px;overflow:hidden}
 .ana-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
 .ana-tab{padding:9px 18px;border-radius:20px;font-size:.9rem;font-weight:500;border:1px solid var(--gb);background:transparent;color:var(--ink3);cursor:pointer;transition:all .3s;white-space:nowrap}
 .ana-tab.on{background:rgba(129,140,248,.12);border-color:rgba(129,140,248,.3);color:var(--ac)}
 .ana-tab.ft{border-color:rgba(245,158,11,.2);color:var(--am)}
 .ana-tab.ft.on{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.4);color:var(--am)}
 
-.cc{background:rgba(255,255,255,.02);border:1px solid var(--gb);border-radius:20px;overflow:hidden;min-height:320px;transition:opacity .25s ease,border-color .4s}
+.cc{background:rgba(255,255,255,.02);border:1px solid var(--gb);border-radius:20px;overflow:hidden;height:460px;transition:border-color .4s,opacity .25s}
 .cc.fa{border-color:rgba(245,158,11,.2)}
 .cc.swapping{opacity:0;pointer-events:none}
 .cc-h{display:flex;align-items:center;gap:12px;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015)}
@@ -69,7 +69,7 @@ h2 em{color:var(--am);font-style:normal}
 .cc-y{font-family:var(--mn);font-size:.78rem;color:var(--ink3);padding:4px 12px;border-radius:10px;background:rgba(255,255,255,.05)}
 
 .cc-b{padding:32px 24px}
-.pipe{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:28px}
+.pipe{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:28px;height:80px;overflow:hidden}
 .pn{display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;transform:scale(.9);transition:all .3s cubic-bezier(.22,1,.36,1)}
 .pn.s{opacity:1;transform:scale(1)}
 .pb{width:140px;padding:18px 10px;border-radius:14px;text-align:center;border:1px solid}
@@ -83,8 +83,8 @@ h2 em{color:var(--am);font-style:normal}
 .pa{width:36px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s .1s}
 .pa.s{opacity:1}
 
-.cr{padding:0 24px 24px;opacity:0;transform:translateY(6px);transition:all .3s .25s}
-.cr.s{opacity:1;transform:translateY(0)}
+.cr{padding:0 24px 24px;opacity:1;height:120px;overflow:hidden}
+.cr.s{}
 .cr-n{font-family:var(--mn);font-size:1.35rem;font-weight:700;margin-bottom:6px}
 .cr-n.g{color:var(--gn)}.cr-n.a{color:var(--am)}
 .cr-t{font-size:1rem;color:var(--ink2);line-height:1.6;margin-bottom:10px}
@@ -121,7 +121,7 @@ h2 em{color:var(--am);font-style:normal}
 .dpc-lf{height:100%;width:0;background:linear-gradient(90deg,var(--ac),var(--am));border-radius:1px;transition:width .8s cubic-bezier(.22,1,.36,1)}
 .dpc-lf.act{width:100%}
 
-.dpc-out{margin-top:8px;padding:20px 24px;background:rgba(0,20,10,.4);border:1px solid rgba(52,211,153,.15);border-radius:12px;font-family:var(--mn);font-size:.9rem;color:#4ade80;opacity:0;transform:translateY(10px);transition:all .5s;line-height:1.7;text-align:left;position:relative;overflow:hidden;text-shadow:0 0 6px rgba(74,222,128,.2)}
+.dpc-out{margin-top:8px;padding:20px 24px;background:rgba(0,20,10,.4);border:1px solid rgba(52,211,153,.15);border-radius:12px;font-family:var(--mn);font-size:.9rem;color:#4ade80;height:70px;line-height:1.7;text-align:left;position:relative;overflow:hidden;text-shadow:0 0 6px rgba(74,222,128,.2)}
 .dpc-out.s{opacity:1;transform:translateY(0)}
 .dpc-out::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,.3),transparent)}
 .cur{display:inline-block;width:2px;height:15px;background:var(--ac);margin-left:2px;animation:bl 1s step-end infinite;vertical-align:text-bottom}
@@ -137,16 +137,16 @@ h2 em{color:var(--am);font-style:normal}
 .lp{padding:11px 20px;border-radius:28px;font-size:.95rem;font-weight:600;border:1px solid var(--gb);background:var(--s1);transition:all .4s;white-space:nowrap;cursor:pointer}
 .lp.on{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.3);color:#4ade80;box-shadow:0 0 16px rgba(52,211,153,.1);transform:scale(1.05)}
 .lp-a{color:var(--ink4);font-size:.75rem}
-.lp-out{margin-top:20px;padding:20px 24px;font-family:var(--mn);font-size:.9rem;color:#4ade80;min-height:48px;transition:all .3s;line-height:1.7;text-align:left;background:rgba(0,20,10,.4);border:1px solid rgba(52,211,153,.15);border-radius:14px;position:relative;overflow:hidden;text-shadow:0 0 8px rgba(74,222,128,.3);letter-spacing:.02em}
+.lp-out{margin-top:20px;padding:20px 24px;font-family:var(--mn);font-size:.9rem;color:#4ade80;height:80px;line-height:1.7;text-align:left;background:rgba(0,20,10,.4);border:1px solid rgba(52,211,153,.15);border-radius:14px;position:relative;overflow:hidden;text-shadow:0 0 8px rgba(74,222,128,.3);letter-spacing:.02em}
 .lp-out::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,.3),transparent)}
 .lp-out::after{content:'█';animation:termBlink 1s step-end infinite;color:#4ade80;text-shadow:0 0 6px rgba(74,222,128,.5)}
 @keyframes termBlink{0%,100%{opacity:1}50%{opacity:0}}
 
 /* VARIABLES */
-.var-wrap{position:relative;width:100%;max-width:560px;aspect-ratio:1;margin:32px auto 0}
+.var-wrap{position:relative;width:100%;max-width:480px;aspect-ratio:1;margin:32px auto 0}
 .var-center,.vo,.var-canvas{display:none}
 .vo.on{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.35);color:var(--am);transform:scale(1.15);box-shadow:0 0 16px rgba(245,158,11,.1)}
-.vtip{text-align:left;font-family:var(--mn);font-size:.92rem;color:#4ade80;margin-top:20px;padding:14px 20px;min-height:24px;line-height:1.7;font-weight:400;background:rgba(0,20,10,.4);border:1px solid rgba(52,211,153,.15);border-radius:12px;position:relative;text-shadow:0 0 6px rgba(74,222,128,.2)}
+.vtip{text-align:left;font-family:var(--mn);font-size:.92rem;color:#4ade80;margin-top:20px;padding:14px 20px;height:80px;line-height:1.7;font-weight:400;background:rgba(0,20,10,.4);border:1px solid rgba(52,211,153,.15);border-radius:12px;position:relative;text-shadow:0 0 6px rgba(74,222,128,.2);overflow:hidden}
 .vtip::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,.3),transparent)}
 
 /* MOAT */
@@ -196,7 +196,9 @@ h2 em{color:var(--am);font-style:normal}
   .dpc-n{font-size:.8rem}
   .dpc-out{font-size:.75rem}
   .cc-b{padding:20px 16px !important}
-  .cr{padding:0 16px 16px !important}
+  .cc{height:420px !important}
+  .canvas-wrap{height:520px !important}
+  .cr{padding:0 16px 16px !important;height:130px !important}
   .cr-n{font-size:1.1rem !important}
   .cr-t{font-size:.88rem !important}
   .ana-tabs{justify-content:center}
@@ -205,10 +207,10 @@ h2 em{color:var(--am);font-style:normal}
   .cta-s h2{font-size:1.4rem}
   .cta-s a{padding:14px 28px;font-size:.9rem}
   .var-canvas{display:none}
-  .lp-out{font-size:.78rem;padding:14px 18px}
+  .lp-out{font-size:.78rem;padding:14px 18px;height:68px}
   .lp-out::after{display:none}
-  .vtip{font-size:.78rem;padding:10px 16px}
-  .dpc-out{font-size:.78rem;padding:14px 18px}
+  .vtip{font-size:.78rem;padding:10px 16px;height:70px !important}
+  .dpc-out{font-size:.78rem;padding:14px 18px;height:60px}
   .sec{padding:52px 0}
   .sec:nth-child(even){padding:52px 18px}
   h2{font-size:1.4rem;margin-bottom:20px}
@@ -324,16 +326,12 @@ h2 em{color:var(--am);font-style:normal}
 
 <!-- S3: VARIABLES -->
 <div class="sec">
-  <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center">
-    <div>
-      <div class="sn rv">03 · The variables</div>
-      <h2 class="rv">Six variables decide your ROAS.<br><em>We isolate which one.</em></h2>
-      <div class="vtip rv" id="vtip" style="transition-delay:.15s;margin-top:16px">> each variable orbits ROAS — tap any to isolate its effect</div>
-    </div>
-    <div class="var-wrap rv" style="transition-delay:.08s;margin:0;max-width:100%;min-height:400px">
-      <canvas id="var-canvas" style="width:100%;height:100%;display:block"></canvas>
-    </div>
+  <div class="sn rv">03 · The variables</div>
+  <h2 class="rv">Six variables decide your ROAS.<br><em>We isolate which one.</em></h2>
+  <div class="var-wrap rv" style="transition-delay:.08s">
+    <canvas id="var-canvas" style="width:100%;height:100%;display:block"></canvas>
   </div>
+  <div class="vtip rv" id="vtip" style="transition-delay:.15s">> each variable orbits ROAS — tap any to isolate its effect</div>
 </div>
 
 <!-- S4: MOAT -->
