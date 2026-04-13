@@ -1236,45 +1236,33 @@ const fr2=document.getElementById('flow-row');if(fr2)flowOb.observe(fr2);
 const fdOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
   const items=x.target.querySelectorAll('.fd-item');
   items.forEach((el,i)=>{
-    /* start dim + small */
     el.style.transition='none';
     el.style.opacity='.25';
     el.style.color='var(--ink3)';
-    el.style.fontSize='.88rem';
-    el.style.transform='scale(1)';
+    el.style.textShadow='none';
+    el.style.background='transparent';
     
-    /* sequential flash — light sweeps, text grows */
     setTimeout(()=>{
       el.style.transition='all .35s cubic-bezier(.22,1,.36,1)';
       el.style.opacity='1';
       el.style.color='#34d399';
-      el.style.fontSize='1rem';
-      el.style.transform='scale(1.04)';
-      el.style.textShadow='0 0 16px rgba(52,211,153,.4)';
+      el.style.textShadow='0 0 12px rgba(52,211,153,.3)';
       el.style.background='rgba(52,211,153,.04)';
-      el.style.borderRadius='6px';
-      el.style.padding='5px 10px';
-      el.style.margin='0 -10px';
       
-      /* settle — stays bigger, green tint stays */
       setTimeout(()=>{
         el.style.transition='all .8s ease';
         el.style.color='rgba(52,211,153,.75)';
-        el.style.fontSize='.96rem';
-        el.style.fontWeight='500';
-        el.style.transform='scale(1)';
         el.style.textShadow='none';
         el.style.background='transparent';
       },450);
     },i*220+200);
   });
   
-  /* all items pulse together at end */
   setTimeout(()=>{
     items.forEach(el=>{
       el.style.transition='all .3s ease';
       el.style.color='#34d399';
-      el.style.textShadow='0 0 10px rgba(52,211,153,.25)';
+      el.style.textShadow='0 0 8px rgba(52,211,153,.2)';
     });
     setTimeout(()=>{
       items.forEach(el=>{
@@ -1285,11 +1273,9 @@ const fdOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
     },400);
   },items.length*220+500);
   
-  /* box border glow */
   const box=document.getElementById('forge-does');
   setTimeout(()=>{
     box.style.transition='all .4s';
-    box.style.borderLeftWidth='3px';
     box.style.borderLeftColor='#34d399';
     box.style.boxShadow='inset 3px 0 24px rgba(52,211,153,.1), 0 0 24px rgba(52,211,153,.06)';
     setTimeout(()=>{
@@ -1301,7 +1287,7 @@ const fdOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
   fdOb.unobserve(x.target);setTimeout(()=>fdOb.observe(x.target),2000);
 }else{
   const items=x.target.querySelectorAll('.fd-item');
-  items.forEach(el=>{el.style.transition='none';el.style.opacity='.25';el.style.color='var(--ink3)';el.style.fontSize='.88rem';el.style.transform='scale(1)';el.style.textShadow='none';el.style.background='transparent'});
+  items.forEach(el=>{el.style.transition='none';el.style.opacity='.25';el.style.color='var(--ink3)';el.style.textShadow='none';el.style.background='transparent'});
 }})},{threshold:.4});
 const fsEl=document.getElementById('forge-scope');if(fsEl)fdOb.observe(fsEl);
 
