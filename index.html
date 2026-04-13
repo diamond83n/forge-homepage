@@ -415,14 +415,13 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   .sec div[style*="grid-template-columns:1fr 1fr"][style*="ISOLATED"]{grid-template-columns:1fr !important}
   /* Moat equation */
   #moat-canvas{display:none !important}
-  .sec div[style*="max-width:960px"][style*="defensibility"]{max-width:100% !important;padding:20px 14px !important}
-  .sec div[style*="font-size:.82rem"][style*="defensibility"]{font-size:.7rem !important;margin-bottom:16px !important}
-  .sec div[style*="gap:14px"][style*="flex-wrap"]{gap:8px !important;flex-wrap:nowrap !important}
-  .sec div[style*="padding:14px 20px"][style*="font-size:.92rem"]{padding:8px 10px !important;font-size:.68rem !important}
-  .sec div[style*="padding:14px 20px"] span{font-size:.58rem !important;margin-top:2px !important}
-  .sec div[style*="font-size:1.3rem"][style*="font-family"]{font-size:.9rem !important}
-  .sec div[style*="font-size:1.4rem"][style*="font-weight:700"][style*="dataset"]{font-size:1rem !important}
-  .sec p[style*="font-size:.95rem"][style*="Every brand"]{font-size:.78rem !important}
+  .sec div[style*="max-width:960px"]{max-width:100% !important;padding:20px 12px !important}
+  .sec div[style*="gap:14px"][style*="flex-wrap"]{gap:4px !important;flex-wrap:nowrap !important}
+  .sec div[style*="padding:14px 20px"][style*="font-size:.92rem"]{padding:6px 8px !important;font-size:.6rem !important}
+  .sec div[style*="padding:14px 20px"] span{font-size:.5rem !important;margin-top:1px !important}
+  .sec div[style*="font-size:1.3rem"][style*="ink3"]{font-size:.7rem !important}
+  .sec div[style*="font-size:1.4rem"][style*="font-weight:700"]{font-size:.95rem !important}
+  .sec p[style*="Every brand"]{font-size:.75rem !important}
   /* Footer */
   footer{padding:32px 18px}
   footer>div>div:first-child{text-align:center}
@@ -962,7 +961,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   <p>Free analysis. 24 hours. The one insight your dashboard can't give you.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative">
     <button class="btn bp" style="font-size:1rem;padding:16px 44px" data-cta>See what we find →</button>
-    <button class="btn bo" style="font-size:.9rem;padding:14px 32px" onclick="window.open('mailto:hello@forgexlab.co')">Email us</button>
+    <a href="mailto:hello@forgexlab.co" class="btn bo" style="font-size:.9rem;padding:14px 32px;text-decoration:none;display:inline-block">Email us</a>
   </div>
 </div>
 
@@ -970,7 +969,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   <div style="max-width:800px;margin:0 auto;text-align:center">
     <a href="#" style="text-decoration:none"><div style="font-size:1.3rem;font-weight:800;color:#f59e0b;text-shadow:0 0 12px rgba(249,115,22,.3);margin-bottom:6px">forge<span style="color:#ef4444">.</span></div></a>
     <div style="font-size:.88rem;color:var(--ink3);margin-bottom:6px">Experiment infrastructure for ad creative</div>
-    <div style="font-size:.88rem;margin-bottom:20px"><a href="/cdn-cgi/l/email-protection#aac2cfc6c6c5eaccc5d8cdcfd2c6cbc884c9c5" style="color:var(--ac);text-decoration:none"><span class="__cf_email__" data-cfemail="7b131e1717143b1d14091c1e03171a19551814">[email&#160;protected]</span></a></div>
+    <div style="font-size:.88rem;margin-bottom:20px"><a href="mailto:hello@forgexlab.co" style="color:var(--ac);text-decoration:none">hello@forgexlab.co</a></div>
     <div style="display:flex;justify-content:center;gap:24px;margin-bottom:28px;flex-wrap:wrap">
       <a href="#health" style="font-size:.82rem;color:var(--ink3);text-decoration:none;transition:.2s">Free Analysis</a>
       <a href="#how" style="font-size:.82rem;color:var(--ink3);text-decoration:none;transition:.2s">How it works</a>
@@ -992,7 +991,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ═══ CTA CONFIG ═══════════════════════════════════════
    url + badge: shared across all CTAs
    Button text: set per location via data-cta="label"
@@ -1204,8 +1203,10 @@ if(hundredSec)hOb.observe(hundredSec);
 
 
 /* ═══ HEALTH CHECK NUMBERS — POP SEQUENCE ═══ */
-const hcnOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
-  const nums=x.target.querySelectorAll('.hc-n');
+let hcnInt=null;
+function hcnAnimate(el){
+  const nums=el.querySelectorAll('.hc-n');
+  nums.forEach(n=>{n.classList.remove('pop','settle')});
   nums.forEach((n,i)=>{
     setTimeout(()=>{
       n.classList.add('pop');
@@ -1215,7 +1216,13 @@ const hcnOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
       },500);
     },i*450+200);
   });
-  hcnOb.unobserve(x.target);
+}
+const hcnOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
+  hcnAnimate(x.target);
+  if(!hcnInt)hcnInt=setInterval(()=>hcnAnimate(x.target),4000);
+}else{
+  if(hcnInt){clearInterval(hcnInt);hcnInt=null}
+  x.target.querySelectorAll('.hc-n').forEach(n=>n.classList.remove('pop','settle'));
 }})},{threshold:.5});
 const hcnEl=document.getElementById('hc-numbers');if(hcnEl)hcnOb.observe(hcnEl);
 
@@ -1299,7 +1306,7 @@ const fdOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
     },800);
   },items.length*220+700);
   
-  fdOb.unobserve(x.target);fdOb.observe(x.target);
+  fdOb.unobserve(x.target);setTimeout(()=>fdOb.observe(x.target),2000);
 }else{
   const items=x.target.querySelectorAll('.fd-item');
   items.forEach(el=>{el.style.transition='none';el.style.opacity='.25';el.style.color='var(--ink3)';el.style.fontSize='.88rem';el.style.transform='scale(1)';el.style.textShadow='none';el.style.background='transparent'});
