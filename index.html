@@ -392,8 +392,8 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   #hc-numbers{white-space:normal !important;font-size:.92rem !important}
   /* HC cards max-width */
   .hc{max-width:100% !important}
-  /* Comparison table - Forge column visible first */
-  .ct{font-size:.68rem;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;direction:rtl}
+  /* Comparison table - horizontal scroll */
+  .ct{font-size:.68rem;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
   .ct tr{direction:ltr}
   .ct th,.ct td{padding:7px 5px;font-size:.68rem;white-space:nowrap}
   /* Dashboard container */
@@ -415,11 +415,14 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.04)
   .sec div[style*="grid-template-columns:1fr 1fr"][style*="ISOLATED"]{grid-template-columns:1fr !important}
   /* Moat equation */
   #moat-canvas{display:none !important}
-  .sec div[style*="max-width:960px"][style*="defensibility"]{max-width:100% !important;padding:24px 18px !important}
-  .sec div[style*="defensibility"] + div{flex-wrap:wrap !important;gap:8px !important}
-  .sec div[style*="padding:14px 20px"][style*="border-radius:12px"][style*="font-size:.92rem"]{padding:10px 14px !important;font-size:.75rem !important}
-  /* Moat equation result text */
-  .sec div[style*="font-size:1.4rem"][style*="font-weight:700"]{font-size:1.1rem !important}
+  .sec div[style*="max-width:960px"][style*="defensibility"]{max-width:100% !important;padding:20px 14px !important}
+  .sec div[style*="font-size:.82rem"][style*="defensibility"]{font-size:.7rem !important;margin-bottom:16px !important}
+  .sec div[style*="gap:14px"][style*="flex-wrap"]{gap:8px !important;flex-wrap:nowrap !important}
+  .sec div[style*="padding:14px 20px"][style*="font-size:.92rem"]{padding:8px 10px !important;font-size:.68rem !important}
+  .sec div[style*="padding:14px 20px"] span{font-size:.58rem !important;margin-top:2px !important}
+  .sec div[style*="font-size:1.3rem"][style*="font-family"]{font-size:.9rem !important}
+  .sec div[style*="font-size:1.4rem"][style*="font-weight:700"][style*="dataset"]{font-size:1rem !important}
+  .sec p[style*="font-size:.95rem"][style*="Every brand"]{font-size:.78rem !important}
   /* Footer */
   footer{padding:32px 18px}
   footer>div>div:first-child{text-align:center}
@@ -1011,7 +1014,7 @@ document.querySelectorAll('[data-cta-badge]').forEach(el => {
 });
 
 /* ═══ SCROLL OBSERVER ═══ */
-const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v')}})},{threshold:.15,rootMargin:'0px'});
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v')}else{x.target.classList.remove('v')}})},{threshold:.15,rootMargin:'0px'});
 document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
 function ab(){document.querySelectorAll('[data-w]').forEach(el=>{setTimeout(()=>{el.style.width=el.dataset.w},500)})}
 setTimeout(ab,800);
@@ -1075,7 +1078,7 @@ function switchVar(i){
 let autoIdx=0;
 setInterval(()=>{autoIdx=(autoIdx+1)%experiments.length;switchVar(autoIdx)},4000);
 
-const dbOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.db-fill').forEach(el=>{setTimeout(()=>{el.style.width=el.dataset.w},300)});dbOb.unobserve(x.target)}})},{threshold:.3});
+const dbOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.db-fill').forEach(el=>{setTimeout(()=>{el.style.width=el.dataset.w},300)})}else{x.target.querySelectorAll('.db-fill').forEach(el=>{el.style.width='0'})}})},{threshold:.3});
 document.querySelectorAll('.db-bars').forEach(el=>dbOb.observe(el.closest('.sec')||el));
 
 /* 100 count-up then crumble from actual text shape */
@@ -1296,7 +1299,10 @@ const fdOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
     },800);
   },items.length*220+700);
   
-  fdOb.unobserve(x.target);
+  fdOb.unobserve(x.target);fdOb.observe(x.target);
+}else{
+  const items=x.target.querySelectorAll('.fd-item');
+  items.forEach(el=>{el.style.transition='none';el.style.opacity='.25';el.style.color='var(--ink3)';el.style.fontSize='.88rem';el.style.transform='scale(1)';el.style.textShadow='none';el.style.background='transparent'});
 }})},{threshold:.4});
 const fsEl=document.getElementById('forge-scope');if(fsEl)fdOb.observe(fsEl);
 
