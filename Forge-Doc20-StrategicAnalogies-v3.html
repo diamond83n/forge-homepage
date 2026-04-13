@@ -143,16 +143,10 @@ h2 em{color:var(--am);font-style:normal}
 @keyframes termBlink{0%,100%{opacity:1}50%{opacity:0}}
 
 /* VARIABLES */
-.var-wrap{position:relative;width:480px;height:480px;margin:32px auto 0}
-.var-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100px;height:100px;border-radius:50%;background:rgba(245,158,11,.12);border:2px solid rgba(245,158,11,.35);display:flex;align-items:center;justify-content:center;font-size:1.15rem;font-weight:700;color:var(--am);box-shadow:0 0 40px rgba(245,158,11,.1);z-index:2;animation:centerPulse 3s ease-in-out infinite}
-@keyframes centerPulse{0%,100%{box-shadow:0 0 40px rgba(245,158,11,.1);transform:translate(-50%,-50%) scale(1)}50%{box-shadow:0 0 60px rgba(245,158,11,.2);transform:translate(-50%,-50%) scale(1.05)}}
-.vo{position:absolute;width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:600;color:var(--ink3);cursor:pointer;transition:all .4s;text-align:center;line-height:1.15;z-index:2;animation:nodeBreathe 4s ease-in-out infinite}
-.vo:nth-child(3){animation-delay:0s}.vo:nth-child(4){animation-delay:.7s}.vo:nth-child(5){animation-delay:1.4s}.vo:nth-child(6){animation-delay:2.1s}.vo:nth-child(7){animation-delay:2.8s}.vo:nth-child(8){animation-delay:3.5s}
-@keyframes nodeBreathe{0%,100%{transform:scale(1);border-color:rgba(255,255,255,.1)}50%{transform:scale(1.06);border-color:rgba(255,255,255,.18)}}
-.vo:hover,.vo.on{border-color:rgba(245,158,11,.5);color:var(--am);background:rgba(245,158,11,.08);box-shadow:0 0 24px rgba(245,158,11,.15);transform:scale(1.12);animation:none}
-.var-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.var-wrap{position:relative;width:100%;max-width:560px;aspect-ratio:1;margin:32px auto 0}
+.var-center,.vo,.var-canvas{display:none}
 .vo.on{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.35);color:var(--am);transform:scale(1.15);box-shadow:0 0 16px rgba(245,158,11,.1)}
-.vtip{text-align:left;font-family:var(--mn);font-size:.92rem;color:#4ade80;margin-top:20px;padding:14px 20px;min-height:24px;font-weight:400;transition:all .3s;background:rgba(0,20,10,.4);border:1px solid rgba(52,211,153,.15);border-radius:12px;position:relative;overflow:hidden;text-shadow:0 0 6px rgba(74,222,128,.2)}
+.vtip{text-align:left;font-family:var(--mn);font-size:.92rem;color:#4ade80;margin-top:20px;padding:14px 20px;height:90px;line-height:1.7;font-weight:400;background:rgba(0,20,10,.4);border:1px solid rgba(52,211,153,.15);border-radius:12px;position:relative;text-shadow:0 0 6px rgba(74,222,128,.2);overflow:hidden}
 .vtip::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,.3),transparent)}
 
 /* MOAT */
@@ -185,9 +179,8 @@ h2 em{color:var(--am);font-style:normal}
   .pb{width:100px;padding:12px 6px}
   .pb-v{font-size:.8rem}
   .pb-l{font-size:.6rem}
-  .var-wrap{width:300px;height:300px;margin:20px auto 0}
-  .vo{width:52px;height:52px;font-size:.62rem}
-  .var-center{width:70px;height:70px;font-size:.85rem}
+  .var-wrap{max-width:320px}
+  .sec div[style*="grid-template-columns:1fr 1fr"][style*="gap:40px"]{grid-template-columns:1fr !important;gap:20px !important}
   .moat-row{gap:24px}
   .moat-n .num{font-size:2.2rem}
   .loop-row{gap:4px;flex-wrap:wrap;justify-content:center}
@@ -330,19 +323,16 @@ h2 em{color:var(--am);font-style:normal}
 
 <!-- S3: VARIABLES -->
 <div class="sec">
-  <div class="sn rv">03 · The variables</div>
-  <h2 class="rv">Six variables decide your ROAS.<br><em>We isolate which one.</em></h2>
-  <div class="var-wrap rv" style="transition-delay:.08s">
-    <canvas class="var-canvas" id="var-canvas"></canvas>
-    <div class="var-center">ROAS</div>
-    <div class="vo" style="top:2%;left:50%;margin-left:-36px" data-t="> first 3 seconds determine everything — stay or scroll">Hook</div>
-    <div class="vo" style="top:19%;right:3%" data-t="> same script + different creator = different ROAS">Creator</div>
-    <div class="vo" style="bottom:19%;right:3%" data-t="> the message that converts interest into purchase">Selling Pt</div>
-    <div class="vo" style="bottom:2%;left:50%;margin-left:-36px" data-t="> what turns 'maybe' into 'buy now'">Emotion</div>
-    <div class="vo" style="bottom:19%;left:3%" data-t="> how attention becomes a click">CTA</div>
-    <div class="vo" style="top:19%;left:3%" data-t="> 15s vs 30s — AI vs human — same variable, different result">Format</div>
+  <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center">
+    <div>
+      <div class="sn rv">03 · The variables</div>
+      <h2 class="rv">Six variables decide your ROAS.<br><em>We isolate which one.</em></h2>
+      <div class="vtip rv" id="vtip" style="transition-delay:.15s;margin-top:16px">> each variable orbits ROAS — tap to isolate</div>
+    </div>
+    <div class="var-wrap rv" style="transition-delay:.08s;margin:0;max-width:100%;min-height:400px">
+      <canvas id="var-canvas" style="width:100%;height:100%;display:block"></canvas>
+    </div>
   </div>
-  <div class="vtip rv" id="vtip" style="transition-delay:.15s">> tap any variable</div>
 </div>
 
 <!-- S4: MOAT -->
@@ -1052,7 +1042,7 @@ function setA(i){
 buildPipe(ad[0]);setTimeout(()=>{animPipe()},400);
 setTimeout(()=>document.getElementById('cr').classList.add('s'),1000);
 
-const aob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!at){resetProg();startInd(ai);const durations=[7000,7000,7000,11000,10000];at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},durations[ai]||7000)}else if(!x.isIntersecting&&at){clearInterval(at);at=null;stopInd()}})},{threshold:.3});
+const aob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!at){resetProg();startInd(ai);const durations=[5000,5000,5000,7000,7000];at=setInterval(()=>{ai=(ai+1)%5;setA(ai)},durations[ai]||5000)}else if(!x.isIntersecting&&at){clearInterval(at);at=null;stopInd()}})},{threshold:.3});
 const atab=document.getElementById('ana-tabs');if(atab)aob.observe(atab);
 
 /* ===== DATA PROCESS CANVAS ===== */
@@ -1116,92 +1106,144 @@ function sL(i){
   o.style.opacity='.4';
   setTimeout(()=>{
     o.style.opacity='1';
-    typeInto(o,ld[i],22,()=>{lTyping=false});
+    typeInto(o,ld[i],18,()=>{lTyping=false});
   },150);
 }
 const lob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!lt)lt=setInterval(()=>{li=(li+1)%5;sL(li)},4000);else if(!x.isIntersecting&&lt){clearInterval(lt);lt=null}})},{threshold:.3});
 const lr=document.getElementById('loop-row');if(lr)lob.observe(lr);
 document.querySelectorAll('.lp').forEach(n=>{n.onclick=()=>{clearInterval(lt);sL(+n.dataset.i);lt=setInterval(()=>{li=(li+1)%5;sL(li)},4000)}});
 
-/* ===== VARIABLES ===== */
-const orbs=document.querySelectorAll('.vo');let vi=0,vt,vTyping=false;
-function sT(el,fromAuto){
-  if(vTyping)return;
-  vTyping=true;
-  orbs.forEach(o=>o.classList.remove('on'));el.classList.add('on');
-  const tip=document.getElementById('vtip');
-  typeInto(tip,el.dataset.t,20,()=>{vTyping=false});
-  if(!fromAuto){clearInterval(vt);vt=setInterval(autoV,3500);}
-}
-function autoV(){vi=(vi+1)%orbs.length;sT(orbs[vi],true)}
-orbs.forEach(o=>{o.onclick=()=>{vi=[...orbs].indexOf(o);sT(o,false)}});
-if(orbs.length>0){orbs[0].classList.add('on');document.getElementById('vtip').textContent=orbs[0].dataset.t}
-const vob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!vt)vt=setInterval(autoV,3500);else if(!x.isIntersecting&&vt){clearInterval(vt);vt=null}})},{threshold:.3});
-document.querySelectorAll('.var-wrap').forEach(el=>vob.observe(el));
-
-/* ===== VARIABLE CANVAS — particles flowing to ROAS center ===== */
+/* ===== VARIABLE CANVAS — VC ATOMIC MODEL ===== */
 (function(){
   const vc=document.getElementById('var-canvas');
   if(!vc)return;
-  const vctx=vc.getContext('2d');
+  const ctx=vc.getContext('2d');
   const wrap=vc.parentElement;
-  function vrsz(){const r=wrap.getBoundingClientRect();vc.width=r.width*2;vc.height=r.height*2;vctx.scale(2,2)}
-  vrsz();window.addEventListener('resize',vrsz);
-  const vW=()=>vc.width/2,vH=()=>vc.height/2;
-  const particles=[];
-  const nodePos=[
-    {a:-Math.PI/2},
-    {a:-Math.PI/6},
-    {a:Math.PI/6},
-    {a:Math.PI/2},
-    {a:5*Math.PI/6},
-    {a:7*Math.PI/6}
+  function rsz(){const r=wrap.getBoundingClientRect();vc.width=r.width*2;vc.height=r.height*2;ctx.scale(2,2)}
+  rsz();window.addEventListener('resize',rsz);
+  const W=()=>vc.width/2,H=()=>vc.height/2;
+  const vars=[
+    {name:'Hook',color:'rgba(129,140,248,',tip:'> first 3 seconds determine everything'},
+    {name:'Creator',color:'rgba(52,211,153,',tip:'> same script + different creator = different ROAS'},
+    {name:'Selling Pt',color:'rgba(245,158,11,',tip:'> the message that converts interest into purchase'},
+    {name:'Emotion',color:'rgba(248,113,113,',tip:'> what turns maybe into buy now'},
+    {name:'CTA',color:'rgba(167,139,250,',tip:'> how attention becomes a click'},
+    {name:'Format',color:'rgba(34,211,238,',tip:'> 15s vs 30s — same variable, different result'}
   ];
-  function spawn(){
-    const ni=Math.floor(Math.random()*6);
-    const np=nodePos[ni];
-    const w=vW(),h=vH();
-    const r=Math.min(w,h)*0.42;
-    const cx=w/2,cy=h/2;
-    const sx=cx+Math.cos(np.a)*r;
-    const sy=cy+Math.sin(np.a)*r;
-    const colors=['rgba(245,158,11,','rgba(129,140,248,','rgba(52,211,153,'];
-    const c=colors[Math.floor(Math.random()*3)];
-    particles.push({x:sx,y:sy,tx:cx,ty:cy,p:0,sp:0.004+Math.random()*0.006,sz:1.5+Math.random()*2,c:c,a:0.6+Math.random()*0.4});
-  }
-  function vdraw(){
-    const w=vW(),h=vH();
-    vctx.clearRect(0,0,w,h);
-    const cx=w/2,cy=h/2;
-    const r=Math.min(w,h)*0.42;
-    const now=performance.now()*0.001;
-    nodePos.forEach(function(np,i){
-      const nx=cx+Math.cos(np.a)*r;
-      const ny=cy+Math.sin(np.a)*r;
-      const pulse=0.15+0.1*Math.sin(now*1.5+i);
-      vctx.beginPath();vctx.moveTo(cx,cy);vctx.lineTo(nx,ny);
-      vctx.strokeStyle='rgba(255,255,255,'+pulse+')';
-      vctx.lineWidth=1;vctx.setLineDash([4,6]);vctx.stroke();vctx.setLineDash([]);
+  const orbits=[
+    {rx:2.6,ry:1.1,rot:0.2,speed:0.5},
+    {rx:2.0,ry:2.3,rot:0.15,speed:0.6},
+    {rx:1.4,ry:2.6,rot:0.1,speed:0.4}
+  ];
+  const flowPts=[];
+  let activeVar=-1;
+  vc.style.pointerEvents='auto';vc.style.cursor='pointer';
+  vc.addEventListener('click',function(e){
+    const rect=vc.getBoundingClientRect();
+    const mx=(e.clientX-rect.left)/(rect.width)*W();
+    const my=(e.clientY-rect.top)/(rect.height)*H();
+    const cx=W()/2,cy=H()/2,coreR=Math.min(W(),H())*0.12;
+    activeVar=-1;
+    vars.forEach((v,i)=>{
+      if(v.lx&&Math.hypot(mx-v.lx,my-v.ly)<coreR*2.5)activeVar=i;
     });
-    if(Math.random()<0.15)spawn();
-    for(let i=particles.length-1;i>=0;i--){
-      const p=particles[i];
-      p.p+=p.sp;
-      if(p.p>=1){particles.splice(i,1);continue}
-      const ease=p.p*p.p*(3-2*p.p);
+    const tip=document.getElementById('vtip');
+    if(tip){
+      if(activeVar>=0)typeInto(tip,vars[activeVar].tip,18);
+      else typeInto(tip,'> each variable orbits ROAS — tap to isolate',18);
+    }
+    if(activeVar>=0){for(let j=0;j<8;j++){const a=Math.random()*Math.PI*2;flowPts.push({x:vars[activeVar].lx,y:vars[activeVar].ly,tx:cx,ty:cy,t:0,sp:.01+Math.random()*.01,sz:2+Math.random()*2,c:vars[activeVar].color,a:.8})}}
+  });
+  function draw(){
+    const w=W(),h=H();ctx.clearRect(0,0,w,h);
+    const t=performance.now()*0.001;
+    const cx=w/2,cy=h/2;
+    const coreR=Math.min(w,h)*0.12;
+    /* Energy field */
+    ctx.beginPath();ctx.arc(cx,cy,coreR*3.5,0,Math.PI*2);
+    ctx.fillStyle='rgba(245,158,11,0.01)';ctx.fill();
+    /* Orbit rings + variable electrons */
+    vars.forEach((v,i)=>{
+      const oi=i<2?0:i<4?1:2;
+      const o=orbits[oi];
+      const eIdx=i<2?i:i<4?i-2:i-4;
+      const eTotal=2;
+      ctx.save();ctx.translate(cx,cy);ctx.rotate(t*o.rot);
+      /* Orbit path */
+      ctx.beginPath();ctx.ellipse(0,0,coreR*o.rx,coreR*o.ry,0,0,Math.PI*2);
+      ctx.strokeStyle=v.color+(activeVar===i?'0.25':'0.08')+')';ctx.lineWidth=activeVar===i?1.2:0.6;ctx.stroke();
+      /* Electron position */
+      const eAngle=t*o.speed+eIdx*(Math.PI*2/eTotal);
+      const ex=Math.cos(eAngle)*coreR*o.rx;
+      const ey=Math.sin(eAngle)*coreR*o.ry;
+      /* Trail */
+      for(let tr=1;tr<=5;tr++){
+        const ta=eAngle-tr*0.1*o.speed;
+        const tx2=Math.cos(ta)*coreR*o.rx;
+        const ty2=Math.sin(ta)*coreR*o.ry;
+        ctx.beginPath();ctx.arc(tx2,ty2,2.5-tr*0.35,0,Math.PI*2);
+        ctx.fillStyle=v.color+(0.3-tr*0.05)+')';ctx.fill();
+      }
+      /* Electron glow */
+      ctx.beginPath();ctx.arc(ex,ey,activeVar===i?8:5,0,Math.PI*2);
+      ctx.fillStyle=v.color+'0.15)';ctx.fill();
+      /* Electron core */
+      ctx.beginPath();ctx.arc(ex,ey,activeVar===i?4:2.8,0,Math.PI*2);
+      ctx.fillStyle=v.color+'0.8)';ctx.fill();
+      /* Label — counter-rotate so text is readable */
+      ctx.save();
+      const absX=cx+Math.cos(t*o.rot)*ex-Math.sin(t*o.rot)*ey;
+      const absY=cy+Math.sin(t*o.rot)*ex+Math.cos(t*o.rot)*ey;
+      ctx.restore();
+      ctx.restore();
+      /* Draw label in absolute coords */
+      const lx=cx+Math.cos(t*o.rot)*ex-Math.sin(t*o.rot)*ey;
+      const ly=cy+Math.sin(t*o.rot)*ex+Math.cos(t*o.rot)*ey;
+      v.lx=lx;v.ly=ly;
+      ctx.font=(activeVar===i?'600 ':'500 ')+(w<300?'10':'13')+'px "JetBrains Mono","Inter",sans-serif';
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillStyle=v.color+(activeVar===i?'1':'0.7')+')';
+      ctx.fillText(v.name,lx,ly-12);
+    });
+    /* Flow particles */
+    if(Math.random()<.06){const vi=Math.floor(Math.random()*6);if(vars[vi].lx)flowPts.push({x:vars[vi].lx,y:vars[vi].ly,tx:cx,ty:cy,t:0,sp:.006+Math.random()*.008,sz:1.5+Math.random()*1.5,c:vars[vi].color,a:.5+Math.random()*.3})}
+    for(let i=flowPts.length-1;i>=0;i--){
+      const p=flowPts[i];p.t+=p.sp;
+      if(p.t>=1){flowPts.splice(i,1);continue}
+      const ease=p.t*p.t*(3-2*p.t);
       const px=p.x+(p.tx-p.x)*ease;
       const py=p.y+(p.ty-p.y)*ease;
-      const alpha=p.a*(1-p.p*0.7);
-      vctx.beginPath();vctx.arc(px,py,p.sz*(1-p.p*0.5),0,Math.PI*2);
-      vctx.fillStyle=p.c+alpha+')';vctx.fill();
-      vctx.beginPath();vctx.arc(px,py,p.sz*2,0,Math.PI*2);
-      vctx.fillStyle=p.c+(alpha*0.15)+')';vctx.fill();
+      ctx.beginPath();ctx.arc(px,py,p.sz*(1-p.t*.5),0,Math.PI*2);
+      ctx.fillStyle=p.c+(p.a*(1-p.t*.7))+')';ctx.fill();
     }
-    vctx.beginPath();vctx.arc(cx,cy,18+3*Math.sin(now*2),0,Math.PI*2);
-    vctx.fillStyle='rgba(245,158,11,'+(0.04+0.02*Math.sin(now*2))+')';vctx.fill();
-    requestAnimationFrame(vdraw);
+    /* Nucleus — subtle */
+    const cPulse=1+Math.sin(t*2)*.03;
+    const g=ctx.createRadialGradient(cx,cy,0,cx,cy,coreR*1.3*cPulse);
+    g.addColorStop(0,'rgba(245,180,80,0.08)');g.addColorStop(1,'rgba(245,158,11,0)');
+    ctx.beginPath();ctx.arc(cx,cy,coreR*1.3*cPulse,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+    ctx.beginPath();ctx.arc(cx,cy,coreR*cPulse,0,Math.PI*2);
+    const g2=ctx.createRadialGradient(cx,cy,0,cx,cy,coreR*cPulse);
+    g2.addColorStop(0,'rgba(255,220,150,0.1)');g2.addColorStop(0.7,'rgba(245,158,11,0.05)');g2.addColorStop(1,'rgba(245,158,11,0)');
+    ctx.fillStyle=g2;ctx.fill();
+    ctx.beginPath();ctx.arc(cx,cy,coreR*.5,0,Math.PI*2);
+    ctx.fillStyle='rgba(245,158,11,0.06)';ctx.fill();
+    /* ROAS label */
+    ctx.font='700 '+(w<300?'14':'18')+'px "JetBrains Mono","Inter",sans-serif';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillStyle='rgba(245,158,11,0.9)';ctx.fillText('ROAS',cx,cy);
+    requestAnimationFrame(draw);
   }
-  vdraw();
+  let autoCycleInt=null;
+  let autoCycleIdx=0;
+  function autoCycle(){
+    activeVar=autoCycleIdx%6;
+    const tip=document.getElementById('vtip');
+    if(tip)typeInto(tip,vars[activeVar].tip,18);
+    if(vars[activeVar].lx){for(let j=0;j<6;j++){const a=Math.random()*Math.PI*2;flowPts.push({x:vars[activeVar].lx,y:vars[activeVar].ly,tx:W()/2,ty:H()/2,t:0,sp:.008+Math.random()*.008,sz:2+Math.random()*2,c:vars[activeVar].color,a:.7})}}
+    autoCycleIdx++;
+  }
+  const vOb2=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){draw();if(!autoCycleInt){autoCycle();autoCycleInt=setInterval(autoCycle,3500)}}else{if(autoCycleInt){clearInterval(autoCycleInt);autoCycleInt=null}}})},{threshold:.2});
+  vOb2.observe(wrap);
 })();
 
 /* ===== MOAT ===== */
