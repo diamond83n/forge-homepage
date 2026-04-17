@@ -708,8 +708,8 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 .hvx-console.flash{animation:hvxFlash .6s ease}
 @keyframes cardFlash{0%{box-shadow:0 24px 80px rgba(0,0,0,.3)}30%{box-shadow:0 24px 80px rgba(0,0,0,.3),0 0 40px rgba(129,140,248,.15),inset 0 0 30px rgba(129,140,248,.03)}100%{box-shadow:0 24px 80px rgba(0,0,0,.3)}}
 @keyframes hvxFlash{0%{box-shadow:0 24px 80px rgba(0,0,0,.25),0 0 60px rgba(99,102,241,.08)}30%{box-shadow:0 24px 80px rgba(0,0,0,.25),0 0 60px rgba(129,140,248,.3),inset 0 0 40px rgba(129,140,248,.05)}100%{box-shadow:0 24px 80px rgba(0,0,0,.25),0 0 60px rgba(99,102,241,.08)}}
-.metric-pop{animation:metricPop .4s cubic-bezier(.22,1,.36,1)}
-@keyframes metricPop{0%{opacity:.3}50%{opacity:.8}100%{opacity:1}}
+.metric-pop{animation:metricPop .6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes metricPop{0%{opacity:.2;transform:translateY(6px) scale(.92)}50%{opacity:.9;transform:translateY(-2px) scale(1.08)}100%{opacity:1;transform:translateY(0) scale(1)}}
 
 /* PREDICTIVE CANVAS */
 .pred-wrap{margin:0 auto 0;border-radius:20px;background:var(--s1);border:1px solid rgba(0,0,0,.06);overflow:hidden;position:relative;height:460px;max-width:100%}
@@ -915,19 +915,24 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 
 /* Variable tabs */
 .hvx-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
-.hvx-tab{padding:5px 10px;font-family:var(--mn);font-size:.68rem;font-weight:500;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.55);border-radius:4px;cursor:pointer;transition:all .2s;letter-spacing:.01em}
-.hvx-tab:hover{background:rgba(129,140,248,.1);border-color:rgba(129,140,248,.3);color:#c7d2fe}
-.hvx-tab.active{background:rgba(129,140,248,.18);border-color:rgba(129,140,248,.5);color:#fff;box-shadow:0 0 10px rgba(99,102,241,.2)}
+.hvx-tab{padding:6px 11px;font-family:var(--mn);font-size:.7rem;font-weight:600;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.55);border-radius:4px;cursor:pointer;transition:all .25s ease;letter-spacing:.01em}
+.hvx-tab:hover{background:rgba(129,140,248,.12);border-color:rgba(129,140,248,.35);color:#c7d2fe}
+.hvx-tab.active{background:linear-gradient(135deg,rgba(129,140,248,.22),rgba(165,180,252,.14));border-color:#818cf8;color:#fff;box-shadow:0 0 14px rgba(99,102,241,.4),inset 0 0 8px rgba(129,140,248,.15);font-weight:700}
 
 /* Key-value rows (metrics) */
 .hvx-rows{display:flex;flex-direction:column;gap:6px;padding:2px 0}
-.hvx-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px dashed rgba(255,255,255,.05)}
+.hvx-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px dashed rgba(255,255,255,.05);position:relative}
 .hvx-row:last-child{border-bottom:none}
 .hvx-k{font-family:var(--mn);font-size:.72rem;color:rgba(255,255,255,.5);letter-spacing:.02em}
-.hvx-v{font-family:var(--mn);font-size:.95rem;font-weight:600;transition:all .5s}
+.hvx-v{font-family:var(--mn);font-size:1rem;font-weight:700;display:inline-block;will-change:transform,opacity;transition:color .3s;text-align:right;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .hvx-v-roas{color:#a5b4fc}
 .hvx-v-ctr{color:#6ee7b7}
 .hvx-v-lift{color:#fbbf24}
+/* Change animations — dramatic */
+.hvx-v-changing{animation:hvxVChanging .35s cubic-bezier(.55,.06,.68,.19) forwards}
+.hvx-v-arrive{animation:hvxVArrive .55s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes hvxVChanging{0%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}100%{opacity:0;transform:translateY(-10px) scale(.85);filter:blur(2px)}}
+@keyframes hvxVArrive{0%{opacity:0;transform:translateY(14px) scale(.7);filter:blur(4px)}40%{opacity:1;transform:translateY(-3px) scale(1.15);filter:blur(0)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
 
 /* Comparison bars */
 .hvx-bars{display:flex;flex-direction:column;gap:6px}
@@ -1202,7 +1207,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   .hvx-tabs{gap:4px}
   .hvx-tab{padding:4px 8px;font-size:.58rem}
   .hvx-k{font-size:.62rem}
-  .hvx-v{font-size:.82rem}
+  .hvx-v{font-size:.92rem}
   .hvx-bar{grid-template-columns:90px 1fr 42px;gap:8px}
   .hvx-bar-label{font-size:.6rem}
   .hvx-bar-val{font-size:.68rem}
@@ -1592,13 +1597,13 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
           </div>
         </div>
 
-        <!-- METRICS: code-style rows -->
+        <!-- ATTRIBUTION: 3-layer conclusion (Report v2 언어 통일) -->
         <div class="hvx-section">
-          <div class="hvx-section-label">measured</div>
+          <div class="hvx-section-label">attribution</div>
           <div class="hvx-rows">
-            <div class="hvx-row"><span class="hvx-k">roas</span><span class="hvx-v hvx-v-roas" id="demo-roas">3.8x</span></div>
-            <div class="hvx-row"><span class="hvx-k">ctr</span><span class="hvx-v hvx-v-ctr" id="demo-ctr">4.2%</span></div>
-            <div class="hvx-row"><span class="hvx-k">lift_vs_control</span><span class="hvx-v hvx-v-lift" id="demo-lift">+81%</span></div>
+            <div class="hvx-row"><span class="hvx-k">winner</span><span class="hvx-v hvx-v-roas" id="demo-roas">result_first</span></div>
+            <div class="hvx-row"><span class="hvx-k">roas_gain</span><span class="hvx-v hvx-v-ctr" id="demo-ctr">+81% (3.8x)</span></div>
+            <div class="hvx-row"><span class="hvx-k">repeatable</span><span class="hvx-v hvx-v-lift" id="demo-lift">92% · high</span></div>
           </div>
         </div>
 
@@ -2394,10 +2399,10 @@ function ab(){document.querySelectorAll('[data-w]').forEach(el=>{setTimeout(()=>
 setTimeout(ab,800);
 
 const experiments=[
-  {label:'result_first',roas:'3.8x',ctr:'4.2%',lift:'+81%',bar:'92%',color:'linear-gradient(90deg,#6366f1,#a5b4fc)',vc:'#a5b4fc',brief:'winner() → try expert_creator next · +15%',prompt:'"result_first_hook"'},
-  {label:'problem_first',roas:'2.1x',ctr:'2.8%',lift:'+0%',bar:'51%',color:'rgba(255,255,255,.22)',vc:'rgba(255,255,255,.55)',brief:'underperformed() → switch to result_first_hook',prompt:'"problem_first_hook"'},
-  {label:'expert_creator',roas:'3.2x',ctr:'3.6%',lift:'+52%',bar:'78%',color:'linear-gradient(90deg,#059669,#6ee7b7)',vc:'#6ee7b7',brief:'strong() → pair with curiosity_hook next',prompt:'"expert_creator"'},
-  {label:'everyday_creator',roas:'2.9x',ctr:'3.9%',lift:'+38%',bar:'71%',color:'linear-gradient(90deg,#f59e0b,#fbbf24)',vc:'#fbbf24',brief:'solid_relatability() → try instant_glow_angle',prompt:'"everyday_creator"'}
+  {label:'result_first',roas:'result_first',ctr:'+81% (3.8x)',lift:'92% · high',bar:'92%',color:'linear-gradient(90deg,#6366f1,#a5b4fc)',vc:'#a5b4fc',brief:'[winner] try expert_creator next · +15%',prompt:'"result_first_hook"',barv:'3.8x'},
+  {label:'problem_first',roas:'[not this one]',ctr:'+0% (2.1x)',lift:'58% · low',bar:'51%',color:'rgba(255,255,255,.22)',vc:'rgba(255,255,255,.55)',brief:'[underperformed] switch to result_first_hook',prompt:'"problem_first_hook"',barv:'2.1x'},
+  {label:'expert_creator',roas:'expert_creator',ctr:'+52% (3.2x)',lift:'84% · high',bar:'78%',color:'linear-gradient(90deg,#059669,#6ee7b7)',vc:'#6ee7b7',brief:'[strong] pair with curiosity_hook next',prompt:'"expert_creator"',barv:'3.2x'},
+  {label:'everyday_creator',roas:'everyday_creator',ctr:'+38% (2.9x)',lift:'79% · medium',bar:'71%',color:'linear-gradient(90deg,#f59e0b,#fbbf24)',vc:'#fbbf24',brief:'[solid] try instant_glow_angle next',prompt:'"everyday_creator"',barv:'2.9x'}
 ];
 
 function typePrompt(text,cb){
@@ -2412,43 +2417,50 @@ function switchVar(i){
   const d=experiments[i];
   const card=document.querySelector('.hvx-console');
   if(card){card.classList.remove('flash');void card.offsetWidth;card.classList.add('flash')}
-  typePrompt(d.prompt,()=>{
-    document.getElementById('demo-typing').style.opacity='1';document.getElementById('demo-brief-text').style.opacity='0';
-    document.getElementById('demo-brief-text').style.opacity='0';
-    document.getElementById('demo-roas').style.opacity='.3';
-    document.getElementById('demo-ctr').style.opacity='.3';
-    document.getElementById('demo-lift').style.opacity='.3';
-    setTimeout(()=>{
-      ['demo-roas','demo-ctr','demo-lift'].forEach(id=>{
-        const el=document.getElementById(id);
-        el.classList.remove('metric-pop');
-        void el.offsetWidth;
-        el.classList.add('metric-pop');
-      });
-      document.getElementById('demo-roas').textContent=d.roas;
-      document.getElementById('demo-ctr').textContent=d.ctr;
-      document.getElementById('demo-lift').textContent=d.lift;
-      document.getElementById('demo-label').textContent=d.label;
-      document.getElementById('demo-bar').style.width=d.bar;
-      document.getElementById('demo-bar').style.background=d.color;
-      document.getElementById('demo-barv').textContent=d.roas;
-      document.getElementById('demo-barv').style.color=d.vc;
-      document.getElementById('demo-roas').style.color=d.vc;
-      document.getElementById('demo-roas').style.opacity='1';
-      document.getElementById('demo-ctr').style.opacity='1';
-      document.getElementById('demo-lift').style.opacity='1';
-    },400);
-    setTimeout(()=>{
-      document.getElementById('demo-typing').style.opacity='0';
-      var b=document.getElementById('demo-brief-text'),t=d.brief,c=0;
-      b.textContent='';b.style.opacity='1';
-      (function k(){if(c<=t.length){b.innerHTML=t.substring(0,c)+'<span class="brief-cur"></span>';c++;setTimeout(k,18)}else{b.textContent=t}})();
-    },1200);
+
+  // IMMEDIATE: Start metrics fade-out + slide (no wait for typing)
+  ['demo-roas','demo-ctr','demo-lift'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.classList.remove('hvx-v-changing','hvx-v-arrive');
+    void el.offsetWidth;
+    el.classList.add('hvx-v-changing');
   });
+
+  // Type prompt (concurrent with metric fade)
+  typePrompt(d.prompt,()=>{});
+
+  // After fade-out (350ms): swap values + arrive animation
+  setTimeout(()=>{
+    document.getElementById('demo-roas').textContent=d.roas;
+    document.getElementById('demo-ctr').textContent=d.ctr;
+    document.getElementById('demo-lift').textContent=d.lift;
+    document.getElementById('demo-label').textContent=d.label;
+    document.getElementById('demo-bar').style.width=d.bar;
+    document.getElementById('demo-bar').style.background=d.color;
+    document.getElementById('demo-barv').textContent=d.barv;
+    document.getElementById('demo-barv').style.color=d.vc;
+    document.getElementById('demo-roas').style.color=d.vc;
+    // Trigger arrive animation
+    ['demo-roas','demo-ctr','demo-lift'].forEach(id=>{
+      const el=document.getElementById(id);
+      el.classList.remove('hvx-v-changing');
+      void el.offsetWidth;
+      el.classList.add('hvx-v-arrive');
+    });
+  },350);
+
+  // Brief text update (after metrics settle)
+  setTimeout(()=>{
+    const typing=document.getElementById('demo-typing');
+    if(typing)typing.style.opacity='0';
+    var b=document.getElementById('demo-brief-text'),t=d.brief,c=0;
+    b.textContent='';b.style.opacity='1';
+    (function k(){if(c<=t.length){b.innerHTML=t.substring(0,c)+'<span class="brief-cur"></span>';c++;setTimeout(k,18)}else{b.textContent=t}})();
+  },1200);
 }
 
 let autoIdx=0;
-setInterval(()=>{autoIdx=(autoIdx+1)%experiments.length;switchVar(autoIdx)},5500);
+setInterval(()=>{autoIdx=(autoIdx+1)%experiments.length;switchVar(autoIdx)},3500);
 
 const dbOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.db-fill').forEach(el=>{setTimeout(()=>{el.style.width=el.dataset.w},300)})}else{x.target.querySelectorAll('.db-fill').forEach(el=>{el.style.width='0'})}})},{threshold:.3});
 document.querySelectorAll('.db-bars').forEach(el=>dbOb.observe(el.closest('.sec')||el));
