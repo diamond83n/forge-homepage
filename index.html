@@ -744,22 +744,29 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 /* ═══ PROGRESSION BAR — NEW: data layer progression + we are here ═══ */
 .vsx-progression{padding:22px 28px 32px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));border-bottom:1px solid rgba(129,140,248,.08);position:relative}
 .vsx-prog-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px}
-.vsx-prog-kicker{font-family:var(--mn);font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:.18em;text-transform:uppercase;font-weight:600}
-.vsx-prog-now{font-family:var(--mn);font-size:.66rem;color:#a5b4fc;letter-spacing:.08em;font-weight:600;display:inline-flex;align-items:center;gap:8px;background:rgba(129,140,248,.08);border:1px solid rgba(129,140,248,.2);padding:4px 10px;border-radius:4px}
-.vsx-prog-now-dot{width:6px;height:6px;border-radius:50%;background:#818cf8;box-shadow:0 0 6px rgba(129,140,248,.4);animation:vsxProgNowPulse 2.4s ease-in-out infinite;flex-shrink:0}
+.vsx-prog-kicker{font-family:var(--mn);font-size:.62rem;color:rgba(255,255,255,.4);letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.vsx-prog-now{font-family:var(--mn);font-size:.66rem;color:#fbbf24;letter-spacing:.08em;font-weight:700;display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);padding:4px 10px;border-radius:4px}
+.vsx-prog-now-dot{width:6px;height:6px;border-radius:50%;background:#fbbf24;box-shadow:0 0 8px rgba(245,158,11,.7);animation:vsxProgNowPulse 2.4s ease-in-out infinite;flex-shrink:0}
 @keyframes vsxProgNowPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
 
 .vsx-prog-track{position:relative;height:72px;margin:0 18px}
 .vsx-prog-line{position:absolute;left:0;right:0;top:6px;height:2px;background:rgba(255,255,255,.08);border-radius:1px}
-.vsx-prog-line-fill{position:absolute;left:0;top:6px;height:2px;width:5%;background:linear-gradient(90deg,#818cf8,rgba(129,140,248,.4));border-radius:1px;box-shadow:0 0 4px rgba(129,140,248,.3)}
+.vsx-prog-line-fill{position:absolute;left:0;top:6px;height:2px;width:5%;background:linear-gradient(90deg,#fbbf24,#f59e0b,#ea580c);border-radius:1px;box-shadow:0 0 8px rgba(245,158,11,.5)}
 .vsx-prog-node{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;white-space:nowrap}
-.vsx-prog-node-dot{width:14px;height:14px;border-radius:50%;background:rgba(129,140,248,.25);border:2px solid rgba(129,140,248,.4);position:relative;z-index:2}
-.vsx-prog-node-active .vsx-prog-node-dot{background:#818cf8;border-color:#a5b4fc;box-shadow:0 0 10px rgba(129,140,248,.5),0 0 20px rgba(129,140,248,.25);animation:vsxProgNodePulse 2.4s ease-in-out infinite}
-@keyframes vsxProgNodePulse{0%,100%{transform:scale(1);box-shadow:0 0 10px rgba(129,140,248,.5),0 0 20px rgba(129,140,248,.25)}50%{transform:scale(1.12);box-shadow:0 0 14px rgba(129,140,248,.7),0 0 28px rgba(129,140,248,.35)}}
-.vsx-prog-node-n{font-family:var(--mn);font-size:.68rem;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.04em;margin-top:4px;font-variant-numeric:tabular-nums}
-.vsx-prog-node-phase{font-family:var(--mn);font-size:.56rem;color:rgba(129,140,248,.6);letter-spacing:.14em;text-transform:uppercase;font-weight:500}
-.vsx-prog-node-active .vsx-prog-node-n{color:#a5b4fc}
-.vsx-prog-node-active .vsx-prog-node-phase{color:#a5b4fc}
+.vsx-prog-node-dot{width:14px;height:14px;border-radius:50%;background:rgba(245,158,11,.2);border:2px solid rgba(245,158,11,.35);position:relative;z-index:2}
+.vsx-prog-node-active .vsx-prog-node-dot{background:#fbbf24;border-color:#fde68a;box-shadow:0 0 12px rgba(245,158,11,.6),0 0 24px rgba(245,158,11,.3);animation:vsxProgNodePulse 2.4s ease-in-out infinite}
+@keyframes vsxProgNodePulse{0%,100%{transform:scale(1);box-shadow:0 0 12px rgba(245,158,11,.6),0 0 24px rgba(245,158,11,.3)}50%{transform:scale(1.12);box-shadow:0 0 16px rgba(245,158,11,.8),0 0 32px rgba(245,158,11,.4)}}
+.vsx-prog-node-n{font-family:var(--mn);font-size:.82rem;font-weight:700;color:rgba(255,255,255,.95);letter-spacing:.02em;margin-top:6px;font-variant-numeric:tabular-nums}
+.vsx-prog-node-phase{font-family:var(--mn);font-size:.58rem;color:rgba(245,158,11,.65);letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.vsx-prog-node-active .vsx-prog-node-n{color:#fde68a;text-shadow:0 0 8px rgba(245,158,11,.4)}
+.vsx-prog-node-active .vsx-prog-node-phase{color:#fbbf24}
+
+/* Future-stage progression: mid node amber, far node red (moat narrative alignment) */
+.vsx-prog-node:nth-child(4) .vsx-prog-node-n{color:#fbbf24}
+.vsx-prog-node:nth-child(4) .vsx-prog-node-phase{color:rgba(251,191,36,.75)}
+.vsx-prog-node:nth-child(5) .vsx-prog-node-n{color:#fca5a5}
+.vsx-prog-node:nth-child(5) .vsx-prog-node-phase{color:rgba(248,113,113,.75)}
+.vsx-prog-node:nth-child(5) .vsx-prog-node-dot{background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.4)}
 
 /* ═══ BIG STAGE NUMBER — NEW ═══ */
 .vsx-stage-bignum{position:absolute;top:-6px;right:12px;font-family:var(--sn);font-size:3.2rem;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(129,140,248,.15);letter-spacing:-.03em;font-variant-numeric:tabular-nums;z-index:1;pointer-events:none;user-select:none}
@@ -767,11 +774,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 .vsx-stage[data-stage="2"] .vsx-stage-bignum{-webkit-text-stroke-color:rgba(129,140,248,.25)}
 .vsx-stage-bignum-live{-webkit-text-stroke-color:rgba(16,185,129,.3) !important}
 
-/* N= badge in card footer */
-.vsx-card-n{font-family:var(--mn);font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.04em;font-variant-numeric:tabular-nums;margin-left:2px}
-.vsx-stage[data-stage="1"] .vsx-card-n{color:rgba(255,255,255,.6)}
-.vsx-stage[data-stage="2"] .vsx-card-n{color:#c7d2fe}
-.vsx-card-n-live{color:#6ee7b7 !important;text-shadow:0 0 8px rgba(16,185,129,.3)}
+/* N= badge — removed: now pure descriptive footers */
 
 /* Phase header — above each stage card, creates temporal "era" feeling */
 .vsx-phase-header{position:absolute;top:-12px;left:42px;display:flex;align-items:baseline;gap:8px;padding:3px 10px;background:#0c1018;border:1px solid rgba(129,140,248,.18);border-radius:4px;z-index:5}
@@ -1700,7 +1703,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 <div class="sa2" style="position:relative"><div class="sec rv" id="health" style="text-align:center;padding:80px 40px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1">
   <div style="display:inline-flex;padding:8px 24px;border-radius:24px;background:rgba(5,150,105,.06);color:#047857;font-family:var(--mn);font-size:.8rem;letter-spacing:.12em;font-weight:500;margin-bottom:36px;border:1px solid rgba(5,150,105,.12);box-shadow:0 0 20px rgba(52,211,153,.06)">Free — takes 2 minutes</div>
   <div class="sec-hd cen">
-    <h2>Start with a free Creative Decoder. <em>See the variable.</em></h2>
+    <h2>Start with a free Creative Decoder. <em style="display:block">See the variable.</em></h2>
     <p id="hc-numbers" style="font-family:var(--mn);font-size:1.1rem;color:var(--ink3);margin:0 auto 52px;line-height:2;letter-spacing:.03em;text-wrap:pretty;max-width:940px"><span class="hc-n" data-c="sv">1</span> ad link · <span class="hc-n" data-c="sv">1</span> product page · <span class="hc-n" data-c="sv">1</span> page of insights · <span class="hc-n" data-c="rd">24</span> hours.</p>
   </div>
   <div class="hc" style="max-width:1200px;margin:0 auto 40px">
@@ -1919,17 +1922,17 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
         <div class="vsx-prog-line-fill"></div>
         <div class="vsx-prog-node vsx-prog-node-active" style="left:5%">
           <div class="vsx-prog-node-dot"></div>
-          <div class="vsx-prog-node-n">N = 1</div>
+          <div class="vsx-prog-node-n">1 brand</div>
           <div class="vsx-prog-node-phase">measure</div>
         </div>
         <div class="vsx-prog-node" style="left:48%">
           <div class="vsx-prog-node-dot"></div>
-          <div class="vsx-prog-node-n">N = 10</div>
+          <div class="vsx-prog-node-n">10 brands</div>
           <div class="vsx-prog-node-phase">pattern</div>
         </div>
         <div class="vsx-prog-node" style="left:95%">
           <div class="vsx-prog-node-dot"></div>
-          <div class="vsx-prog-node-n">N = 100+</div>
+          <div class="vsx-prog-node-n">100+ brands</div>
           <div class="vsx-prog-node-phase">project</div>
         </div>
       </div>
@@ -1968,7 +1971,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
             <div class="vsx-trace-label">trace</div>
             <div class="vsx-trace-text vsx-trace-warn">measurement captured · inference unavailable</div>
           </div>
-          <div class="vsx-card-footer">The first brand · <span class="vsx-card-n">N = 1</span></div>
+          <div class="vsx-card-footer">The first brand</div>
         </div>
       </div>
 
@@ -2008,7 +2011,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
             <div class="vsx-trace-label">trace</div>
             <div class="vsx-trace-text vsx-trace-ok">pattern confirmed · next_brief.generated()</div>
           </div>
-          <div class="vsx-card-footer">A handful of brands · <span class="vsx-card-n">N = 10</span></div>
+          <div class="vsx-card-footer">A handful of brands</div>
         </div>
       </div>
 
@@ -2053,7 +2056,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
             <div class="vsx-trace-bar"><div class="vsx-trace-fill"></div></div>
             <div class="vsx-trace-text vsx-trace-future">category_history · answer precedes test</div>
           </div>
-          <div class="vsx-card-footer vsx-card-footer-live">A category of brands · <span class="vsx-card-n vsx-card-n-live">N = 100+</span></div>
+          <div class="vsx-card-footer vsx-card-footer-live">A category of brands</div>
         </div>
       </div>
 
