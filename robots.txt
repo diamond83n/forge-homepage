@@ -1,7 +1,30 @@
+# Forge - robots.txt
+# https://forgexlab.co
+
 User-agent: *
 Allow: /
 
-# ── Block sensitive file patterns from search engines ──
+# AI/LLM crawlers explicitly allowed (for AEO/answer engine optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Block sensitive file patterns from any crawler
+User-agent: *
 Disallow: /VC_
 Disallow: /Forge-CreativeDecoder-
 Disallow: /Forge-Brand-
@@ -11,5 +34,7 @@ Disallow: /Forge-Doc22
 Disallow: /Forge-DemoSimulation
 Disallow: /env
 Disallow: /.env
+Disallow: /admin
+Disallow: /api/private/
 
 Sitemap: https://forgexlab.co/sitemap.xml
