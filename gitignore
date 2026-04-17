@@ -1,0 +1,69 @@
+# ══════════════════════════════════
+# Forge — .gitignore
+# ══════════════════════════════════
+
+# ── macOS ──
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# ── Editor ──
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Node ──
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Build output ──
+dist/
+build/
+.next/
+out/
+
+# ══════════════════════════════════
+# Sensitive files — NEVER commit to public
+# ══════════════════════════════════
+
+# ── Environment files (actual secrets) ──
+*.env
+.env
+.env.local
+.env.production
+.env.development
+.env.*.local
+
+# ── Brand-specific analysis (prospect data) ──
+Forge-CreativeDecoder-*-Brief.html
+Forge-CreativeDecoder-*-Report.html
+Forge-CreativeDecoder-*.pdf
+ForgeCreativeDecoder*.pdf
+
+# ── Internal methodology IP ──
+Forge-AnalysisEngine-*.json
+
+# ── Sales / outreach internals ──
+Forge-Brand-SalesScript-*
+Forge-OnboardingForm-*
+
+# ── VC / investor materials ──
+VC_*.html
+
+# ── Other internal working docs ──
+Forge-Doc22-*
+Forge-DemoSimulation*
+index-dark.html
+
+# ── Transcripts / session notes ──
+*.transcript.txt
+notes/
+drafts/

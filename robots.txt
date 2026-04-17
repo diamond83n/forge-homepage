@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
 
+# ── Block sensitive file patterns from search engines ──
+Disallow: /VC_
+Disallow: /Forge-CreativeDecoder-
+Disallow: /Forge-Brand-
+Disallow: /Forge-Analysis
+Disallow: /Forge-Onboarding
+Disallow: /Forge-Doc22
+Disallow: /Forge-DemoSimulation
+Disallow: /env
+Disallow: /.env
+
 Sitemap: https://forgexlab.co/sitemap.xml
