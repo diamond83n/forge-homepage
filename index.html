@@ -421,7 +421,8 @@ p,h1,h2,h3,h4,span,div,a,em,strong,li{overflow-wrap:break-word;word-wrap:break-w
 @keyframes glowPulse{0%,100%{box-shadow:0 0 20px rgba(129,140,248,.15)}50%{box-shadow:0 0 40px rgba(129,140,248,.25)}}
 @keyframes heroCtaPulse{0%,100%{box-shadow:0 0 32px rgba(129,140,248,.35),0 4px 20px rgba(99,102,241,.25)}50%{box-shadow:0 0 48px rgba(129,140,248,.5),0 6px 28px rgba(99,102,241,.35)}}
 @keyframes arrowBounce{0%,100%{transform:translateX(0);opacity:.7}50%{transform:translateX(6px);opacity:1}}
-@keyframes emailPulse{0%,100%{border-color:rgba(129,140,248,.3);box-shadow:0 0 16px rgba(129,140,248,.08)}50%{border-color:rgba(129,140,248,.6);box-shadow:0 0 28px rgba(129,140,248,.2)}}
+@keyframes emailPulse{0%,100%{border-color:rgba(129,140,248,.5);box-shadow:0 0 24px rgba(129,140,248,.2),inset 0 0 12px rgba(129,140,248,.08)}50%{border-color:rgba(129,140,248,1);box-shadow:0 0 48px rgba(129,140,248,.45),0 0 80px rgba(99,102,241,.25),inset 0 0 20px rgba(129,140,248,.15)}}
+@keyframes emailShimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
 
 
 @keyframes diamondGlint{
@@ -1564,7 +1565,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
     <p class="hs">Forge tests one creative element at a time.<br>A clear answer for every experiment.</p>
     <div class="ha">
       <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
-        <button class="btn" style="padding:18px 44px;font-size:1.05rem;font-weight:700;background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;border-radius:14px;box-shadow:0 0 32px rgba(129,140,248,.35),0 4px 20px rgba(99,102,241,.25);animation:heroCtaPulse 3s ease-in-out infinite;will-change:box-shadow;transform:translateZ(0);letter-spacing:.01em" data-cta>Get your free Creative Decoder <span style="display:inline-block;animation:arrowBounce 1.5s ease-in-out infinite;font-size:1.3em;color:rgba(255,255,255,.8);text-shadow:0 0 8px rgba(255,255,255,.3);margin-left:6px">→</span></button>
+        <button class="btn cta-spark" style="padding:18px 44px;font-size:1.05rem;font-weight:700;background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;border-radius:14px;box-shadow:0 0 32px rgba(129,140,248,.35),0 4px 20px rgba(99,102,241,.25);animation:heroCtaPulse 3s ease-in-out infinite;will-change:box-shadow;transform:translateZ(0);letter-spacing:.01em" data-cta>Get your free Creative Decoder <span style="display:inline-block;animation:arrowBounce 1.5s ease-in-out infinite;font-size:1.3em;color:rgba(255,255,255,.8);text-shadow:0 0 8px rgba(255,255,255,.3);margin-left:6px">→</span></button>
         <span style="font-size:.82rem;color:var(--ink2);padding-left:4px;font-weight:500">1-page Creative Decoder Brief delivered in 24 hours · No call required</span>
       </div>
     </div>
@@ -2290,7 +2291,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <div style="font-size:1.15rem;font-weight:700;margin-bottom:10px">Pilot</div>
       <div class="tp" style="color:var(--ac)">Free</div>
       <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Full experiment cycle. Same deliverables as paid.</div>
-      <button class="tc" style="background:var(--ac);color:#fff;box-shadow:0 0 16px rgba(129,140,248,.2)" data-cta>Get your free Creative Decoder →</button>
+      <button class="tc cta-spark" style="background:var(--ac);color:#fff;box-shadow:0 0 16px rgba(129,140,248,.2)" data-cta>Get your free Creative Decoder →</button>
     </div>
     <div class="ti">
       <div style="font-family:var(--mn);font-size:.78rem;color:var(--ink2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600">Brands 4–10</div>
@@ -2345,7 +2346,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   <p>Free analysis. 24 hours. The one insight your dashboard can't give you.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative">
     <button class="btn bp" style="font-size:1rem;padding:16px 44px" data-cta>See what we find <span style="display:inline-block;animation:arrowBounce 1.5s ease-in-out infinite;font-size:1.3em;color:rgba(255,255,255,.8);text-shadow:0 0 8px rgba(255,255,255,.3);margin-left:6px">→</span></button>
-    <a href="mailto:hello@forgexlab.co" class="btn" style="font-size:.9rem;padding:14px 32px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;position:relative;overflow:visible;background:transparent;border:1.5px solid rgba(129,140,248,.4);color:#818cf8;box-shadow:0 0 20px rgba(129,140,248,.1);animation:emailPulse 3s ease-in-out infinite" onclick="emailSpark(event);setTimeout(function(){window.location.href='mailto:hello@forgexlab.co'},100)">✉ Email us</a>
+    <a href="mailto:hello@forgexlab.co" class="btn email-cta" style="font-size:.9rem;padding:14px 32px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;position:relative;overflow:visible;background:transparent;border:1.5px solid rgba(129,140,248,.5);color:#818cf8;box-shadow:0 0 24px rgba(129,140,248,.2);animation:emailPulse 2.2s ease-in-out infinite;transition:all .25s cubic-bezier(.4,0,.2,1)" onmouseover="this.style.background='rgba(129,140,248,.12)';this.style.borderColor='rgba(129,140,248,1)';this.style.color='#a5b4fc';this.style.boxShadow='0 0 48px rgba(129,140,248,.6),0 0 80px rgba(99,102,241,.3)';this.style.transform='translateY(-2px) scale(1.04)';this.style.animation='none'" onmouseout="this.style.background='transparent';this.style.borderColor='';this.style.color='#818cf8';this.style.boxShadow='';this.style.transform='';this.style.animation='emailPulse 2.2s ease-in-out infinite'" onclick="emailSpark(event);setTimeout(function(){window.location.href='mailto:hello@forgexlab.co'},400)">✉ Email us</a>
   </div>
 </div>
 
@@ -2389,7 +2390,14 @@ const CTA = {
 };
 
 document.querySelectorAll('[data-cta]').forEach(btn => {
-  btn.onclick = () => window.open(CTA.url, '_blank');
+  btn.onclick = (e) => {
+    if(btn.classList.contains('cta-spark')){
+      ctaSpark(e);
+      setTimeout(() => window.open(CTA.url, '_blank'), 400);
+    } else {
+      window.open(CTA.url, '_blank');
+    }
+  };
 });
 document.querySelectorAll('[data-cta-badge]').forEach(el => {
   el.textContent = CTA.badge;
@@ -3216,38 +3224,189 @@ function forgeStrike(e,el){
   mob2.observe(mc.parentElement);
 })();
 
-/* ===== EMAIL SPARK EFFECT ===== */
-function emailSpark(e){
+/* ===== CTA SPARK EFFECT (for Hero + Pricing Get Creative Decoder) ===== */
+function ctaSpark(e){
   const btn=e.currentTarget;
   const rect=btn.getBoundingClientRect();
   const cx=rect.left+rect.width/2;
   const cy=rect.top+rect.height/2;
-  const colors=['#818cf8','#34d399','#fbbf24','#f87171','#a78bfa','#22d3ee'];
-  for(let i=0;i<24;i++){
+  // Indigo-dominant palette (CTA is already indigo gradient, so match)
+  const colors=['#818cf8','#a5b4fc','#6366f1','#c7d2fe','#fbbf24','#ffffff'];
+
+  // 1. Expanding ring
+  const ring=document.createElement('div');
+  Object.assign(ring.style,{
+    position:'fixed',left:cx+'px',top:cy+'px',width:'40px',height:'40px',
+    borderRadius:'50%',border:'2px solid rgba(165,180,252,.75)',
+    transform:'translate(-50%,-50%) scale(1)',
+    pointerEvents:'none',zIndex:'9998',opacity:'1',
+    boxShadow:'0 0 24px rgba(129,140,248,.4)',
+    transition:'all .9s cubic-bezier(.22,1,.36,1)'
+  });
+  document.body.appendChild(ring);
+  requestAnimationFrame(()=>{
+    ring.style.transform='translate(-50%,-50%) scale(22)';
+    ring.style.opacity='0';
+    ring.style.borderWidth='1px';
+  });
+  setTimeout(()=>ring.remove(),1000);
+
+  // 2. Radial particle burst — 48 particles
+  for(let i=0;i<48;i++){
     const s=document.createElement('div');
-    const angle=(i/24)*Math.PI*2;
-    const dist=60+Math.random()*80;
+    const angle=(i/48)*Math.PI*2+Math.random()*0.3;
+    const dist=110+Math.random()*180;
     const dx=Math.cos(angle)*dist;
     const dy=Math.sin(angle)*dist;
     const c=colors[Math.floor(Math.random()*colors.length)];
-    const sz=3+Math.random()*4;
+    const sz=3+Math.random()*5;
+    const dur=0.8+Math.random()*0.4;
     Object.assign(s.style,{
       position:'fixed',left:cx+'px',top:cy+'px',width:sz+'px',height:sz+'px',
-      borderRadius:'50%',background:c,boxShadow:'0 0 6px '+c,
+      borderRadius:'50%',background:c,
+      boxShadow:'0 0 10px '+c+',0 0 20px '+c,
       pointerEvents:'none',zIndex:'9999',
-      transition:'all .7s cubic-bezier(.22,1,.36,1)',opacity:'1'
+      transition:'all '+dur+'s cubic-bezier(.22,1,.36,1)',opacity:'1'
     });
     document.body.appendChild(s);
     requestAnimationFrame(()=>{
       s.style.transform='translate('+dx+'px,'+dy+'px) scale(0)';
       s.style.opacity='0';
     });
-    setTimeout(()=>s.remove(),800);
+    setTimeout(()=>s.remove(),dur*1000+100);
   }
-  btn.style.transition='all .15s';
-  btn.style.transform='scale(1.08)';
-  btn.style.boxShadow='0 0 30px rgba(129,140,248,.4)';
-  setTimeout(()=>{btn.style.transform='';btn.style.boxShadow=''},300);
+
+  // 3. Subtle streak lines — 4
+  for(let i=0;i<4;i++){
+    const angle=(i/4)*Math.PI*2+Math.PI/4;
+    const streak=document.createElement('div');
+    const c=colors[i%colors.length];
+    const len=75+Math.random()*40;
+    Object.assign(streak.style,{
+      position:'fixed',left:cx+'px',top:cy+'px',
+      width:'2px',height:len+'px',
+      background:'linear-gradient(to bottom, '+c+' 0%, transparent 100%)',
+      transformOrigin:'top center',
+      transform:'translate(-50%,0) rotate('+(angle*180/Math.PI + 90)+'deg)',
+      pointerEvents:'none',zIndex:'9998',opacity:'.9',
+      boxShadow:'0 0 6px '+c,
+      transition:'all .65s cubic-bezier(.22,1,.36,1)'
+    });
+    document.body.appendChild(streak);
+    requestAnimationFrame(()=>{
+      const fx=Math.cos(angle)*65;
+      const fy=Math.sin(angle)*65;
+      streak.style.transform='translate(calc(-50% + '+fx+'px),'+fy+'px) rotate('+(angle*180/Math.PI + 90)+'deg) scaleY(1.3)';
+      streak.style.opacity='0';
+    });
+    setTimeout(()=>streak.remove(),700);
+  }
+
+  // 4. Button flash — scale + glow boost (button already has gradient+pulse, enhance it)
+  const origShadow=btn.style.boxShadow;
+  const origTransform=btn.style.transform;
+  const origAnim=btn.style.animation;
+  btn.style.transition='all .2s cubic-bezier(.4,0,.2,1)';
+  btn.style.animation='none';
+  btn.style.transform='scale(1.1)';
+  btn.style.boxShadow='0 0 60px rgba(129,140,248,1),0 0 120px rgba(99,102,241,.55),0 6px 28px rgba(99,102,241,.4)';
+  setTimeout(()=>{
+    btn.style.transform=origTransform;
+    btn.style.boxShadow=origShadow;
+    btn.style.animation=origAnim;
+  },400);
+}
+
+/* ===== EMAIL SPARK EFFECT ===== */
+function emailSpark(e){
+  const btn=e.currentTarget;
+  const rect=btn.getBoundingClientRect();
+  const cx=rect.left+rect.width/2;
+  const cy=rect.top+rect.height/2;
+  // Red + gold/amber heat palette — forging metal
+  const colors=['#ff2d20','#dc2626','#ea580c','#f59e0b','#fbbf24','#d97706'];
+
+  // 1. Single expanding ring — amber/gold heat tone
+  const ring=document.createElement('div');
+  Object.assign(ring.style,{
+    position:'fixed',left:cx+'px',top:cy+'px',width:'30px',height:'30px',
+    borderRadius:'50%',border:'2px solid rgba(251,191,36,.7)',
+    transform:'translate(-50%,-50%) scale(1)',
+    pointerEvents:'none',zIndex:'9998',opacity:'1',
+    boxShadow:'0 0 20px rgba(245,158,11,.4),0 0 40px rgba(255,45,32,.25)',
+    transition:'all .9s cubic-bezier(.22,1,.36,1)'
+  });
+  document.body.appendChild(ring);
+  requestAnimationFrame(()=>{
+    ring.style.transform='translate(-50%,-50%) scale(20)';
+    ring.style.opacity='0';
+    ring.style.borderWidth='1px';
+  });
+  setTimeout(()=>ring.remove(),1000);
+
+  // 2. Radial particle burst — 48 particles
+  for(let i=0;i<48;i++){
+    const s=document.createElement('div');
+    const angle=(i/48)*Math.PI*2+Math.random()*0.3;
+    const dist=100+Math.random()*180;
+    const dx=Math.cos(angle)*dist;
+    const dy=Math.sin(angle)*dist;
+    const c=colors[Math.floor(Math.random()*colors.length)];
+    const sz=3+Math.random()*5;
+    const dur=0.8+Math.random()*0.4;
+    Object.assign(s.style,{
+      position:'fixed',left:cx+'px',top:cy+'px',width:sz+'px',height:sz+'px',
+      borderRadius:'50%',background:c,
+      boxShadow:'0 0 10px '+c+',0 0 20px '+c,
+      pointerEvents:'none',zIndex:'9999',
+      transition:'all '+dur+'s cubic-bezier(.22,1,.36,1)',opacity:'1'
+    });
+    document.body.appendChild(s);
+    requestAnimationFrame(()=>{
+      s.style.transform='translate('+dx+'px,'+dy+'px) scale(0)';
+      s.style.opacity='0';
+    });
+    setTimeout(()=>s.remove(),dur*1000+100);
+  }
+
+  // 3. Subtle streak lines — 4 only
+  for(let i=0;i<4;i++){
+    const angle=(i/4)*Math.PI*2+Math.PI/4;
+    const streak=document.createElement('div');
+    const c=colors[i%colors.length];
+    const len=70+Math.random()*40;
+    Object.assign(streak.style,{
+      position:'fixed',left:cx+'px',top:cy+'px',
+      width:'2px',height:len+'px',
+      background:'linear-gradient(to bottom, '+c+' 0%, transparent 100%)',
+      transformOrigin:'top center',
+      transform:'translate(-50%,0) rotate('+(angle*180/Math.PI + 90)+'deg)',
+      pointerEvents:'none',zIndex:'9998',opacity:'.9',
+      boxShadow:'0 0 6px '+c,
+      transition:'all .65s cubic-bezier(.22,1,.36,1)'
+    });
+    document.body.appendChild(streak);
+    requestAnimationFrame(()=>{
+      const fx=Math.cos(angle)*60;
+      const fy=Math.sin(angle)*60;
+      streak.style.transform='translate(calc(-50% + '+fx+'px),'+fy+'px) rotate('+(angle*180/Math.PI + 90)+'deg) scaleY(1.3)';
+      streak.style.opacity='0';
+    });
+    setTimeout(()=>streak.remove(),700);
+  }
+
+  // 4. Button flash — indigo button momentarily shifts to red+gold heat glow
+  btn.style.transition='all .2s cubic-bezier(.4,0,.2,1)';
+  btn.style.transform='scale(1.12)';
+  btn.style.boxShadow='0 0 50px rgba(255,45,32,.55),0 0 100px rgba(245,158,11,.4)';
+  btn.style.background='rgba(255,100,30,.15)';
+  btn.style.borderColor='rgba(251,191,36,.9)';
+  setTimeout(()=>{
+    btn.style.transform='';
+    btn.style.boxShadow='';
+    btn.style.background='transparent';
+    btn.style.borderColor='';
+  },400);
 }
 
 /* ===== Hero logo orbit sync — measure dot position, align orbit + halo ===== */
