@@ -473,11 +473,29 @@ p,h1,h2,h3,h4,span,div,a,em,strong,li{overflow-wrap:break-word;word-wrap:break-w
 }
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;background:rgba(250,250,248,.92);backdrop-filter:blur(24px) saturate(1.4);border-bottom:1px solid rgba(0,0,0,.06)}
-.logo{font-size:clamp(1.7rem,1.4rem + .5vw,2.1rem);font-weight:800;letter-spacing:-.03em;position:relative;padding:8px 14px;border-radius:10px;display:inline-flex;align-items:baseline}
-.logo .nl-text{background:linear-gradient(135deg,#1e293b,#0f172a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-/* Sharp rectangular orbit — conic gradient sweeping the logo's rounded-rect border */
-.logo::before{content:'';position:absolute;inset:-2px;border-radius:11px;padding:2px;background:conic-gradient(from var(--nav-angle),transparent 0%,transparent 55%,rgba(129,140,248,.5) 68%,rgba(165,180,252,.9) 75%,rgba(255,255,255,1) 79%,rgba(165,180,252,.9) 83%,rgba(129,140,248,.5) 90%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:navLogoRotate 3s linear infinite;pointer-events:none;filter:drop-shadow(0 0 4px rgba(129,140,248,.5))}
-.logo .nl-dot{color:transparent;background:linear-gradient(135deg,#a5b4fc,#e0e7ff,#ffffff,#ffffff,#c7d2fe,#818cf8,#a5b4fc);background-size:500% 500%;-webkit-text-stroke:.5px rgba(129,140,248,.4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:diamondGlint 3s ease-in-out infinite;filter:drop-shadow(0 0 4px rgba(129,140,248,.7)) drop-shadow(0 0 10px rgba(99,102,241,.4));display:inline-block}
+.logo{position:relative;width:76px;height:76px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;flex-shrink:0}
+.logo .nl-icon{width:64px;height:64px;display:block;position:relative;z-index:2;transition:transform .5s cubic-bezier(.22,1,.36,1);filter:drop-shadow(0 1px 2px rgba(15,23,42,.1))}
+.logo:hover .nl-icon{transform:rotate(-8deg) scale(1.08)}
+/* Red core — diamond glint + heat glow combined animation */
+.logo .nl-icon .nl-core{transform-box:fill-box;transform-origin:center;animation:coreHeatGlint 3s ease-in-out infinite}
+@keyframes coreHeatGlint{
+  0%,100%{
+    fill:#ff2d20;
+    filter:drop-shadow(0 0 3px rgba(255,45,32,.55)) drop-shadow(0 0 6px rgba(220,38,38,.35));
+  }
+  35%{
+    fill:#ff5043;
+    filter:drop-shadow(0 0 8px rgba(255,100,80,.75)) drop-shadow(0 0 16px rgba(255,45,32,.5)) drop-shadow(0 0 24px rgba(251,191,36,.35));
+  }
+  50%{
+    fill:#ffffff;
+    filter:drop-shadow(0 0 10px rgba(255,255,255,.95)) drop-shadow(0 0 18px rgba(255,150,120,.8)) drop-shadow(0 0 30px rgba(255,45,32,.6)) drop-shadow(0 0 44px rgba(251,191,36,.45));
+  }
+  65%{
+    fill:#ff5043;
+    filter:drop-shadow(0 0 8px rgba(255,100,80,.75)) drop-shadow(0 0 16px rgba(255,45,32,.5)) drop-shadow(0 0 24px rgba(251,191,36,.35));
+  }
+}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{font-size:.85rem;font-weight:400;color:var(--ink3);text-decoration:none;transition:.2s}
 .nav-links a:hover{color:var(--ink)}
@@ -687,6 +705,10 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--ac),var(--gn));-
 .cs p{font-size:1.18rem;color:var(--ink3);margin-bottom:40px;position:relative;font-weight:400}
 
 footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
+.ft-logo-icon{transition:transform .5s cubic-bezier(.22,1,.36,1);filter:drop-shadow(0 2px 6px rgba(15,23,42,.1))}
+.ft-logo-link:hover .ft-logo-icon{transform:rotate(-6deg) scale(1.06)}
+@keyframes ftLogoHeat{0%,100%{filter:drop-shadow(0 2px 6px rgba(15,23,42,.1))}50%{filter:drop-shadow(0 2px 8px rgba(15,23,42,.12)) drop-shadow(0 0 14px rgba(255,45,32,.25))}}
+.ft-logo-icon{animation:ftLogoHeat 3.5s ease-in-out infinite}
 .legal{font-size:.72rem;color:var(--ink4);line-height:1.7;max-width:700px;margin:16px auto 0;font-weight:400}
 .legal a{color:var(--ink3);text-decoration:underline}
 .legal strong{color:var(--ink3);font-weight:500}
@@ -1240,7 +1262,6 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   .vtab{padding:6px 10px;font-size:.68rem}
   .fc{display:none}
   nav{padding:0 18px;height:60px}
-  .logo{font-size:1.3rem}
   .nav-links{gap:14px}
   .nav-links a{font-size:.75rem}
   .nb{padding:8px 16px;font-size:.78rem}
@@ -1520,7 +1541,8 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 
   /* Diamond dot — smaller glow on mobile for performance */
   .hero-logo .hl-dot{-webkit-text-stroke:0 !important}
-  .logo .nl-dot{-webkit-text-stroke:0 !important}
+  .logo{width:60px;height:60px}
+  .logo .nl-icon{width:50px;height:50px}
   /* Hero orbit + halo — hide on mobile (too small to see, saves GPU). Nav border conic stays. */
   .hero-logo .hl-orbit,.hero-logo .hl-halo{display:none !important}
   /* Emerald shimmer line — thinner on mobile */
@@ -1544,7 +1566,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 <div class="page-fade" id="page-fade"></div>
 
 <nav>
-  <a href="#" class="logo" style="text-decoration:none"><span class="nl-text">forge</span><span class="nl-dot">.</span></a>
+  <a href="#" class="logo" aria-label="Forge — home"><svg class="nl-icon" width="64" height="64" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="175" cy="120" r="42" fill="#fde4de"/><circle cx="175" cy="120" r="32" fill="#fbc4b8"/><path d="M 158 178 A 80 80 0 1 1 158 62" fill="none" stroke="#1e293b" stroke-width="36" stroke-linecap="round"/><circle class="nl-core" cx="175" cy="120" r="22" fill="#ff2d20"/></svg></a>
   <div class="nav-links">
     <a href="#how">How it works</a>
     <a href="#pricing">Pricing</a>
@@ -2352,7 +2374,15 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 
 <footer style="padding:48px 40px;border-top:1px solid rgba(0,0,0,.05)">
   <div style="max-width:1100px;margin:0 auto;text-align:center">
-    <a href="#" style="text-decoration:none"><div style="font-size:1.3rem;font-weight:800;text-shadow:none;margin-bottom:6px;color:#1e293b">forge<span style="color:#6366f1">.</span></div></a>
+    <a href="#" class="ft-logo-link" style="text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:8px">
+      <svg class="ft-logo-icon" width="56" height="56" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="175" cy="120" r="42" fill="#fde4de"/>
+        <circle cx="175" cy="120" r="32" fill="#fbc4b8"/>
+        <path d="M 158 178 A 80 80 0 1 1 158 62" fill="none" stroke="#1e293b" stroke-width="36" stroke-linecap="round"/>
+        <circle cx="175" cy="120" r="22" fill="#ff2d20"/>
+      </svg>
+      <div style="font-size:1.3rem;font-weight:800;color:#1e293b;letter-spacing:-.02em">forge<span style="color:#6366f1">.</span></div>
+    </a>
     <div style="font-size:.88rem;color:var(--ink3);margin-bottom:6px">Experiment infrastructure for ad creative</div>
     <div style="display:flex;justify-content:center;gap:24px;margin-bottom:28px;flex-wrap:wrap">
       <a href="#health" style="font-size:.82rem;color:var(--ink3);text-decoration:none;transition:.2s">Free Analysis</a>
