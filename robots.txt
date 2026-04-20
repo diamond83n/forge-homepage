@@ -1,4 +1,4 @@
-# Forge - robots.txt
+# Forge X Lab - robots.txt
 # https://forgexlab.co
 
 User-agent: *
