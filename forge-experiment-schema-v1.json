@@ -1,0 +1,306 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://forgexlab.co/schemas/forge-experiment-schema-v1.json",
+  "title": "Forge Experiment Registry Schema",
+  "description": "Phase 3 Registry seed structure for Forge X Lab experiment records. Not a brief generator — this is the canonical schema for the experiment registry.",
+  "type": "object",
+  "required": [
+    "experiment_id",
+    "meta",
+    "brand",
+    "input_source",
+    "variable_isolation",
+    "hypothesis",
+    "brief",
+    "result",
+    "registry_tags"
+  ],
+  "additionalProperties": false,
+  "properties": {
+
+    "experiment_id": {
+      "type": "string",
+      "description": "Unique experiment identifier. Format: {brand_slug}-{variable_type}-{YYYYMMDD}-{seq}",
+      "pattern": "^[a-z0-9-]+-(?:hook|creator_type|selling_point|emotional_angle|format|cta)-\\d{8}-\\d{3}$",
+      "examples": ["glowup-hook-20260421-001"]
+    },
+
+    "meta": {
+      "type": "object",
+      "required": ["created_at", "engine_version", "output_type", "status", "forge_phase", "analyst_verified"],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of record creation"
+        },
+        "engine_version": {
+          "type": "string",
+          "description": "Forge Analysis Engine version used",
+          "examples": ["v2.8"]
+        },
+        "output_type": {
+          "type": "string",
+          "enum": ["brief", "report"],
+          "description": "brief = auto-generated 2-5min (Free tier). report = analyst-verified 1-2h (Founding tier)."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "active", "completed", "archived"]
+        },
+        "forge_phase": {
+          "type": "string",
+          "enum": ["phase_0", "phase_1", "phase_2", "phase_3"],
+          "description": "Forge program phase at time of experiment creation"
+        },
+        "analyst_verified": {
+          "type": "boolean",
+          "description": "True only for Founding-tier report output after analyst review"
+        }
+      }
+    },
+
+    "brand": {
+      "type": "object",
+      "required": ["brand_id", "category", "ad_spend_tier", "benchmark_opt_in"],
+      "additionalProperties": false,
+      "properties": {
+        "brand_id": {
+          "type": "string",
+          "description": "Slugified brand identifier",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["beauty", "skincare", "wellness", "personal_care", "supplement", "apparel", "other"]
+        },
+        "ad_spend_tier": {
+          "type": "string",
+          "enum": ["5k-15k", "15k-50k", "50k-150k", "150k+"],
+          "description": "Monthly ad spend range in USD"
+        },
+        "benchmark_opt_in": {
+          "type": "boolean",
+          "description": "Brand has consented to anonymized benchmark pool participation (required for Phase 0)"
+        },
+        "competitor_blocklist": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Brand slugs excluded from cross-brand benchmark comparisons",
+          "default": []
+        }
+      }
+    },
+
+    "input_source": {
+      "type": "object",
+      "required": ["primary_type", "ad_count_observed", "data_confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "primary_type": {
+          "type": "string",
+          "enum": ["meta_ad_library_url", "csv_upload"],
+          "description": "meta_ad_library_url is primary input method. csv_upload is secondary."
+        },
+        "source_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "Meta Ad Library URL if primary_type is meta_ad_library_url"
+        },
+        "csv_filename": {
+          "type": ["string", "null"],
+          "description": "Original filename if primary_type is csv_upload"
+        },
+        "ad_count_observed": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of ads analyzed from input source"
+        },
+        "data_confidence": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "low = <10 ads. medium = 10-30 ads. high = 30+ ads."
+        }
+      }
+    },
+
+    "variable_isolation": {
+      "type": "object",
+      "required": ["primary_variable", "control_variables"],
+      "additionalProperties": false,
+      "properties": {
+        "primary_variable": {
+          "type": "object",
+          "required": ["type", "current_state", "proposed_variants"],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["hook", "creator_type", "selling_point", "emotional_angle", "format", "cta"]
+            },
+            "current_state": {
+              "type": "string",
+              "description": "Description of the variable as currently used by the brand"
+            },
+            "proposed_variants": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "required": ["variant_id", "description"],
+                "additionalProperties": false,
+                "properties": {
+                  "variant_id": {
+                    "type": "string",
+                    "pattern": "^[A-Z]$",
+                    "description": "Single letter: A, B, C, D"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "control_variables": {
+          "type": "array",
+          "description": "Variables held constant during this experiment",
+          "items": {
+            "type": "object",
+            "required": ["variable", "locked_value"],
+            "additionalProperties": false,
+            "properties": {
+              "variable": {
+                "type": "string",
+                "enum": ["hook", "creator_type", "selling_point", "emotional_angle", "format", "cta"]
+              },
+              "locked_value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "hypothesis": {
+      "type": "object",
+      "required": ["statement", "expected_winner", "reasoning", "success_metric"],
+      "additionalProperties": false,
+      "properties": {
+        "statement": {
+          "type": "string",
+          "description": "If we change [primary_variable] from [current_state] to [variant], then [expected outcome]."
+        },
+        "expected_winner": {
+          "type": "string",
+          "pattern": "^[A-Z]$",
+          "description": "Predicted winning variant ID"
+        },
+        "reasoning": {
+          "type": "string",
+          "description": "Pattern-based reasoning from Forge registry data"
+        },
+        "success_metric": {
+          "type": "string",
+          "enum": ["roas", "ctr", "cpa", "hook_rate", "hold_rate"],
+          "description": "Primary metric for determining winner"
+        }
+      }
+    },
+
+    "brief": {
+      "type": "object",
+      "required": ["experiment_title", "instructions", "duration_days", "min_spend_per_variant"],
+      "additionalProperties": false,
+      "properties": {
+        "experiment_title": {
+          "type": "string"
+        },
+        "instructions": {
+          "type": "object",
+          "required": ["setup", "execution", "measurement"],
+          "additionalProperties": false,
+          "properties": {
+            "setup": {
+              "type": "string",
+              "description": "Pre-launch steps: ad set structure, audience isolation, pixel confirmation"
+            },
+            "execution": {
+              "type": "string",
+              "description": "What to produce, creator direction, content constraints"
+            },
+            "measurement": {
+              "type": "string",
+              "description": "How to read results, when to call the experiment, what data to export"
+            }
+          }
+        },
+        "duration_days": {
+          "type": "integer",
+          "minimum": 7,
+          "maximum": 30,
+          "description": "Recommended experiment run duration in days"
+        },
+        "min_spend_per_variant": {
+          "type": "integer",
+          "description": "Minimum USD spend per variant for statistical confidence",
+          "minimum": 500
+        }
+      }
+    },
+
+    "result": {
+      "type": "object",
+      "description": "Populated after experiment completion. All fields null at creation.",
+      "additionalProperties": false,
+      "properties": {
+        "winner_variant": {
+          "type": ["string", "null"],
+          "pattern": "^[A-Z]$|^null$"
+        },
+        "roas_by_variant": {
+          "type": ["object", "null"],
+          "description": "Map of variant_id → ROAS value",
+          "additionalProperties": { "type": "number" }
+        },
+        "conclusion": {
+          "type": ["string", "null"]
+        },
+        "next_experiment_id": {
+          "type": ["string", "null"],
+          "description": "experiment_id of the follow-up experiment seeded from this result"
+        }
+      }
+    },
+
+    "registry_tags": {
+      "type": "object",
+      "required": ["variable_type", "category", "market", "phase"],
+      "additionalProperties": false,
+      "properties": {
+        "variable_type": {
+          "type": "string",
+          "enum": ["hook", "creator_type", "selling_point", "emotional_angle", "format", "cta"]
+        },
+        "category": {
+          "type": "string",
+          "enum": ["beauty", "skincare", "wellness", "personal_care", "supplement", "apparel", "other"]
+        },
+        "market": {
+          "type": "string",
+          "enum": ["us", "uk", "ca", "au", "global"],
+          "description": "Primary target market of the brand"
+        },
+        "phase": {
+          "type": "string",
+          "enum": ["phase_0", "phase_1", "phase_2", "phase_3"]
+        }
+      }
+    }
+
+  }
+}
