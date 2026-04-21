@@ -40,3 +40,18 @@
 1. git pull 먼저
 2. 수정할 파일 확인
 3. 작업 후 git push
+
+## Allowed Tools (Always)
+- git (add, commit, push, pull, status, log)
+- npm / npx (install, run, create)
+- node (script execution)
+- python / python3 (script execution)
+- gh (repo create, auth status)
+- cat / ls / grep / find (file reading)
+- JSON validation scripts
+- Bash general (non-destructive commands)
+
+## Requires Confirmation
+- External URL fetch (curl to unknown domains)
+- vercel deploy (production push)
+- rm -rf (deletion)
