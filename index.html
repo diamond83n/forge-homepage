@@ -14,7 +14,7 @@
 </script>
 
 <title>Forge — Experiment Infrastructure for Ad Creative | Variable Isolation & ROAS Attribution</title>
-<meta name="description" content="The experiment infrastructure that isolates which creative variable drove your ROAS — and tells you what to test next. Built for DTC brands running performance ads.">
+<meta name="description" content="The experiment infrastructure that isolates which creative variable drove your ROAS — and which variable to isolate next. Built for DTC brands running performance ads.">
 <meta name="keywords" content="ad creative testing, ad creative analysis, ad creative experiment, variable isolation, controlled ad testing, ROAS attribution, creative benchmark data, experiment infrastructure, DTC beauty ads, skincare ad analysis, creator ad analysis, UGC ad testing, TikTok ad creative, Meta ad analysis, ad creative methodology, performance creative testing">
 <meta name="author" content="Forge">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -29,7 +29,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://forgexlab.co/">
 <meta property="og:title" content="Forge — Experiment Infrastructure for Ad Creative">
-<meta property="og:description" content="The experiment infrastructure that isolates which creative variable drove your ROAS — and tells you what to test next. Built for DTC brands running performance ads.">
+<meta property="og:description" content="The experiment infrastructure that isolates which creative variable drove your ROAS — and which variable to isolate next. Built for DTC brands running performance ads.">
 <meta property="og:site_name" content="Forge">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://forgexlab.co/og-image.png">
@@ -96,7 +96,7 @@
   "@type": "SoftwareApplication",
   "name": "Forge",
   "url": "https://forgexlab.co",
-  "description": "Experiment infrastructure and benchmark data layer for ad creative. Variable isolation methodology that identifies which element drove ROAS — and what to test next.",
+  "description": "Experiment infrastructure and benchmark data layer for ad creative. Variable isolation methodology that identifies which element drove ROAS — and which variable to isolate next.",
   "applicationCategory": "BusinessApplication",
   "applicationSubCategory": "Marketing Analytics Infrastructure",
   "operatingSystem": "Web",
@@ -125,22 +125,17 @@
       "name": "Pilot",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "Free pilot — full experiment cycle",
+      "description": "Free pilot — source-backed brief, one run path, one experiment record.",
       "availability": "https://schema.org/LimitedAvailability"
     },
     {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
       "name": "Founding",
-      "price": "0",
+      "lowPrice": "97",
+      "highPrice": "297",
       "priceCurrency": "USD",
-      "description": "Monthly experiment cycle, ROAS report, next brief. Rate locked for life.",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "price": "0",
-        "priceCurrency": "USD",
-        "unitText": "MONTH",
-        "billingIncrement": 1
-      }
+      "description": "Founding continuation after the first pilot result is filed. Rate depends on data-sharing depth and experiment cadence.",
+      "availability": "https://schema.org/LimitedAvailability"
     }
   ],
   "aggregateRating": {
@@ -242,7 +237,7 @@
       "name": "What is Forge?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Forge is the experiment infrastructure for ad creative. It isolates which variable — hook, creator, format, emotion, CTA, or selling-point — drove your ROAS, and tells you what to test next. Forge is not an ad agency, AI ad generator, or analytics dashboard. It's a controlled-experiment system that produces ROAS-attributed insights and feeds a cross-brand benchmark data layer."
+        "text": "Forge is the experiment infrastructure for ad creative. It isolates which variable — hook, creator, format, emotion, CTA, or selling-point — drove your ROAS, and identifies which variable to isolate next. Forge is not an ad agency, AI ad generator, or analytics dashboard. It's a controlled-experiment system that produces ROAS-attributed insights and feeds a cross-brand benchmark data layer."
       }
     },
     {
@@ -274,7 +269,7 @@
       "name": "How much does Forge cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pilot tier is free — full experiment cycle, same deliverables as paid tiers. Founding tier rate locked for life. Standard tier pricing TBD."
+        "text": "Pilot tier is free for the first Creative Decoder Brief. Founding continuation opens after the first result is filed and currently ranges from $97 to $297 per month depending on data-sharing depth and experiment cadence. Standard tier pricing is TBD."
       }
     },
     {
@@ -404,6 +399,17 @@
 }
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{background:var(--bg);color:var(--ink);font-family:var(--sn);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.motion-ready .motion-card{position:relative;will-change:transform,opacity,box-shadow;transform:translate3d(0,14px,0);opacity:.86;transition:opacity .58s cubic-bezier(.22,1,.36,1),transform .58s cubic-bezier(.22,1,.36,1),box-shadow .24s ease,border-color .24s ease;transition-delay:var(--motion-delay,0ms)}
+.motion-ready .motion-section.motion-in .motion-card{transform:translate3d(0,0,0);opacity:1}
+.motion-ready .motion-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:var(--spot-opacity,0);background:radial-gradient(180px circle at var(--mx,50%) var(--my,50%),rgba(129,140,248,.14),rgba(129,140,248,0) 62%);transition:opacity .2s ease;z-index:2}
+.motion-ready .motion-card:hover{transform:translate3d(0,-3px,0);box-shadow:0 18px 52px rgba(15,23,42,.07);border-color:rgba(99,102,241,.16)}
+.motion-ready .motion-section{position:relative;isolation:isolate}
+.motion-ready .motion-section::before,.motion-ready .motion-section::after{display:none}
+.motion-ready .motion-section > *{position:relative;z-index:1}
+.motion-ready .motion-panel{transform:none}
+@media(pointer:coarse){.motion-ready .motion-card::after{display:none}}
+@media(max-width:768px){.motion-ready .motion-card{transform:translate3d(0,10px,0)}}
+@media(prefers-reduced-motion:reduce){.motion-ready .motion-card{transition:none;transform:none;opacity:1}.motion-ready .motion-card::after{display:none}}
 /* Global text safety net — prevents word clipping anywhere */
 p,h1,h2,h3,h4,span,div,a,em,strong,li{overflow-wrap:break-word;word-wrap:break-word}
 
@@ -587,12 +593,12 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--ac),var(--gn));-
 .sl{font-size:1.25rem;color:var(--ink2);max-width:940px;margin-bottom:48px;line-height:1.8;font-weight:400;text-wrap:pretty;overflow:visible}
 .sec-hd.cen .sl{margin-left:auto;margin-right:auto}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.g2-compact{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:1200px;margin:0 auto}
+.g2-compact{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:min(100%,1200px);margin:0 auto;align-items:stretch}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 
 /* ════ HIDDEN PATTERN — Featured moat card (the real point) ════ */
-.hp-feature{max-width:1200px;margin:24px auto 0;background:linear-gradient(135deg,#1e1b4b 0%,#0f172a 100%);border:1px solid rgba(129,140,248,.2);border-radius:20px;padding:40px 48px;position:relative;overflow:hidden;color:#fff}
+.hp-feature{width:min(100%,1200px);margin:24px auto 0;background:linear-gradient(135deg,#1e1b4b 0%,#0f172a 100%);border:1px solid rgba(129,140,248,.2);border-radius:20px;padding:40px 48px;position:relative;overflow:hidden;color:#fff}
 .hp-feature::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#10b981,#818cf8,#f59e0b)}
 .hp-feature-layout{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center}
 .hp-feature-ci{width:52px;height:52px;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -606,7 +612,7 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--ac),var(--gn));-
 .hp-feature-mark-v{color:#fff;font-size:1.1rem;margin-top:4px;font-family:var(--mn);font-variant-numeric:tabular-nums;font-weight:600;letter-spacing:-.005em}
 
 /* CARDS */
-.cd{background:var(--gl);border:1px solid var(--gb);border-radius:var(--rx);padding:28px 28px 24px;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden}
+.cd{background:var(--gl);border:1px solid var(--gb);border-radius:var(--rx);padding:28px 28px 24px;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden;min-height:196px}
 .cd::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.05),transparent);transition:all .4s}
 .cd:hover{border-color:rgba(129,140,248,.15);transform:translateY(-6px);box-shadow:0 20px 60px rgba(129,140,248,.06)}
 .cd:hover::before{background:linear-gradient(90deg,transparent,rgba(129,140,248,.15),transparent)}
@@ -640,6 +646,7 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--ac),var(--gn));-
 .tp{font-size:2.8rem;font-weight:800;letter-spacing:-.02em}
 .tp span{font-size:.82rem;color:var(--ink3);font-weight:400}
 .tc{margin-top:auto;padding:12px 28px;border-radius:var(--rl);font-size:.85rem;font-weight:600;cursor:pointer;transition:.3s;border:none;display:inline-block;font-family:var(--sn)}
+.tc-status{cursor:default;pointer-events:none;opacity:.76}
 
 /* COMPARISON */
 .ct{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;border-radius:var(--rx);overflow:hidden;border:1px solid var(--gb);background:var(--gl)}
@@ -671,7 +678,7 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--ac),var(--gn));-
 .bt{font-family:var(--mn);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
 .bi{font-size:.92rem;color:var(--ink2);padding:6px 0;font-weight:400;display:flex;align-items:center;gap:8px}
 
-/* TIMELINE */
+/* HOW IT WORKS */
 .ob-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:40px 0;position:relative}
 .ob-row::before{content:'';position:absolute;top:24px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,var(--ac),var(--gn))}
 .ob-step{text-align:center;position:relative;z-index:1}
@@ -738,15 +745,17 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 .pred-wrap{margin:0 auto 0;border-radius:20px;background:var(--s1);border:1px solid rgba(0,0,0,.06);overflow:hidden;position:relative;height:460px;max-width:100%}
 .pred-wrap canvas{width:100%;height:100%;display:block}
 
-/* ════ VISION SECTION — Engineering console of the data layer ════ */
+/* ════ VISION SECTION — Data layer projection ════ */
 #vision{background:linear-gradient(180deg,#fafaf8 0%,#f5f4ef 50%,#fafaf8 100%);position:relative}
 #vision::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(129,140,248,.05) 0%,transparent 60%);pointer-events:none}
 #vision .sec-hd{max-width:1200px;margin:0 auto;position:relative;z-index:2}
 #vision h2{text-wrap:balance;max-width:1100px;margin-left:auto;margin-right:auto;font-size:clamp(1.9rem,3.6vw,2.6rem)}
 #vision h2 em{font-style:normal;background:linear-gradient(135deg,#6366f1 0%,#818cf8 40%,#059669 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 14px rgba(129,140,248,.25))}
-#vision .sl{max-width:940px;text-wrap:pretty}
+#vision .sl{max-width:940px;text-wrap:pretty;line-height:1.22;margin-bottom:28px}
+#vision .sl > span{display:block}
+#vision .sl > span + span{margin-top:2px}
 
-/* CONSOLE — unified dark engineering view */
+/* CONSOLE — unified dark data-layer view */
 .vs-console{max-width:1280px;margin:56px auto 0;position:relative;z-index:2;background:linear-gradient(180deg,#0c1018 0%,#0a0e16 100%);border:1px solid rgba(129,140,248,.18);border-radius:16px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.35),0 0 60px rgba(99,102,241,.08),inset 0 1px 0 rgba(255,255,255,.04)}
 
 /* Header bar */
@@ -790,6 +799,10 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 .vsx-prog-node:nth-child(5) .vsx-prog-node-n{color:#fca5a5}
 .vsx-prog-node:nth-child(5) .vsx-prog-node-phase{color:rgba(248,113,113,.75)}
 .vsx-prog-node:nth-child(5) .vsx-prog-node-dot{background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.4)}
+.vsx-layer-note{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 18px 0}
+.vsx-layer-note div{border:1px solid rgba(129,140,248,.12);background:rgba(255,255,255,.025);border-radius:7px;padding:10px 12px}
+.vsx-layer-note span{display:block;font-family:var(--mn);font-size:.56rem;color:rgba(255,255,255,.38);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:4px}
+.vsx-layer-note strong{display:block;font-size:.78rem;color:rgba(255,255,255,.86);line-height:1.35}
 
 /* ═══ BIG STAGE NUMBER — NEW ═══ */
 .vsx-stage-bignum{position:absolute;top:-6px;right:12px;font-family:var(--sn);font-size:3.2rem;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(129,140,248,.15);letter-spacing:-.03em;font-variant-numeric:tabular-nums;z-index:1;pointer-events:none;user-select:none}
@@ -813,7 +826,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 .vsx-stage{display:flex;gap:14px;align-items:stretch;position:relative;padding-top:18px}
 /* Stage 1 — legacy/past: desaturated, lower opacity (the era before the layer) */
 .vsx-stage[data-stage="1"]{opacity:.72;filter:saturate(.55)}
-.vsx-stage[data-stage="1"] .vsx-card{transform:scale(.97);transform-origin:left top}
+.vsx-stage[data-stage="1"] .vsx-card{transform:none}
 /* Stage 2 — current operational */
 /* Stage 3 — future/live, amplified glow handled in card styles */
 .vsx-rail{display:flex;flex-direction:column;align-items:center;padding-top:6px;flex-shrink:0}
@@ -824,7 +837,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 @keyframes vsxRailPulse{0%,100%{opacity:1}50%{opacity:.55}}
 
 /* Card */
-.vsx-card{flex:1;display:flex;flex-direction:column;gap:12px;padding:0 4px;position:relative;min-width:0}
+.vsx-card{flex:1;display:flex;flex-direction:column;gap:12px;padding:0 4px;position:relative;min-width:0;height:100%}
 
 /* Question banner */
 .vsx-q{font-family:var(--mn);font-size:.78rem;color:rgba(255,255,255,.75);letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding-bottom:10px;border-bottom:1px dashed rgba(255,255,255,.08)}
@@ -871,7 +884,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 @keyframes vsxCursor{0%,100%{opacity:1}50%{opacity:0}}
 
 /* Trace block */
-.vsx-trace{padding:10px 0 0;border-top:1px dashed rgba(255,255,255,.08);margin-top:auto}
+.vsx-trace{padding:10px 0 0;border-top:1px dashed rgba(255,255,255,.08);margin-top:auto;min-height:82px;display:flex;flex-direction:column;justify-content:flex-start}
 .vsx-trace-label{font-family:var(--mn);font-size:.58rem;color:rgba(255,255,255,.35);letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
 .vsx-trace-text{font-family:var(--mn);font-size:.68rem;line-height:1.45}
 .vsx-trace-warn{color:#fca5a5}
@@ -882,7 +895,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 @keyframes vsxFill{from{width:0}to{width:78%}}
 
 /* Card footer (stage label) */
-.vsx-card-footer{margin-top:12px;padding-top:8px;border-top:1px dashed rgba(255,255,255,.08);font-family:var(--mn);font-size:.74rem;color:rgba(255,255,255,.65);letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.vsx-card-footer{margin-top:0;padding-top:8px;border-top:1px dashed rgba(255,255,255,.08);font-family:var(--mn);font-size:.74rem;color:rgba(255,255,255,.65);letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 .vsx-card-footer-live{color:#6ee7b7;font-weight:700}
 
 /* Live card extras */
@@ -932,11 +945,13 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 .hvx-section-label{font-family:var(--mn);font-size:.72rem;color:rgba(255,255,255,.6);letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 .hvx-section-label-ok{color:#86efac}
 
-/* Code input */
-.hvx-code{font-family:var(--mn);font-size:.88rem;color:#e0e7ff;padding:10px 12px;background:rgba(0,0,0,.25);border:1px solid rgba(129,140,248,.15);border-radius:6px;display:flex;align-items:center;flex-wrap:wrap;letter-spacing:.01em}
-.hvx-code-key{color:#a5b4fc;font-weight:600}
+/* Input read */
+.hvx-code{font-family:var(--mn);font-size:.78rem;color:#e0e7ff;padding:10px 12px;background:rgba(0,0,0,.22);border:1px solid rgba(129,140,248,.15);border-radius:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;letter-spacing:0}
+.hvx-code-key{color:#a5b4fc;font-weight:700;text-transform:uppercase;font-size:.66rem;letter-spacing:.12em}
 .hvx-code-paren{color:rgba(199,210,254,.55)}
-.hvx-code-str{color:#fbbf24;font-weight:500}
+.hvx-code-str{color:#fbbf24;font-weight:600}
+.hvx-source-chip{padding:4px 8px;border-radius:4px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.075);color:#e0e7ff;white-space:nowrap}
+.hvx-source-chip-live{border-color:rgba(251,191,36,.24);background:rgba(251,191,36,.08);color:#fbbf24}
 .hvx-cursor-inline{color:#10b981;animation:vsxCursorBlink 1s step-end infinite;margin-left:2px;font-weight:400}
 
 /* Variable tabs */
@@ -973,7 +988,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 .hvx-bar-val-mute{color:rgba(255,255,255,.55)}
 .hvx-bar-val-amber{color:#f59e0b}
 
-/* Trace next_brief */
+/* Trace next brief */
 .hvx-trace-section{padding-top:6px;border-top:1px dashed rgba(110,231,183,.15);margin-top:2px}
 .hvx-trace-box{position:relative;min-height:36px;padding:8px 10px;background:rgba(16,185,129,.04);border-left:2px solid rgba(16,185,129,.35);border-radius:4px}
 .hvx-trace-text{font-family:var(--mn);font-size:.82rem;color:#a7f3d0;letter-spacing:.01em;line-height:1.5;transition:opacity .3s}
@@ -990,7 +1005,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 
 /* Floating cards redesigned for dark console */
 .hvx-fc{position:absolute;padding:10px 14px;background:linear-gradient(180deg,#161b2b,#12162080);border:1px solid rgba(129,140,248,.35);border-radius:8px;backdrop-filter:blur(8px);font-family:var(--mn);box-shadow:0 8px 24px rgba(0,0,0,.3),0 0 18px rgba(99,102,241,.15);animation:hvxFcFloat 6s ease-in-out infinite;z-index:5}
-.hvx-fc-1{top:16px;right:-56px;animation-delay:0s}
+.hvx-fc-1{top:42px;right:-56px;animation-delay:0s}
 .hvx-fc-2{top:50%;right:-68px;transform:translateY(-50%);animation-delay:2s;border-color:rgba(16,185,129,.45);box-shadow:0 8px 24px rgba(0,0,0,.3),0 0 18px rgba(16,185,129,.2)}
 .hvx-fc-3{bottom:30px;right:-54px;animation-delay:4s;border-color:rgba(245,158,11,.45);box-shadow:0 8px 24px rgba(0,0,0,.3),0 0 18px rgba(245,158,11,.2)}
 .hvx-fc-label{font-size:.55rem;color:rgba(199,210,254,.65);letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:3px}
@@ -1112,9 +1127,10 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 .rep-overlay-kicker{font-family:var(--mn);font-size:.62rem;color:#78716c;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
 .rep-overlay-title{font-family:var(--sn);font-size:1.05rem;font-weight:500;color:#1a1a1a;margin:0 auto 8px;line-height:1.5;letter-spacing:-.005em;text-wrap:balance}
 .rep-overlay-note{font-family:var(--sn);font-size:.88rem;color:#57534e;margin:0 auto 22px;line-height:1.55;text-wrap:pretty}
-.rep-overlay-btn{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;background:#1a1a1a;color:#fefdfb;border:1px solid #1a1a1a;border-radius:8px;font-family:var(--sn);font-size:.98rem;font-weight:600;cursor:pointer;letter-spacing:-.005em;transition:all .25s ease;box-shadow:0 4px 16px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08)}
+.rep-overlay-btn{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;background:#1a1a1a;color:#fefdfb;border:1px solid #1a1a1a;border-radius:8px;font-family:var(--sn);font-size:.98rem;font-weight:600;cursor:pointer;letter-spacing:-.005em;transition:all .25s ease;box-shadow:0 4px 16px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08);text-decoration:none}
 .rep-overlay-btn::after{content:'→';font-size:1.15em;transition:transform .25s ease;margin-left:2px}
-.rep-overlay-btn:hover{background:#000000;transform:translateY(-1px);box-shadow:0 6px 22px rgba(0,0,0,.18),0 2px 6px rgba(0,0,0,.1)}
+.rep-overlay-btn:hover{background:#000000;transform:translateY(-1px);box-shadow:0 6px 22px rgba(0,0,0,.18),0 2px 6px rgba(0,0,0,.1);text-decoration:none}
+.rep-overlay-btn:focus,.rep-overlay-btn:visited{text-decoration:none;color:#fefdfb}
 .rep-overlay-btn:hover::after{transform:translateX(3px)}
 .rep-overlay-hint{font-family:var(--sn);font-size:.74rem;color:#a8a29e;margin-top:12px;letter-spacing:.005em}
 
@@ -1213,8 +1229,19 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 /* PAGE TRANSITION OVERLAY */
 .page-fade{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:9999;opacity:0;pointer-events:none;transition:opacity .6s ease}
 
-@media(max-width:900px){
+@media(max-width:768px){
   .hi{gap:30px}
+  #vision{padding:80px 20px !important}
+  .vs-console{margin-top:40px !important}
+  .vsx-body{grid-template-columns:1fr !important;padding:22px 16px !important;gap:34px !important}
+  .vsx-conn{display:none}
+  .vsx-stage{flex-direction:column !important;gap:8px !important;padding-top:22px !important}
+  .vsx-stage[data-stage="1"] .vsx-card{transform:none !important}
+  .vsx-rail{flex-direction:row !important;align-items:center !important;padding-top:0 !important;gap:10px;width:100%}
+  .vsx-rail-num{margin-bottom:0 !important;font-size:.64rem !important}
+  .vsx-rail-line{width:auto !important;flex:1 !important;height:1px !important;min-height:0 !important;background:linear-gradient(90deg,rgba(129,140,248,.25),rgba(129,140,248,.05)) !important}
+  .vsx-rail-line-live{background:linear-gradient(90deg,rgba(16,185,129,.5),rgba(16,185,129,.1)) !important}
+  .vsx-layer-note{grid-template-columns:1fr !important;margin:10px 0 0 !important}
 }
 @media(max-width:768px){
   .sec-hd{max-width:100%}
@@ -1290,7 +1317,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   .fa2{transform:rotate(90deg);padding:6px 0;justify-content:center}
   .fn{padding:18px 16px}
   .fn.flow-active{transform:translateY(0);box-shadow:0 0 20px rgba(129,140,248,.08)}
-  /* Timeline - vertical on mobile */
+  /* How it works - vertical on mobile */
   .ob-row{grid-template-columns:1fr;gap:14px}
   .ob-row::before{display:none}
   .ob-dot{width:40px;height:40px;font-size:.68rem}
@@ -1450,6 +1477,8 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   .vsx-rail-num{margin-bottom:0 !important;font-size:.64rem !important}
   .vsx-rail-line{width:auto !important;flex:1 !important;height:1px !important;min-height:0 !important;background:linear-gradient(90deg,rgba(129,140,248,.25),rgba(129,140,248,.05)) !important}
   .vsx-rail-line-live{background:linear-gradient(90deg,rgba(16,185,129,.5),rgba(16,185,129,.1)) !important}
+  .vsx-layer-note{grid-template-columns:1fr !important;margin:10px 0 0 !important}
+  .vsx-layer-note div{padding:9px 10px !important}
   /* PHASE header — position on top of card, centered in available width */
   .vsx-phase-header{top:-11px !important;left:auto !important;right:10px !important;padding:2px 9px !important}
   .vsx-phase-num{font-size:.5rem !important}
@@ -1517,11 +1546,11 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   .db-num{font-size:1.5rem !important}
   /* 6-variable breakdown mobile */
   .sec div[style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr 1fr !important;gap:6px !important}
-  /* Experiment timeline mobile */
+  /* Experiment flow mobile */
   .sec div[style*="D1-3"]{font-size:.5rem !important}
   /* Dashboard variable breakdown 3col to 2col */
   .sec div[style*="All 6 Dimensions"] + div{grid-template-columns:1fr 1fr !important;gap:6px !important}
-  /* Dashboard experiment timeline compact */
+  /* Dashboard experiment flow compact */
   .sec div[style*="Experiment Timeline"] + div{padding:10px 12px !important}
   .sec div[style*="Experiment Timeline"] + div div[style*="font-size:.7rem"]{font-size:.6rem !important}
   /* NEW SECTIONS — Tech positioning (Service boundary, We do/You do/Don't do, Built on) */
@@ -1597,62 +1626,65 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   </div>
   <div class="hero-viz">
     <div class="hvx-console" id="hero-sim">
-      <!-- Console header (matches Vision console lang) -->
       <div class="hvx-header">
         <div class="hvx-header-left">
           <span class="hvx-kbd">forge</span>
           <span class="hvx-path">experiment</span>
           <span class="hvx-path-sep">▸</span>
-          <span class="hvx-path hvx-path-active">live_test</span>
+          <span class="hvx-path hvx-path-active">variable read</span>
         </div>
         <div class="hvx-header-right">
-          <span class="hvx-status"><span class="hvx-status-dot"></span>experiment · running</span>
+          <span class="hvx-status"><span class="hvx-status-dot"></span>brief · building</span>
         </div>
       </div>
 
       <!-- Console body -->
       <div class="hvx-body">
-        <!-- INPUT: variable selection as code -->
+        <!-- INPUT: source-backed variable read -->
         <div class="hvx-section">
-          <div class="hvx-section-label">input</div>
+          <div class="hvx-section-label">input read</div>
           <div class="hvx-code">
-            <span class="hvx-code-key">variable.select</span><span class="hvx-code-paren">(</span><span class="hvx-code-str" id="prompt-text">"result_first_hook"</span><span class="hvx-code-paren">)</span><span class="hvx-cursor-inline">_</span>
+            <span class="hvx-code-key">sources</span>
+            <span class="hvx-source-chip">Ad link</span>
+            <span class="hvx-source-chip">Product page</span>
+            <span class="hvx-source-chip">Performance CSV</span>
+            <span class="hvx-source-chip hvx-source-chip-live" id="prompt-text">Result-first hook</span><span class="hvx-cursor-inline">_</span>
           </div>
           <div id="var-tabs" class="hvx-tabs">
-            <button class="hvx-tab active" onclick="switchVar(0)">result_first_hook</button>
-            <button class="hvx-tab" onclick="switchVar(1)">problem_first_hook</button>
-            <button class="hvx-tab" onclick="switchVar(2)">expert_creator</button>
-            <button class="hvx-tab" onclick="switchVar(3)">everyday_creator</button>
+            <button class="hvx-tab active" onclick="switchVar(0)">Result-first hook</button>
+            <button class="hvx-tab" onclick="switchVar(1)">Problem-first hook</button>
+            <button class="hvx-tab" onclick="switchVar(2)">Expert creator</button>
+            <button class="hvx-tab" onclick="switchVar(3)">Everyday creator</button>
           </div>
         </div>
 
         <!-- ATTRIBUTION: 3-layer conclusion (Report v2 언어 통일) -->
         <div class="hvx-section">
-          <div class="hvx-section-label">attribution</div>
+          <div class="hvx-section-label">variable read</div>
           <div class="hvx-rows">
-            <div class="hvx-row"><span class="hvx-k">winner</span><span class="hvx-v hvx-v-roas" id="demo-roas">result_first</span></div>
-            <div class="hvx-row"><span class="hvx-k">roas_gain</span><span class="hvx-v hvx-v-ctr" id="demo-ctr">+81% (3.8x)</span></div>
-            <div class="hvx-row"><span class="hvx-k">repeatable</span><span class="hvx-v hvx-v-lift" id="demo-lift">92% · high</span></div>
+            <div class="hvx-row"><span class="hvx-k">winning signal</span><span class="hvx-v hvx-v-roas" id="demo-roas">Result-first hook</span></div>
+            <div class="hvx-row"><span class="hvx-k">lift observed</span><span class="hvx-v hvx-v-ctr" id="demo-ctr">+81% (3.8x)</span></div>
+            <div class="hvx-row"><span class="hvx-k">confidence</span><span class="hvx-v hvx-v-lift" id="demo-lift">92% · high</span></div>
           </div>
         </div>
 
         <!-- COMPARISON BARS -->
         <div class="hvx-section">
-          <div class="hvx-section-label">comparison</div>
+          <div class="hvx-section-label">controlled comparison</div>
           <div class="hvx-bars">
-            <div class="hvx-bar"><div class="hvx-bar-label" id="demo-label">result_first</div><div class="hvx-bar-track"><div class="hvx-bar-fill hvx-bar-fill-primary" id="demo-bar" style="width:92%"></div></div><div class="hvx-bar-val" id="demo-barv">3.8x</div></div>
+            <div class="hvx-bar"><div class="hvx-bar-label" id="demo-label">Result-first</div><div class="hvx-bar-track"><div class="hvx-bar-fill hvx-bar-fill-primary" id="demo-bar" style="width:92%"></div></div><div class="hvx-bar-val" id="demo-barv">3.8x</div></div>
             <div class="hvx-bar"><div class="hvx-bar-label">control</div><div class="hvx-bar-track"><div class="hvx-bar-fill hvx-bar-fill-mute" style="width:51%"></div></div><div class="hvx-bar-val hvx-bar-val-mute">2.1x</div></div>
-            <div class="hvx-bar"><div class="hvx-bar-label">category_avg</div><div class="hvx-bar-track"><div class="hvx-bar-fill hvx-bar-fill-amber" style="width:58%"></div></div><div class="hvx-bar-val hvx-bar-val-amber">2.4x</div></div>
+            <div class="hvx-bar"><div class="hvx-bar-label">category avg</div><div class="hvx-bar-track"><div class="hvx-bar-fill hvx-bar-fill-amber" style="width:58%"></div></div><div class="hvx-bar-val hvx-bar-val-amber">2.4x</div></div>
           </div>
         </div>
 
         <!-- TRACE: next brief output -->
         <div class="hvx-section hvx-trace-section">
-          <div class="hvx-section-label hvx-section-label-ok">trace · next_brief.generated()</div>
+          <div class="hvx-section-label hvx-section-label-ok">next experiment</div>
           <div class="hvx-trace-box">
-            <div class="hvx-trace-text" id="demo-brief-text">keep result_first → try expertise_led_creator → +15–25%</div>
+            <div class="hvx-trace-text" id="demo-brief-text">Keep result-first hook. Isolate expert creator next.</div>
             <div id="demo-typing" class="hvx-typing">
-              <span class="hvx-typing-label">forge · analyzing</span>
+              <span class="hvx-typing-label">forge · reading variables</span>
               <div class="typing-dots"><span></span><span></span><span></span></div>
             </div>
           </div>
@@ -1662,19 +1694,19 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <!-- Status bar -->
       <div class="hvx-statusbar">
         <div class="hvx-sb-left">
-          <span class="hvx-sb-key">mode</span><span class="hvx-sb-val">simulation</span>
+          <span class="hvx-sb-key">mode</span><span class="hvx-sb-val">preview</span>
           <span class="hvx-sb-sep">│</span>
-          <span class="hvx-sb-key">isolating</span><span class="hvx-sb-val">hook_type</span>
+          <span class="hvx-sb-key">isolating</span><span class="hvx-sb-val">hook</span>
         </div>
         <div class="hvx-sb-right">
-          <span class="hvx-sb-blink"></span><span class="hvx-sb-val">variable.isolated()</span>
+          <span class="hvx-sb-blink"></span><span class="hvx-sb-val">next variable selected</span>
         </div>
       </div>
     </div>
 
     <!-- FLOATING CARDS — redesigned to match console -->
-    <div class="hvx-fc hvx-fc-1"><div class="hvx-fc-label">winner</div><div class="hvx-fc-val">result_first</div></div>
-    <div class="hvx-fc hvx-fc-2"><div class="hvx-fc-label hvx-fc-label-gn">roas_lift</div><div class="hvx-fc-val hvx-fc-val-gn">+81%</div></div>
+    <div class="hvx-fc hvx-fc-1"><div class="hvx-fc-label">signal</div><div class="hvx-fc-val">result-first</div></div>
+    <div class="hvx-fc hvx-fc-2"><div class="hvx-fc-label hvx-fc-label-gn">lift</div><div class="hvx-fc-val hvx-fc-val-gn">+81%</div></div>
     <div class="hvx-fc hvx-fc-3"><div class="hvx-fc-label hvx-fc-label-am">confidence</div><div class="hvx-fc-val hvx-fc-val-am">★★★★☆</div></div>
   </div>
 </div></div>
@@ -1713,11 +1745,11 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   <div class="thesis-card" id="thesis-card">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:24px">
       <div onclick="smoothNav('forge-thesis.html')" style="cursor:pointer;flex:1">
-        <div style="font-family:var(--mn);font-size:.75rem;color:var(--ac);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;font-weight:700;text-shadow:0 1px 3px rgba(99,102,241,.1)">Our thesis</div>
-        <div style="font-size:1.4rem;font-weight:800;line-height:1.45;color:#0f172a;letter-spacing:-.02em">Every industry that learned to measure the right variable <span style="background:linear-gradient(135deg,#f59e0b,#ea580c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 8px rgba(245,158,11,.2))">rewrote its playbook.</span></div>
+        <div style="font-family:var(--mn);font-size:.75rem;color:var(--ac);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;font-weight:700;text-shadow:0 1px 3px rgba(99,102,241,.1)">Method thesis</div>
+        <div style="font-size:1.4rem;font-weight:800;line-height:1.45;color:#0f172a;letter-spacing:0">ROAS tells you the result. Variable isolation shows <span style="background:linear-gradient(135deg,#f59e0b,#ea580c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 8px rgba(245,158,11,.2))">which variable caused it.</span></div>
       </div>
       <div style="display:inline-flex;align-items:center;gap:8px;flex-shrink:0;cursor:pointer;padding:12px 20px;background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.25);border-radius:10px;transition:all .25s ease" onclick="smoothNav('forge-thesis.html')" onmouseover="this.style.background='rgba(99,102,241,.14)';this.style.borderColor='rgba(99,102,241,.4)';this.style.transform='translateX(3px)'" onmouseout="this.style.background='rgba(99,102,241,.08)';this.style.borderColor='rgba(99,102,241,.25)';this.style.transform='translateX(0)'">
-        <span style="font-family:var(--mn);font-size:.85rem;font-weight:700;color:var(--ac);letter-spacing:.1em">READ</span>
+        <span style="font-family:var(--mn);font-size:.85rem;font-weight:700;color:var(--ac);letter-spacing:.1em">READ METHOD</span>
         <span style="font-size:1.1rem;color:var(--ac);line-height:1">→</span>
       </div>
     </div>
@@ -1804,7 +1836,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <div class="rep-box">
         <div class="rep-box-lbl">Winner</div>
         <div class="rep-box-val">3.8<span class="rep-box-unit">x</span></div>
-        <div class="rep-box-sub">ROAS · result_first</div>
+        <div class="rep-box-sub">ROAS · Result-first</div>
         <div class="rep-box-viz">
           <svg viewBox="0 0 80 18" preserveAspectRatio="none">
             <path class="rep-box-spark" d="M0,15 L10,14 L20,12 L30,11 L40,9 L50,7 L60,5 L70,4 L80,3" stroke="#7f1d1d" stroke-width="1.4" fill="none" stroke-linecap="round"/>
@@ -1872,9 +1904,9 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
             <tr><th>Variant</th><th class="rt-r">ROAS</th><th class="rt-r">Distribution</th></tr>
           </thead>
           <tbody>
-            <tr class="rt-winner"><td class="rt-variant">result_first</td><td class="rt-num">3.8x</td><td class="rt-dist"><div class="rt-dist-bar"><div class="rt-dist-fill rt-dist-fill-w" data-w="92%"></div></div></td></tr>
+            <tr class="rt-winner"><td class="rt-variant">Result-first</td><td class="rt-num">3.8x</td><td class="rt-dist"><div class="rt-dist-bar"><div class="rt-dist-fill rt-dist-fill-w" data-w="92%"></div></div></td></tr>
             <tr><td class="rt-variant">question</td><td class="rt-num">2.6x</td><td class="rt-dist"><div class="rt-dist-bar"><div class="rt-dist-fill" data-w="63%"></div></div></td></tr>
-            <tr><td class="rt-variant">problem_first</td><td class="rt-num">2.2x</td><td class="rt-dist"><div class="rt-dist-bar"><div class="rt-dist-fill" data-w="54%"></div></div></td></tr>
+            <tr><td class="rt-variant">Problem-first</td><td class="rt-num">2.2x</td><td class="rt-dist"><div class="rt-dist-bar"><div class="rt-dist-fill" data-w="54%"></div></div></td></tr>
             <tr class="rt-ctrl"><td class="rt-variant">control_avg</td><td class="rt-num">2.1x</td><td class="rt-dist"><div class="rt-dist-bar"><div class="rt-dist-fill rt-dist-fill-ctrl" data-w="51%"></div></div></td></tr>
           </tbody>
         </table>
@@ -1894,10 +1926,10 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <div class="rep-overlay">
         <div class="rep-overlay-inner">
           <div class="rep-overlay-kicker">Access</div>
-          <h4 class="rep-overlay-title">Full report available on request.</h4>
-          <p class="rep-overlay-note">First Creative Decoder Report — complimentary</p>
-          <a href="https://tally.so/r/zxrx51" target="_blank" rel="noopener noreferrer" class="rep-overlay-btn">Request your full report</a>
-          <div class="rep-overlay-hint">Usually delivered within one business day</div>
+          <h4 class="rep-overlay-title">Full report opens after the result.</h4>
+          <p class="rep-overlay-note">Start with a free Creative Decoder Brief</p>
+          <a href="https://app.forgexlab.co" target="_blank" rel="noopener noreferrer" class="rep-overlay-btn">Open Forge app</a>
+          <div class="rep-overlay-hint">Candidate Brief first · Decision Report after result</div>
         </div>
       </div>
     </div>
@@ -1914,34 +1946,34 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   </div>
 </div></div>
 
-<!-- VISION — As brands join, the layer grows (Y+Z fusion) -->
+<!-- VISION — Data layer projection -->
 <div class="sa3"><div class="sec rv" id="vision" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:90px 40px;position:relative;overflow:hidden">
   <div class="sec-hd cen">
-    <div class="sn2">As brands join, the layer grows</div>
-    <h2>Every experiment compounds. <em>Eventually, the answer comes before the test.</em></h2>
-    <p class="sl">The variables keep moving. The dataset doesn't.<br>Every experiment feeds one growing reference layer.</p>
+    <div class="sn2">Data layer preview</div>
+    <h2>One result becomes the next decision. <em>The layer gets sharper with every brand.</em></h2>
+    <p class="sl"><span>The first experiment shows what happened.</span><span>Comparable results reveal why it happened.</span><span>The next brand starts with a stronger test.</span></p>
   </div>
 
-  <!-- CONSOLE: single unified engineering view of the data layer projection -->
+  <!-- CONSOLE: single unified view of the data layer projection -->
   <div class="vs-console">
     <!-- Console header bar -->
     <div class="vsx-header">
       <div class="vsx-header-left">
         <span class="vsx-kbd">forge</span>
-        <span class="vsx-path">data_layer</span>
+        <span class="vsx-path">data layer</span>
         <span class="vsx-path-sep">▸</span>
-        <span class="vsx-path vsx-path-active">projection_view</span>
+        <span class="vsx-path vsx-path-active">experiment data layer</span>
       </div>
       <div class="vsx-header-right">
         <span class="vsx-status"><span class="vsx-status-dot"></span>layer · live</span>
       </div>
     </div>
 
-    <!-- PROGRESSION BAR — NEW: we are here + N scale -->
+    <!-- PROGRESSION BAR: we are here + N scale -->
     <div class="vsx-progression">
       <div class="vsx-prog-label">
-        <span class="vsx-prog-kicker">data layer · progression</span>
-        <span class="vsx-prog-now"><span class="vsx-prog-now-dot"></span>starting here</span>
+        <span class="vsx-prog-kicker">what compounds</span>
+        <span class="vsx-prog-now"><span class="vsx-prog-now-dot"></span>first report starts here</span>
       </div>
       <div class="vsx-prog-track">
         <div class="vsx-prog-line"></div>
@@ -1962,6 +1994,11 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
           <div class="vsx-prog-node-phase">project</div>
         </div>
       </div>
+      <div class="vsx-layer-note">
+        <div><span>first record</span><strong>One brand shows what happened.</strong></div>
+        <div><span>pattern base</span><strong>Similar results reveal why it worked.</strong></div>
+        <div><span>projection layer</span><strong>Next brief starts from accumulated proof.</strong></div>
+      </div>
     </div>
 
     <!-- Console body: 3 columns, left index rail + pipeline -->
@@ -1981,7 +2018,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
         <div class="vsx-card">
           <div class="vsx-q">What worked?</div>
           <div class="vsx-head">
-            <div class="vsx-exp">Experiment #1</div>
+            <div class="vsx-exp">First result</div>
             <div class="vsx-day">D+24</div>
           </div>
           <div class="vsx-metric">
@@ -1989,15 +2026,15 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
             <div class="vsx-mval">2.4<span>x</span></div>
           </div>
           <div class="vsx-rows">
-            <div class="vsx-row"><span class="vsx-k">variables</span><span class="vsx-v">1</span></div>
-            <div class="vsx-row"><span class="vsx-k">matched</span><span class="vsx-v vsx-null">null</span></div>
-            <div class="vsx-row"><span class="vsx-k">source</span><span class="vsx-v vsx-null">null</span></div>
+            <div class="vsx-row"><span class="vsx-k">isolated variable</span><span class="vsx-v">1</span></div>
+            <div class="vsx-row"><span class="vsx-k">category match</span><span class="vsx-v vsx-null">not enough yet</span></div>
+            <div class="vsx-row"><span class="vsx-k">reference base</span><span class="vsx-v">first record</span></div>
           </div>
           <div class="vsx-trace">
-            <div class="vsx-trace-label">trace</div>
-            <div class="vsx-trace-text vsx-trace-warn">measurement captured · inference unavailable</div>
+            <div class="vsx-trace-label">record</div>
+            <div class="vsx-trace-text vsx-trace-warn">result captured · pattern not available yet</div>
           </div>
-          <div class="vsx-card-footer">The first brand</div>
+          <div class="vsx-card-footer">Measure one brand</div>
         </div>
       </div>
 
@@ -2021,7 +2058,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
         <div class="vsx-card">
           <div class="vsx-q">Why did it work?</div>
           <div class="vsx-head">
-            <div class="vsx-exp">Experiment #47</div>
+            <div class="vsx-exp">Pattern result</div>
             <div class="vsx-day">D+24</div>
           </div>
           <div class="vsx-metric">
@@ -2029,15 +2066,15 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
             <div class="vsx-mval vsx-mval-up">3.0<span>x</span></div>
           </div>
           <div class="vsx-rows">
-            <div class="vsx-row"><span class="vsx-k">variable</span><span class="vsx-v vsx-v-hi">curiosity_hook</span></div>
-            <div class="vsx-row"><span class="vsx-k">matched</span><span class="vsx-v">skincare × mid-price</span></div>
-            <div class="vsx-row"><span class="vsx-k">source</span><span class="vsx-v">n_brands = 8</span></div>
+            <div class="vsx-row"><span class="vsx-k">variable</span><span class="vsx-v vsx-v-hi">Curiosity hook</span></div>
+            <div class="vsx-row"><span class="vsx-k">matched</span><span class="vsx-v">skincare · mid-price</span></div>
+            <div class="vsx-row"><span class="vsx-k">reference base</span><span class="vsx-v">8 comparable brands</span></div>
           </div>
           <div class="vsx-trace">
-            <div class="vsx-trace-label">trace</div>
-            <div class="vsx-trace-text vsx-trace-ok">pattern confirmed · next_brief.generated()</div>
+            <div class="vsx-trace-label">record</div>
+            <div class="vsx-trace-text vsx-trace-ok">pattern confirmed · next brief gets sharper</div>
           </div>
-          <div class="vsx-card-footer">A handful of brands</div>
+          <div class="vsx-card-footer">Find the pattern</div>
         </div>
       </div>
 
@@ -2061,28 +2098,28 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
         <div class="vsx-card vsx-card-live">
           <div class="vsx-scan" aria-hidden="true"></div>
           <div class="vsx-live-tag"><span class="vsx-live-dot"></span>LIVE</div>
-          <div class="vsx-q vsx-q-live">What will work?</div>
+          <div class="vsx-q vsx-q-live">What should change next?</div>
           <div class="vsx-head">
-            <div class="vsx-exp vsx-exp-new">New brand</div>
+            <div class="vsx-exp vsx-exp-new">Next brand</div>
             <div class="vsx-day vsx-day-pre">D-0 · pre-test</div>
           </div>
           <div class="vsx-metric">
-            <div class="vsx-mlabel">Expected ROAS <span class="vsx-proj-tag">projection</span></div>
+            <div class="vsx-mlabel">Expected range <span class="vsx-proj-tag">projection</span></div>
             <div class="vsx-mval vsx-mval-range"><span class="vsx-r-lo">3.6</span><span class="vsx-dash">–</span><span class="vsx-r-hi">4.2</span><span>x</span></div>
-            <div class="vsx-proj-note">based on category patterns · N ≥ 10 brands</div>
+            <div class="vsx-proj-note">from category patterns · 10+ comparable brands</div>
           </div>
           <div class="vsx-rows vsx-rows-hyp">
-            <div class="vsx-hyp-label">hypothesis.build()</div>
-            <div class="vsx-hyp-item"><span class="vsx-hyp-prefix">→</span>curiosity_hook</div>
-            <div class="vsx-hyp-item"><span class="vsx-hyp-prefix">→</span>expert_creator</div>
-            <div class="vsx-hyp-item vsx-hyp-typing"><span class="vsx-hyp-prefix">→</span>result_first_framing<span class="vsx-cursor">_</span></div>
+            <div class="vsx-hyp-label">Recommended variables</div>
+            <div class="vsx-hyp-item"><span class="vsx-hyp-prefix">→</span>Curiosity hook</div>
+            <div class="vsx-hyp-item"><span class="vsx-hyp-prefix">→</span>Expert creator</div>
+            <div class="vsx-hyp-item vsx-hyp-typing"><span class="vsx-hyp-prefix">→</span>Result-first framing<span class="vsx-cursor">_</span></div>
           </div>
           <div class="vsx-trace">
-            <div class="vsx-trace-label">derived_from</div>
+            <div class="vsx-trace-label">derived from</div>
             <div class="vsx-trace-bar"><div class="vsx-trace-fill"></div></div>
-            <div class="vsx-trace-text vsx-trace-future">category_history · answer precedes test</div>
+            <div class="vsx-trace-text vsx-trace-future">category data · projection before spend</div>
           </div>
-          <div class="vsx-card-footer vsx-card-footer-live">A category of brands</div>
+          <div class="vsx-card-footer vsx-card-footer-live">Project the next move</div>
         </div>
       </div>
 
@@ -2096,21 +2133,21 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
         <span class="vsx-sb-key">layer</span><span class="vsx-sb-val">compounding</span>
       </div>
       <div class="vsx-sb-right">
-        <span class="vsx-sb-blink"></span><span class="vsx-sb-val">layer.answers_next_brand()</span>
+        <span class="vsx-sb-blink"></span><span class="vsx-sb-val">data layer guides the next brief</span>
       </div>
     </div>
   </div>
 
   <div class="vs-footer">
     <div class="vs-rule"></div>
-    <p>Every brand that joins writes to the layer. The layer answers the next brand faster.</p>
+    <p>Every result becomes an experiment record. The next brand starts with a sharper test.</p>
   </div>
 </div></div>
 
-<!-- TIMELINE (was: How it works section, now merged) -->
+<!-- HOW IT WORKS -->
 <div class="sa3"><div class="sec rv" id="how" style="padding:80px 40px;display:flex;flex-direction:column;justify-content:center">
   <div class="sec-hd cen">
-    <div class="sn2">Timeline</div>
+    <div class="sn2">How it works</div>
     <h2>Day 1 to first insight: <em>24 days</em></h2>
   </div>
   <div class="ob-row" id="ob-row">
@@ -2274,7 +2311,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
     </div>
   </div>
   <div style="text-align:center;margin-top:40px;max-width:940px;margin-left:auto;margin-right:auto">
-    <p style="font-size:1.15rem;color:var(--ink);font-weight:600;line-height:1.5">The system identifies which variable drove your ROAS —<br><span style="color:var(--ac)">and what to test next.</span></p>
+    <p style="font-size:1.15rem;color:var(--ink);font-weight:600;line-height:1.5">The system identifies which variable drove your ROAS —<br><span style="color:var(--ac)">and which variable to isolate next.</span></p>
   </div>
 </div></div>
 
@@ -2307,45 +2344,45 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   <div class="sec-hd cen">
     <div class="sn2">Pricing</div>
     <h2>Start free. <em>Scale when ready.</em></h2>
-    <p class="sl">First experiment on us. Full cycle. One clear answer. No strings.</p>
+    <p class="sl">Start with a free Creative Decoder Brief.<br>Report depth opens after the result is saved.</p>
   </div>
   <div class="g4" style="margin-top:32px">
     <div class="ti fr2" style="overflow:visible">
       <div style="position:absolute;top:-10px;right:-10px;background:var(--ac);color:#fff;font-family:var(--mn);font-size:.68rem;letter-spacing:.06em;padding:5px 14px;border-radius:10px;font-weight:600;box-shadow:0 0 16px rgba(129,140,248,.3)">START HERE</div>
       <div style="font-family:var(--mn);font-size:.78rem;color:var(--ac);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600">Founder Program</div>
-      <div style="font-size:1.15rem;font-weight:700;margin-bottom:10px">Pilot</div>
+      <div style="font-size:1.15rem;font-weight:700;margin-bottom:10px">Free Pilot</div>
       <div class="tp" style="color:var(--ac)">Free</div>
-      <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Full experiment cycle. Same deliverables as paid.</div>
+      <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">First source-backed brief, one run path, and one experiment record.</div>
       <button class="tc cta-spark" style="background:var(--ac);color:#fff;box-shadow:0 0 16px rgba(129,140,248,.2)" data-cta>Get your free Creative Decoder →</button>
     </div>
     <div class="ti">
-      <div style="font-family:var(--mn);font-size:.78rem;color:var(--ink2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600">Founding</div>
+      <div style="font-family:var(--mn);font-size:.78rem;color:var(--ink2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600">Continuation</div>
       <div style="font-size:1.15rem;font-weight:700;margin-bottom:10px">Founding</div>
-      <div class="tp" style="font-size:1rem;letter-spacing:.04em;color:var(--ink3)">Rate locked for life</div>
-      <div style="font-size:.85rem;color:var(--ac);font-family:var(--mn);font-weight:700;letter-spacing:.02em;margin-top:8px;background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.25);border-radius:6px;padding:5px 10px;display:inline-block">✦ First Creative Decoder Report — complimentary</div>
-      <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Monthly experiment cycle + ROAS report + next brief. Rate locked for life.</div>
-      <button class="tc" style="background:var(--gl);border:1px solid var(--gb);color:var(--ink2)">Join waitlist</button>
+      <div class="tp" style="font-size:1.4rem;color:var(--ink2)">$97–$297<span style="font-size:.82rem;color:var(--ink3);font-weight:600">/mo</span></div>
+      <div style="font-size:.85rem;color:var(--ac);font-family:var(--mn);font-weight:700;letter-spacing:.02em;margin-top:8px;background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.25);border-radius:6px;padding:5px 10px;display:inline-block">After first pilot result</div>
+      <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Monthly experiment loop. Final rate depends on source access, result sharing, and cadence.</div>
+      <div class="tc tc-status" aria-disabled="true" style="background:var(--gl);border:1px solid var(--gb);color:var(--ink2)">Continuation tier</div>
     </div>
     <div class="ti ft">
       <div style="font-family:var(--mn);font-size:.78rem;color:var(--ink2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600">Most popular</div>
       <div style="font-size:1.15rem;font-weight:700;margin-bottom:10px">Standard</div>
       <div class="tp" style="font-size:1.4rem;color:var(--ink2)">TBD</div>
-      <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Multiple cycles/month + benchmarks + creator scoring.</div>
-      <button class="tc" style="background:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.06);color:var(--ink3)">Coming soon</button>
+      <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Multiple cycles, benchmark reads, and source scoring after enough records exist.</div>
+      <div class="tc tc-status" aria-disabled="true" style="background:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.06);color:var(--ink3)">Dataset required</div>
     </div>
     <div class="ti">
       <div style="font-family:var(--mn);font-size:.78rem;color:var(--ink2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600">High-touch</div>
       <div style="font-size:1.15rem;font-weight:700;margin-bottom:10px">Growth</div>
       <div class="tp" style="font-size:1.4rem;color:var(--ink2)">Custom</div>
-      <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Unlimited cycles + full variable matrix + quarterly strategy.</div>
-      <button class="tc" style="background:var(--gl);border:1px solid var(--gb);color:var(--ink3)">Coming soon</button>
+      <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Full variable matrix, integrations, and quarterly direction.</div>
+      <div class="tc tc-status" aria-disabled="true" style="background:var(--gl);border:1px solid var(--gb);color:var(--ink3)">Later phase</div>
     </div>
   </div>
   <div style="max-width:600px;margin:28px auto 0;padding:16px 24px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:14px;text-align:center">
     <div style="font-family:var(--mn);font-size:.78rem;color:var(--am);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:700">Requirements</div>
-    <div style="font-size:.95rem;color:var(--ink);font-weight:600;line-height:1.8">Active TikTok or Meta pixel, existing creators, and ad performance data.</div>
+    <div style="font-size:.95rem;color:var(--ink);font-weight:600;line-height:1.8">Active TikTok or Meta source material, result sharing, and benchmark participation for Founder Program access.</div>
   </div>
-  <p style="text-align:center;color:var(--ink3);font-size:.75rem;margin-top:12px">Founding rate locked for life. Prices for new customers may increase. Results vary.</p>
+  <p style="text-align:center;color:var(--ink3);font-size:.75rem;margin-top:12px">Founder Program is private pilot first. Public benchmark claims come later. Results vary.</p>
 </div></div>
 
 <!-- COMPARISON -->
@@ -2355,7 +2392,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
     <h2>Forge adds what no one else <em>can</em></h2>
   </div>
   <table class="ct" id="comp-table"><thead><tr><th></th><th>Agency</th><th>AI analysis</th><th>Analytics</th><th class="fcc">Forge</th></tr></thead><tbody>
-    <tr><td>What they do</td><td>Make + run ads</td><td>Read your own ads</td><td>Show what happened</td><td class="fcc">Tell you what to change</td></tr>
+    <tr><td>What they do</td><td>Make + run ads</td><td>Read your own ads</td><td>Show what happened</td><td class="fcc">Isolate the variable</td></tr>
     <tr><td>Knows what to make?</td><td>Gut feeling</td><td>No</td><td>No</td><td class="fcc">Yes — variable-level</td></tr>
     <tr><td>ROAS attribution</td><td>Campaign</td><td>None</td><td>Campaign</td><td class="fcc">Variable-level</td></tr>
     <tr><td>Experiment design</td><td>—</td><td>—</td><td>—</td><td class="fcc">Controlled isolation</td></tr>
@@ -2398,7 +2435,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <div style="font-size:.85rem;color:var(--ink3);line-height:2">
         <div><strong style="color:var(--ink2)">Service scope</strong> — Experiment design, analysis, and reporting only. Ad production and campaign execution remain the client's responsibility.</div>
         <div><strong style="color:var(--ink2)">Data usage</strong> — Anonymized, aggregated data may be used for category benchmarks. No brand-identifying information is shared.</div>
-        <div><strong style="color:var(--ink2)">Pricing</strong> — Founding rate locked for life. New customer prices may change. Results may vary.</div>
+        <div><strong style="color:var(--ink2)">Pricing</strong> — Founding continuation currently ranges from $97–$297/mo after the first pilot result. New customer prices may change. Results may vary.</div>
         <div><strong style="color:var(--ink2)">Sample data</strong> — All figures shown on this site are simulated for illustration purposes.</div>
       </div>
     </div>
@@ -2444,10 +2481,10 @@ function ab(){document.querySelectorAll('[data-w]').forEach(el=>{setTimeout(()=>
 setTimeout(ab,800);
 
 const experiments=[
-  {label:'result_first',roas:'result_first',ctr:'+81% (3.8x)',lift:'92% · high',bar:'92%',color:'linear-gradient(90deg,#6366f1,#a5b4fc)',vc:'#a5b4fc',brief:'[winner] try expert_creator next · +15%',prompt:'"result_first_hook"',barv:'3.8x'},
-  {label:'problem_first',roas:'[not this one]',ctr:'+0% (2.1x)',lift:'58% · low',bar:'51%',color:'rgba(255,255,255,.22)',vc:'rgba(255,255,255,.55)',brief:'[underperformed] switch to result_first_hook',prompt:'"problem_first_hook"',barv:'2.1x'},
-  {label:'expert_creator',roas:'expert_creator',ctr:'+52% (3.2x)',lift:'84% · high',bar:'78%',color:'linear-gradient(90deg,#059669,#6ee7b7)',vc:'#6ee7b7',brief:'[strong] pair with curiosity_hook next',prompt:'"expert_creator"',barv:'3.2x'},
-  {label:'everyday_creator',roas:'everyday_creator',ctr:'+38% (2.9x)',lift:'79% · medium',bar:'71%',color:'linear-gradient(90deg,#f59e0b,#fbbf24)',vc:'#fbbf24',brief:'[solid] try instant_glow_angle next',prompt:'"everyday_creator"',barv:'2.9x'}
+  {label:'Result-first',roas:'Result-first hook',ctr:'+81% (3.8x)',lift:'92% · high',bar:'92%',color:'linear-gradient(90deg,#6366f1,#a5b4fc)',vc:'#a5b4fc',brief:'Keep result-first hook. Isolate expert creator next.',prompt:'Result-first hook',barv:'3.8x'},
+  {label:'Problem-first',roas:'Not the driver',ctr:'+0% (2.1x)',lift:'58% · low',bar:'51%',color:'rgba(255,255,255,.22)',vc:'rgba(255,255,255,.55)',brief:'Drop problem-first hook. Return to result-first angle.',prompt:'Problem-first hook',barv:'2.1x'},
+  {label:'Expert creator',roas:'Expert creator',ctr:'+52% (3.2x)',lift:'84% · high',bar:'78%',color:'linear-gradient(90deg,#059669,#6ee7b7)',vc:'#6ee7b7',brief:'Expert creator is strong. Test it with curiosity hook next.',prompt:'Expert creator',barv:'3.2x'},
+  {label:'Everyday creator',roas:'Everyday creator',ctr:'+38% (2.9x)',lift:'79% · medium',bar:'71%',color:'linear-gradient(90deg,#f59e0b,#fbbf24)',vc:'#fbbf24',brief:'Everyday creator works. Isolate the instant-result angle next.',prompt:'Everyday creator',barv:'2.9x'}
 ];
 
 function typePrompt(text,cb){
@@ -2809,7 +2846,7 @@ const vRangeOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
 }})},{threshold:.25});
 const vRangeEl=document.querySelector('.vsx-card-live');if(vRangeEl)vRangeOb.observe(vRangeEl);
 
-/* ═══ TIMELINE — SEQUENTIAL DOT PULSE ═══ */
+/* ═══ HOW IT WORKS — SEQUENTIAL DOT PULSE ═══ */
 let tlIdx=-1,tlInt=null;
 function tlStep(){
   tlIdx=(tlIdx+1)%5;
@@ -3468,6 +3505,43 @@ function emailSpark(e){
   /* Hero logo — big dot, orbit center at ~78% of dot box (baseline area) */
   makeSync('.hero-logo','.hl-dot','.hl-orbit','.hl-halo','--dot-x','--dot-y',0.78);
   /* Nav logo: no orbit/halo — only the rectangular conic border sweep */
+})();
+
+</script>
+
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  document.body.classList.add('motion-ready');
+  const sections=[...document.querySelectorAll('.sec,.cs,.hero')];
+  const cards=[...document.querySelectorAll('.hvx-console,.cd,.hci,.ti,.fn,.hp-feature,.thesis-card,.rep,.rep-box,.vsx-stage,.wn-brand-row,.obj-card,.bc,.stat')];
+  sections.forEach(section=>section.classList.add('motion-section'));
+  cards.forEach((card,i)=>{
+    card.classList.add('motion-card');
+    card.style.setProperty('--motion-delay',((i%5)*55)+'ms');
+  });
+
+  if(window.matchMedia('(pointer: fine)').matches){
+    cards.forEach(card=>{
+      let raf=0;
+      card.addEventListener('pointermove',event=>{
+        if(raf)return;
+        raf=requestAnimationFrame(()=>{
+          const rect=card.getBoundingClientRect();
+          card.style.setProperty('--mx',((event.clientX-rect.left)/rect.width*100).toFixed(2)+'%');
+          card.style.setProperty('--my',((event.clientY-rect.top)/rect.height*100).toFixed(2)+'%');
+          card.style.setProperty('--spot-opacity','.9');
+          raf=0;
+        });
+      });
+      card.addEventListener('pointerleave',()=>card.style.setProperty('--spot-opacity','0'));
+    });
+  }
+
+  const sectionObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>entry.target.classList.toggle('motion-in',entry.isIntersecting));
+  },{threshold:.18,rootMargin:'0px 0px -12% 0px'});
+  sections.forEach(section=>sectionObserver.observe(section));
 })();
 </script>
 

@@ -23,6 +23,10 @@ npm-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# Python
+.venv/
+__pycache__/
+
 # Build outputs
 dist/
 build/
