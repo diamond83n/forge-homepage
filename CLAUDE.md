@@ -36,6 +36,12 @@
 - forge-thesis.html: thesis 페이지
 - Forge-AnalysisEngine-v2_8.json: 룰 엔진 (gitignore됨)
 
+## Visual QA Rule (확정 2026-05-02)
+- 홈페이지 시각 수정은 desktop/web 최종 상태만 기준으로 확인한다.
+- 중간 캡처 확인을 매번 요청하지 않는다.
+- 모바일은 desktop 수정과 분리된 별도 트랙으로 진행한다.
+- 모바일 CSS override는 별도 요청 전까지 건드리지 않는다.
+
 ## 작업 시작 전 체크
 1. git pull 먼저
 2. 수정할 파일 확인
