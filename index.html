@@ -3366,12 +3366,25 @@ const ctOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
 const ctEl=document.getElementById('comp-table');if(ctEl)ctOb.observe(ctEl);
 
 /* ═══ SMOOTH PAGE TRANSITION ═══ */
+function resetPageFade(){
+  const fade=document.getElementById('page-fade');
+  if(!fade)return;
+  fade.style.pointerEvents='none';
+  fade.style.opacity='0';
+}
+
 function smoothNav(url){
   const fade=document.getElementById('page-fade');
+  if(!fade){window.location.href=url;return}
   fade.style.pointerEvents='all';
   fade.style.opacity='1';
   setTimeout(()=>{window.location.href=url},600);
 }
+
+window.addEventListener('pageshow',resetPageFade);
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='visible')resetPageFade();
+});
 
 /* ═══ FORGE ANVIL SPARK — CLICK EFFECT ═══ */
 function forgeStrike(e,el){
