@@ -33,10 +33,12 @@ a{text-decoration:none;color:inherit}
 .badge{display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;padding:9px 13px;border-radius:999px;border:1px solid rgba(99,102,241,.24);background:rgba(255,255,255,.72);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6366f1;font-weight:900}
 .badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gn);box-shadow:0 0 0 6px rgba(5,150,105,.12)}
 h1{margin:0;max-width:350px;font-size:50px;line-height:.99;letter-spacing:0;font-weight:950;text-wrap:balance}
+.line{display:block}
 .grad{background:linear-gradient(135deg,#6366f1 0%,#4f8ea0 54%,#059669 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 14px rgba(99,102,241,.18))}
 .lead{max-width:342px;margin:19px 0 0;color:var(--ink2);font-size:16px;line-height:1.56;font-weight:560}
 .primary{display:flex;align-items:center;justify-content:center;width:100%;max-width:342px;min-height:52px;margin-top:23px;border-radius:14px;background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;font-weight:900;font-size:16px;box-shadow:0 20px 48px rgba(79,70,229,.25)}
 .micro{max-width:342px;margin-top:13px;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.full-site{display:flex;justify-content:center;max-width:342px;margin-top:14px;font-size:13px;font-weight:850;color:#4f46e5}
 .section{padding:36px 0;border-top:1px solid rgba(15,23,42,.06)}
 .section.soft{background:linear-gradient(180deg,#eefaf4 0%,#fffefa 100%)}
 .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6366f1;font-weight:900;margin-bottom:13px}
@@ -92,17 +94,18 @@ footer{padding:22px 0 30px;border-top:1px solid rgba(15,23,42,.08);text-align:ce
   <section class="hero">
     <div class="shell">
       <div class="badge">Experiment Infrastructure</div>
-      <h1>Design the test <span class="grad">before</span> the ad runs.</h1>
+      <h1><span class="line">Design the test</span><span class="line"><span class="grad">before</span> the ad runs.</span></h1>
       <p class="lead">Forge isolates the creative variable, fixes the controls, and turns the result into reusable experiment memory.</p>
       <a class="primary" href="https://app.forgexlab.co">Start Free Decoder →</a>
       <div class="micro">Ad source + product page + context</div>
+      <a class="full-site" href="https://forgexlab.co/">View full website →</a>
     </div>
   </section>
 
   <section class="section soft">
     <div class="shell">
       <div class="eyebrow">The difference</div>
-      <h2>Most tests compare ads. Forge compares variables.</h2>
+      <h2><span class="line">Most tests compare ads.</span><span class="line">Forge compares variables.</span></h2>
       <div class="contrast">
         <div class="mini muted"><span>Ad-level testing</span><strong>This ad won. The reason is still unclear.</strong></div>
         <div class="mini"><span>Variable isolation</span><strong>Hook moved ROAS. Offer stayed fixed.</strong></div>
@@ -113,7 +116,7 @@ footer{padding:22px 0 30px;border-top:1px solid rgba(15,23,42,.08);text-align:ce
   <section class="section">
     <div class="shell">
       <div class="eyebrow">Brief to report</div>
-      <h2>One controlled loop. Not another dashboard.</h2>
+      <h2><span class="line">One controlled loop.</span><span class="line">Not another dashboard.</span></h2>
       <div class="flow">
         <div class="flow-card"><div class="num">01</div><div><h3>Input</h3><p>Ad source, product page, category, and context.</p></div></div>
         <div class="flow-card"><div class="num">02</div><div><h3>Brief</h3><p>One variable to test. The rest stays fixed.</p></div></div>
@@ -125,7 +128,7 @@ footer{padding:22px 0 30px;border-top:1px solid rgba(15,23,42,.08);text-align:ce
   <section class="dark">
     <div class="shell">
       <div class="eyebrow">Data layer</div>
-      <h2>Every result becomes reference data.</h2>
+      <h2><span class="line">Every result becomes</span><span class="line">reference data.</span></h2>
       <p class="copy">A report is not the endpoint. Each saved result adds one structured experiment record.</p>
       <div class="record">
         <div class="record-top"><span>Experiment record</span><strong>N+1</strong></div>
@@ -141,7 +144,7 @@ footer{padding:22px 0 30px;border-top:1px solid rgba(15,23,42,.08);text-align:ce
   <section class="pricing">
     <div class="shell">
       <div class="eyebrow">Start here</div>
-      <h2>Free Decoder first. Scale when ready.</h2>
+      <h2><span class="line">Free Decoder first.</span><span class="line">Scale when ready.</span></h2>
       <div class="price-card">
         <span>Founder program</span>
         <div class="price">Free</div>
@@ -152,7 +155,7 @@ footer{padding:22px 0 30px;border-top:1px solid rgba(15,23,42,.08);text-align:ce
 
   <section class="final">
     <div class="shell">
-      <h2>Find the variable that decides your next test.</h2>
+      <h2><span class="line">Find the variable</span><span class="line">that decides your next test.</span></h2>
       <p>Free Decoder gives one source-backed brief and one controlled test path. The result becomes your first experiment record.</p>
       <a class="secondary" href="https://app.forgexlab.co">Open App →</a>
     </div>
