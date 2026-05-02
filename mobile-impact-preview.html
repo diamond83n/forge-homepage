@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forge Mobile Impact Preview</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg:#fbfcfa;
+  --paper:#fffefa;
+  --ink:#0f172a;
+  --ink2:#334155;
+  --ink3:#64748b;
+  --line:rgba(99,102,241,.16);
+  --ac:#6366f1;
+  --ac2:#4f46e5;
+  --gn:#059669;
+  --am:#f59e0b;
+  --navy:#071120;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.shell{width:min(100% - 32px,390px);margin:0 auto}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.navin{height:64px;width:min(100% - 24px,390px);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:9px;font-size:18px;font-weight:900;color:#081225}
+.brand svg{width:38px;height:38px;display:block;flex:0 0 auto}
+.open{min-height:38px;padding:9px 14px;border-radius:999px;background:linear-gradient(135deg,#101827 0%,#312e81 52%,#4f46e5 100%);color:#fff;font-size:12px;font-weight:900;box-shadow:0 0 0 1px rgba(255,255,255,.58) inset,0 14px 34px rgba(49,46,129,.24)}
+.hero{padding:38px 0 34px;background:linear-gradient(180deg,#fffefa 0%,#fbfcff 46%,#eefaf4 100%)}
+.badge{display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;padding:9px 13px;border-radius:999px;border:1px solid rgba(99,102,241,.24);background:rgba(255,255,255,.72);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6366f1;font-weight:900}
+.badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gn);box-shadow:0 0 0 6px rgba(5,150,105,.12)}
+h1{margin:0;max-width:350px;font-size:50px;line-height:.99;letter-spacing:0;font-weight:950;text-wrap:balance}
+.grad{background:linear-gradient(135deg,#6366f1 0%,#4f8ea0 54%,#059669 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 14px rgba(99,102,241,.18))}
+.lead{max-width:342px;margin:19px 0 0;color:var(--ink2);font-size:16px;line-height:1.56;font-weight:560}
+.primary{display:flex;align-items:center;justify-content:center;width:100%;max-width:342px;min-height:52px;margin-top:23px;border-radius:14px;background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;font-weight:900;font-size:16px;box-shadow:0 20px 48px rgba(79,70,229,.25)}
+.micro{max-width:342px;margin-top:13px;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.section{padding:36px 0;border-top:1px solid rgba(15,23,42,.06)}
+.section.soft{background:linear-gradient(180deg,#eefaf4 0%,#fffefa 100%)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6366f1;font-weight:900;margin-bottom:13px}
+h2{margin:0;max-width:350px;font-size:34px;line-height:1.04;letter-spacing:0;font-weight:950;text-wrap:balance}
+.copy{max-width:342px;margin:13px 0 0;color:var(--ink2);font-size:15px;line-height:1.58}
+.contrast{display:grid;gap:10px;margin-top:20px;max-width:342px}
+.mini{padding:17px;border-radius:17px;background:rgba(255,255,255,.92);border:1px solid rgba(99,102,241,.14);box-shadow:0 14px 38px rgba(15,23,42,.052)}
+.mini span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6366f1;font-weight:900}
+.mini strong{display:block;margin-top:8px;font-size:20px;line-height:1.18;font-weight:950}
+.mini.muted strong{color:#64748b;font-weight:850}
+.flow{display:grid;gap:10px;margin-top:20px;max-width:342px}
+.flow-card{display:grid;grid-template-columns:42px 1fr;gap:13px;align-items:start;padding:16px;border-radius:17px;background:#fff;border:1px solid rgba(99,102,241,.14);box-shadow:0 14px 36px rgba(15,23,42,.045)}
+.num{width:42px;height:42px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(99,102,241,.1);font-family:var(--mono);font-size:13px;font-weight:900;color:#4f46e5}
+.flow-card h3{margin:0;font-size:18px;line-height:1.16;font-weight:950}
+.flow-card p{margin:6px 0 0;color:var(--ink2);font-size:14px;line-height:1.45}
+.dark{padding:38px 0;background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.dark:before{content:"";position:absolute;right:-80px;top:-90px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.4),transparent 68%)}
+.dark h2{position:relative}
+.dark .copy{position:relative;color:#dbeafe}
+.record{position:relative;margin-top:22px;max-width:342px;padding:17px;border-radius:18px;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.12)}
+.record-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.record-top span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#a5b4fc;font-weight:900}
+.record-top strong{font-family:var(--mono);font-size:28px;line-height:1;color:#fbbf24}
+.bars{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:88px 1fr;gap:10px;align-items:center;font-family:var(--mono);font-size:11px;color:#cbd5e1}
+.track{height:8px;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden}
+.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#6366f1,#34d399);width:72%}
+.fill.w2{width:56%;background:linear-gradient(90deg,#64748b,#94a3b8)}
+.fill.w3{width:84%;background:linear-gradient(90deg,#f59e0b,#34d399)}
+.pricing{padding:36px 0;background:#fffefa}
+.price-card{max-width:342px;margin-top:20px;padding:20px;border-radius:20px;background:#fff;border:1px solid rgba(245,158,11,.22);box-shadow:0 18px 48px rgba(15,23,42,.055)}
+.price-card span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6366f1;font-weight:900}
+.price{margin:9px 0 8px;font-size:44px;line-height:1;font-weight:950;background:linear-gradient(135deg,#f59e0b,#ea580c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.price-card p{margin:0;color:var(--ink2);font-size:15px;line-height:1.52}
+.final{padding:38px 0 44px;text-align:center;background:linear-gradient(180deg,#fffefa 0%,#f3fbf7 100%)}
+.final h2{margin:0 auto;max-width:342px;font-size:32px}
+.final p{max-width:320px;margin:14px auto 0;color:var(--ink2);font-size:15px;line-height:1.55}
+.secondary{display:flex;align-items:center;justify-content:center;width:100%;max-width:342px;min-height:52px;margin:22px auto 0;border-radius:14px;background:#101827;color:#fff;font-weight:900;box-shadow:0 18px 44px rgba(15,23,42,.18)}
+footer{padding:22px 0 30px;border-top:1px solid rgba(15,23,42,.08);text-align:center;color:var(--ink3);font-size:12px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="navin">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="175" cy="120" r="42" fill="#fde4de"/><circle cx="175" cy="120" r="32" fill="#fbc4b8"/><path d="M158 178A80 80 0 1 1 158 62" fill="none" stroke="#1e293b" stroke-width="36" stroke-linecap="round"/><circle cx="175" cy="120" r="22" fill="#ff2d20"/></svg>
+      <span>Forge</span>
+    </a>
+    <a class="open" href="https://app.forgexlab.co">Open App</a>
+  </div>
+</nav>
+<main>
+  <section class="hero">
+    <div class="shell">
+      <div class="badge">Experiment Infrastructure</div>
+      <h1>Design the test <span class="grad">before</span> the ad runs.</h1>
+      <p class="lead">Forge isolates the creative variable, fixes the controls, and turns the result into reusable experiment memory.</p>
+      <a class="primary" href="https://app.forgexlab.co">Start Free Decoder →</a>
+      <div class="micro">Ad source + product page + context</div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="shell">
+      <div class="eyebrow">The difference</div>
+      <h2>Most tests compare ads. Forge compares variables.</h2>
+      <div class="contrast">
+        <div class="mini muted"><span>Ad-level testing</span><strong>This ad won. The reason is still unclear.</strong></div>
+        <div class="mini"><span>Variable isolation</span><strong>Hook moved ROAS. Offer stayed fixed.</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="eyebrow">Brief to report</div>
+      <h2>One controlled loop. Not another dashboard.</h2>
+      <div class="flow">
+        <div class="flow-card"><div class="num">01</div><div><h3>Input</h3><p>Ad source, product page, category, and context.</p></div></div>
+        <div class="flow-card"><div class="num">02</div><div><h3>Brief</h3><p>One variable to test. The rest stays fixed.</p></div></div>
+        <div class="flow-card"><div class="num">03</div><div><h3>Report</h3><p>Result, confidence, next variable, and follow-up path.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="shell">
+      <div class="eyebrow">Data layer</div>
+      <h2>Every result becomes reference data.</h2>
+      <p class="copy">A report is not the endpoint. Each saved result adds one structured experiment record.</p>
+      <div class="record">
+        <div class="record-top"><span>Experiment record</span><strong>N+1</strong></div>
+        <div class="bars">
+          <div class="bar"><span>Variable</span><div class="track"><div class="fill"></div></div></div>
+          <div class="bar"><span>Control</span><div class="track"><div class="fill w2"></div></div></div>
+          <div class="bar"><span>Outcome</span><div class="track"><div class="fill w3"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <div class="shell">
+      <div class="eyebrow">Start here</div>
+      <h2>Free Decoder first. Scale when ready.</h2>
+      <div class="price-card">
+        <span>Founder program</span>
+        <div class="price">Free</div>
+        <p>First source-backed brief, one controlled run path, and one experiment record.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="shell">
+      <h2>Find the variable that decides your next test.</h2>
+      <p>Free Decoder gives one source-backed brief and one controlled test path. The result becomes your first experiment record.</p>
+      <a class="secondary" href="https://app.forgexlab.co">Open App →</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="shell">Forge · Creative experiment infrastructure</div>
+</footer>
+</body>
+</html>
