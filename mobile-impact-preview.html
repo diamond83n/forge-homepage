@@ -45,11 +45,19 @@
 html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 .shell{width:min(100% - 32px,390px);margin:0 auto}
-.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
-.navin{height:64px;width:min(100% - 24px,390px);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:9px;font-size:18px;font-weight:900;color:#081225}
-.brand svg{width:38px;height:38px;display:block;flex:0 0 auto}
-.open{display:inline-flex;align-items:center;justify-content:center;min-width:92px;min-height:38px;padding:0 14px;border-radius:999px;background:linear-gradient(135deg,#101827 0%,#312e81 52%,#4f46e5 100%);color:#fff;font-size:12px;font-weight:900;line-height:1;text-align:center;white-space:nowrap;box-shadow:0 0 0 1px rgba(255,255,255,.58) inset,0 14px 34px rgba(49,46,129,.24)}
+.nav{position:sticky;top:0;z-index:50;width:100vw;max-width:100vw;overflow:hidden;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.navin{position:relative;height:64px;width:calc(100vw - 32px);max-width:390px;margin:0 auto;display:flex;align-items:center;justify-content:flex-start;gap:12px}
+.brand{position:relative;display:flex;align-items:center;gap:9px;font-size:20px;font-weight:1000;color:#081225}
+.brand::before{content:none}
+.brand svg{position:relative;z-index:2;width:38px;height:38px;display:block;flex:0 0 auto}
+.brand span{position:relative;display:inline-block;line-height:1.14;padding:2px 0 5px;color:transparent;-webkit-text-fill-color:transparent;-webkit-text-stroke:.16px rgba(8,18,37,.44);background:linear-gradient(105deg,#081225 0%,#081225 39%,#3f4f78 45%,#ffffff 50%,#8fa2ff 54%,#081225 61%,#081225 100%);background-size:420% 100%;background-position:132% 50%;-webkit-background-clip:text;background-clip:text;text-shadow:0 0 1px rgba(8,18,37,.22);overflow:visible;animation:brandWordGlow 3s ease-in-out infinite;will-change:background-position,text-shadow,filter}
+.brand span::after{content:none}
+.brand-core{transform-box:fill-box;transform-origin:center;animation:brandCoreFlow 3s ease-in-out infinite}
+@keyframes brandWordGlow{0%,26%{background-position:132% 50%;filter:none;text-shadow:0 0 1px rgba(8,18,37,.22)}35%{background-position:92% 50%;filter:drop-shadow(0 0 3px rgba(255,255,255,.18));text-shadow:0 0 1px rgba(8,18,37,.2),0 0 6px rgba(255,255,255,.22)}50%{background-position:50% 50%;filter:drop-shadow(0 0 9px rgba(255,255,255,.48)) drop-shadow(0 0 16px rgba(129,140,248,.18));text-shadow:0 0 1px rgba(8,18,37,.18),0 0 11px rgba(255,255,255,.76),0 0 21px rgba(129,140,248,.28)}65%{background-position:8% 50%;filter:drop-shadow(0 0 3px rgba(255,255,255,.18));text-shadow:0 0 1px rgba(8,18,37,.2),0 0 6px rgba(255,255,255,.22)}74%,100%{background-position:-24% 50%;filter:none;text-shadow:0 0 1px rgba(8,18,37,.22)}}
+@keyframes brandNameFlow{0%,74%{background-position:140% 50%;opacity:0;filter:drop-shadow(0 0 3px rgba(129,140,248,.08))}82%{background-position:88% 50%;opacity:.1;filter:drop-shadow(0 0 4px rgba(129,140,248,.1))}90%{background-position:50% 50%;opacity:.34;filter:drop-shadow(0 0 8px rgba(255,255,255,.36)) drop-shadow(0 0 14px rgba(129,140,248,.18))}96%{background-position:10% 50%;opacity:.14;filter:drop-shadow(0 0 4px rgba(129,140,248,.1))}100%{background-position:-70% 50%;opacity:0;filter:drop-shadow(0 0 3px rgba(129,140,248,.08))}}
+@keyframes brandCoreFlow{0%,100%{fill:#ff2d20;filter:drop-shadow(0 0 3px rgba(255,45,32,.55)) drop-shadow(0 0 6px rgba(220,38,38,.35))}35%{fill:#ff5043;filter:drop-shadow(0 0 8px rgba(255,100,80,.75)) drop-shadow(0 0 16px rgba(255,45,32,.5)) drop-shadow(0 0 24px rgba(251,191,36,.35))}50%{fill:#ffffff;filter:drop-shadow(0 0 10px rgba(255,255,255,.95)) drop-shadow(0 0 18px rgba(255,150,120,.8)) drop-shadow(0 0 30px rgba(255,45,32,.6)) drop-shadow(0 0 44px rgba(251,191,36,.45))}65%{fill:#ff5043;filter:drop-shadow(0 0 8px rgba(255,100,80,.75)) drop-shadow(0 0 16px rgba(255,45,32,.5)) drop-shadow(0 0 24px rgba(251,191,36,.35))}}
+@keyframes brandDotAuraFlow{0%,82%,100%{opacity:.07;transform:translate(-50%,-50%) scale(.74);filter:blur(.04px)}88%{opacity:.2;transform:translate(-50%,-50%) scale(1.04);filter:blur(.05px)}91%,93%{opacity:.84;transform:translate(-50%,-50%) scale(1.84);filter:blur(.08px)}98%{opacity:.08;transform:translate(-50%,-50%) scale(.8);filter:blur(.04px)}}
+.open{position:absolute;right:0;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;justify-content:center;width:74px;min-height:38px;padding:0 14px;border-radius:999px;background:linear-gradient(135deg,#101827 0%,#312e81 52%,#4f46e5 100%);color:#fff;font-size:12px;font-weight:900;line-height:1;text-align:center;white-space:nowrap;box-shadow:0 0 0 1px rgba(255,255,255,.58) inset,0 14px 34px rgba(49,46,129,.24);box-sizing:border-box}
 .hero{padding:38px 0 34px;background:linear-gradient(180deg,#fffefa 0%,#fbfcff 46%,#eefaf4 100%)}
 .badge{display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;padding:9px 13px;border-radius:999px;border:1px solid rgba(99,102,241,.24);background:rgba(255,255,255,.72);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6366f1;font-weight:900}
 .badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gn);box-shadow:0 0 0 6px rgba(5,150,105,.12)}
@@ -105,10 +113,9 @@ footer{padding:22px 0 30px;border-top:1px solid rgba(15,23,42,.08);text-align:ce
 <nav class="nav">
   <div class="navin">
     <a class="brand" href="#">
-      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="175" cy="120" r="42" fill="#fde4de"/><circle cx="175" cy="120" r="32" fill="#fbc4b8"/><path d="M158 178A80 80 0 1 1 158 62" fill="none" stroke="#1e293b" stroke-width="36" stroke-linecap="round"/><circle cx="175" cy="120" r="22" fill="#ff2d20"/></svg>
-      <span>Forge</span>
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="175" cy="120" r="42" fill="#fde4de"/><circle cx="175" cy="120" r="32" fill="#fbc4b8"/><path d="M158 178A80 80 0 1 1 158 62" fill="none" stroke="#1e293b" stroke-width="36" stroke-linecap="round"/><circle class="brand-core" cx="175" cy="120" r="22" fill="#ff2d20"/></svg>
+      <span data-text="Forge">Forge</span>
     </a>
-    <a class="open" href="https://app.forgexlab.co">Open App</a>
   </div>
 </nav>
 <main>
@@ -116,7 +123,7 @@ footer{padding:22px 0 30px;border-top:1px solid rgba(15,23,42,.08);text-align:ce
     <div class="shell">
       <div class="badge">Experiment Infrastructure</div>
       <h1><span class="line">Design the test</span><span class="line"><span class="grad">before</span> the ad runs.</span></h1>
-      <p class="lead">Forge isolates the creative variable, fixes the controls, and turns the result into reusable experiment memory.</p>
+      <p class="lead">Your brand gets one isolated variable, fixed controls, and a reusable decision record before budget scales.</p>
       <a class="primary" href="https://app.forgexlab.co">Start Free Decoder →</a>
       <div class="micro">Ad source + product page + context</div>
       <a class="full-site" href="https://www.forgexlab.co/" target="_blank" rel="noopener noreferrer">View main website →</a>
@@ -177,8 +184,8 @@ footer{padding:22px 0 30px;border-top:1px solid rgba(15,23,42,.08);text-align:ce
   <section class="final">
     <div class="shell">
       <h2><span class="line">Find the variable</span><span class="line">behind your next test.</span></h2>
-      <p><span class="line">Open the app.</span><span class="line">Add the source.</span><span class="line">Save the result as memory.</span></p>
-      <a class="secondary" href="https://app.forgexlab.co">Open App →</a>
+      <p><span class="line">Add the source.</span><span class="line">Get the variable.</span><span class="line">Save it as brand memory.</span></p>
+      <a class="secondary" href="https://app.forgexlab.co">Start Decoder →</a>
     </div>
   </section>
 </main>

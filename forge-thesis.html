@@ -65,13 +65,19 @@ p,h1,h2,h3,h4,span,div,a,em,strong,li{overflow-wrap:break-word;word-wrap:break-w
   50%{background-position:65% 50%;filter:drop-shadow(0 0 36px rgba(255,255,255,1)) drop-shadow(0 0 56px rgba(129,140,248,.8)) drop-shadow(0 0 80px rgba(99,102,241,.5));-webkit-text-stroke-color:rgba(255,255,255,.9)}
   100%{background-position:0% 50%;filter:drop-shadow(0 0 8px rgba(129,140,248,.4));-webkit-text-stroke-color:rgba(129,140,248,.2)}
 }
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;background:rgba(255,255,255,.94);backdrop-filter:blur(22px) saturate(1.22);border-bottom:1px solid rgba(99,102,241,.16);box-shadow:0 12px 36px rgba(15,23,42,.06)}
-.logo{position:relative;width:auto;height:72px;display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;flex-shrink:0;color:#081225;font-weight:900;letter-spacing:0}
-.logo .nl-icon{width:42px;height:42px;display:block;position:relative;z-index:2;transition:transform .5s cubic-bezier(.22,1,.36,1);filter:drop-shadow(0 1px 2px rgba(15,23,42,.1))}
-.logo span{font-size:19px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:80px;background:rgba(255,255,255,.94);backdrop-filter:blur(22px) saturate(1.22);border-bottom:1px solid rgba(99,102,241,.16);box-shadow:0 12px 36px rgba(15,23,42,.06)}
+.logo{position:relative;width:auto;height:80px;display:inline-flex;align-items:center;justify-content:center;gap:13px;text-decoration:none;flex-shrink:0;color:#081225;font-weight:950;letter-spacing:0}
+.logo::before{content:none}
+.logo .nl-icon{width:54px;height:54px;display:block;position:relative;z-index:2;transition:transform .5s cubic-bezier(.22,1,.36,1);filter:drop-shadow(0 8px 18px rgba(15,23,42,.12))}
+.logo > span{position:relative;display:inline-block;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:30px;font-weight:950;font-variation-settings:"wght" 900;line-height:1.14;padding:2px 0 7px;transform:translateY(-1px);color:transparent;-webkit-text-fill-color:transparent;-webkit-text-stroke:.2px rgba(8,18,37,.5);background:linear-gradient(105deg,#081225 0%,#081225 39%,#3f4f78 45%,#ffffff 50%,#8fa2ff 54%,#081225 61%,#081225 100%);background-size:420% 100%;background-position:132% 50%;-webkit-background-clip:text;background-clip:text;text-shadow:0 0 1px rgba(8,18,37,.26);overflow:visible;animation:atlasWordGlow 3s ease-in-out infinite;will-change:background-position,text-shadow,filter}
+.logo > span::after{content:none}
 .logo:hover .nl-icon{transform:rotate(-8deg) scale(1.08)}
 /* Red core — diamond glint + heat glow combined animation */
-.logo .nl-icon .nl-core{transform-box:fill-box;transform-origin:center;animation:coreHeatGlint 3s ease-in-out infinite}
+.logo .nl-icon .nl-core{transform-box:fill-box;transform-origin:center;animation:atlasCoreFlow 3s ease-in-out infinite}
+@keyframes atlasWordGlow{0%,26%{background-position:132% 50%;filter:none;text-shadow:0 0 1px rgba(8,18,37,.26)}35%{background-position:92% 50%;filter:drop-shadow(0 0 4px rgba(255,255,255,.18));text-shadow:0 0 1px rgba(8,18,37,.22),0 0 7px rgba(255,255,255,.24)}50%{background-position:50% 50%;filter:drop-shadow(0 0 12px rgba(255,255,255,.52)) drop-shadow(0 0 20px rgba(129,140,248,.2));text-shadow:0 0 1px rgba(8,18,37,.2),0 0 14px rgba(255,255,255,.82),0 0 26px rgba(129,140,248,.3)}65%{background-position:8% 50%;filter:drop-shadow(0 0 4px rgba(255,255,255,.18));text-shadow:0 0 1px rgba(8,18,37,.22),0 0 7px rgba(255,255,255,.24)}74%,100%{background-position:-24% 50%;filter:none;text-shadow:0 0 1px rgba(8,18,37,.26)}}
+@keyframes atlasNameFlow{0%,74%{background-position:140% 50%;opacity:0;filter:drop-shadow(0 0 3px rgba(129,140,248,.08))}82%{background-position:88% 50%;opacity:.1;filter:drop-shadow(0 0 4px rgba(129,140,248,.1))}90%{background-position:50% 50%;opacity:.34;filter:drop-shadow(0 0 8px rgba(255,255,255,.36)) drop-shadow(0 0 14px rgba(129,140,248,.18))}96%{background-position:10% 50%;opacity:.14;filter:drop-shadow(0 0 4px rgba(129,140,248,.1))}100%{background-position:-70% 50%;opacity:0;filter:drop-shadow(0 0 3px rgba(129,140,248,.08))}}
+@keyframes atlasCoreFlow{0%,100%{fill:#ff2d20;filter:drop-shadow(0 0 3px rgba(255,45,32,.55)) drop-shadow(0 0 6px rgba(220,38,38,.35))}35%{fill:#ff5043;filter:drop-shadow(0 0 8px rgba(255,100,80,.75)) drop-shadow(0 0 16px rgba(255,45,32,.5)) drop-shadow(0 0 24px rgba(251,191,36,.35))}50%{fill:#ffffff;filter:drop-shadow(0 0 10px rgba(255,255,255,.95)) drop-shadow(0 0 18px rgba(255,150,120,.8)) drop-shadow(0 0 30px rgba(255,45,32,.6)) drop-shadow(0 0 44px rgba(251,191,36,.45))}65%{fill:#ff5043;filter:drop-shadow(0 0 8px rgba(255,100,80,.75)) drop-shadow(0 0 16px rgba(255,45,32,.5)) drop-shadow(0 0 24px rgba(251,191,36,.35))}}
+@keyframes atlasDotAuraFlow{0%,82%,100%{opacity:.07;transform:translate(-50%,-50%) scale(.74);filter:blur(.04px)}88%{opacity:.22;transform:translate(-50%,-50%) scale(1.08);filter:blur(.05px)}91%,93%{opacity:.92;transform:translate(-50%,-50%) scale(2.16);filter:blur(.08px)}98%{opacity:.08;transform:translate(-50%,-50%) scale(.8);filter:blur(.04px)}}
 @keyframes coreHeatGlint{
   0%,100%{
     fill:#ff2d20;
@@ -376,13 +382,13 @@ h2 em{color:transparent;font-style:italic;font-weight:800;background:linear-grad
   nav{width:390px;max-width:100%;right:auto}
   .logo{height:64px}
   .logo span{display:none}
-  .logo .nl-icon{width:38px;height:38px}
+  .logo .nl-icon{width:46px;height:46px}
   .nav-links{gap:14px}
   .nav-links a:not(.nb){display:none}
   .nb{padding:8px 16px;font-size:.78rem}
   .nav-links{min-width:0;justify-content:flex-end}
   .nav-links .nb{display:inline-flex;align-items:center;justify-content:center;padding:0 13px;min-width:92px;min-height:38px;font-size:0;line-height:1;text-align:center;max-width:150px;white-space:nowrap;overflow:hidden}
-  .nav-links .nb::after{content:'Open App';font-size:.74rem;line-height:1}
+  .nav-links .nb::after{content:'Start';font-size:.74rem;line-height:1}
   .page{padding:0 18px;overflow-x:hidden;max-width:390px;margin:0}
   .sec{padding:60px 0}
   .sec:nth-child(even){margin:0 -18px;padding:60px 18px}
@@ -472,21 +478,21 @@ h2 em{color:transparent;font-style:italic;font-weight:800;background:linear-grad
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo" aria-label="Forge — home"><svg class="nl-icon" width="64" height="64" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="175" cy="120" r="42" fill="#fde4de"/><circle cx="175" cy="120" r="32" fill="#fbc4b8"/><path d="M 158 178 A 80 80 0 1 1 158 62" fill="none" stroke="#1e293b" stroke-width="36" stroke-linecap="round"/><circle class="nl-core" cx="175" cy="120" r="22" fill="#ff2d20"/></svg><span>Forge</span></a>
+  <a href="index.html" class="logo" aria-label="Forge — home"><svg class="nl-icon" width="64" height="64" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="175" cy="120" r="42" fill="#fde4de"/><circle cx="175" cy="120" r="32" fill="#fbc4b8"/><path d="M 158 178 A 80 80 0 1 1 158 62" fill="none" stroke="#1e293b" stroke-width="36" stroke-linecap="round"/><circle class="nl-core" cx="175" cy="120" r="22" fill="#ff2d20"/></svg><span data-text="Forge">Forge</span></a>
   <div class="nav-links">
     <a href="index.html#how">How it works</a>
     <a href="index.html#pricing">Pricing</a>
     <a href="#" class="ak">Our thesis</a>
-    <a href="https://app.forgexlab.co" class="nb" target="_blank" rel="noopener noreferrer">Open App</a>
+    <a href="https://app.forgexlab.co" class="nb" target="_blank" rel="noopener noreferrer">Start Decoder</a>
   </div>
 </nav>
 
 <!-- COVER -->
 <div class="cover" id="cover-main">
   <div class="cv-inner">
-    <div class="cv-badge rv">forge · our thesis</div>
+    <div class="cv-badge rv">forge · variable thesis</div>
     <h1 class="rv" style="transition-delay:.08s">Every satisfying answer starts <br>with the <em>right variable.</em></h1>
-    <p class="cv-sub rv" style="transition-delay:.16s">We find what no one else measures.</p>
+    <p class="cv-sub rv" style="transition-delay:.16s">Your brand sees the variable others miss.</p>
     <div class="cv-pillars rv" style="transition-delay:.28s">
       <span class="cv-pill-line"></span>
       <div class="cv-pill-text">
@@ -549,7 +555,7 @@ h2 em{color:transparent;font-style:italic;font-weight:800;background:linear-grad
 <div class="sec" id="variables">
   <div class="sn rv">02 · The variables</div>
   <h2 class="rv">Variables rotate.<br><em>The data layer compounds.</em></h2>
-  <p class="var-subline rv" style="transition-delay:.05s">Each experiment adds to a layer no one else has.</p>
+  <p class="var-subline rv" style="transition-delay:.05s">Each experiment gives your next brief a stronger starting point.</p>
 
   <div class="var-stage var-assembly-stage rv" style="transition-delay:.08s">
     <canvas id="thesis-var-flow" class="thesis-flow-canvas" aria-hidden="true"></canvas>
@@ -612,14 +618,14 @@ h2 em{color:transparent;font-style:italic;font-weight:800;background:linear-grad
 <!-- S3: MOAT -->
 <div class="sec" id="moat">
   <div class="sn rv">03 · The moat</div>
-  <h2 class="rv">Data compounds. <em>Time is the advantage.</em></h2>
+  <h2 class="rv">Your brand memory compounds. <em>Time becomes the advantage.</em></h2>
   <div class="moat-row rv" id="moat-row" style="transition-delay:.08s">
     <div class="moat-n"><div class="num" id="m1">0</div><div class="lab">campaigns<br>= signal</div></div>
     <div class="moat-n"><div class="num" id="m2">0</div><div class="lab">campaigns<br>= benchmark</div></div>
     <div class="moat-n"><div class="num" id="m3">0</div><div class="lab">campaigns<br>= moat</div></div>
   </div>
   <div class="moat-bar rv" style="transition-delay:.15s"><div class="moat-fill" id="mf"></div></div>
-  <p class="rv" style="text-align:center;color:var(--ink2);font-size:1rem;margin-top:20px;transition-delay:.2s;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">A competitor can copy the method.<br><strong style="color:var(--ink)">They can't copy the data layer.</strong></p>
+  <p class="rv" style="text-align:center;color:var(--ink2);font-size:1rem;margin-top:20px;transition-delay:.2s;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">A method can be copied.<br><strong style="color:var(--ink)">Your accumulated brand memory cannot.</strong></p>
 </div>
 
 <!-- QUOTE -->
@@ -634,23 +640,23 @@ h2 em{color:transparent;font-style:italic;font-weight:800;background:linear-grad
   <div style="display:flex;flex-direction:column;gap:12px">
     <div class="rv obj-card" style="transition-delay:.05s">
       <div class="obj-q">"We already have analytics"</div>
-      <div class="obj-a">Your dashboard shows campaign ROAS — that's batting average. Forge shows which variable inside the campaign drove that ROAS. That's OBP.</div>
+      <div class="obj-a">Your dashboard shows campaign ROAS — that's batting average. Your brand needs the variable inside the campaign that drove it. That's OBP.</div>
     </div>
     <div class="rv obj-card" style="transition-delay:.1s">
       <div class="obj-q">"AI can generate our ads"</div>
-      <div class="obj-a">AI creates more ads faster. Without knowing which variables convert, you're scaling noise. Forge tells AI what to make.</div>
+      <div class="obj-a">AI creates more ads faster. Without knowing which variables convert, your brand scales noise. The next prompt should start from proof.</div>
     </div>
     <div class="rv obj-card" style="transition-delay:.15s">
       <div class="obj-q">"Our agency handles creative"</div>
-      <div class="obj-a">Agencies optimize campaigns. Forge isolates variables. Different layers. Forge makes the agency more effective.</div>
+      <div class="obj-a">Agencies optimize campaigns. The agency gets a clearer variable to execute, and your brand keeps the learning.</div>
     </div>
     <div class="rv obj-card" style="transition-delay:.2s">
       <div class="obj-q">"Sample size too small?"</div>
-      <div class="obj-a">Every campaign adds data. By 30, you have benchmarks. Architecture matters more than starting volume.</div>
+      <div class="obj-a">Every campaign can become brand memory. Starting early matters because the benchmark gets useful through repetition.</div>
     </div>
     <div class="rv obj-card" style="transition-delay:.25s">
       <div class="obj-q">"Can't we just A/B test?"</div>
-      <div class="obj-a">A/B tests compare two ads. Forge isolates which variable won — and applies it to every future ad.</div>
+      <div class="obj-a">A/B tests compare two ads. Your brand needs the variable that won — and the next brief that uses it.</div>
     </div>
   </div>
 </div>
@@ -659,10 +665,10 @@ h2 em{color:transparent;font-style:italic;font-weight:800;background:linear-grad
 
 <!-- CTA -->
 <div class="cta-s">
-  <h2 class="rv">We find what no one else <strong>measures.</strong></h2>
+  <h2 class="rv">See the variable your next ad should <strong>use.</strong></h2>
   <p class="rv" style="transition-delay:.05s">One experiment. One variable. One clear answer.</p>
   <div class="cta-buttons rv" style="transition-delay:.1s">
-    <a href="https://tally.so/r/zxrx51" class="cta-primary">Get your free Creative Decoder →</a>
+    <a href="https://tally.so/r/zxrx51" class="cta-primary">See your next variable →</a>
     <a href="index.html" class="cta-secondary">← Back to forgexlab.co</a>
   </div>
 </div>
@@ -1171,7 +1177,7 @@ const ad=[
     {c:'surface',l:'Surface metric',v:'Ad-level ROAS',m:'which asset won'},
     {c:'hidden-var',l:'Ignored signal',v:'Variable-level cause',m:'hook, format, CTA, proof'},
     {c:'decision',l:'Better decision',v:'Next isolation test',m:'one variable to change next'}
-  ],n:'Forge does this for ad creative',nc:'a',tx:'Forge turns ad-level ROAS into a variable-level cause for the next isolation test.',tg:'variable cause > ad winner',tc:'at',rule:'scale winning ad → isolate winning variable.'}
+  ],n:'Your brand gets the variable layer',nc:'a',tx:'Ad-level ROAS becomes a variable-level cause your next test can use.',tg:'variable cause > ad winner',tc:'at',rule:'scale winning ad → isolate winning variable.'}
 ];
 
 let ai=0,at;
