@@ -1186,10 +1186,10 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 .report-flow-cards{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch;margin-bottom:22px}
 .report-flow-card{min-height:184px;border-radius:18px;border:1px solid rgba(15,23,42,.1);background:#ffffff;box-shadow:0 22px 58px rgba(15,23,42,.09);padding:20px;display:flex;flex-direction:column}
 .report-flow-card.dark{background:#0b1020;color:#fff;border-color:rgba(255,255,255,.12)}
-.report-flow-card span{display:block;font-family:var(--mn);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:var(--ac);line-height:1.35}
+.report-flow-card span{display:block;min-height:1.84rem;font-family:var(--mn);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:var(--ac);line-height:1.35}
 .report-flow-card.dark span{color:#a5b4fc}
-.report-flow-card h3{font-size:1.45rem;line-height:1.08;letter-spacing:-.015em;margin:16px 0 0;color:inherit;text-wrap:balance}
-.report-flow-card p{font-size:.92rem;line-height:1.58;color:var(--ink2);margin:16px 0 0}
+.report-flow-card h3{min-height:3.15rem;font-size:1.45rem;line-height:1.08;letter-spacing:-.015em;margin:16px 0 0;color:inherit;text-wrap:balance;font-weight:850}
+.report-flow-card p{font-size:.92rem;line-height:1.58;color:var(--ink2);margin:16px 0 0;font-weight:500}
 .report-flow-card.dark p{color:rgba(226,232,240,.72)}
 .report-flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:1.65rem;font-weight:900}
 .report-fusion-stage .rep{max-width:100%;margin:0}
@@ -1515,6 +1515,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   .report-flow-cards{grid-template-columns:1fr;gap:10px}
   .report-flow-arrow{height:24px;transform:rotate(90deg);font-size:1.25rem}
   .report-flow-card{min-height:auto;border-radius:16px;padding:18px}
+  .report-flow-card span,.report-flow-card h3{min-height:0}
   .report-flow-card h3{font-size:1.35rem}
   .g2,.g2-compact,.g3,.g4,.bd,.hc{grid-template-columns:1fr}
   /* HP feature card — mobile */
@@ -2033,6 +2034,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   .report-flow-cards{display:grid !important;grid-template-columns:1fr !important;gap:10px !important}
   .report-flow-arrow{height:auto !important;transform:none !important;text-align:left !important;padding-left:18px !important;color:#6366f1 !important}
   .report-flow-card{min-height:auto !important;padding:20px !important;border-radius:18px !important}
+  .report-flow-card span,.report-flow-card h3{min-height:0 !important}
   .rep{display:none !important}
 
   #vision{padding:64px 20px !important}
