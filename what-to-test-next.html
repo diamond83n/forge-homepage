@@ -170,6 +170,23 @@ h1 em{font-style:normal;color:#4f46e5}
 .why-panel.accent span{color:#4f46e5}
 .why-panel.accent strong{color:#312e81}
 .why-arrow{display:flex;align-items:center;justify-content:center;color:#4f46e5;font:900 18px/1 ui-monospace,SFMono-Regular,Menlo,monospace}
+.execute{margin-top:44px;padding:34px 0 0}
+.execute-head{max-width:940px;margin-bottom:18px}
+.execute h2{font-size:40px;line-height:1.06;letter-spacing:0;margin-bottom:12px}
+.execute p{color:#475569;line-height:1.65}
+.answer-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.answer-cell{background:#fff;border:1px solid #dbe3f0;border-radius:8px;padding:14px;min-height:96px}
+.answer-cell span,.op-step span{display:block;font:800 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:8px}
+.answer-cell strong{display:block;font-size:22px;line-height:1.1}
+.answer-cell.accent{background:#0f172a;border-color:#0f172a;color:#fff}
+.answer-cell.accent span{color:#a5b4fc}
+.operator{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.op-step{background:#fff;border:1px solid #dbe3f0;border-radius:8px;padding:14px;min-width:0}
+.op-step strong{display:block;font-size:18px;line-height:1.18}
+.op-step p{margin-top:8px;font-size:14px;line-height:1.48;color:#475569}
+.op-step.final{background:#eef2ff;border-color:#c7d2fe}
+.op-step.final span{color:#4f46e5}
+.op-step.final strong{color:#312e81}
 .stack{margin-top:18px;padding:34px 0 0}
 .stack-head{max-width:100%;margin-bottom:18px}
 .stack h2{font-size:36px;line-height:1.08;letter-spacing:0;margin-bottom:12px}
@@ -216,8 +233,8 @@ h1 em{font-style:normal;color:#4f46e5}
   .board{border-radius:18px}
   .split,.intent{grid-template-columns:1fr}
   .section{margin-top:18px;padding-top:18px}
-  .section h2,.compare h2,.stack h2,.why h2{font-size:28px;line-height:1.12}
-  .flow,.compare,.compare-grid,.question-grid,.stack-grid,.why-visual{grid-template-columns:1fr}
+  .section h2,.compare h2,.stack h2,.why h2,.execute h2{font-size:28px;line-height:1.12}
+  .flow,.compare,.compare-grid,.question-grid,.stack-grid,.why-visual,.answer-strip,.operator{grid-template-columns:1fr}
   .compare{gap:18px}
   .why-arrow{min-height:22px}
   .flow-card{min-height:auto}
@@ -232,7 +249,7 @@ h1 em{font-style:normal;color:#4f46e5}
   .wrap{width:390px;max-width:100%;margin:0;padding:24px 16px}
   h1{font-size:32px;line-height:1.08}
   .copy{font-size:16px}
-  .section h2,.compare h2,.stack h2,.why h2{font-size:25px}
+  .section h2,.compare h2,.stack h2,.why h2,.execute h2{font-size:25px}
   .board h2{font-size:22px}
   .row strong{font-size:14px}
 }
@@ -300,6 +317,27 @@ h1 em{font-style:normal;color:#4f46e5}
         </div>
         <p>Each run becomes a clearer next action and a reusable decision record.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="execute" aria-label="Forge turns analysis into an executable next ad decision">
+    <div class="execute-head">
+      <div class="eyebrow">Execution Confidence</div>
+      <h2>Most brands know which ad won.<br>Forge shows what variable to test next.</h2>
+      <p>Brands do not buy a methodology. They need the next ad decision to feel obvious enough to run.</p>
+    </div>
+    <div class="answer-strip">
+      <div class="answer-cell accent"><span>Change this</span><strong>Format</strong></div>
+      <div class="answer-cell"><span>Do not change</span><strong>Offer, CTA, audience, budget</strong></div>
+      <div class="answer-cell"><span>Measure</span><strong>CTR + purchase rate</strong></div>
+      <div class="answer-cell"><span>Read after</span><strong>14 days</strong></div>
+    </div>
+    <div class="operator">
+      <div class="op-step"><span>Answer</span><strong>Change this.</strong><p>One variable, not a list of guesses.</p></div>
+      <div class="op-step"><span>Why</span><strong>See the signal.</strong><p>What made this variable the cleanest next test.</p></div>
+      <div class="op-step"><span>Build this</span><strong>Make the challenger.</strong><p>Structure, copy, and visual direction for the next ad.</p></div>
+      <div class="op-step"><span>Track this</span><strong>Measure the right fields.</strong><p>Clear success criteria before budget goes live.</p></div>
+      <div class="op-step final"><span>Saved to memory</span><strong>Next test gets smarter.</strong><p>The result becomes a decision record.</p></div>
     </div>
   </section>
 
