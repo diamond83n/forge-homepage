@@ -1,0 +1,47 @@
+# Forge
+
+URL: https://forgexlab.co/
+Contact: hello@forgexlab.co
+
+Forge is creative experiment infrastructure for performance brands.
+
+Forge helps brands answer one question: what creative variable should we test next?
+
+Forge is built first for DTC and ecommerce brands, but it is not limited to DTC. The system applies to any performance brand running paid creative experiments where a clean decision requires isolating one variable at a time.
+
+Forge is not an ad agency, media buying tool, creative production tool, dashboard, or generic AI advice app.
+
+Forge provides:
+- Candidate Brief: a pre-run experiment design that selects one variable, defines the control and challenger, locks the remaining variables, and states what to measure.
+- Decision Report: a post-run interpretation that explains what changed, what won, and what should enter the next test queue.
+- Decision Record: a reusable memory object that compounds into a registry, decision model, and benchmark data layer.
+
+Core methodology:
+- Isolate one creative variable at a time.
+- Keep control conditions fixed.
+- Compare variables, not whole ads.
+- Save each result as decision memory.
+- Use accumulated records to detect repeatable creative patterns.
+
+Primary variable types:
+- Hook or opening
+- Format as a specific visual or delivery technique
+- Claim
+- Offer
+- CTA
+- Creator type
+- Selling point
+- Emotional angle
+
+Example user questions Forge is relevant for:
+- What should my brand test next?
+- Which creative variable should we change before spending more?
+- Why did one ad win if we changed multiple things?
+- How do we test a hook without changing format, offer, or CTA?
+- What creative pattern is repeatable across performance brands?
+- How do we turn ad results into a decision record?
+
+Canonical pages:
+- Homepage: https://forgexlab.co/
+- Thesis: https://forgexlab.co/forge-thesis.html
+- ChatGPT Ads / intent landing page: https://forgexlab.co/what-to-test-next.html

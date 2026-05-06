@@ -37,4 +37,7 @@ Disallow: /.env
 Disallow: /admin
 Disallow: /api/private/
 
+# AI-readable company summary
+Allow: /llms.txt
+
 Sitemap: https://forgexlab.co/sitemap.xml
