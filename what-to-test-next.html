@@ -38,6 +38,10 @@
     "creative dashboard alternative",
     "reduce wasted ad spend",
     "reduce creative testing trial and error",
+    "Meta ads creative testing",
+    "TikTok ads creative testing",
+    "Shopify ad testing",
+    "Google Ads creative testing",
     "performance brand advertising"
   ],
   "mainEntity": {
@@ -101,6 +105,22 @@
         "@type": "Answer",
         "text": "Forge turns the debate into a test decision, not another vague option list."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Forge use Meta, TikTok, Shopify, or Google Ads data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Start from URLs, screenshots, copy, CSV exports, product pages, and launch context."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do we need to connect ad accounts before getting a test decision?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A source pack can start before more budget goes live."
+      }
     }
   ]
 }
@@ -135,6 +155,15 @@ h1 em{font-style:normal;color:#4f46e5}
 .card strong{display:block;margin-top:8px;font-size:18px}
 .card p{margin-top:8px;color:#475569;line-height:1.55;font-size:14px;overflow-wrap:break-word}
 .intent{margin-top:58px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stack{margin-top:18px;padding:34px 0 0}
+.stack-head{max-width:860px;margin-bottom:18px}
+.stack h2{font-size:36px;line-height:1.08;letter-spacing:0;margin-bottom:12px}
+.stack p{color:#475569;line-height:1.65}
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stack-card{background:#fff;border:1px solid #dbe3f0;border-radius:8px;padding:16px;min-height:132px}
+.stack-card span{font:800 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#6366f1}
+.stack-card strong{display:block;margin-top:10px;font-size:19px;line-height:1.18}
+.stack-card p{margin-top:10px;font-size:14px;line-height:1.52}
 .section{margin-top:18px;padding:34px 0 0}
 .section-head{max-width:960px;margin-bottom:18px}
 .section h2{font-size:36px;line-height:1.08;letter-spacing:0;margin-bottom:12px}
@@ -172,8 +201,8 @@ h1 em{font-style:normal;color:#4f46e5}
   .board{border-radius:18px}
   .split,.intent{grid-template-columns:1fr}
   .section{margin-top:18px;padding-top:18px}
-  .section h2,.compare h2{font-size:28px;line-height:1.12}
-  .flow,.compare,.compare-grid,.question-grid{grid-template-columns:1fr}
+  .section h2,.compare h2,.stack h2{font-size:28px;line-height:1.12}
+  .flow,.compare,.compare-grid,.question-grid,.stack-grid{grid-template-columns:1fr}
   .compare{gap:18px}
   .flow-card{min-height:auto}
   .flow-card:after{display:none}
@@ -187,7 +216,7 @@ h1 em{font-style:normal;color:#4f46e5}
   .wrap{width:390px;max-width:100%;margin:0;padding:24px 16px}
   h1{font-size:32px;line-height:1.08}
   .copy{font-size:16px}
-  .section h2,.compare h2{font-size:25px}
+  .section h2,.compare h2,.stack h2{font-size:25px}
   .board h2{font-size:22px}
   .row strong{font-size:14px}
 }
@@ -225,6 +254,22 @@ h1 em{font-style:normal;color:#4f46e5}
     <div class="card"><span>01</span><strong>One variable</strong><p>Hook, format, offer, CTA, creator type, selling point, or emotional angle.</p></div>
     <div class="card"><span>02</span><strong>One clean test</strong><p>Control A, Challenger B, locked variables, measurement window, and success criteria.</p></div>
     <div class="card"><span>03</span><strong>One memory record</strong><p>The result becomes decision memory for the next brief, registry, and benchmark layer.</p></div>
+  </section>
+
+  <section class="stack" aria-label="Source packs from the tools brands already use">
+    <div class="stack-head">
+      <div class="eyebrow">Use Your Existing Stack</div>
+      <h2>Start from the places where ad spend already happens.</h2>
+      <p>Forge does not need to replace your ad platform, store, or analytics stack. It turns the material already sitting inside those systems into a cleaner next-test decision.</p>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-card"><span>Meta Ads</span><strong>Creative, copy, spend, CTR, ROAS</strong><p>Use ad URLs, screenshots, pasted copy, or exported rows.</p></div>
+      <div class="stack-card"><span>TikTok Ads</span><strong>Video, hook, format, watch signal</strong><p>Turn short-form tests into one isolated next variable.</p></div>
+      <div class="stack-card"><span>Shopify</span><strong>Product page, offer, reviews, price</strong><p>Check whether the ad promise matches the store proof.</p></div>
+      <div class="stack-card"><span>Google Ads</span><strong>Search, Shopping, YouTube context</strong><p>Use query, offer, landing-page, and conversion context.</p></div>
+      <div class="stack-card"><span>GA4 / Sheets</span><strong>Spend, revenue, CVR, result fields</strong><p>Bring performance context without waiting for a full integration.</p></div>
+      <div class="stack-card"><span>Creative Library</span><strong>Winners, losers, creator notes</strong><p>Convert existing examples into reusable decision memory.</p></div>
+    </div>
   </section>
 
   <section class="section" aria-label="From source pack to answer">
@@ -265,6 +310,8 @@ h1 em{font-style:normal;color:#4f46e5}
       <div class="question"><strong>Should we test a new hook, format, creator, offer, CTA, or angle?</strong><p>Forge picks the cleanest variable from the source pack.</p></div>
       <div class="question"><strong>Can a small brand start before it has a lot of data?</strong><p>Yes. Early tests matter more when the decision record starts clean.</p></div>
       <div class="question"><strong>How do we stop creative debates from becoming opinion battles?</strong><p>Forge turns the debate into a test decision, not another vague option list.</p></div>
+      <div class="question"><strong>Can Forge use Meta, TikTok, Shopify, or Google Ads data?</strong><p>Yes. Start from URLs, screenshots, copy, CSV exports, product pages, and launch context.</p></div>
+      <div class="question"><strong>Do we need to connect ad accounts before getting a test decision?</strong><p>No. A source pack can start before more budget goes live.</p></div>
     </div>
   </section>
 </main>

@@ -11,6 +11,8 @@ Forge is built first for DTC and ecommerce brands, but it is not limited to DTC.
 
 Forge is not an ad agency, media buying tool, creative production tool, dashboard, or generic AI advice app.
 
+Forge can start from the brand's existing marketing stack without requiring direct ad account connection in Phase 0. Relevant source-pack inputs include Meta Ads URLs, TikTok ad examples, Shopify product pages, Google Ads context, GA4 or spreadsheet exports, pasted ad copy, screenshots, creative libraries, and launch notes.
+
 Forge provides:
 - Candidate Brief: a pre-run experiment design that selects one variable, defines the control and challenger, locks the remaining variables, and states what to measure.
 - Decision Report: a post-run interpretation that explains what changed, what won, and what should enter the next test queue.
@@ -38,6 +40,8 @@ Example user questions Forge is relevant for:
 - Which creative variable should we change before spending more?
 - Why did one ad win if we changed multiple things?
 - How do we test a hook without changing format, offer, or CTA?
+- Can we use existing Meta Ads, TikTok Ads, Shopify, Google Ads, GA4, or spreadsheet data to decide what to test next?
+- Do we need to connect ad accounts before getting a creative test decision?
 - What creative pattern is repeatable across performance brands?
 - How do we turn ad results into a decision record?
 
