@@ -49,6 +49,62 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "We have ads running, but what should we change next?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forge turns current creative inputs into one controlled next test."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did one ad win if everything changed at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forge separates variables so the next test isolates the likely reason."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are we wasting budget by testing too many things at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forge keeps the control fixed so spend tests one clearer variable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we test a new hook, format, creator, offer, CTA, or angle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forge picks the cleanest variable from the source pack."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a small brand start before it has a lot of data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Early tests matter more when the decision record starts clean."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do we stop creative debates from becoming opinion battles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forge turns the debate into a test decision, not another vague option list."
+      }
+    }
+  ]
+}
+</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{max-width:100%;overflow-x:hidden}
@@ -100,6 +156,11 @@ h1 em{font-style:normal;color:#4f46e5}
 .compare-card{border:1px solid #dbe3f0;border-radius:16px;padding:18px;background:#fafaf8}
 .compare-card.accent{background:#eef2ff;border-color:#c7d2fe}
 .compare-card.accent strong{color:#3730a3}
+.questions{margin-top:48px}
+.question-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.question{border:1px solid #dbe3f0;border-radius:16px;padding:16px;background:#fff}
+.question strong{display:block;font-size:18px;line-height:1.18}
+.question p{margin-top:10px;color:#475569;font-size:14px;line-height:1.52}
 @media(max-width:820px){
   .wrap{padding:24px 16px}
   .nav{margin-bottom:38px}
@@ -112,7 +173,7 @@ h1 em{font-style:normal;color:#4f46e5}
   .split,.intent{grid-template-columns:1fr}
   .section{margin-top:18px;padding-top:18px}
   .section h2,.compare h2{font-size:28px;line-height:1.12}
-  .flow,.compare,.compare-grid{grid-template-columns:1fr}
+  .flow,.compare,.compare-grid,.question-grid{grid-template-columns:1fr}
   .compare{gap:18px}
   .flow-card{min-height:auto}
   .flow-card:after{display:none}
@@ -188,6 +249,22 @@ h1 em{font-style:normal;color:#4f46e5}
     <div class="compare-grid">
       <div class="compare-card"><span>Most tools</span><strong>Which ad won?</strong><p>Rows of ads, metrics, charts, and broad recommendations.</p></div>
       <div class="compare-card accent"><span>Forge</span><strong>What should change?</strong><p>One variable, fixed controls, and less budget lost to creative guesswork.</p></div>
+    </div>
+  </section>
+
+  <section class="section questions" aria-label="Questions brands ask before testing more ads">
+    <div class="section-head">
+      <div class="eyebrow">Brand Questions</div>
+      <h2>The question is usually not "which report?" It is "what do we change now?"</h2>
+      <p>Forge is written for the questions teams ask before spending more budget, launching another batch, or repeating the same creative debate.</p>
+    </div>
+    <div class="question-grid">
+      <div class="question"><strong>We have ads running, but what should we change next?</strong><p>Forge turns current creative inputs into one controlled next test.</p></div>
+      <div class="question"><strong>Why did one ad win if everything changed at once?</strong><p>Forge separates variables so the next test isolates the likely reason.</p></div>
+      <div class="question"><strong>Are we wasting budget by testing too many things at once?</strong><p>Forge keeps the control fixed so spend tests one clearer variable.</p></div>
+      <div class="question"><strong>Should we test a new hook, format, creator, offer, CTA, or angle?</strong><p>Forge picks the cleanest variable from the source pack.</p></div>
+      <div class="question"><strong>Can a small brand start before it has a lot of data?</strong><p>Yes. Early tests matter more when the decision record starts clean.</p></div>
+      <div class="question"><strong>How do we stop creative debates from becoming opinion battles?</strong><p>Forge turns the debate into a test decision, not another vague option list.</p></div>
     </div>
   </section>
 </main>
