@@ -853,7 +853,6 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 #vision .sl{max-width:940px;text-wrap:pretty;line-height:1.22;margin-bottom:28px}
 #vision .sl > span{display:block}
 #vision .sl > span + span{margin-top:2px}
-#vision .vs-console{display:none}
 .data-memory-stage{max-width:1280px;margin:54px auto 0;position:relative;z-index:2;overflow:hidden;border-radius:24px;background:linear-gradient(180deg,#080e1a 0%,#07111f 56%,#061722 100%);border:1px solid rgba(129,140,248,.22);box-shadow:0 38px 120px rgba(15,23,42,.32),0 0 0 1px rgba(255,255,255,.06) inset,0 0 82px rgba(99,102,241,.1);padding:26px}
 .data-memory-stage::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(148,163,184,.08) 1px,transparent 1px),linear-gradient(180deg,rgba(148,163,184,.06) 1px,transparent 1px);background-size:72px 72px;opacity:.34;pointer-events:none}
 .data-memory-stage::after{content:"";position:absolute;inset:auto -12% -26% -12%;z-index:0;height:52%;background:radial-gradient(circle at 18% 50%,rgba(16,185,129,.14),transparent 34%),radial-gradient(circle at 76% 20%,rgba(99,102,241,.18),transparent 36%);pointer-events:none}
@@ -2448,189 +2447,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
     </div>
   </div>
 
-  <!-- CONSOLE: single unified view of the data layer projection -->
-  <div class="vs-console">
-    <!-- Console header bar -->
-    <div class="vsx-header">
-      <div class="vsx-header-left">
-        <span class="vsx-kbd">forge</span>
-        <span class="vsx-path">data layer</span>
-        <span class="vsx-path-sep">▸</span>
-        <span class="vsx-path vsx-path-active">experiment data layer</span>
-      </div>
-      <div class="vsx-header-right">
-        <span class="vsx-status"><span class="vsx-status-dot"></span>layer · live</span>
-      </div>
-    </div>
 
-    <!-- PROGRESSION BAR: we are here + N scale -->
-    <div class="vsx-progression">
-      <div class="vsx-prog-label">
-        <span class="vsx-prog-kicker">what compounds</span>
-        <span class="vsx-prog-now"><span class="vsx-prog-now-dot"></span>registry memory compounds</span>
-      </div>
-      <div class="vsx-prog-track">
-        <div class="vsx-prog-line"></div>
-        <div class="vsx-prog-line-fill"></div>
-        <div class="vsx-prog-node vsx-prog-node-active" style="left:5%">
-          <div class="vsx-prog-node-dot"></div>
-          <div class="vsx-prog-node-n">1 brand</div>
-          <div class="vsx-prog-node-phase">measure</div>
-        </div>
-        <div class="vsx-prog-node" style="left:48%">
-          <div class="vsx-prog-node-dot"></div>
-          <div class="vsx-prog-node-n">10 brands</div>
-          <div class="vsx-prog-node-phase">pattern</div>
-        </div>
-        <div class="vsx-prog-node" style="left:95%">
-          <div class="vsx-prog-node-dot"></div>
-          <div class="vsx-prog-node-n">100+ brands</div>
-          <div class="vsx-prog-node-phase">project</div>
-        </div>
-      </div>
-      <div class="vsx-layer-note">
-        <div><span>source record</span><strong>Each controlled result is mapped.</strong></div>
-        <div><span>pattern base</span><strong>Similar results reveal why it worked.</strong></div>
-        <div><span>projection layer</span><strong>Follow-up cell starts from accumulated proof.</strong></div>
-      </div>
-    </div>
-
-    <!-- Console body: 3 columns, left index rail + pipeline -->
-    <div class="vsx-body">
-
-      <!-- STAGE 01 -->
-      <div class="vsx-stage" data-stage="1">
-        <div class="vsx-stage-bignum">01</div>
-        <div class="vsx-phase-header">
-          <div class="vsx-phase-num">layer 01</div>
-          <div class="vsx-phase-name">measure</div>
-        </div>
-        <div class="vsx-rail">
-          <div class="vsx-rail-num">01</div>
-          <div class="vsx-rail-line"></div>
-        </div>
-        <div class="vsx-card">
-          <div class="vsx-q">What worked?</div>
-          <div class="vsx-head">
-            <div class="vsx-exp">First result</div>
-            <div class="vsx-day">D+24</div>
-          </div>
-          <div class="vsx-metric">
-            <div class="vsx-mlabel">ROAS</div>
-            <div class="vsx-mval">2.4<span>x</span></div>
-          </div>
-          <div class="vsx-rows">
-            <div class="vsx-row"><span class="vsx-k">isolated variable</span><span class="vsx-v">1</span></div>
-            <div class="vsx-row"><span class="vsx-k">category match</span><span class="vsx-v vsx-null">controlled only</span></div>
-            <div class="vsx-row"><span class="vsx-k">reference base</span><span class="vsx-v">source record</span></div>
-          </div>
-          <div class="vsx-trace">
-            <div class="vsx-trace-label">record</div>
-            <div class="vsx-trace-text vsx-trace-warn">result captured · pattern not available yet</div>
-          </div>
-          <div class="vsx-card-footer">Measure one brand</div>
-        </div>
-      </div>
-
-      <!-- connector -->
-      <div class="vsx-conn vsx-conn-1" aria-hidden="true">
-        <div class="vsx-conn-line"></div>
-        <div class="vsx-conn-arrow">▸</div>
-      </div>
-
-      <!-- STAGE 02 -->
-      <div class="vsx-stage" data-stage="2">
-        <div class="vsx-stage-bignum">02</div>
-        <div class="vsx-phase-header">
-          <div class="vsx-phase-num">layer 02</div>
-          <div class="vsx-phase-name">pattern</div>
-        </div>
-        <div class="vsx-rail">
-          <div class="vsx-rail-num">02</div>
-          <div class="vsx-rail-line"></div>
-        </div>
-        <div class="vsx-card">
-          <div class="vsx-q">Why did it work?</div>
-          <div class="vsx-head">
-            <div class="vsx-exp">Pattern result</div>
-            <div class="vsx-day">D+24</div>
-          </div>
-          <div class="vsx-metric">
-            <div class="vsx-mlabel">ROAS</div>
-            <div class="vsx-mval vsx-mval-up">3.0<span>x</span></div>
-          </div>
-          <div class="vsx-rows">
-            <div class="vsx-row"><span class="vsx-k">variable</span><span class="vsx-v vsx-v-hi">Curiosity hook</span></div>
-            <div class="vsx-row"><span class="vsx-k">matched</span><span class="vsx-v">skincare · mid-price</span></div>
-            <div class="vsx-row"><span class="vsx-k">reference base</span><span class="vsx-v">8 comparable brands</span></div>
-          </div>
-          <div class="vsx-trace">
-            <div class="vsx-trace-label">record</div>
-            <div class="vsx-trace-text vsx-trace-ok">pattern confirmed · following cell gets sharper</div>
-          </div>
-          <div class="vsx-card-footer">Find the pattern</div>
-        </div>
-      </div>
-
-      <!-- connector -->
-      <div class="vsx-conn vsx-conn-2" aria-hidden="true">
-        <div class="vsx-conn-line"></div>
-        <div class="vsx-conn-arrow">▸▸</div>
-      </div>
-
-      <!-- STAGE 03 — live simulation -->
-      <div class="vsx-stage vsx-stage-live" data-stage="3">
-        <div class="vsx-stage-bignum vsx-stage-bignum-live">03</div>
-        <div class="vsx-phase-header vsx-phase-live">
-          <div class="vsx-phase-num">layer 03</div>
-          <div class="vsx-phase-name">project</div>
-        </div>
-        <div class="vsx-rail">
-          <div class="vsx-rail-num">03</div>
-          <div class="vsx-rail-line vsx-rail-line-live"></div>
-        </div>
-        <div class="vsx-card vsx-card-live">
-          <div class="vsx-scan" aria-hidden="true"></div>
-          <div class="vsx-live-tag"><span class="vsx-live-dot"></span>LIVE</div>
-          <div class="vsx-q vsx-q-live">Which variable should be isolated?</div>
-          <div class="vsx-head">
-            <div class="vsx-exp vsx-exp-new">Following brand</div>
-            <div class="vsx-day vsx-day-pre">D-0 · pre-test</div>
-          </div>
-          <div class="vsx-metric">
-            <div class="vsx-mlabel">Expected range <span class="vsx-proj-tag">projection</span></div>
-            <div class="vsx-mval vsx-mval-range"><span class="vsx-r-lo">3.6</span><span class="vsx-dash">–</span><span class="vsx-r-hi">4.2</span><span>x</span></div>
-            <div class="vsx-proj-note">from category patterns · 10+ comparable brands</div>
-          </div>
-          <div class="vsx-rows vsx-rows-hyp">
-            <div class="vsx-hyp-label">Isolation plan</div>
-            <div class="vsx-hyp-item"><span class="vsx-hyp-prefix">→</span>Test curiosity hook</div>
-            <div class="vsx-hyp-item"><span class="vsx-hyp-prefix">→</span>Keep creator fixed</div>
-            <div class="vsx-hyp-item vsx-hyp-typing"><span class="vsx-hyp-prefix">→</span>Keep offer fixed<span class="vsx-cursor">_</span></div>
-          </div>
-          <div class="vsx-trace">
-            <div class="vsx-trace-label">derived from</div>
-            <div class="vsx-trace-bar"><div class="vsx-trace-fill"></div></div>
-            <div class="vsx-trace-text vsx-trace-future">category data · projection before spend</div>
-          </div>
-          <div class="vsx-card-footer vsx-card-footer-live">Project the follow-up cell</div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Console status bar -->
-    <div class="vsx-statusbar">
-      <div class="vsx-sb-left">
-        <span class="vsx-sb-key">mode</span><span class="vsx-sb-val">projection</span>
-        <span class="vsx-sb-sep">│</span>
-        <span class="vsx-sb-key">layer</span><span class="vsx-sb-val">compounding</span>
-      </div>
-      <div class="vsx-sb-right">
-        <span class="vsx-sb-blink"></span><span class="vsx-sb-val">data layer guides the follow-up cell</span>
-      </div>
-    </div>
-  </div>
 
   <div class="vs-footer">
     <div class="vs-rule"></div>
@@ -2863,7 +2680,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <div class="tc tc-status" aria-disabled="true" style="background:var(--gl);border:1px solid var(--gb);color:var(--ink2)">Continuation tier</div>
     </div>
     <div class="ti ft">
-      <div style="font-family:var(--mn);font-size:.78rem;color:var(--ink2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600">Most popular</div>
+      <div style="font-family:var(--mn);font-size:.78rem;color:var(--ink2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600">After registry forms</div>
       <div style="font-size:1.15rem;font-weight:700;margin-bottom:10px">Standard</div>
       <div class="tp" style="font-size:1.4rem;color:var(--ink2)">TBD</div>
       <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Multiple cycles, benchmark reads, and source scoring as your brand memory compounds.</div>
@@ -2897,7 +2714,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
     <tr><td>Experiment design</td><td>—</td><td>—</td><td>—</td><td class="fcc">Controlled isolation</td></tr>
     <tr><td>Memory over time</td><td>Brand notes</td><td>Account history</td><td>Dashboard history</td><td class="fcc">Brand memory + benchmark</td></tr>
     <tr><td>Output</td><td>Creative recommendation</td><td>Pattern summary</td><td>Performance report</td><td class="fcc">Decision record + next test cell</td></tr>
-    <tr><td>Cost</td><td>$10K+/mo</td><td>DIY · 30 min setup</td><td>$200–2K</td><td class="fcc">Free → Paid</td></tr>
+    <tr><td>Cost</td><td>10–15% of ad spend</td><td>DIY · 30 min setup</td><td>$129–999/mo</td><td class="fcc">Free → Paid</td></tr>
   </tbody></table>
   <p style="text-align:center;font-size:1.05rem;color:var(--ink);margin-top:28px;font-weight:600">Keep your agency. Keep your stack. <span style="background:linear-gradient(135deg,#f59e0b,#ea580c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 8px rgba(234,88,12,.15));font-size:1.15rem;font-weight:800">Their outputs become your brand memory.</span></p>
 </div></div>
