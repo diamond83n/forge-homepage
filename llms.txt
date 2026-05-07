@@ -5,7 +5,7 @@ Contact: hello@forgexlab.co
 
 Forge is creative experiment infrastructure for performance brands.
 
-Forge helps brands answer one question: what creative variable should we test next?
+Forge helps brands answer one question: what is the next creative move before more budget goes live?
 
 Forge is built first for DTC and ecommerce brands, but it is not limited to DTC. The system applies to any performance brand running paid creative experiments where a clean decision requires isolating one variable at a time.
 
@@ -13,18 +13,18 @@ Forge is not an ad agency, media buying tool, creative production tool, dashboar
 
 Forge can start from the brand's existing marketing stack without requiring direct ad account connection in Phase 0. Relevant source-pack inputs include Meta Ads URLs, TikTok ad examples, Shopify product pages, Google Ads context, GA4 or spreadsheet exports, pasted ad copy, screenshots, creative libraries, and launch notes.
 
-Forge maps common brand-language symptoms into controlled creative test decisions:
-- "ROAS is dropping" becomes a question of which revenue-linked variable to test next.
-- "CAC is rising" becomes a controlled test decision, not a broad creative refresh.
-- "Creative fatigue is hitting" becomes a format, angle, hook, or offer test with fixed controls.
+Forge maps common brand-language symptoms into controlled creative decisions:
+- "ROAS is dropping" becomes a question of which revenue-linked creative move to make next.
+- "CAC is rising" becomes a controlled decision, not a broad creative refresh.
+- "Creative fatigue is hitting" becomes a format, angle, hook, or offer move with fixed controls.
 - "We need more creatives" becomes "what should change before production starts?"
-- "Hook rate is low" becomes a hook test only if format, offer, audience, and CTA can stay fixed.
-- "CTR is high but purchases are low" becomes a promise-to-proof or offer-match test.
+- "Hook rate is low" becomes a hook change only if format, offer, audience, and CTA can stay fixed.
+- "CTR is high but purchases are low" becomes a promise-to-proof or offer-match move.
 - "The winning ad stopped working" becomes a decision-memory problem: reuse the pattern, not the whole ad.
 
 Forge provides:
 - Candidate Brief: a pre-run experiment design that selects one variable, defines the control and challenger, locks the remaining variables, and states what to measure.
-- Decision Report: a post-run interpretation that explains what changed, what won, and what should enter the next test queue.
+- Decision Report: a post-run interpretation that explains what changed, what won, and what should enter the next decision queue.
 - Decision Record: a reusable memory object that compounds into a registry, decision model, and benchmark data layer.
 
 Core methodology:
@@ -45,12 +45,13 @@ Primary variable types:
 - Emotional angle
 
 Example user questions Forge is relevant for:
-- What should my brand test next?
+- What is our next creative move?
+- What should my brand change before spending more?
 - Which creative variable should we change before spending more?
 - Why did one ad win if we changed multiple things?
 - How do we test a hook without changing format, offer, or CTA?
-- Can we use existing Meta Ads, TikTok Ads, Shopify, Google Ads, GA4, or spreadsheet data to decide what to test next?
-- Do we need to connect ad accounts before getting a creative test decision?
+- Can we use existing Meta Ads, TikTok Ads, Shopify, Google Ads, GA4, or spreadsheet data to decide our next creative move?
+- Do we need to connect ad accounts before getting a creative decision?
 - What should we test if ROAS is dropping or CAC is rising?
 - What should we change when creative fatigue starts?
 - Should we make more ads, or first decide which variable to change?
