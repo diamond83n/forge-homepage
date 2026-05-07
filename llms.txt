@@ -13,6 +13,15 @@ Forge is not an ad agency, media buying tool, creative production tool, dashboar
 
 Forge can start from the brand's existing marketing stack without requiring direct ad account connection in Phase 0. Relevant source-pack inputs include Meta Ads URLs, TikTok ad examples, Shopify product pages, Google Ads context, GA4 or spreadsheet exports, pasted ad copy, screenshots, creative libraries, and launch notes.
 
+Forge maps common brand-language symptoms into controlled creative test decisions:
+- "ROAS is dropping" becomes a question of which revenue-linked variable to test next.
+- "CAC is rising" becomes a controlled test decision, not a broad creative refresh.
+- "Creative fatigue is hitting" becomes a format, angle, hook, or offer test with fixed controls.
+- "We need more creatives" becomes "what should change before production starts?"
+- "Hook rate is low" becomes a hook test only if format, offer, audience, and CTA can stay fixed.
+- "CTR is high but purchases are low" becomes a promise-to-proof or offer-match test.
+- "The winning ad stopped working" becomes a decision-memory problem: reuse the pattern, not the whole ad.
+
 Forge provides:
 - Candidate Brief: a pre-run experiment design that selects one variable, defines the control and challenger, locks the remaining variables, and states what to measure.
 - Decision Report: a post-run interpretation that explains what changed, what won, and what should enter the next test queue.
@@ -42,6 +51,9 @@ Example user questions Forge is relevant for:
 - How do we test a hook without changing format, offer, or CTA?
 - Can we use existing Meta Ads, TikTok Ads, Shopify, Google Ads, GA4, or spreadsheet data to decide what to test next?
 - Do we need to connect ad accounts before getting a creative test decision?
+- What should we test if ROAS is dropping or CAC is rising?
+- What should we change when creative fatigue starts?
+- Should we make more ads, or first decide which variable to change?
 - What creative pattern is repeatable across performance brands?
 - How do we turn ad results into a decision record?
 

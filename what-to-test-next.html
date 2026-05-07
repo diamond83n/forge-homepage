@@ -38,6 +38,11 @@
     "creative dashboard alternative",
     "reduce wasted ad spend",
     "reduce creative testing trial and error",
+    "creative fatigue",
+    "lower CAC",
+    "improve ROAS",
+    "what ad variable to change",
+    "creative decision memory",
     "Meta ads creative testing",
     "TikTok ads creative testing",
     "Shopify ad testing",
@@ -121,6 +126,14 @@
         "@type": "Answer",
         "text": "No. A source pack can start before more budget goes live."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What if our ROAS drops or creative fatigue starts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forge translates those symptoms into a cleaner next test variable instead of another broad creative batch."
+      }
     }
   ]
 }
@@ -187,6 +200,16 @@ h1 em{font-style:normal;color:#4f46e5}
 .op-step.final{background:#eef2ff;border-color:#c7d2fe}
 .op-step.final span{color:#4f46e5}
 .op-step.final strong{color:#312e81}
+.bridge{margin-top:44px;padding:34px 0 0}
+.bridge-head{max-width:940px;margin-bottom:18px}
+.bridge h2{font-size:40px;line-height:1.06;letter-spacing:0;margin-bottom:12px}
+.bridge p{color:#475569;line-height:1.65}
+.bridge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.bridge-card{background:#fff;border:1px solid #dbe3f0;border-radius:8px;padding:16px;min-width:0}
+.bridge-card span{display:block;font:800 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:10px}
+.bridge-card strong{display:block;font-size:20px;line-height:1.14}
+.bridge-card p{margin-top:10px;font-size:14px;line-height:1.48}
+.bridge-card em{display:block;margin-top:12px;padding-top:12px;border-top:1px solid #e2e8f0;color:#4f46e5;font-style:normal;font-weight:900;font-size:14px;line-height:1.42}
 .stack{margin-top:18px;padding:34px 0 0}
 .stack-head{max-width:100%;margin-bottom:18px}
 .stack h2{font-size:36px;line-height:1.08;letter-spacing:0;margin-bottom:12px}
@@ -233,8 +256,8 @@ h1 em{font-style:normal;color:#4f46e5}
   .board{border-radius:18px}
   .split,.intent{grid-template-columns:1fr}
   .section{margin-top:18px;padding-top:18px}
-  .section h2,.compare h2,.stack h2,.why h2,.execute h2{font-size:28px;line-height:1.12}
-  .flow,.compare,.compare-grid,.question-grid,.stack-grid,.why-visual,.answer-strip,.operator{grid-template-columns:1fr}
+  .section h2,.compare h2,.stack h2,.why h2,.execute h2,.bridge h2{font-size:28px;line-height:1.12}
+  .flow,.compare,.compare-grid,.question-grid,.stack-grid,.why-visual,.answer-strip,.operator,.bridge-grid{grid-template-columns:1fr}
   .compare{gap:18px}
   .why-arrow{min-height:22px}
   .flow-card{min-height:auto}
@@ -249,7 +272,7 @@ h1 em{font-style:normal;color:#4f46e5}
   .wrap{width:390px;max-width:100%;margin:0;padding:24px 16px}
   h1{font-size:32px;line-height:1.08}
   .copy{font-size:16px}
-  .section h2,.compare h2,.stack h2,.why h2,.execute h2{font-size:25px}
+  .section h2,.compare h2,.stack h2,.why h2,.execute h2,.bridge h2{font-size:25px}
   .board h2{font-size:22px}
   .row strong{font-size:14px}
 }
@@ -341,6 +364,22 @@ h1 em{font-style:normal;color:#4f46e5}
     </div>
   </section>
 
+  <section class="bridge" aria-label="Brand language translated into Forge test decisions">
+    <div class="bridge-head">
+      <div class="eyebrow">Brand Language To Forge Answer</div>
+      <h2>Use the market's words.<br>Return one controlled test decision.</h2>
+      <p>Brands arrive with symptoms: ROAS, CAC, fatigue, hooks, winners, and new creative pressure. Forge translates those symptoms into the next variable to test.</p>
+    </div>
+    <div class="bridge-grid">
+      <div class="bridge-card"><span>Brand says</span><strong>ROAS is dropping.</strong><p>The problem might be offer, proof depth, promise mismatch, or format.</p><em>Forge returns: test one revenue-linked variable.</em></div>
+      <div class="bridge-card"><span>Brand says</span><strong>We need more creatives.</strong><p>More assets will not help if every batch changes hook, format, offer, and CTA at once.</p><em>Forge returns: decide what should change before production.</em></div>
+      <div class="bridge-card"><span>Brand says</span><strong>Creative fatigue is hitting.</strong><p>The answer is not always a new concept. Sometimes the cleanest test is delivery format or angle.</p><em>Forge returns: refresh one variable, keep the control stable.</em></div>
+      <div class="bridge-card"><span>Brand says</span><strong>Hook rate is low.</strong><p>A hook test only teaches if format, offer, audience, and CTA stay fixed.</p><em>Forge returns: test hook only when the rest can stay still.</em></div>
+      <div class="bridge-card"><span>Brand says</span><strong>CTR is high, purchases are low.</strong><p>The click may be working while the product page, offer, or proof does not match the promise.</p><em>Forge returns: test the promise-to-proof gap.</em></div>
+      <div class="bridge-card"><span>Brand says</span><strong>This winner stopped working.</strong><p>A past winner is useful only if the winning variable was saved as decision memory.</p><em>Forge returns: reuse the pattern, not the whole ad.</em></div>
+    </div>
+  </section>
+
   <section class="stack" aria-label="Source packs from the tools brands already use">
     <div class="stack-head">
       <div class="eyebrow">Use Your Existing Stack</div>
@@ -397,6 +436,7 @@ h1 em{font-style:normal;color:#4f46e5}
       <div class="question"><strong>How do we stop creative debates from becoming opinion battles?</strong><p>Forge turns the debate into a test decision, not another vague option list.</p></div>
       <div class="question"><strong>Can Forge use Meta, TikTok, Shopify, or Google Ads data?</strong><p>Yes. Start from URLs, screenshots, copy, CSV exports, product pages, and launch context.</p></div>
       <div class="question"><strong>Do we need to connect ad accounts before getting a test decision?</strong><p>No. A source pack can start before more budget goes live.</p></div>
+      <div class="question"><strong>What if our ROAS drops or creative fatigue starts?</strong><p>Forge translates those symptoms into a cleaner next test variable instead of another broad creative batch.</p></div>
     </div>
   </section>
 </main>
