@@ -109,7 +109,7 @@
     "What-to-test-next recommendations",
     "ROAS attribution at variable level",
     "Cross-brand benchmark data layer",
-    "System-generated test cells",
+    "System-generated tests",
     "Category pattern detection"
   ],
   "audience": {
@@ -343,8 +343,8 @@
     {
       "@type": "HowToStep",
       "position": 6,
-      "name": "Generate the follow-up experiment cell",
-      "text": "Based on the result, the system produces the follow-up decision cell: which variable belongs in the following controlled move, expected lift range, and creative direction."
+      "name": "Generate the follow-up test",
+      "text": "Based on the result, the system produces the follow-up test: which variable belongs in the following controlled move, expected lift range, and creative direction."
     }
   ]
 }
@@ -2067,8 +2067,43 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 }
 
 
+/* Report and memory protocol animations */
+.report-read-protocol{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:-2px 0 22px;padding:12px;border-radius:18px;background:linear-gradient(180deg,#f8fafc,#fff);border:1px solid rgba(15,23,42,.08);box-shadow:0 18px 52px rgba(15,23,42,.07);overflow:hidden}
+.report-read-protocol::before{content:"";position:absolute;left:7%;right:7%;top:50%;height:2px;background:linear-gradient(90deg,rgba(99,102,241,.08),rgba(99,102,241,.42),rgba(16,185,129,.2));transform:translateY(-50%);pointer-events:none}
+.rrp-step{position:relative;z-index:1;min-height:96px;padding:14px 13px;border-radius:14px;background:rgba(255,255,255,.92);border:1px solid rgba(15,23,42,.08);box-shadow:0 10px 28px rgba(15,23,42,.045);display:flex;flex-direction:column;justify-content:space-between;animation:reportProtocolPulse 8s ease-in-out infinite;color:#0f172a}
+.rrp-step:nth-child(2){animation-delay:2s}.rrp-step:nth-child(3){animation-delay:4s}.rrp-step:nth-child(4){animation-delay:6s}
+.rrp-step span{font-family:var(--mn);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);font-weight:900}
+.rrp-step strong{font-size:1rem;line-height:1.08;letter-spacing:-.01em;font-weight:900;color:#0f172a}
+.rrp-step em{font-style:normal;font-size:.74rem;line-height:1.25;color:#475569;font-weight:780}
+@keyframes reportProtocolPulse{0%,19%,100%{transform:translateY(0);border-color:rgba(15,23,42,.08);box-shadow:0 10px 28px rgba(15,23,42,.045)}7%,13%{transform:translateY(-4px);border-color:rgba(245,158,11,.7);box-shadow:0 18px 42px rgba(245,158,11,.16),0 0 0 1px rgba(245,158,11,.12) inset}}
+.memory-file-flow{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center;margin:20px 0 22px;padding:14px;border-radius:18px;background:rgba(2,6,23,.42);border:1px solid rgba(148,163,184,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.mff-card{min-height:88px;border-radius:14px;border:1px solid rgba(148,163,184,.16);background:rgba(15,23,42,.72);padding:14px 15px;display:flex;flex-direction:column;justify-content:space-between;animation:memoryFilePulse 7.2s ease-in-out infinite;color:#e5e7eb}
+.mff-card:nth-child(3){animation-delay:2.4s}.mff-card:nth-child(5){animation-delay:4.8s}
+.mff-card span{font-family:var(--mn);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#93c5fd;font-weight:900}
+.mff-card strong{font-size:1rem;line-height:1.12;font-weight:900;color:#f8fafc;letter-spacing:-.01em}
+.mff-arrow{font-size:1.35rem;font-weight:950;color:#34d399;opacity:.76;animation:memoryArrowPulse 2.4s ease-in-out infinite}
+@keyframes memoryFilePulse{0%,22%,100%{transform:translateY(0);border-color:rgba(148,163,184,.16);background:rgba(15,23,42,.72)}9%,15%{transform:translateY(-4px);border-color:rgba(52,211,153,.62);background:linear-gradient(135deg,rgba(30,64,175,.58),rgba(5,150,105,.24));box-shadow:0 16px 42px rgba(52,211,153,.12),0 0 0 1px rgba(255,255,255,.05) inset}}
+@keyframes memoryArrowPulse{0%,100%{transform:translateX(0);opacity:.48}50%{transform:translateX(3px);opacity:1}}
+@media(max-width:768px){.report-read-protocol{grid-template-columns:1fr}.report-read-protocol::before{display:none}.rrp-step{min-height:auto;gap:9px}.memory-file-flow{grid-template-columns:1fr}.mff-arrow{transform:rotate(90deg);justify-self:center}.mff-arrow{animation:none}}
+
 /* Deployment fix: stronger section heading weight and intentional pricing line break */
 @media(min-width:769px){.sec-hd h2,.sec-hd h2 em{font-weight:950 !important;letter-spacing:0 !important}.sec-hd h2 em{filter:drop-shadow(0 0 16px rgba(99,102,241,.18)) !important}}
+
+/* Hero decision-memory protocol animation */
+.forge-protocol{padding:13px 14px 14px;border-radius:16px;background:linear-gradient(180deg,rgba(15,23,42,.72),rgba(3,8,23,.78));border:1px solid rgba(129,140,248,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.forge-flow{position:relative;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:12px}
+.forge-flow::before{content:"";position:absolute;left:5%;right:5%;top:13px;height:2px;border-radius:999px;background:rgba(148,163,184,.16)}
+.forge-flow span{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;min-height:28px;padding:0 6px;border-radius:999px;background:rgba(15,23,42,.92);border:1px solid rgba(148,163,184,.14);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:rgba(203,213,225,.62);font-weight:900;white-space:nowrap;transition:transform .28s cubic-bezier(.22,1,.36,1),background .28s,border-color .28s,color .28s,box-shadow .28s}
+.forge-flow span.done{color:#93c5fd;border-color:rgba(96,165,250,.28);background:rgba(30,64,175,.18)}
+.forge-flow span.active{transform:translateY(-3px);color:#fff;border-color:rgba(245,158,11,.72);background:linear-gradient(135deg,rgba(99,102,241,.36),rgba(245,158,11,.18));box-shadow:0 0 0 1px rgba(255,255,255,.04) inset,0 12px 26px rgba(245,158,11,.14),0 0 24px rgba(129,140,248,.18)}
+.forge-readout{display:grid;gap:4px;padding:11px 12px;border-radius:12px;background:rgba(2,6,23,.5);border-left:2px solid rgba(52,211,153,.72)}
+.forge-readout span{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#6ee7b7;font-weight:900}
+.forge-readout strong{font-size:14px;line-height:1.35;color:#e0f2fe;font-weight:760;transition:opacity .18s,transform .18s}
+.forge-readout.is-changing strong{opacity:.12;transform:translateY(4px)}
+.forge-readout.is-changing span{opacity:.55}
+.atlas-tab:not(.active){position:relative}.atlas-tab:not(.active)::after{content:"fixed";display:inline-flex;margin-left:6px;padding:2px 5px;border-radius:999px;background:rgba(148,163,184,.09);color:rgba(203,213,225,.48);font-size:8px;letter-spacing:.06em;text-transform:uppercase;vertical-align:1px}
+@media(max-width:768px){.forge-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.forge-flow::before{display:none}.forge-flow span{justify-content:flex-start;padding-left:10px}.forge-readout strong{font-size:13px}.atlas-tab:not(.active)::after{display:none}}
+
 </style>
 </head>
 <body>
@@ -2111,6 +2146,21 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
               <button class="atlas-tab hvx-tab" onclick="switchVar(1)" type="button">Problem angle</button>
               <button class="atlas-tab hvx-tab" onclick="switchVar(2)" type="button">Expert creator</button>
               <button class="atlas-tab hvx-tab" onclick="switchVar(3)" type="button">Everyday creator</button>
+            </div>
+            <div class="forge-protocol" aria-label="Forge decision memory flow">
+              <div class="forge-flow" id="forge-flow">
+                <span data-flow-step="0" class="active">Source</span>
+                <span data-flow-step="1">Isolate</span>
+                <span data-flow-step="2">Brief</span>
+                <span data-flow-step="3">Result</span>
+                <span data-flow-step="4">Winner read</span>
+                <span data-flow-step="5">Filed</span>
+                <span data-flow-step="6">Next test</span>
+              </div>
+              <div class="forge-readout">
+                <span id="forge-flow-kicker">Source enters</span>
+                <strong id="forge-flow-title">Meta, product page, and launch context loaded.</strong>
+              </div>
             </div>
             <div class="atlas-metrics">
               <div class="atlas-metric"><span>Variable isolated</span><strong id="demo-roas">Result-first hook</strong></div>
@@ -2218,7 +2268,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
         <div class="decoder-output">
           <span>Candidate Brief</span>
           <strong>Change one variable first. Keep the rest fixed.</strong>
-          <p>Output: variable to isolate, control conditions, and the experiment cell that can become a report record.</p>
+          <p>Output: variable to isolate, control conditions, and the controlled test that can become a report record.</p>
         </div>
       </div>
     </div>
@@ -2241,9 +2291,16 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <div class="report-flow-cards" aria-label="Brief to report conversion path">
         <div class="report-flow-card dark"><span>Creative Decoder Brief</span><h3>One variable to change first.</h3><p>Fast enough for pre-run decisions. Structured enough to seed the registry.</p></div>
         <div class="report-flow-arrow">→</div>
-        <div class="report-flow-card"><span>Creative Decoder Report</span><h3>Evidence after the result.</h3><p>Result, confidence, controlled variables, and the following experiment cell.</p></div>
+        <div class="report-flow-card"><span>Creative Decoder Report</span><h3>Evidence after the result.</h3><p>Result, confidence, controlled variables, and the next controlled test.</p></div>
         <div class="report-flow-arrow">→</div>
         <div class="report-flow-card"><span>Experiment Registry</span><h3>Memory that compounds.</h3><p>Category, variable, condition, and result become reusable pattern data.</p></div>
+      </div>
+
+      <div class="report-read-protocol" aria-label="Winner read protocol">
+        <div class="rrp-step"><span>01</span><strong>Result returns</strong><em>Lift comes back from the controlled test.</em></div>
+        <div class="rrp-step"><span>02</span><strong>Readable winner</strong><em>Only the result angle changed.</em></div>
+        <div class="rrp-step"><span>03</span><strong>Controls fixed</strong><em>Creator, offer, and format stayed locked.</em></div>
+        <div class="rrp-step"><span>04</span><strong>Decision filed</strong><em>Learning becomes reusable brand memory.</em></div>
       </div>
 
       <div class="rep">
@@ -2429,6 +2486,13 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
         <p>The next decision starts from the last proof, not from a blank page.</p>
       </div>
     </div>
+    <div class="memory-file-flow" aria-label="Decision filed into brand memory">
+      <div class="mff-card"><span>Decision filed</span><strong>Hook angle · +31% lift</strong></div>
+      <div class="mff-arrow">→</div>
+      <div class="mff-card"><span>Brand memory</span><strong>Record saved to the model</strong></div>
+      <div class="mff-arrow">→</div>
+      <div class="mff-card"><span>Next test</span><strong>Starts from stronger evidence</strong></div>
+    </div>
     <div class="memory-grid">
       <div class="memory-registry">
         <div class="memory-registry-title">
@@ -2466,12 +2530,12 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <div class="sec-hd">
         <div class="sn2">Run to Report</div>
         <h2>Run one controlled move. Save one <em>experiment record.</em></h2>
-        <p class="sl">The brief defines the decision cell. The run produces evidence. The report saves the result, confidence, and next cell as structured data.</p>
+        <p class="sl">The brief defines the controlled test. The run produces evidence. The report saves the result, confidence, and next test as structured data.</p>
       </div>
       <div class="run-role-grid">
-        <div class="run-role-card"><span>Experiment cell</span><strong>One variable is isolated before the campaign goes live.</strong></div>
+        <div class="run-role-card"><span>Controlled test</span><strong>One variable is isolated before the campaign goes live.</strong></div>
         <div class="run-role-card"><span>Evidence window</span><strong>The result is mapped back to the variable and fixed controls.</strong></div>
-        <div class="run-role-card"><span>Brand memory seed</span><strong>Result, confidence, condition, and follow-up cell become reusable brand data.</strong></div>
+        <div class="run-role-card"><span>Brand memory seed</span><strong>Result, confidence, condition, and next test become reusable brand data.</strong></div>
       </div>
     </div>
 
@@ -2486,7 +2550,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
           <div class="run-node"><div class="run-day ob-dot">D24</div><div><strong>Report</strong><span>Evidence saved</span></div></div>
         </div>
         <div class="run-report-output">
-          <div><span>Decision Report</span><strong>Result, confidence, fixed variables, and follow-up cell.</strong></div>
+          <div><span>Decision Report</span><strong>Result, confidence, fixed variables, and next test.</strong></div>
           <div class="run-output-pills"><i>Brief</i><i>Run</i><i>Report</i><i>Record</i></div>
         </div>
       </div>
@@ -2581,12 +2645,12 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <div class="wn-brand-row wn-brand-await">
         <div class="wn-brand-id">Brand 04</div>
         <div class="wn-brand-fill" style="--w:100%"></div>
-        <div class="wn-brand-status">open cell</div>
+        <div class="wn-brand-status">open test</div>
       </div>
       <div class="wn-brand-row wn-brand-await">
         <div class="wn-brand-id">Brand 05</div>
         <div class="wn-brand-fill" style="--w:100%"></div>
-        <div class="wn-brand-status">open cell</div>
+        <div class="wn-brand-status">open test</div>
       </div>
       <div class="wn-brand-row wn-brand-await">
         <div class="wn-brand-id">…</div>
@@ -2596,7 +2660,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
     </div>
     <div class="wn-layer-foot">
       <div class="wn-layer-foot-l">Each filed experiment gives the next brand decision a stronger starting point.</div>
-      <div class="wn-layer-foot-r">Live cell: <span class="you">Your brand</span></div>
+      <div class="wn-layer-foot-r">Live test: <span class="you">Your brand</span></div>
     </div>
   </div>
 </div></div>
@@ -2615,7 +2679,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
         <div style="display:flex;gap:12px;align-items:flex-start"><div style="color:#047857;font-weight:700;flex-shrink:0;font-size:1rem;line-height:1.6">✓</div><div style="font-size:.95rem;color:var(--ink);line-height:1.55"><strong>Experiment infrastructure</strong> — standardized testing methodology, brand-agnostic, reproducible across categories</div></div>
         <div style="display:flex;gap:12px;align-items:flex-start"><div style="color:#047857;font-weight:700;flex-shrink:0;font-size:1rem;line-height:1.6">✓</div><div style="font-size:.95rem;color:var(--ink);line-height:1.55"><strong>Variable isolation engine</strong> — controls for confounding factors, attributes ROAS movement to a single creative element</div></div>
         <div style="display:flex;gap:12px;align-items:flex-start"><div style="color:#047857;font-weight:700;flex-shrink:0;font-size:1rem;line-height:1.6">✓</div><div style="font-size:.95rem;color:var(--ink);line-height:1.55"><strong>Benchmark data layer</strong> — your brand keeps its own memory while anonymized patterns make future reads sharper.</div></div>
-        <div style="display:flex;gap:12px;align-items:flex-start"><div style="color:#047857;font-weight:700;flex-shrink:0;font-size:1rem;line-height:1.6">✓</div><div style="font-size:.95rem;color:var(--ink);line-height:1.55"><strong>System-generated follow-up cell</strong> — the next test cell your team can execute. Not opinion. Not advice.</div></div>
+        <div style="display:flex;gap:12px;align-items:flex-start"><div style="color:#047857;font-weight:700;flex-shrink:0;font-size:1rem;line-height:1.6">✓</div><div style="font-size:.95rem;color:var(--ink);line-height:1.55"><strong>System-generated next test</strong> — the controlled test your team can execute. Not opinion. Not advice.</div></div>
       </div>
     </div>
     <div style="padding:32px;border-radius:20px;background:rgba(248,113,113,.03);border:1px solid rgba(248,113,113,.12)">
@@ -2680,7 +2744,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <div style="font-size:1.15rem;font-weight:700;margin-bottom:10px">Decision Cycle</div>
       <div class="tp" style="font-size:1.4rem;color:var(--ink2)">$97–$297<span style="font-size:.82rem;color:var(--ink3);font-weight:600">/cycle</span></div>
       <div style="font-size:.85rem;color:var(--ac);font-family:var(--mn);font-weight:700;letter-spacing:.02em;margin-top:8px;background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.25);border-radius:6px;padding:5px 10px;display:inline-block">Founder rate</div>
-      <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Keep filing readable results into brand memory, benchmark reads, and the next controlled test cell.</div>
+      <div style="font-size:.98rem;color:var(--ink2);margin-top:12px;line-height:1.7;flex:1;display:flex;align-items:flex-start">Keep filing readable results into brand memory, benchmark reads, and the next controlled test.</div>
       <div class="tc tc-status" aria-disabled="true" style="background:var(--gl);border:1px solid var(--gb);color:var(--ink2)">Continue the loop</div>
     </div>
     <div class="ti ft">
@@ -2717,7 +2781,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
     <tr><td>ROAS attribution</td><td>Campaign</td><td>None</td><td>Campaign</td><td class="fcc">Variable-level</td></tr>
     <tr><td>Experiment design</td><td>—</td><td>—</td><td>—</td><td class="fcc">Controlled isolation</td></tr>
     <tr><td>Memory over time</td><td>Brand notes</td><td>Account history</td><td>Dashboard history</td><td class="fcc">Brand memory + benchmark</td></tr>
-    <tr><td>Output</td><td>Creative recommendation</td><td>Pattern summary</td><td>Performance report</td><td class="fcc">Decision record + next test cell</td></tr>
+    <tr><td>Output</td><td>Creative recommendation</td><td>Pattern summary</td><td>Performance report</td><td class="fcc">Decision record + next test</td></tr>
     <tr><td>Cost</td><td>10–15% of ad spend</td><td>DIY · 30 min setup</td><td>$129–999/mo</td><td class="fcc">Free first loop → founder continuation</td></tr>
   </tbody></table>
   <p style="text-align:center;font-size:1.05rem;color:var(--ink);margin-top:28px;font-weight:600">Keep your agency. Keep your stack. <span style="background:linear-gradient(135deg,#f59e0b,#ea580c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 8px rgba(234,88,12,.15));font-size:1.15rem;font-weight:800">Their outputs become your brand memory.</span></p>
@@ -2860,6 +2924,34 @@ function switchVar(i){
     (function k(){if(c<=t.length){b.innerHTML=t.substring(0,c)+'<span class="brief-cur"></span>';c++;setTimeout(k,18)}else{b.textContent=t}})();
   },1200);
 }
+
+
+const forgeFlowStates=[
+  ['Source enters','Meta, product page, and launch context loaded.'],
+  ['Variable isolated','One variable moves. Creator, offer, and format stay fixed.'],
+  ['Brief generated','Test the result angle. Measure lift against fixed controls.'],
+  ['Result returns','+31% lift comes back from the controlled test.'],
+  ['Winner read','Winner is readable because only the result angle changed.'],
+  ['Decision filed','Hook angle, fixed controls, result, and confidence saved.'],
+  ['Next test appears','Next test: creator type, with hook and offer fixed.']
+];
+let forgeFlowIdx=0;
+function setForgeFlow(idx){
+  const steps=[...document.querySelectorAll('[data-flow-step]')];
+  const readout=document.querySelector('.forge-readout');
+  const kicker=document.getElementById('forge-flow-kicker');
+  const title=document.getElementById('forge-flow-title');
+  if(!steps.length||!readout||!kicker||!title)return;
+  readout.classList.add('is-changing');
+  steps.forEach((el,i)=>{el.classList.toggle('done',i<idx);el.classList.toggle('active',i===idx)});
+  setTimeout(()=>{
+    kicker.textContent=forgeFlowStates[idx][0];
+    title.textContent=forgeFlowStates[idx][1];
+    readout.classList.remove('is-changing');
+  },160);
+}
+setForgeFlow(0);
+setInterval(()=>{forgeFlowIdx=(forgeFlowIdx+1)%forgeFlowStates.length;setForgeFlow(forgeFlowIdx)},1500);
 
 let autoIdx=0;
 setInterval(()=>{autoIdx=(autoIdx+1)%experiments.length;switchVar(autoIdx)},3500);
