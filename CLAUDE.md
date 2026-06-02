@@ -2,15 +2,15 @@
 ## 이 파일은 세션 시작 시 자동으로 읽힘. 수정 금지.
 
 ## Identity
-- Forge X Lab / forgexlab.co
+- LLODE / llode.co  (구 Forge X Lab / forgexlab.co — 2026-06 리브랜딩)
 - Data infrastructure / experiment registry
 - NOT agency, NOT dashboard, NOT analytics tool
 
 ## Stack
 - GitHub: diamond83n/forge-homepage
 - Vercel 자동 배포 (push하면 됨)
-- Domain: forgexlab.co (Namecheap)
-- Email: hello@forgexlab.co (Google Workspace)
+- Domain: llode.co (신규 도메인) — 구 forgexlab.co
+- Email: hello@forgexlab.co (Google Workspace) — ⚠️ llode.co 메일 미전환 (코드의 이메일 주소는 전환 전까지 forgexlab.co 유지)
 
 ## Pricing (확정 2026-04-21)
 - Phase 0: Free, 30 brands/6개월, Founder Program, benchmark 참여 필수
