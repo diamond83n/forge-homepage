@@ -3,31 +3,31 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
   <url>
-    <loc>https://forgexlab.co/</loc>
+    <loc>https://llode.co/</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://forgexlab.co/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://forgexlab.co/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://llode.co/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://llode.co/"/>
     <image:image>
-      <image:loc>https://forgexlab.co/og-image.png</image:loc>
-      <image:title>Forge — Experiment infrastructure for ad creative</image:title>
+      <image:loc>https://llode.co/og-image.png</image:loc>
+      <image:title>llode — Experiment infrastructure for ad creative</image:title>
       <image:caption>Variable isolation methodology and benchmark data layer for performance brand creative</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://forgexlab.co/what-to-test-next.html</loc>
+    <loc>https://llode.co/what-to-test-next.html</loc>
     <lastmod>2026-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://forgexlab.co/og-image.png</image:loc>
-      <image:title>Forge — What creative variable should you test next?</image:title>
+      <image:loc>https://llode.co/og-image.png</image:loc>
+      <image:title>llode — What creative variable should you test next?</image:title>
       <image:caption>Creative experiment infrastructure for performance brands</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://forgexlab.co/forge-thesis.html</loc>
+    <loc>https://llode.co/forge-thesis.html</loc>
     <lastmod>2026-05-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

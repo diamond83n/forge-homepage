@@ -1,5 +1,5 @@
-# Forge X Lab - robots.txt
-# https://forgexlab.co
+# llode - robots.txt
+# https://llode.co
 
 User-agent: *
 Allow: /
@@ -26,12 +26,12 @@ Allow: /
 # Block sensitive file patterns from any crawler
 User-agent: *
 Disallow: /VC_
-Disallow: /Forge-CreativeDecoder-
-Disallow: /Forge-Brand-
-Disallow: /Forge-Analysis
-Disallow: /Forge-Onboarding
-Disallow: /Forge-Doc22
-Disallow: /Forge-DemoSimulation
+Disallow: /llode-CreativeDecoder-
+Disallow: /llode-Brand-
+Disallow: /llode-Analysis
+Disallow: /llode-Onboarding
+Disallow: /llode-Doc22
+Disallow: /llode-DemoSimulation
 Disallow: /env
 Disallow: /.env
 Disallow: /admin
@@ -40,4 +40,4 @@ Disallow: /api/private/
 # AI-readable company summary
 Allow: /llms.txt
 
-Sitemap: https://forgexlab.co/sitemap.xml
+Sitemap: https://llode.co/sitemap.xml
