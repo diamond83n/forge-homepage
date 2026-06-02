@@ -10,7 +10,7 @@
 - GitHub: diamond83n/forge-homepage
 - Vercel 자동 배포 (push하면 됨)
 - Domain: llode.co (신규 도메인) — 구 forgexlab.co
-- Email: hello@forgexlab.co (Google Workspace) — ⚠️ llode.co 메일 미전환 (코드의 이메일 주소는 전환 전까지 forgexlab.co 유지)
+- Email: hello@llode.co (Google Workspace + Resend — 2026-06 전환 완료)
 
 ## Pricing (확정 2026-04-21)
 - Phase 0: Free, 30 brands/6개월, Founder Program, benchmark 참여 필수
@@ -31,10 +31,16 @@
 - main 브랜치 직접 push
 
 ## 핵심 파일
-- index.html: 홈페이지 (light theme)
-- index-dark.html: 다크 백업 (공개 안 함)
+- index.html: 홈페이지 (현재 라이브)
+- preview.html: ⚠️ 홈페이지 리디자인 WIP (Pencil 레퍼런스 기반, 다크 테마) — 배포 전 확정 필요
 - forge-thesis.html: thesis 페이지
 - Forge-AnalysisEngine-v2_8.json: 룰 엔진 (gitignore됨)
+
+## 홈페이지 리디자인 (나중 작업)
+- 레퍼런스: trypencil.com
+- 방향: 다크 hero + 크림/다크 섹션 교차 + 모노스페이스 텍스트 + 숫자 메트릭 카드
+- WIP: preview.html (canvas 데이터 시스템 + 7 섹션 구조)
+- 확정 후 index.html 교체 → 배포
 
 ## Visual QA Rule (확정 2026-05-02)
 - 홈페이지 시각 수정은 desktop/web 최종 상태만 기준으로 확인한다.
