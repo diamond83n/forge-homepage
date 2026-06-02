@@ -2,7 +2,7 @@
 ## 이 파일은 세션 시작 시 자동으로 읽힘. 수정 금지.
 
 ## Identity
-- LLODE / llode.co  (구 Forge X Lab / forgexlab.co — 2026-06 리브랜딩)
+- llode / llode.co  (구 Forge X Lab / forgexlab.co — 2026-06 리브랜딩)
 - Data infrastructure / experiment registry
 - NOT agency, NOT dashboard, NOT analytics tool
 
