@@ -48,6 +48,13 @@
 - 모바일은 desktop 수정과 분리된 별도 트랙으로 진행한다.
 - 모바일 CSS override는 별도 요청 전까지 건드리지 않는다.
 
+## ★ 전략 논의 시 반드시 먼저 읽을 것
+- **Live Canvas (단일 진실 소스):** `/Users/diamond/forge-app/docs/llode-live-canvas.md`
+  - 핵심 테제, 오픈 이슈, 확정 결정, 마케팅 참조 전부 여기
+- **마케팅 콘텐츠 누적:** `/Users/diamond/forge-app/docs/llode-marketing-content.md`
+  - 캐러셀/인스타 소재 전부 여기에 추가
+- 전략 논의 후 반드시 live-canvas.md 업데이트
+
 ## 작업 시작 전 체크
 1. git pull 먼저
 2. 수정할 파일 확인
