@@ -1,0 +1,27 @@
+<svg width="540" height="140" viewBox="42 30 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="lLODE">
+  <defs>
+    <clipPath id="first-l-part">
+      <rect x="56" y="32" width="48" height="126"/>
+    </clipPath>
+  </defs>
+  <text
+    x="56"
+    y="154"
+    clip-path="url(#first-l-part)"
+    font-family="Avenir Next, Helvetica Neue, Inter, Arial, sans-serif"
+    font-size="142"
+    font-weight="650"
+    letter-spacing="-4"
+    fill="#F8FAFC"
+  >L</text>
+  <text
+    x="102"
+    y="154"
+    font-family="Avenir Next, Helvetica Neue, Inter, Arial, sans-serif"
+    font-size="142"
+    font-weight="650"
+    letter-spacing="-4"
+  >
+    <tspan fill="#F8FAFC">LODE</tspan><tspan fill="#E5484D" dx="-5">.</tspan>
+  </text>
+</svg>
