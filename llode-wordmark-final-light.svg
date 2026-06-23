@@ -1,5 +1,26 @@
-<svg width="540" height="140" viewBox="42 30 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="lLODE">
+<svg width="540" height="140" viewBox="42 30 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="lLODE" style="overflow:visible">
   <defs>
+    <style>
+      .llode-dot {
+        animation: llodeDotFlow 3s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      @keyframes llodeDotFlow {
+        0%, 100% {
+          fill: #E5484D;
+          filter: drop-shadow(0 0 3px rgba(229, 72, 77, .55)) drop-shadow(0 0 6px rgba(220, 38, 38, .35));
+        }
+        35%, 65% {
+          fill: #E5484D;
+          filter: drop-shadow(0 0 8px rgba(255, 100, 80, .75)) drop-shadow(0 0 16px rgba(255, 45, 32, .5)) drop-shadow(0 0 24px rgba(251, 191, 36, .35));
+        }
+        50% {
+          fill: #E5484D;
+          filter: drop-shadow(0 0 10px rgba(255, 255, 255, .95)) drop-shadow(0 0 18px rgba(255, 150, 120, .8)) drop-shadow(0 0 30px rgba(255, 45, 32, .6)) drop-shadow(0 0 44px rgba(251, 191, 36, .45));
+        }
+      }
+    </style>
     <clipPath id="first-l-part">
       <rect x="56" y="32" width="48" height="126"/>
     </clipPath>
@@ -22,6 +43,7 @@
     font-weight="650"
     letter-spacing="-4"
   >
-    <tspan fill="#F8FAFC">LODE</tspan><tspan fill="#E5484D" dx="-5">.</tspan>
+    <tspan fill="#F8FAFC">LODE</tspan>
   </text>
+  <circle class="llode-dot" cx="470" cy="143" r="16" fill="#E5484D"/>
 </svg>
