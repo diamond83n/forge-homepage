@@ -66,12 +66,14 @@ p,h1,h2,h3,h4,span,div,a,em,strong,li{overflow-wrap:break-word;word-wrap:break-w
   100%{background-position:0% 50%;filter:drop-shadow(0 0 8px rgba(129,140,248,.4));-webkit-text-stroke-color:rgba(129,140,248,.2)}
 }
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:80px;background:rgba(255,255,255,.94);backdrop-filter:blur(22px) saturate(1.22);border-bottom:1px solid rgba(99,102,241,.16);box-shadow:0 12px 36px rgba(15,23,42,.06)}
-.logo{position:relative;width:auto;height:80px;display:inline-flex;align-items:center;justify-content:center;gap:13px;text-decoration:none;flex-shrink:0;color:#081225;font-weight:950;letter-spacing:0}
-.logo::before{content:none}
+.logo{position:relative;isolation:isolate;width:auto;height:80px;display:inline-flex;align-items:center;justify-content:center;gap:13px;text-decoration:none;flex-shrink:0;color:#081225;font-weight:950;letter-spacing:0;--llode-wordmark-w:146px;--llode-wordmark-h:38px;--llode-dot-size:10px;--llode-dot-right:21px;--llode-dot-top:50px}
+.logo::before{content:"";position:absolute;z-index:2;left:0;top:50%;width:var(--llode-wordmark-w);height:var(--llode-wordmark-h);border-radius:4px;pointer-events:none;transform:translateY(-50%);background:linear-gradient(105deg,transparent 0%,transparent 37%,rgba(255,255,255,.88) 49%,rgba(143,162,255,.36) 54%,transparent 64%);background-size:420% 100%;background-position:132% 50%;-webkit-mask:url("llode-wordmark-final.svg") center/contain no-repeat;mask:url("llode-wordmark-final.svg") center/contain no-repeat;opacity:0;animation:llodeWordmarkShine 3s ease-in-out infinite}
 .logo .nl-icon{width:54px;height:54px;display:block;position:relative;z-index:2;transition:transform .5s cubic-bezier(.22,1,.36,1);filter:drop-shadow(0 8px 18px rgba(15,23,42,.12))}
 .logo > span{position:relative;display:inline-block;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:30px;font-weight:950;font-variation-settings:"wght" 900;line-height:1.14;padding:2px 0 7px;transform:translateY(-1px);color:transparent;-webkit-text-fill-color:transparent;-webkit-text-stroke:.2px rgba(8,18,37,.5);background:linear-gradient(105deg,#081225 0%,#081225 39%,#3f4f78 45%,#ffffff 50%,#8fa2ff 54%,#081225 61%,#081225 100%);background-size:420% 100%;background-position:132% 50%;-webkit-background-clip:text;background-clip:text;text-shadow:0 0 1px rgba(8,18,37,.26);overflow:visible;animation:atlasWordGlow 3s ease-in-out infinite;will-change:background-position,text-shadow,filter}
 .logo > span::after{content:none}
-.logo-wordmark{display:block;width:146px;height:auto}
+.logo-wordmark{position:relative;z-index:1;display:block;width:146px;height:auto;transition:transform .5s cubic-bezier(.22,1,.36,1);animation:llodeWordmarkBaseGlow 3s ease-in-out infinite;will-change:filter,transform}
+.logo:hover .logo-wordmark{transform:translateY(-1px) scale(1.03)}
+.logo::after{content:"";position:absolute;z-index:3;right:var(--llode-dot-right);top:var(--llode-dot-top);width:var(--llode-dot-size);height:var(--llode-dot-size);border-radius:50%;pointer-events:none;background:#e5484d;animation:llodeWordmarkDotFlow 3s ease-in-out infinite}
 .badge-wordmark{display:inline-block;width:70px;height:auto;vertical-align:-.22em;margin-right:4px}
 .core-wordmark{display:block;width:122px;height:auto;margin:0 auto 6px}
 .logo:hover .nl-icon{transform:rotate(-8deg) scale(1.08)}
@@ -81,6 +83,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 @keyframes atlasNameFlow{0%,74%{background-position:140% 50%;opacity:0;filter:drop-shadow(0 0 3px rgba(129,140,248,.08))}82%{background-position:88% 50%;opacity:.1;filter:drop-shadow(0 0 4px rgba(129,140,248,.1))}90%{background-position:50% 50%;opacity:.34;filter:drop-shadow(0 0 8px rgba(255,255,255,.36)) drop-shadow(0 0 14px rgba(129,140,248,.18))}96%{background-position:10% 50%;opacity:.14;filter:drop-shadow(0 0 4px rgba(129,140,248,.1))}100%{background-position:-70% 50%;opacity:0;filter:drop-shadow(0 0 3px rgba(129,140,248,.08))}}
 @keyframes atlasCoreFlow{0%,100%{fill:#ff2d20;filter:drop-shadow(0 0 3px rgba(255,45,32,.55)) drop-shadow(0 0 6px rgba(220,38,38,.35))}35%{fill:#ff5043;filter:drop-shadow(0 0 8px rgba(255,100,80,.75)) drop-shadow(0 0 16px rgba(255,45,32,.5)) drop-shadow(0 0 24px rgba(251,191,36,.35))}50%{fill:#ffffff;filter:drop-shadow(0 0 10px rgba(255,255,255,.95)) drop-shadow(0 0 18px rgba(255,150,120,.8)) drop-shadow(0 0 30px rgba(255,45,32,.6)) drop-shadow(0 0 44px rgba(251,191,36,.45))}65%{fill:#ff5043;filter:drop-shadow(0 0 8px rgba(255,100,80,.75)) drop-shadow(0 0 16px rgba(255,45,32,.5)) drop-shadow(0 0 24px rgba(251,191,36,.35))}}
 @keyframes atlasDotAuraFlow{0%,82%,100%{opacity:.07;transform:translate(-50%,-50%) scale(.74);filter:blur(.04px)}88%{opacity:.22;transform:translate(-50%,-50%) scale(1.08);filter:blur(.05px)}91%,93%{opacity:.92;transform:translate(-50%,-50%) scale(2.16);filter:blur(.08px)}98%{opacity:.08;transform:translate(-50%,-50%) scale(.8);filter:blur(.04px)}}
+@keyframes llodeWordmarkBaseGlow{0%,26%,74%,100%{filter:drop-shadow(0 1px 2px rgba(15,23,42,.08))}50%{filter:drop-shadow(0 0 12px rgba(255,255,255,.52)) drop-shadow(0 0 20px rgba(129,140,248,.18))}}
+@keyframes llodeWordmarkShine{0%,26%{background-position:132% 50%;opacity:0}35%{background-position:92% 50%;opacity:.18}50%{background-position:50% 50%;opacity:.52}65%{background-position:8% 50%;opacity:.18}74%,100%{background-position:-24% 50%;opacity:0}}
+@keyframes llodeWordmarkDotFlow{0%,100%{background:#e5484d;filter:drop-shadow(0 0 3px rgba(229,72,77,.55)) drop-shadow(0 0 6px rgba(220,38,38,.35))}35%{background:#ff5043;filter:drop-shadow(0 0 8px rgba(255,100,80,.75)) drop-shadow(0 0 16px rgba(255,45,32,.5)) drop-shadow(0 0 24px rgba(251,191,36,.35))}50%{background:#fff;filter:drop-shadow(0 0 10px rgba(255,255,255,.95)) drop-shadow(0 0 18px rgba(255,150,120,.8)) drop-shadow(0 0 30px rgba(255,45,32,.6)) drop-shadow(0 0 44px rgba(251,191,36,.45))}65%{background:#ff5043;filter:drop-shadow(0 0 8px rgba(255,100,80,.75)) drop-shadow(0 0 16px rgba(255,45,32,.5)) drop-shadow(0 0 24px rgba(251,191,36,.35))}}
 @keyframes coreHeatGlint{
   0%,100%{
     fill:#ff2d20;
@@ -386,7 +391,7 @@ h2 em{color:transparent;font-style:italic;font-weight:800;background:linear-grad
 @media(max-width:768px){
   nav{padding:0 18px;height:64px}
   nav{width:100%;max-width:100%;right:auto}
-  .logo{height:64px}
+  .logo{height:64px;--llode-wordmark-w:112px;--llode-wordmark-h:29px;--llode-dot-size:8px;--llode-dot-right:16px;--llode-dot-top:40px}
   .logo span{display:none}
   .logo-wordmark{width:112px}
   .logo .nl-icon{width:46px;height:46px}
