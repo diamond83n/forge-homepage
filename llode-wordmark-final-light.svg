@@ -1,26 +1,15 @@
 <svg width="540" height="140" viewBox="42 30 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="lLODE" style="overflow:visible">
   <defs>
-    <style>
-      .llode-dot {
-        animation: llodeDotFlow 3s ease-in-out infinite;
-        transform-box: fill-box;
-        transform-origin: center;
-      }
-      @keyframes llodeDotFlow {
-        0%, 100% {
-          fill: #E5484D;
-          filter: drop-shadow(0 0 3px rgba(229, 72, 77, .55)) drop-shadow(0 0 6px rgba(220, 38, 38, .35));
-        }
-        35%, 65% {
-          fill: #E5484D;
-          filter: drop-shadow(0 0 8px rgba(255, 100, 80, .75)) drop-shadow(0 0 16px rgba(255, 45, 32, .5)) drop-shadow(0 0 24px rgba(251, 191, 36, .35));
-        }
-        50% {
-          fill: #E5484D;
-          filter: drop-shadow(0 0 10px rgba(255, 255, 255, .95)) drop-shadow(0 0 18px rgba(255, 150, 120, .8)) drop-shadow(0 0 30px rgba(255, 45, 32, .6)) drop-shadow(0 0 44px rgba(251, 191, 36, .45));
-        }
-      }
-    </style>
+    <filter id="llode-dot-glow" x="-220%" y="-220%" width="540%" height="540%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#E5484D" flood-opacity=".52">
+        <animate attributeName="stdDeviation" values="4;8;4" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="flood-opacity" values=".52;.9;.52" dur="3s" repeatCount="indefinite"/>
+      </feDropShadow>
+      <feDropShadow dx="0" dy="0" stdDeviation="11" flood-color="#F97316" flood-opacity=".16">
+        <animate attributeName="stdDeviation" values="8;17;8" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="flood-opacity" values=".12;.28;.12" dur="3s" repeatCount="indefinite"/>
+      </feDropShadow>
+    </filter>
     <clipPath id="first-l-part">
       <rect x="56" y="32" width="48" height="126"/>
     </clipPath>
@@ -45,5 +34,15 @@
   >
     <tspan fill="#F8FAFC">LODE</tspan>
   </text>
-  <circle class="llode-dot" cx="470" cy="143" r="16" fill="#E5484D"/>
+  <g>
+    <circle cx="494" cy="143" r="22" fill="#E5484D" opacity=".12">
+      <animate attributeName="r" values="18;30;18" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values=".08;.24;.08" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="494" cy="143" r="15.5" fill="#E5484D" filter="url(#llode-dot-glow)"/>
+    <circle cx="489" cy="138" r="2.8" fill="#FFFFFF" opacity="0">
+      <animate attributeName="opacity" values="0;0;.7;0;0" keyTimes="0;.36;.5;.64;1" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="2.2;2.2;4.2;2.2;2.2" keyTimes="0;.36;.5;.64;1" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 </svg>
