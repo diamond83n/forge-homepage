@@ -1971,8 +1971,8 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 @keyframes atlasDotAuraFlow{0%,82%,100%{opacity:.07;transform:translate(-50%,-50%) scale(.74);filter:blur(.04px)}88%{opacity:.22;transform:translate(-50%,-50%) scale(1.08);filter:blur(.05px)}91%,93%{opacity:.92;transform:translate(-50%,-50%) scale(2.16);filter:blur(.08px)}98%{opacity:.08;transform:translate(-50%,-50%) scale(.8);filter:blur(.04px)}}
 @keyframes llodeHeaderSignal{0%,100%{filter:drop-shadow(0 1px 2px rgba(15,23,42,.06))}36%,64%{filter:drop-shadow(0 1px 2px rgba(15,23,42,.06)) drop-shadow(0 0 7px rgba(255,255,255,.42)) drop-shadow(0 0 10px rgba(129,140,248,.16))}50%{filter:drop-shadow(0 0 9px rgba(255,255,255,.78)) drop-shadow(0 0 18px rgba(129,140,248,.28)) drop-shadow(0 0 28px rgba(99,102,241,.16))}}
 .atlas-logo{position:relative;overflow:visible}
-.atlas-logo::before{content:"";position:absolute;left:0;top:50%;width:146px;height:38px;transform:translateY(-50%);pointer-events:none;z-index:3;background:linear-gradient(110deg,transparent 0%,transparent 32%,rgba(255,255,255,.95) 44%,rgba(143,162,255,.82) 50%,rgba(255,255,255,.9) 56%,transparent 68%,transparent 100%);background-size:260% 100%;background-position:160% 50%;mix-blend-mode:screen;-webkit-mask:url("llode-wordmark-final.svg") center/contain no-repeat;mask:url("llode-wordmark-final.svg") center/contain no-repeat;animation:llodeLightningSweep 2.6s cubic-bezier(.4,0,.2,1) infinite;filter:drop-shadow(0 0 5px rgba(255,255,255,.95)) drop-shadow(0 0 14px rgba(129,140,248,.45))}
-.atlas-logo::after{content:"";position:absolute;left:0;top:50%;width:146px;height:38px;transform:translateY(-50%);pointer-events:none;z-index:1;border-radius:999px;background:radial-gradient(circle at 48% 52%,rgba(255,255,255,.48),rgba(143,162,255,.18) 38%,transparent 70%);opacity:.22;animation:llodeDiamondBreath 2.6s ease-in-out infinite}
+.atlas-logo::before{content:"";position:absolute;left:71px;top:50%;width:146px;height:38px;transform:translateY(-50%);pointer-events:none;z-index:3;background:linear-gradient(110deg,transparent 0%,transparent 32%,rgba(255,255,255,.95) 44%,rgba(143,162,255,.82) 50%,rgba(255,255,255,.9) 56%,transparent 68%,transparent 100%);background-size:260% 100%;background-position:160% 50%;mix-blend-mode:screen;-webkit-mask:url("llode-wordmark-final.svg") center/contain no-repeat;mask:url("llode-wordmark-final.svg") center/contain no-repeat;animation:llodeLightningSweep 2.6s cubic-bezier(.4,0,.2,1) infinite;filter:drop-shadow(0 0 5px rgba(255,255,255,.95)) drop-shadow(0 0 14px rgba(129,140,248,.45))}
+.atlas-logo::after{content:"";position:absolute;left:71px;top:50%;width:146px;height:38px;transform:translateY(-50%);pointer-events:none;z-index:1;border-radius:999px;background:radial-gradient(circle at 48% 52%,rgba(255,255,255,.48),rgba(143,162,255,.18) 38%,transparent 70%);opacity:.22;animation:llodeDiamondBreath 2.6s ease-in-out infinite}
 @keyframes llodeLightningSweep{0%,18%{background-position:165% 50%;opacity:0}32%{opacity:.95}58%{background-position:-65% 50%;opacity:.9}72%,100%{background-position:-65% 50%;opacity:0}}
 @keyframes llodeDiamondBreath{0%,100%{opacity:.16;filter:blur(8px)}50%{opacity:.38;filter:blur(12px)}}
 
@@ -1985,6 +1985,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
   .atlas-logo{position:relative !important;left:auto !important;top:auto !important;height:64px !important;transform:none !important}
   .atlas-nav-mark{width:50px !important;height:50px !important}
   .atlas-logo .atlas-logo-shape{width:48px !important;height:48px !important}
+  .atlas-logo::before,.atlas-logo::after{left:63px !important;width:112px !important}
   .atlas-nav-links{display:flex !important;align-items:center !important;justify-content:flex-end !important;gap:14px !important;min-width:0 !important;margin-left:auto !important}
   .atlas-nav-links a:not(.atlas-nav-action){display:none !important}
   .atlas-nav-links a{font-size:11px !important;font-weight:850 !important;white-space:nowrap}
@@ -2122,6 +2123,9 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 <nav class="atlas-nav">
   <div class="atlas-nav-inner">
     <a href="#" class="atlas-logo" aria-label="lLODE home">
+      <span class="atlas-nav-mark" aria-hidden="true">
+        <svg class="atlas-logo-shape" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><circle cx="175" cy="120" r="42" fill="#fde4de"/><circle cx="175" cy="120" r="32" fill="#fbc4b8"/><path d="M158 178A80 80 0 1 1 158 62" fill="none" stroke="#1e293b" stroke-width="36" stroke-linecap="round"/><circle class="atlas-logo-core" cx="175" cy="120" r="22" fill="#ff2d20"/></svg>
+      </span>
       <img class="atlas-logo-wordmark" src="llode-wordmark-final.svg" alt="lLODE">
     </a>
     <div class="atlas-nav-links"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="forge-thesis.html">Our thesis</a><a href="https://app.llode.co" class="atlas-nav-action" target="_blank" rel="noopener noreferrer">Start Decoder</a></div>
