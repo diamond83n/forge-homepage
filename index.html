@@ -2101,7 +2101,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 
 /* Hero decision-memory protocol animation */
 .forge-protocol{padding:13px 14px 14px;border-radius:16px;background:linear-gradient(180deg,rgba(15,23,42,.72),rgba(3,8,23,.78));border:1px solid rgba(129,140,248,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
-.forge-flow{position:relative;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:12px}
+.forge-flow{position:relative;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin-bottom:12px}
 .forge-flow::before{content:"";position:absolute;left:5%;right:5%;top:13px;height:2px;border-radius:999px;background:rgba(148,163,184,.16)}
 .forge-flow span{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;min-height:28px;padding:0 6px;border-radius:999px;background:rgba(15,23,42,.92);border:1px solid rgba(148,163,184,.14);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:rgba(203,213,225,.62);font-weight:900;white-space:nowrap;transition:transform .28s cubic-bezier(.22,1,.36,1),background .28s,border-color .28s,color .28s,box-shadow .28s}
 .forge-flow span.done{color:#93c5fd;border-color:rgba(96,165,250,.28);background:rgba(30,64,175,.18)}
@@ -2111,6 +2111,8 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 .forge-readout strong{font-size:14px;line-height:1.35;color:#e0f2fe;font-weight:760;transition:opacity .18s,transform .18s}
 .forge-readout.is-changing strong{opacity:.12;transform:translateY(4px)}
 .forge-readout.is-changing span{opacity:.55}
+.atlas-sample-label{display:inline-flex;align-items:center;margin-left:8px;padding:3px 7px;border:1px solid rgba(165,180,252,.24);border-radius:999px;background:rgba(99,102,241,.12);color:#c7d2fe;font-size:8px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.rep-sample-label{display:inline-flex;align-items:center;padding:4px 8px;border:1px solid rgba(99,102,241,.2);border-radius:999px;background:#eef2ff;color:#4338ca;font-family:var(--mn);font-size:.58rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
 .atlas-tab:not(.active){position:relative}.atlas-tab:not(.active)::after{content:"fixed";display:inline-flex;margin-left:6px;padding:2px 5px;border-radius:999px;background:rgba(148,163,184,.09);color:rgba(203,213,225,.48);font-size:8px;letter-spacing:.06em;text-transform:uppercase;vertical-align:1px}
 @media(max-width:768px){.forge-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.forge-flow::before{display:none}.forge-flow span{justify-content:flex-start;padding-left:10px}.forge-readout strong{font-size:13px}.atlas-tab:not(.active)::after{display:none}}
 
@@ -2138,7 +2140,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
     <div class="atlas-hero-copy">
       <div class="atlas-badge">Experiment Infrastructure</div>
       <h1><span>Design the experiment</span><span><em>before the ad runs.</em></span></h1>
-      <p>Other tools tell you what's <em>working</em>.<br><strong>llode</strong> tells you what's <strong>proven</strong> — the next creative move, fixed controls, and a reusable decision record before you spend.</p>
+      <p>Other tools tell you what's <em>working</em>.<br><strong>llode</strong> shows how proof is created — the next creative move, fixed controls, and experiment memory that becomes reusable after the result.</p>
       <div class="atlas-hero-actions">
         <a class="atlas-cta" href="https://app.llode.co" target="_blank" rel="noopener noreferrer">Start first decision loop &rarr;</a>
         <div class="atlas-note">One variable · fixed controls · decision memory</div>
@@ -2148,7 +2150,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
       <canvas id="atlasCanvas" class="atlas-canvas" aria-hidden="true"></canvas>
       <div class="atlas-product">
         <div class="atlas-console hvx-console" id="hero-sim">
-          <div class="atlas-console-top"><div class="atlas-dots"><span></span><span></span><span></span></div><div>Variable isolation engine</div></div>
+          <div class="atlas-console-top"><div class="atlas-dots"><span></span><span></span><span></span></div><div>Decision model simulator <span class="atlas-sample-label">Sample data</span></div></div>
           <div class="atlas-console-body">
             <div class="atlas-source-line"><strong>Sources</strong><span class="atlas-chip">Ad source</span><span class="atlas-chip">Product page</span><span class="atlas-chip">Context</span><span class="atlas-chip atlas-chip-live" id="prompt-text">Result-first hook</span></div>
             <div class="atlas-tabs" id="var-tabs">
@@ -2157,15 +2159,16 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
               <button class="atlas-tab hvx-tab" onclick="switchVar(2)" type="button">Expert creator</button>
               <button class="atlas-tab hvx-tab" onclick="switchVar(3)" type="button">Everyday creator</button>
             </div>
-            <div class="forge-protocol" aria-label="llode decision memory flow">
+            <div class="forge-protocol" aria-label="llode benchmark-informed prediction flow using sample data">
               <div class="forge-flow" id="forge-flow">
                 <span data-flow-step="0" class="active">Source</span>
                 <span data-flow-step="1">Isolate</span>
                 <span data-flow-step="2">Brief</span>
-                <span data-flow-step="3">Result</span>
-                <span data-flow-step="4">Winner read</span>
-                <span data-flow-step="5">Filed</span>
-                <span data-flow-step="6">Next test</span>
+                <span data-flow-step="3">Run</span>
+                <span data-flow-step="4">Record</span>
+                <span data-flow-step="5">Benchmark</span>
+                <span data-flow-step="6">Forecast</span>
+                <span data-flow-step="7">Next test</span>
               </div>
               <div class="forge-readout">
                 <span id="forge-flow-kicker">Source enters</span>
@@ -2174,22 +2177,22 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
             </div>
             <div class="atlas-metrics">
               <div class="atlas-metric"><span>Variable isolated</span><strong id="demo-roas">Result-first hook</strong></div>
-              <div class="atlas-metric"><span>Controls fixed</span><strong id="demo-ctr">Creator + offer</strong></div>
-              <div class="atlas-metric"><span>Record status</span><strong id="demo-lift">Filed</strong></div>
+              <div class="atlas-metric"><span>Comparable sample</span><strong id="demo-ctr">12 records</strong></div>
+              <div class="atlas-metric"><span>Expected lift range</span><strong id="demo-lift">+8–18%</strong></div>
             </div>
             <div class="atlas-compare">
               <div class="atlas-row"><span id="demo-label">Selected variable</span><div class="atlas-bar"><div class="atlas-fill" id="demo-bar" style="width:82%"></div></div><strong id="demo-barv">filed</strong></div>
               <div class="atlas-row"><span>Creator</span><div class="atlas-bar"><div class="atlas-fill atlas-fill-control" style="width:72%"></div></div><strong>fixed</strong></div>
               <div class="atlas-row"><span>Offer</span><div class="atlas-bar"><div class="atlas-fill atlas-fill-avg" style="width:66%"></div></div><strong>fixed</strong></div>
             </div>
-            <div class="atlas-brief"><strong>Decision Memory</strong><span id="demo-brief-text">Result-first hook tested. Creator and offer stayed fixed.</span><span id="demo-typing" class="atlas-typing"></span></div>
+            <div class="atlas-brief"><strong>Model preview · sample data</strong><span id="demo-brief-text">Expected range uses comparable, result-attached records. It is not a guaranteed outcome.</span><span id="demo-typing" class="atlas-typing"></span></div>
           </div>
         </div>
         <div class="atlas-rail">
           <div class="atlas-step active"><span>Input</span><strong>Ad source and product context.</strong></div>
-          <div class="atlas-step active"><span>Design</span><strong>One variable selected.</strong></div>
-          <div class="atlas-step"><span>Brief</span><strong>Controlled test generated.</strong></div>
-          <div class="atlas-step"><span>Record</span><strong>Registry seed created.</strong></div>
+          <div class="atlas-step active"><span>Experiment</span><strong>One variable, fixed controls.</strong></div>
+          <div class="atlas-step"><span>Record</span><strong>Measured result becomes memory.</strong></div>
+          <div class="atlas-step"><span>Prediction</span><strong>Comparable records narrow the next range.</strong></div>
         </div>
       </div>
     </div>
@@ -2291,36 +2294,36 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 <div class="sa2 sa2-report"><div class="sec rv report-fusion-section" id="report" style="padding:90px 40px;position:relative">
   <div class="report-fusion">
     <div class="report-fusion-copy">
-      <div class="sn2">Brief to Report</div>
-      <h2>Make the conversion path <em>visible.</em></h2>
-      <p class="sl">The first Decoder is not the final product. It is the first structured record. Once the result is saved, <strong>llode</strong> can deepen it into a report, registry entry, and decision model seed.</p>
-      <div class="report-fusion-note">Brief first. Report after result. Registry becomes model memory.</div>
+      <div class="sn2">Result to Decision</div>
+      <h2>Turn one result into the next controlled move.</h2>
+      <p class="sl">The Report is not the product endpoint. It is the brand-facing decision artifact created from a stored result: winner, fixed controls, evidence, and the next experiment — with eligible derived features feeding the benchmark layer.</p>
+      <div class="report-fusion-note">Record stores the outcome. Report explains the decision. Benchmark sharpens the next Brief.</div>
     </div>
 
     <div class="report-fusion-stage">
-      <div class="report-flow-cards" aria-label="Brief to report conversion path">
-        <div class="report-flow-card dark"><span>Creative Decoder Brief</span><h3>One variable to change first.</h3><p>Fast enough for pre-run decisions. Structured enough to seed the registry.</p></div>
+      <div class="report-flow-cards" aria-label="Result to decision and benchmark path">
+        <div class="report-flow-card dark"><span>Experiment Record</span><h3>The measured outcome.</h3><p>Result, variable, fixed controls, and evidence provenance stay stored together.</p></div>
         <div class="report-flow-arrow">→</div>
-        <div class="report-flow-card"><span>Creative Decoder Report</span><h3>Evidence after the result.</h3><p>Result, confidence, controlled variables, and the next controlled test.</p></div>
+        <div class="report-flow-card"><span>Decision Report</span><h3>The readable winner.</h3><p>Why the result is callable, what becomes baseline, and what changes next.</p></div>
         <div class="report-flow-arrow">→</div>
-        <div class="report-flow-card"><span>Experiment Registry</span><h3>Memory that compounds.</h3><p>Category, variable, condition, and result become reusable pattern data.</p></div>
+        <div class="report-flow-card"><span>Benchmark Memory</span><h3>The model gets sharper.</h3><p>Eligible derived records improve future ranges without exposing raw brand data.</p></div>
       </div>
 
       <div class="report-read-protocol" aria-label="Winner read protocol">
-        <div class="rrp-step"><span>01</span><strong>Result returns</strong><em>Lift comes back from the controlled test.</em></div>
-        <div class="rrp-step"><span>02</span><strong>Readable winner</strong><em>Only the result angle changed.</em></div>
-        <div class="rrp-step"><span>03</span><strong>Controls fixed</strong><em>Creator, offer, and format stayed locked.</em></div>
-        <div class="rrp-step"><span>04</span><strong>Decision filed</strong><em>Learning becomes reusable brand memory.</em></div>
+        <div class="rrp-step"><span>01</span><strong>Result stored</strong><em>The controlled outcome becomes a Record.</em></div>
+        <div class="rrp-step"><span>02</span><strong>Controls checked</strong><em>Confounded results cannot call a winner.</em></div>
+        <div class="rrp-step"><span>03</span><strong>Winner explained</strong><em>The Report turns evidence into one decision.</em></div>
+        <div class="rrp-step"><span>04</span><strong>Next Brief starts</strong><em>What was proven becomes the new starting point.</em></div>
       </div>
 
       <div class="rep">
     <!-- [1] Masthead -->
     <div class="rep-mast">
       <div class="rep-mast-top">
-        <div><strong>Experiment 003</strong> · Apr 17, 2026</div>
+        <div><strong>Sample experiment 003</strong> · <span class="rep-sample-label">Illustrative data</span></div>
         <img class="mini-wordmark" src="llode-wordmark-final.svg" alt="lLODE">
       </div>
-      <h3 class="rep-mast-title">Variable isolation record — GlowLab Skincare</h3>
+      <h3 class="rep-mast-title">Sample Decision Report — GlowLab Skincare</h3>
       <div class="rep-mast-meta">
         <span>14 days</span>
         <span class="rep-mast-sep">·</span>
@@ -2334,8 +2337,8 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
     <div class="rep-headline">
       <div class="rep-headline-left">
         <div class="rep-lbl">ROAS lift</div>
-        <div class="rep-headline-num">+<span class="rh-counter" data-target="81">0</span>%</div>
-        <div class="rep-headline-context">on the leading isolated variable</div>
+        <div class="rep-headline-num">+<span class="rh-counter" data-target="18">0</span>%</div>
+        <div class="rep-headline-context">sample ROAS lift on one isolated variable</div>
       </div>
       <div class="rep-headline-right">
         <svg class="rep-spark" viewBox="0 0 200 60" preserveAspectRatio="none">
@@ -2447,7 +2450,7 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}
 
         <div class="rep-next">
           <div class="rep-lbl rep-section-lbl">Follow-up experiment</div>
-          <p class="rep-next-body">Keep the winning creative structure as the control. Compare creator type — expert vs everyday — with everything else fixed. Expect another 15–25%.</p>
+          <p class="rep-next-body">Keep the winning creative structure as the control. Compare creator type — expert vs everyday — with everything else fixed. The next run measures the range.</p>
         </div>
       </div>
 
@@ -2869,10 +2872,10 @@ function ab(){document.querySelectorAll('[data-w]').forEach(el=>{setTimeout(()=>
 setTimeout(ab,800);
 
 const experiments=[
-  {label:'Test variable',roas:'Result-first hook',ctr:'Creator + offer',lift:'Filed',bar:'82%',color:'linear-gradient(90deg,#6366f1,#a5b4fc)',vc:'#c7d2fe',brief:'Result-first hook tested. Creator and offer stayed fixed.',prompt:'Result-first hook',barv:'filed'},
-  {label:'Test variable',roas:'Problem-first hook',ctr:'Creator + price',lift:'Filed',bar:'74%',color:'linear-gradient(90deg,#38bdf8,#818cf8)',vc:'#bae6fd',brief:'Problem-first hook tested. Creator and offer stayed fixed.',prompt:'Problem-first hook',barv:'filed'},
-  {label:'Test variable',roas:'Expert creator',ctr:'Hook + offer',lift:'Filed',bar:'78%',color:'linear-gradient(90deg,#059669,#6ee7b7)',vc:'#a7f3d0',brief:'Expert creator tested. Hook and offer stayed fixed.',prompt:'Expert creator',barv:'filed'},
-  {label:'Test variable',roas:'Everyday creator',ctr:'Hook + offer',lift:'Filed',bar:'71%',color:'linear-gradient(90deg,#f59e0b,#fbbf24)',vc:'#fde68a',brief:'Everyday creator tested. Hook and offer stayed fixed.',prompt:'Everyday creator',barv:'filed'}
+  {label:'Condition match',roas:'Result-first hook',ctr:'12 records',lift:'+8–18%',bar:'82%',color:'linear-gradient(90deg,#6366f1,#a5b4fc)',vc:'#c7d2fe',brief:'Sample forecast: +8–18% expected lift from 12 comparable records. Medium confidence; not guaranteed.',prompt:'Result-first hook',barv:'sample'},
+  {label:'Condition match',roas:'Problem-first hook',ctr:'9 records',lift:'+3–11%',bar:'74%',color:'linear-gradient(90deg,#38bdf8,#818cf8)',vc:'#bae6fd',brief:'Sample forecast: +3–11% expected lift from 9 comparable records. Low confidence; run required.',prompt:'Problem-first hook',barv:'sample'},
+  {label:'Condition match',roas:'Expert creator',ctr:'14 records',lift:'+6–15%',bar:'78%',color:'linear-gradient(90deg,#059669,#6ee7b7)',vc:'#a7f3d0',brief:'Sample forecast: +6–15% expected lift from 14 comparable records. Medium confidence; run required.',prompt:'Expert creator',barv:'sample'},
+  {label:'Condition match',roas:'Everyday creator',ctr:'8 records',lift:'−2–7%',bar:'71%',color:'linear-gradient(90deg,#f59e0b,#fbbf24)',vc:'#fde68a',brief:'Sample forecast: −2–7% expected lift from 8 comparable records. Low confidence; run required.',prompt:'Everyday creator',barv:'sample'}
 ];
 
 function typePrompt(text,cb){
@@ -2934,10 +2937,11 @@ const forgeFlowStates=[
   ['Source enters','Meta, product page, and launch context loaded.'],
   ['Variable isolated','One variable moves. Creator, offer, and format stay fixed.'],
   ['Brief generated','Test the result angle. Measure lift against fixed controls.'],
-  ['Result returns','+31% lift comes back from the controlled test.'],
-  ['Winner read','Winner is readable because only the result angle changed.'],
-  ['Decision filed','Hook angle, fixed controls, result, and confidence saved.'],
-  ['Next test appears','Next test: creator type, with hook and offer fixed.']
+  ['Run completes','Sample result: +18% lift returns from the controlled test.'],
+  ['Record filed','Variable, controls, result, and evidence provenance are stored.'],
+  ['Benchmark match','12 comparable sample records define the reference range.'],
+  ['Forecast appears','Sample expected lift: +8–18% · medium confidence.'],
+  ['Next test appears','Test creator type next, with hook and offer fixed.']
 ];
 let forgeFlowIdx=0;
 function setllodeFlow(idx){
@@ -3213,7 +3217,7 @@ if(hCvs){
 
 /* ═══ REPORT v2 — counter + bar fill + viz reveal ═══ */
 const dmOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
-  // [2] Headline counter animation (0 → 81)
+  // [2] Headline counter animation (0 → sample target)
   const counter=x.target.querySelector('.rh-counter');
   if(counter){
     const target=parseInt(counter.dataset.target||'0',10);
