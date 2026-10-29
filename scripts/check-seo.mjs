@@ -17,6 +17,11 @@ for(const file of files){
   assert.equal(meta('description'),meta('og:description'));
   assert.equal(meta('description'),meta('twitter:description'));
   const visible=strip(html.slice(html.indexOf('<body')));
+  if(file==='index.html'){
+    assert.doesNotMatch(html,/Expect another 15|memory layer live|Live test:/);
+    assert.ok(visible.includes('Sample · Experiment 003'));
+    assert.ok(visible.includes('Illustrative timeline'));
+  }
   assert.ok(visible.includes(meta('description')),`${file}: description must be visible`);
   assert.doesNotMatch(html,/https:\/\/llode\.co(?:[\/"\s]|$)/);
   assert.equal(html.match(/<h1[\s\S]*?<\/h1>/)?.[0],before.match(/<h1[\s\S]*?<\/h1>/)?.[0],`${file}: H1 retained`);
