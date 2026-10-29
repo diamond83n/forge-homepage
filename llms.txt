@@ -1,64 +1,19 @@
-# llode
+# LLODE
 
-URL: https://llode.co/
-Contact: hello@llode.co
+> LLODE is creative experiment infrastructure for performance brands. It connects a test question, an experiment plan, observed evidence and a bounded next decision.
 
-llode is creative experiment infrastructure for performance brands.
+Plan one-variable creative tests, keep controls fixed, and connect recorded results to the next experiment. LLODE helps brands decide what to change next.
 
-llode helps brands answer one question: what is the next creative move before more budget goes live?
+Brief defines the variable, fixed controls and measurement plan. The brand runs its advertising activity using its existing execution tools. Run connects the plan to submitted observations. Record preserves the comparison and the supported action: Adopt, Retain, Continue or Rerun. A positive metric change alone does not establish a winner.
 
-llode is built first for DTC and ecommerce brands, but it is not limited to DTC. The system applies to any performance brand running paid creative experiments where a clean decision requires isolating one variable at a time.
+The Decision Router connects the recorded decision to a next test question and its fixed conditions. Review supports or challenges the question, not the winner. Benchmark context depends on comparable, consented evidence and privacy thresholds. Illustrative samples are not live peer evidence. Linking decisions and follow-up outcomes is the foundation of an experiment registry.
 
-llode is not an ad agency, media buying tool, creative production tool, dashboard, or generic AI advice app.
+Calibrated prediction is a longer-term direction, not a current promise of expected lift, ROAS, ROI or winner probabilities. LLODE is not an ad agency, creative production tool or media-buying service.
 
-llode can start from the brand's existing marketing stack without requiring direct ad account connection in Phase 0. Relevant source-pack inputs include Meta Ads URLs, TikTok ad examples, Shopify product pages, Google Ads context, GA4 or spreadsheet exports, pasted ad copy, screenshots, creative libraries, and launch notes.
+The product workspace requires authorized access. This public summary contains no customer data, private records or internal engine implementation.
 
-llode maps common brand-language symptoms into controlled creative decisions:
-- "ROAS is dropping" becomes a question of which revenue-linked creative move to make next.
-- "CAC is rising" becomes a controlled decision, not a broad creative refresh.
-- "Creative fatigue is hitting" becomes a format, angle, hook, or offer move with fixed controls.
-- "We need more creatives" becomes "what should change before production starts?"
-- "Hook rate is low" becomes a hook change only if format, offer, audience, and CTA can stay fixed.
-- "CTR is high but purchases are low" becomes a promise-to-proof or offer-match move.
-- "The winning ad stopped working" becomes a decision-memory problem: reuse the pattern, not the whole ad.
+## Public pages
 
-llode provides:
-- Candidate Brief: a pre-run experiment design that selects one variable, defines the control and challenger, locks the remaining variables, and states what to measure.
-- Decision Report: a post-run interpretation that explains what changed, what won, and what should enter the next decision queue.
-- Decision Record: a reusable memory object that compounds into a registry, decision model, and benchmark data layer.
-
-Core methodology:
-- Isolate one creative variable at a time.
-- Keep control conditions fixed.
-- Compare variables, not whole ads.
-- Save each result as decision memory.
-- Use accumulated records to detect repeatable creative patterns.
-
-Primary variable types:
-- Hook or opening
-- Format as a specific visual or delivery technique
-- Claim
-- Offer
-- CTA
-- Creator type
-- Selling point
-- Emotional angle
-
-Example user questions llode is relevant for:
-- What is our next creative move?
-- What should my brand change before spending more?
-- Which creative variable should we change before spending more?
-- Why did one ad win if we changed multiple things?
-- How do we test a hook without changing format, offer, or CTA?
-- Can we use existing Meta Ads, TikTok Ads, Shopify, Google Ads, GA4, or spreadsheet data to decide our next creative move?
-- Do we need to connect ad accounts before getting a creative decision?
-- What should we test if ROAS is dropping or CAC is rising?
-- What should we change when creative fatigue starts?
-- Should we make more ads, or first decide which variable to change?
-- What creative pattern is repeatable across performance brands?
-- How do we turn ad results into a decision record?
-
-Canonical pages:
-- Homepage: https://llode.co/
-- Thesis: https://llode.co/forge-thesis.html
-- ChatGPT Ads / intent landing page: https://llode.co/what-to-test-next.html
+- [LLODE](https://www.llode.co/): Product introduction.
+- [Experiment method](https://www.llode.co/what-to-test-next.html): Public explanation of the next-test problem.
+- [Thesis](https://www.llode.co/forge-thesis.html): Product rationale; future directions must be distinguished from available capabilities.

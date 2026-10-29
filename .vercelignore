@@ -1,0 +1,5 @@
+.git/
+.env
+.env.*
+scripts/check-seo.mjs
+SEO-HANDOFF.md
